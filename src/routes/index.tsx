@@ -128,34 +128,37 @@ function HomePage() {
           {/* Right: photo collage */}
           <Reveal className="lg:col-span-5 relative pr-2 md:pr-4 pt-4 md:pt-8 self-center" delay={120}>
             <div className="relative">
-              <div style={{ transform: "rotate(-1.2deg)" }}>
+              <div className="relative" style={{ transform: "rotate(-1.2deg)" }}>
                 <EditorialImage
                   src={portraitImg}
                   alt="Kiểm toán viên TAF kiểm tra Báo cáo Tài chính khách hàng"
                   aspect="portrait"
                   accent="red"
-                  caption="— Kiểm tra BCTC tại doanh nghiệp khách hàng."
                 />
+                {/* Polaroid-style overlap mini image — sits inside lower-left of main image, not over the caption */}
+                <div
+                  className="hidden sm:block absolute bottom-3 -left-3 sm:-left-5 w-[30%] bg-cream p-1.5 shadow-[0_18px_40px_-12px_rgba(0,0,0,0.4)] ring-1 ring-black/5"
+                  style={{ transform: "rotate(3deg)" }}
+                >
+                  <EditorialImage
+                    src={reportSealImg}
+                    alt="Chồng báo cáo kiểm toán TAF kèm con dấu đỏ"
+                    aspect="square"
+                    accent="gold"
+                  />
+                </div>
+                {/* TAF seal stamped onto top-right corner of the main image */}
+                <div
+                  className="absolute top-4 right-4 md:top-6 md:right-6 hidden md:block"
+                  style={{ transform: "rotate(-12deg)" }}
+                >
+                  <TafSeal size={92} />
+                </div>
               </div>
-              {/* Polaroid-style overlap mini image */}
-              <div
-                className="hidden sm:block absolute -bottom-8 left-2 sm:left-4 w-[44%] bg-cream p-2 shadow-[0_18px_40px_-12px_rgba(0,0,0,0.35)]"
-                style={{ transform: "rotate(3deg)" }}
-              >
-                <EditorialImage
-                  src={reportSealImg}
-                  alt="Chồng báo cáo kiểm toán TAF kèm con dấu đỏ"
-                  aspect="square"
-                  accent="gold"
-                />
-              </div>
-              {/* TAF seal stamped onto top-right corner of the main image */}
-              <div
-                className="absolute top-4 right-4 md:top-6 md:right-6 hidden md:block"
-                style={{ transform: "rotate(-12deg)" }}
-              >
-                <TafSeal size={92} />
-              </div>
+              {/* Caption — placed under the whole collage, left-aligned, never overlapped */}
+              <figcaption className="mt-5 pl-1 text-xs md:text-sm text-muted-foreground font-serif italic leading-snug">
+                — Kiểm tra BCTC tại doanh nghiệp khách hàng.
+              </figcaption>
             </div>
           </Reveal>
         </div>
