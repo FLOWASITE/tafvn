@@ -14,7 +14,218 @@ export type Database = {
   }
   public: {
     Tables: {
-      [_ in never]: never
+      authors: {
+        Row: {
+          avatar_url: string | null
+          bio: string | null
+          created_at: string
+          credentials: string | null
+          id: string
+          name: string
+          title: string | null
+          updated_at: string
+        }
+        Insert: {
+          avatar_url?: string | null
+          bio?: string | null
+          created_at?: string
+          credentials?: string | null
+          id?: string
+          name: string
+          title?: string | null
+          updated_at?: string
+        }
+        Update: {
+          avatar_url?: string | null
+          bio?: string | null
+          created_at?: string
+          credentials?: string | null
+          id?: string
+          name?: string
+          title?: string | null
+          updated_at?: string
+        }
+        Relationships: []
+      }
+      contact_leads: {
+        Row: {
+          company: string | null
+          created_at: string
+          email: string
+          id: string
+          ip_hash: string | null
+          message: string
+          name: string
+          phone: string | null
+          service_interest: string | null
+          source_path: string | null
+          user_agent: string | null
+        }
+        Insert: {
+          company?: string | null
+          created_at?: string
+          email: string
+          id?: string
+          ip_hash?: string | null
+          message: string
+          name: string
+          phone?: string | null
+          service_interest?: string | null
+          source_path?: string | null
+          user_agent?: string | null
+        }
+        Update: {
+          company?: string | null
+          created_at?: string
+          email?: string
+          id?: string
+          ip_hash?: string | null
+          message?: string
+          name?: string
+          phone?: string | null
+          service_interest?: string | null
+          source_path?: string | null
+          user_agent?: string | null
+        }
+        Relationships: []
+      }
+      offices: {
+        Row: {
+          address_line: string
+          city: string
+          created_at: string
+          district: string | null
+          email: string | null
+          hours: string | null
+          id: string
+          is_primary: boolean
+          lat: number | null
+          lng: number | null
+          name: string
+          phone: string | null
+          sort_order: number
+          updated_at: string
+          ward: string | null
+        }
+        Insert: {
+          address_line: string
+          city: string
+          created_at?: string
+          district?: string | null
+          email?: string | null
+          hours?: string | null
+          id?: string
+          is_primary?: boolean
+          lat?: number | null
+          lng?: number | null
+          name: string
+          phone?: string | null
+          sort_order?: number
+          updated_at?: string
+          ward?: string | null
+        }
+        Update: {
+          address_line?: string
+          city?: string
+          created_at?: string
+          district?: string | null
+          email?: string | null
+          hours?: string | null
+          id?: string
+          is_primary?: boolean
+          lat?: number | null
+          lng?: number | null
+          name?: string
+          phone?: string | null
+          sort_order?: number
+          updated_at?: string
+          ward?: string | null
+        }
+        Relationships: []
+      }
+      pages: {
+        Row: {
+          author_id: string | null
+          body_html: string | null
+          breadcrumb: Json | null
+          created_at: string
+          excerpt: string | null
+          faq: Json | null
+          h1: string | null
+          meta_description: string | null
+          noindex: boolean
+          og_image: string | null
+          published_at: string | null
+          slug: string
+          title: string
+          type: Database["public"]["Enums"]["page_type"]
+          updated_at: string
+        }
+        Insert: {
+          author_id?: string | null
+          body_html?: string | null
+          breadcrumb?: Json | null
+          created_at?: string
+          excerpt?: string | null
+          faq?: Json | null
+          h1?: string | null
+          meta_description?: string | null
+          noindex?: boolean
+          og_image?: string | null
+          published_at?: string | null
+          slug: string
+          title: string
+          type: Database["public"]["Enums"]["page_type"]
+          updated_at?: string
+        }
+        Update: {
+          author_id?: string | null
+          body_html?: string | null
+          breadcrumb?: Json | null
+          created_at?: string
+          excerpt?: string | null
+          faq?: Json | null
+          h1?: string | null
+          meta_description?: string | null
+          noindex?: boolean
+          og_image?: string | null
+          published_at?: string | null
+          slug?: string
+          title?: string
+          type?: Database["public"]["Enums"]["page_type"]
+          updated_at?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "pages_author_id_fkey"
+            columns: ["author_id"]
+            isOneToOne: false
+            referencedRelation: "authors"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      redirects: {
+        Row: {
+          created_at: string
+          from_path: string
+          status: number
+          to_path: string
+        }
+        Insert: {
+          created_at?: string
+          from_path: string
+          status?: number
+          to_path: string
+        }
+        Update: {
+          created_at?: string
+          from_path?: string
+          status?: number
+          to_path?: string
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never
@@ -23,7 +234,7 @@ export type Database = {
       [_ in never]: never
     }
     Enums: {
-      [_ in never]: never
+      page_type: "service" | "province" | "article" | "static"
     }
     CompositeTypes: {
       [_ in never]: never
@@ -150,6 +361,8 @@ export type CompositeTypes<
 
 export const Constants = {
   public: {
-    Enums: {},
+    Enums: {
+      page_type: ["service", "province", "article", "static"],
+    },
   },
 } as const
