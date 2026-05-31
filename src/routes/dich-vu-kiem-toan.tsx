@@ -242,7 +242,7 @@ function AuditServicePage() {
           <figcaption className="mt-4 flex items-start gap-3 text-sm font-serif italic text-muted-foreground leading-relaxed">
             <span aria-hidden className="rule-gold mt-2 w-8 shrink-0" />
             <span>
-              TAF cung cấp dịch vụ kiểm toán báo cáo tài chính cho doanh nghiệp trên toàn quốc.
+              TAF — hãng kiểm toán độc lập được Bộ Tài chính cấp phép, phục vụ doanh nghiệp FDI và trong nước trên toàn quốc từ năm {SITE.established}.
             </span>
           </figcaption>
         </figure>
