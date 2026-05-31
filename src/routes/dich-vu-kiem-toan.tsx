@@ -541,7 +541,7 @@ function AuditServicePage() {
       </Section>
 
       {/* Vì sao chọn TAF */}
-      <Section>
+      <Section id="vi-sao-chon-taf">
         <Eyebrow>07</Eyebrow>
         <h2 className="font-display text-3xl md:text-[2.25rem] leading-tight text-foreground max-w-3xl">
           Vì sao chọn dịch vụ kiểm toán của TAF
