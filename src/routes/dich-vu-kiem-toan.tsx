@@ -11,6 +11,7 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 import { SITE } from "@/lib/site";
+import heroImage from "@/assets/dich-vu-kiem-toan-bao-cao-tai-chinh-taf.jpg";
 
 const TITLE = "Dịch vụ kiểm toán độc lập tại Việt Nam | TAF";
 const DESCRIPTION =
@@ -121,7 +122,9 @@ const RELATED = [
 ];
 
 export const Route = createFileRoute("/dich-vu-kiem-toan")({
-  head: () => ({
+  head: () => {
+    const ogImage = `https://tafvn.lovable.app${heroImage}`;
+    return ({
     meta: [
       { title: TITLE },
       { name: "description", content: DESCRIPTION },
@@ -129,6 +132,9 @@ export const Route = createFileRoute("/dich-vu-kiem-toan")({
       { property: "og:description", content: DESCRIPTION },
       { property: "og:url", content: CANONICAL },
       { property: "og:type", content: "website" },
+      { property: "og:image", content: ogImage },
+      { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:image", content: ogImage },
     ],
     links: [{ rel: "canonical", href: CANONICAL }],
     scripts: [
@@ -140,6 +146,7 @@ export const Route = createFileRoute("/dich-vu-kiem-toan")({
           name: "Dịch vụ kiểm toán độc lập",
           serviceType: "Kiểm toán độc lập",
           description: DESCRIPTION,
+          image: ogImage,
           areaServed: { "@type": "Country", name: "Vietnam" },
           provider: {
             "@type": "Organization",
@@ -181,7 +188,8 @@ export const Route = createFileRoute("/dich-vu-kiem-toan")({
         }),
       },
     ],
-  }),
+    });
+  },
   component: AuditServicePage,
 });
 
@@ -190,11 +198,36 @@ function AuditServicePage() {
     <>
       <Breadcrumb items={[{ label: "Dịch vụ", to: "/dich-vu" }, { label: "Dịch vụ kiểm toán" }]} />
 
+      {/* Hero image */}
+      <div className="mx-auto max-w-6xl px-5 md:px-8 pt-2 md:pt-4">
+        <figure className="group">
+          <div className="overflow-hidden rounded-[2px] border border-border shadow-[var(--shadow-card)] bg-cream">
+            <img
+              src={heroImage}
+              alt="Dịch vụ kiểm toán báo cáo tài chính chuyên nghiệp của TAF tại Việt Nam"
+              title="Dịch vụ kiểm toán báo cáo tài chính - TAF"
+              width={1920}
+              height={1080}
+              loading="eager"
+              fetchPriority="high"
+              decoding="async"
+              className="w-full h-auto block aspect-[16/9] object-cover"
+            />
+          </div>
+          <figcaption className="mt-4 flex items-start gap-3 text-sm font-serif italic text-muted-foreground leading-relaxed">
+            <span aria-hidden className="rule-gold mt-2 w-8 shrink-0" />
+            <span>
+              TAF cung cấp dịch vụ kiểm toán báo cáo tài chính cho doanh nghiệp trên toàn quốc.
+            </span>
+          </figcaption>
+        </figure>
+      </div>
+
       {/* Hero */}
       <Section className="pb-10 md:pb-14 relative overflow-hidden">
         <div
           aria-hidden
-          className="pointer-events-none absolute -top-10 -right-16 md:right-0 opacity-[0.07] hidden md:block"
+          className="pointer-events-none absolute -top-10 -right-16 md:right-0 opacity-[0.04] hidden md:block"
         >
           <TafSeal size={420} spin />
         </div>
