@@ -126,7 +126,7 @@ function HomePage() {
           </div>
 
           {/* Right: photo collage */}
-          <Reveal className="lg:col-span-5 relative pr-2 md:pr-4 pt-4 md:pt-8 self-center" delay={120}>
+          <Reveal className="lg:col-span-5 relative pr-2 md:pr-4 self-start lg:mt-2" delay={120}>
             <div className="relative">
               <div className="relative" style={{ transform: "rotate(-1.2deg)" }}>
                 <EditorialImage
