@@ -507,7 +507,7 @@ function AuditServicePage() {
       </Section>
 
       {/* Quy trình */}
-      <Section className="bg-cream border-y border-border">
+      <Section id="quy-trinh" className="bg-cream border-y border-border">
         <Eyebrow>06</Eyebrow>
         <h2 className="font-display text-3xl md:text-[2.25rem] leading-tight text-foreground max-w-3xl">
           Quy trình kiểm toán tại TAF
