@@ -609,7 +609,7 @@ function AuditServicePage() {
       </Section>
 
       {/* FAQ */}
-      <Section>
+      <Section id="faq">
         <div className="grid lg:grid-cols-12 gap-10">
           <div className="lg:col-span-4">
             <Eyebrow>FAQ</Eyebrow>
