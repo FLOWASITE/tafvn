@@ -1,6 +1,8 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
+import { useState, useRef, useEffect } from "react";
 import {
   ArrowUpRight,
+  Play,
   Phone,
   ScrollText,
   List,
