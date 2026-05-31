@@ -315,8 +315,14 @@ function AuditServicePage() {
             </div>
             <p className="lg:col-span-8 text-base md:text-lg text-foreground/85 font-serif leading-relaxed">
               Dịch vụ kiểm toán là quá trình kiểm tra, xem xét, thẩm định, đánh giá và xác
-              nhận tính đầy đủ, trung thực, hợp lý của số liệu, tài liệu kế toán và báo cáo
-              tài chính của một đơn vị, do tổ chức kiểm toán độc lập thực hiện.
+              nhận tính đầy đủ, trung thực, hợp lý của số liệu, tài liệu kế toán và{" "}
+              <Link to="/dich-vu/$slug" params={{ slug: "kiem-toan-bao-cao-tai-chinh" }} className="underline decoration-brand-red/40 underline-offset-4 hover:decoration-brand-red text-foreground">
+                báo cáo tài chính
+              </Link>{" "}
+              của một đơn vị, do tổ chức kiểm toán độc lập thực hiện. Xem thêm{" "}
+              <Link to="/dich-vu" className="underline decoration-brand-red/40 underline-offset-4 hover:decoration-brand-red text-foreground">
+                toàn bộ dịch vụ chuyên môn của TAF
+              </Link>.
             </p>
           </div>
         </Reveal>
