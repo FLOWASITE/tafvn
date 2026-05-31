@@ -290,7 +290,7 @@ function HomePage() {
           </div>
           <ul className="lg:col-span-8 divide-y divide-white/10 border-y border-white/10">
             {SERVICES.map((s, i) => (
-              <li key={s.slug} className="relative">
+              <li key={s.slug} className="group/row relative">
                 {/* Red rule that slides in from left on hover */}
                 <span
                   aria-hidden
@@ -299,7 +299,7 @@ function HomePage() {
                 <Link
                   to="/dich-vu/$slug"
                   params={{ slug: s.slug }}
-                  className="group/row grid grid-cols-[2.5rem_1fr_1.25rem] md:grid-cols-[3rem_1fr_1.25rem] items-baseline gap-x-5 md:gap-x-8 py-5 md:py-6 hover:bg-white/[0.03] transition-colors px-3 -mx-3"
+                  className="grid grid-cols-[2.5rem_1fr_1.25rem] md:grid-cols-[3rem_1fr_1.25rem] items-baseline gap-x-5 md:gap-x-8 py-5 md:py-6 hover:bg-white/[0.03] transition-colors px-3 -mx-3"
                 >
                   <span className="font-display italic text-accent text-base md:text-lg tabular-nums">
                     {String(i + 1).padStart(2, "0")}
@@ -314,7 +314,7 @@ function HomePage() {
                   </div>
                   <ArrowUpRight
                     size={18}
-                    className="text-accent/60 self-center transition-all group-hover/row:translate-x-0.5 group-hover/row:-translate-y-0.5 group-hover/row:text-brand-red group-hover/row:opacity-100"
+                    className="text-accent/60 self-center transition-all group-hover/row:translate-x-0.5 group-hover/row:-translate-y-0.5 group-hover/row:text-brand-red"
                   />
                 </Link>
               </li>
