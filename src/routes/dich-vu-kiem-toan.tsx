@@ -467,7 +467,7 @@ function AuditServicePage() {
       </Section>
 
       {/* Dịch vụ TAF cung cấp */}
-      <Section className="pt-0">
+      <Section id="dich-vu-taf" className="pt-0">
         <div className="rule-gold mb-12" />
         <Eyebrow>05</Eyebrow>
         <h2 className="font-display text-3xl md:text-[2.25rem] leading-tight text-foreground max-w-3xl">
