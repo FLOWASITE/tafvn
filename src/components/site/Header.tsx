@@ -31,7 +31,7 @@ export function Header() {
         <div className="hidden lg:flex items-center gap-3">
           <Link
             to="/lien-he"
-            className="inline-flex items-center px-4 py-2 text-sm font-medium border border-accent text-foreground hover:bg-accent hover:text-accent-foreground transition-colors rounded-[2px]"
+            className="inline-flex items-center px-4 py-2 text-sm font-medium border border-brand-red text-brand-red hover:bg-brand-red hover:text-white transition-colors rounded-[2px]"
           >
             Yêu cầu báo giá
           </Link>
