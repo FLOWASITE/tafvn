@@ -18,13 +18,15 @@ export function Header() {
             <Link
               key={n.to}
               to={n.to}
-              className="text-sm text-foreground/80 hover:text-foreground transition-colors"
-              activeProps={{ className: "text-foreground font-medium" }}
+              className="text-sm text-foreground/80 hover:text-foreground transition-colors relative"
+              activeProps={{ className: "text-foreground font-medium [&]:after:content-[''] [&]:after:absolute [&]:after:left-0 [&]:after:right-0 [&]:after:-bottom-1.5 [&]:after:h-[2px] [&]:after:bg-brand-red" }}
             >
               {n.label}
             </Link>
           ))}
         </nav>
+
+
 
         <div className="hidden lg:flex items-center gap-3">
           <Link
