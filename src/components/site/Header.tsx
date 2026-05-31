@@ -64,7 +64,7 @@ export function Header() {
             <Link
               to="/lien-he"
               onClick={() => setOpen(false)}
-              className="mt-3 inline-flex items-center justify-center px-4 py-3 text-sm font-medium border border-accent text-foreground rounded-[2px]"
+              className="mt-3 inline-flex items-center justify-center px-4 py-3 text-sm font-medium bg-brand-red text-white rounded-[2px]"
             >
               Yêu cầu báo giá
             </Link>
