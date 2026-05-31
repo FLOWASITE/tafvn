@@ -162,7 +162,8 @@
     background: var(--color-accent); transform: scaleX(0); transform-origin: left;
     transition: transform 450ms cubic-bezier(0.2, 0.8, 0.2, 1);
   }
-  .group:hover .draw-underline::after { transform: scaleX(1); }
+  .group:hover .draw-underline::after,
+  .group\/row:hover .draw-underline::after { transform: scaleX(1); }
 
   /* Editorial big quote glow */
   .brace-glow { text-shadow: 0 0 60px color-mix(in oklab, var(--color-accent) 35%, transparent); }
