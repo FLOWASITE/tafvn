@@ -342,14 +342,19 @@ function AuditServicePage() {
       {/* Mục lục */}
       <Section className="pt-0 pb-6">
         <nav
-          aria-label="Mục lục bài viết"
+          aria-label="Mục lục: Dịch vụ kiểm toán độc lập tại TAF"
           className="border border-border bg-cream/60 rounded-[2px] p-6 md:p-8"
         >
-          <div className="flex items-center gap-2.5 text-[0.7rem] uppercase tracking-[0.22em] text-accent-foreground/90 mb-5 font-medium">
+          <div className="flex items-center gap-2.5 text-[0.7rem] uppercase tracking-[0.22em] text-accent-foreground/90 mb-3 font-medium">
             <List size={14} className="text-brand-red" />
-            Mục lục
+            Mục lục bài viết
           </div>
-          <ol className="grid sm:grid-cols-2 gap-x-8 gap-y-2 font-serif text-foreground/85 counter-reset-toc">
+          <p className="font-serif text-sm md:text-base text-muted-foreground leading-relaxed mb-6 max-w-3xl">
+            Trang tổng quan về <strong className="text-foreground font-medium">dịch vụ kiểm toán độc lập</strong> của
+            TAF: khái niệm, căn cứ pháp lý mới nhất, đối tượng kiểm toán bắt buộc, danh mục
+            dịch vụ kiểm toán TAF cung cấp, quy trình triển khai và câu hỏi thường gặp.
+          </p>
+          <ol className="grid sm:grid-cols-2 gap-x-8 gap-y-3 font-serif text-foreground/85 counter-reset-toc">
             {TOC.map((item, i) => (
               <li key={item.id} className="flex gap-3 leading-snug">
                 <span className="font-mono text-xs text-muted-foreground tabular-nums mt-1 shrink-0 w-6">
@@ -357,15 +362,21 @@ function AuditServicePage() {
                 </span>
                 <a
                   href={`#${item.id}`}
-                  className="text-foreground/85 hover:text-brand-red-ink underline decoration-transparent hover:decoration-brand-red/50 underline-offset-4 transition-colors"
+                  className="group flex-1 text-foreground/85 underline-offset-4 transition-colors"
                 >
-                  {item.label}
+                  <span className="block text-foreground/90 group-hover:text-brand-red-ink underline decoration-transparent group-hover:decoration-brand-red/50">
+                    {item.label}
+                  </span>
+                  <span className="block text-xs text-muted-foreground mt-0.5">
+                    {item.desc}
+                  </span>
                 </a>
               </li>
             ))}
           </ol>
         </nav>
       </Section>
+
 
       {/* Định nghĩa */}
       <Section id="dinh-nghia" className="pt-0">
