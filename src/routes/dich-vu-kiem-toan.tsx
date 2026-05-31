@@ -396,13 +396,20 @@ function AuditServicePage() {
         <ol className="mt-10 grid md:grid-cols-2 gap-x-10 gap-y-0">
           {SUBJECTS.map((s, i) => (
             <li
-              key={s}
+              key={s.title}
               className="group flex gap-5 py-4 border-t border-border font-serif text-foreground/85 hover:text-foreground transition-colors"
             >
               <span className="font-mono text-sm text-accent-foreground tabular-nums shrink-0 w-8 group-hover:text-brand-red transition-colors">
                 {String(i + 1).padStart(2, "0")}
               </span>
-              <span className="leading-relaxed flex-1">{s}</span>
+              <span className="leading-relaxed flex-1">
+                <span className="block">{s.title}</span>
+                {s.detail ? (
+                  <span className="mt-2 block text-sm text-muted-foreground leading-relaxed border-l-2 border-accent/40 pl-3">
+                    {s.detail}
+                  </span>
+                ) : null}
+              </span>
               <span
                 aria-hidden
                 className="hidden md:block self-center w-0 group-hover:w-6 h-px bg-accent transition-all duration-300"
