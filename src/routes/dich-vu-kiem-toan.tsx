@@ -129,6 +129,7 @@ const TOC: { id: string; label: string; desc: string }[] = [
   { id: "dich-vu-taf", label: "Các dịch vụ kiểm toán TAF cung cấp", desc: "BCTC, quyết toán dự án, soát xét, tuân thủ…" },
   { id: "quy-trinh", label: "Quy trình kiểm toán tại TAF", desc: "4 bước chuẩn từ khảo sát đến phát hành báo cáo." },
   { id: "vi-sao-chon-taf", label: "Vì sao chọn dịch vụ kiểm toán của TAF", desc: "Năng lực, kinh nghiệm và cam kết chất lượng." },
+  { id: "phi-kiem-toan", label: "Báo giá dịch vụ kiểm toán", desc: "Phí kiểm toán cạnh tranh, minh bạch và cách thức nhận báo giá tại TAF." },
   { id: "faq", label: "Câu hỏi thường gặp về dịch vụ kiểm toán", desc: "Giải đáp về phí, thời gian, hồ sơ và phạm vi." },
 ];
 
