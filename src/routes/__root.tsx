@@ -80,51 +80,80 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     const offices = await listOffices();
     return { offices };
   },
-  head: () => ({
-    meta: [
-      { charSet: "utf-8" },
-      { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: `${SITE.legalName} — Kiểm toán độc lập, tư vấn thuế và kế toán` },
-      { name: "description", content: SITE.description },
-      { name: "author", content: SITE.legalName },
-      { property: "og:site_name", content: SITE.name },
-      { property: "og:type", content: "website" },
-      { property: "og:title", content: `${SITE.name} — Kiểm toán độc lập tại Việt Nam` },
-      { property: "og:description", content: SITE.description },
-      { name: "twitter:card", content: "summary" },
-    ],
-    links: [{ rel: "stylesheet", href: appCss }],
-    scripts: [
-      {
-        type: "application/ld+json",
-        children: JSON.stringify({
-          "@context": "https://schema.org",
-          "@graph": [
-            {
-              "@type": "Organization",
-              "@id": "#organization",
-              name: SITE.legalName,
-              alternateName: SITE.name,
-              foundingDate: String(SITE.established),
-              description: SITE.description,
-            },
-            {
-              "@type": "AccountingService",
-              "@id": "#service",
-              name: `${SITE.name} — Tư vấn Kiểm toán`,
-              areaServed: "VN",
-              serviceType: [
-                "Kiểm toán báo cáo tài chính",
-                "Kiểm toán quyết toán dự án",
-                "Tư vấn thuế",
-                "Dịch vụ kế toán",
-              ],
-            },
-          ],
-        }),
-      },
-    ],
-  }),
+  head: ({ loaderData }) => {
+    const offices = loaderData?.offices ?? [];
+    const primary = offices.find((o) => o.is_primary) ?? offices[0];
+    const orgNode: Record<string, unknown> = {
+      "@type": "Organization",
+      "@id": "#organization",
+      name: SITE.legalName,
+      alternateName: SITE.name,
+      foundingDate: String(SITE.established),
+      description: SITE.description,
+    };
+    if (primary) {
+      orgNode.address = {
+        "@type": "PostalAddress",
+        streetAddress: primary.address_line,
+        addressLocality: [primary.ward, primary.district].filter(Boolean).join(", ") || primary.city,
+        addressRegion: primary.city,
+        addressCountry: "VN",
+      };
+      if (primary.phone) orgNode.telephone = primary.phone;
+      if (primary.email) orgNode.email = primary.email;
+      orgNode.contactPoint = offices
+        .filter((o) => o.phone)
+        .map((o) => ({
+          "@type": "ContactPoint",
+          contactType: "customer service",
+          telephone: o.phone,
+          ...(o.email ? { email: o.email } : {}),
+          areaServed: "VN",
+          availableLanguage: ["vi", "en"],
+          name: o.name,
+        }));
+    }
+
+    return {
+      meta: [
+        { charSet: "utf-8" },
+        { name: "viewport", content: "width=device-width, initial-scale=1" },
+        { title: `${SITE.legalName} — Kiểm toán độc lập, tư vấn thuế và kế toán` },
+        { name: "description", content: SITE.description },
+        { name: "author", content: SITE.legalName },
+        { property: "og:site_name", content: SITE.name },
+        { property: "og:type", content: "website" },
+        { property: "og:title", content: `${SITE.name} — Kiểm toán độc lập tại Việt Nam` },
+        { property: "og:description", content: SITE.description },
+        { name: "twitter:card", content: "summary" },
+      ],
+      links: [{ rel: "stylesheet", href: appCss }],
+      scripts: [
+        {
+          type: "application/ld+json",
+          children: JSON.stringify({
+            "@context": "https://schema.org",
+            "@graph": [
+              orgNode,
+              {
+                "@type": "AccountingService",
+                "@id": "#service",
+                name: `${SITE.name} — Tư vấn Kiểm toán`,
+                areaServed: "VN",
+                serviceType: [
+                  "Kiểm toán báo cáo tài chính",
+                  "Kiểm toán quyết toán dự án",
+                  "Tư vấn thuế",
+                  "Dịch vụ kế toán",
+                ],
+                provider: { "@id": "#organization" },
+              },
+            ],
+          }),
+        },
+      ],
+    };
+  },
   shellComponent: RootShell,
   component: RootComponent,
   notFoundComponent: NotFoundComponent,

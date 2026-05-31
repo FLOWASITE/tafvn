@@ -12,20 +12,51 @@ const officesQO = queryOptions({
 
 export const Route = createFileRoute("/van-phong")({
   loader: ({ context }) => context.queryClient.ensureQueryData(officesQO),
-  head: () => ({
-    meta: [
-      { title: "Văn phòng TAF — Địa chỉ và liên hệ" },
-      {
-        name: "description",
-        content:
-          "Địa chỉ, số điện thoại và giờ làm việc các văn phòng của TAF tại Việt Nam.",
+  head: ({ loaderData }) => {
+    const offices = loaderData ?? [];
+    const graph = offices.map((o) => ({
+      "@type": "AccountingService",
+      "@id": `#office-${o.id}`,
+      name: `TAF — ${o.name}`,
+      parentOrganization: { "@id": "#organization" },
+      address: {
+        "@type": "PostalAddress",
+        streetAddress: o.address_line,
+        addressLocality: [o.ward, o.district].filter(Boolean).join(", ") || o.city,
+        addressRegion: o.city,
+        addressCountry: "VN",
       },
-      { property: "og:title", content: "Văn phòng TAF" },
-      { property: "og:description", content: "Địa chỉ và liên hệ các văn phòng TAF." },
-      { property: "og:url", content: "/van-phong" },
-    ],
-    links: [{ rel: "canonical", href: "/van-phong" }],
-  }),
+      ...(o.phone ? { telephone: o.phone } : {}),
+      ...(o.email ? { email: o.email } : {}),
+      ...(o.hours ? { openingHours: o.hours } : {}),
+      ...(o.lat != null && o.lng != null
+        ? { geo: { "@type": "GeoCoordinates", latitude: o.lat, longitude: o.lng } }
+        : {}),
+      areaServed: o.city,
+    }));
+    return {
+      meta: [
+        { title: "Văn phòng TAF — Địa chỉ và liên hệ" },
+        {
+          name: "description",
+          content:
+            "Địa chỉ, số điện thoại và giờ làm việc các văn phòng của TAF tại Việt Nam.",
+        },
+        { property: "og:title", content: "Văn phòng TAF" },
+        { property: "og:description", content: "Địa chỉ và liên hệ các văn phòng TAF." },
+        { property: "og:url", content: "/van-phong" },
+      ],
+      links: [{ rel: "canonical", href: "/van-phong" }],
+      scripts: graph.length
+        ? [
+            {
+              type: "application/ld+json",
+              children: JSON.stringify({ "@context": "https://schema.org", "@graph": graph }),
+            },
+          ]
+        : [],
+    };
+  },
   component: OfficesPage,
 });
 
