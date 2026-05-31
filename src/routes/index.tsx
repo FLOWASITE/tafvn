@@ -140,12 +140,13 @@ function HomePage() {
       <section className="relative bg-primary text-primary-foreground overflow-hidden">
         <div
           aria-hidden
-          className="pointer-events-none absolute top-10 right-10 w-40 h-40 border-t border-r border-accent/30 hidden md:block"
+          className="pointer-events-none absolute top-10 right-10 w-40 h-40 border-t border-r border-brand-red/40 hidden md:block"
         />
         <div className="mx-auto max-w-6xl px-5 md:px-8 py-20 md:py-28 grid lg:grid-cols-12 gap-12">
           <div className="lg:col-span-4">
-            <p className="text-[0.7rem] uppercase tracking-[0.28em] text-accent mb-4 font-medium">
-              <span className="inline-block w-6 h-px bg-accent align-middle mr-2" />
+            <p className="text-[0.7rem] uppercase tracking-[0.28em] text-accent mb-4 font-medium flex items-center gap-2.5">
+              <span className="inline-block w-1.5 h-1.5 rounded-full bg-brand-red" />
+              <span className="inline-block w-5 h-px bg-accent" />
               Dịch vụ chính
             </p>
             <h2 className="font-display text-3xl md:text-4xl lg:text-[2.75rem] leading-[1.1]">
