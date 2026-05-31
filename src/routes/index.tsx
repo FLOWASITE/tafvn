@@ -299,13 +299,13 @@ function HomePage() {
                 <Link
                   to="/dich-vu/$slug"
                   params={{ slug: s.slug }}
-                  className="grid grid-cols-[2.5rem_1fr_1.25rem] md:grid-cols-[3rem_1fr_1.25rem] items-baseline gap-x-5 md:gap-x-8 py-5 md:py-6 hover:bg-white/[0.03] transition-colors px-3 -mx-3"
+                  className="grid grid-cols-[2.25rem_1fr_1.5rem] sm:grid-cols-[2.75rem_1fr_1.5rem] md:grid-cols-[3.25rem_1fr_1.75rem] items-start gap-x-4 sm:gap-x-6 md:gap-x-8 py-5 md:py-6 hover:bg-white/[0.03] transition-colors px-3 -mx-3"
                 >
-                  <span className="font-display italic text-accent text-base md:text-lg tabular-nums">
+                  <span className="font-display italic text-accent text-base md:text-lg tabular-nums leading-[1.75] md:leading-[1.6] tracking-tight">
                     {String(i + 1).padStart(2, "0")}
                   </span>
                   <div className="min-w-0">
-                    <h3 className="font-display text-lg md:text-xl leading-snug transition-colors group-hover/row:text-accent">
+                    <h3 className="font-display text-lg md:text-xl leading-[1.75] md:leading-[1.6] tracking-tight transition-colors group-hover/row:text-accent">
                       <span className="draw-underline">{s.title}</span>
                     </h3>
                     <p className="mt-1.5 text-sm text-primary-foreground/55 font-serif leading-relaxed line-clamp-2">
@@ -314,7 +314,8 @@ function HomePage() {
                   </div>
                   <ArrowUpRight
                     size={18}
-                    className="text-accent/60 self-center transition-all group-hover/row:translate-x-0.5 group-hover/row:-translate-y-0.5 group-hover/row:text-brand-red"
+                    aria-hidden
+                    className="text-accent/60 mt-[0.4rem] md:mt-[0.45rem] justify-self-end transition-all group-hover/row:translate-x-0.5 group-hover/row:-translate-y-0.5 group-hover/row:text-brand-red"
                   />
                 </Link>
               </li>
