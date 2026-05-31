@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+# Sitemap directive sẽ thêm khi domain chính thức được trỏ về.
