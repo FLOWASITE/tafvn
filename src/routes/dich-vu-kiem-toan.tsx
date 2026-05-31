@@ -188,7 +188,8 @@ export const Route = createFileRoute("/dich-vu-kiem-toan")({
         }),
       },
     ],
-  }),
+    });
+  },
   component: AuditServicePage,
 });
 
