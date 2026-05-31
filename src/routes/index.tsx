@@ -44,7 +44,7 @@ function HomePage() {
         </div>
         {/* Corner hairline mark */}
         <div
-          className="pointer-events-none absolute top-0 right-0 w-40 h-40 border-r border-t border-accent/30 -mr-10 -mt-6 hidden md:block"
+          className="pointer-events-none absolute top-0 right-0 w-40 h-40 border-r border-t border-brand-red/40 -mr-10 -mt-6 hidden md:block"
           aria-hidden
         />
         {/* Oversized faded numeral — years of practice */}
