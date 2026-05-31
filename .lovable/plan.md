@@ -1,32 +1,23 @@
-## Sửa trang `/dich-vu-kiem-toan` — Cập nhật đối tượng kiểm toán bắt buộc
+## Mục tiêu
 
-### Thay đổi nội dung
+Tăng tính thẩm mỹ cho `src/components/site/Footer.tsx` theo hướng đã chọn (Professional navy minimalist), giữ nguyên cấu trúc nội dung và navy/gold hiện có, chỉ tinh chỉnh hierarchy, spacing, micro-interaction.
 
-1. **Tiêu đề Section 03** (dòng 331-332)
-   - Đổi từ: `"Quy định về kiểm toán bắt buộc"`
-   - Sang: `"Đối tượng kiểm toán bắt buộc"`
+## Thay đổi
 
-2. **Trích dẫn pháp lý** (đoạn `<p>` dòng 340-353)
-   - Thay thế toàn bộ đoạn bằng văn bản mới:
-     > "Đối tượng kiểm toán bắt buộc được quy định tại Điều 37 Luật Kiểm toán độc lập 2011 (sửa đổi bởi Luật số 56/2024/QH15, hiệu lực 01/01/2025) và hướng dẫn tại Điều 15 Nghị định 17/2012/NĐ-CP (sửa đổi bởi Nghị định 90/2025/NĐ-CP, hiệu lực 14/04/2025)."
-   - Định dạng `<strong>` giữ nguyên pattern hiện tại cho tên văn bản.
-   - Xoá phần trích dẫn Nghị định 41/2018 và chế tài xử phạt khỏi đoạn này.
+1. **Layout grid 12 cột**: chuyển sang `md:grid-cols-12` với 4/2/3/3 (logo-mô-tả / điều hướng / dịch vụ / liên hệ) — chính xác như prototype. Tăng padding `py-16` và khoảng cách `gap-12`.
 
-3. **Bổ sung đối tượng bắt buộc mới** — Doanh nghiệp quy mô lớn
-   - Thêm vào array `SUBJECTS` (sau item hiện tại số 9 hoặc cuối danh sách):
-     > "Doanh nghiệp quy mô lớn: thỏa mãn ít nhất 2/3 tiêu chí — trên 200 lao động BHXH bình quân năm; doanh thu năm trên 300 tỷ đồng; tổng tài sản trên 100 tỷ đồng. Xác định theo BCTC năm trước liền kề; nếu 2 năm liên tiếp không đáp ứng thì không còn bắt buộc cho đến khi đáp ứng trở lại."
-   - Số thứ tự tự động cập nhật theo `map((s, i) => ...)` hiện có.
+2. **Section headers**: nhãn nhỏ uppercase `text-xs font-bold tracking-widest text-accent` (gold), bỏ background, làm typography là điểm nhấn duy nhất.
 
-4. **(Tùy chọn) Chuyển SUBJECTS sang object array**
-   - Nếu item mới quá dài so với các item còn lại, chuyển `SUBJECTS` thành `Array<{title: string, detail?: string}>`.
-   - `title` hiển thị như hiện tại; `detail` (nếu có) hiển thị dưới dạng đoạn text nhỏ hoặc blockquote ngay bên dưới title trong cùng `<li>`.
+3. **Cột Liên hệ**: tách rõ 3 khối — "Trụ sở chính" (in đậm trắng + địa chỉ xám), ĐT/Email (label xám + giá trị hover trắng), giờ làm việc (italic xám nhỏ).
 
-### Không thay đổi
-- Section 04 title hiện tại ("Các đối tượng bắt buộc phải kiểm toán") giữ nguyên.
-- Các section khác (05-08), FAQ, CTA, hero image, SEO meta giữ nguyên.
-- Không thay đổi route, URL, hoặc component structure.
+4. **Social icons**: bỏ container, để icon nguyên gốc `w-5 h-5`, hover chuyển sang `text-accent` (gold thay vì brand-red) — đồng bộ với phần còn lại.
 
-### Kỹ thuật
-- Chỉ sửa file `src/routes/dich-vu-kiem-toan.tsx`.
-- Không cần thêm dependency mới.
-- Không cần thay đổi database, auth, hay backend.
+5. **Bottom bar**: bỏ nền tách riêng, dùng `pt-8 border-t border-white/5` trong cùng container, text `text-[11px] uppercase tracking-wider`, link có underline mờ `decoration-white/10 underline-offset-4`.
+
+6. **Hover trên link điều hướng/dịch vụ**: chuyển sang `hover:text-white` (sáng lên) thay vì `hover:text-accent`, tạo cảm giác chắc chắn hơn.
+
+## Phạm vi
+
+- Chỉ chỉnh `src/components/site/Footer.tsx`.
+- Dùng token có sẵn (`text-primary-foreground`, `text-accent`, `border-primary-foreground/...`), không thêm màu mới vào `styles.css`.
+- Giữ nguyên toàn bộ link, dữ liệu, structure dữ liệu, và Logo component.
