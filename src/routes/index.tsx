@@ -219,7 +219,7 @@ function HomePage() {
       <Section className="bg-cream border-y border-border">
         <div className="grid lg:grid-cols-12 gap-12 items-center">
           <Reveal className="lg:col-span-5 order-2 lg:order-1">
-            <div className="relative max-w-[280px] mx-auto lg:mx-0">
+            <div className="relative max-w-[360px] mx-auto lg:mx-0 lg:max-w-[420px]">
               <VietnamMap />
             </div>
           </Reveal>
