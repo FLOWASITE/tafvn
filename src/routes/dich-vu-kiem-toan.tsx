@@ -597,37 +597,84 @@ function AuditServicePage() {
       </Section>
 
       {/* Vì sao chọn TAF */}
-      <Section id="vi-sao-chon-taf">
-        <Eyebrow>07</Eyebrow>
-        <h2 className="font-display text-3xl md:text-[2.25rem] leading-tight text-foreground max-w-3xl">
-          Vì sao chọn dịch vụ kiểm toán của TAF
-        </h2>
-        <ul className="mt-10 grid md:grid-cols-2 gap-x-10 gap-y-0">
-          {WHY_TAF.map((w) => (
-            <li
-              key={w}
-              className="flex gap-3 py-4 border-t border-border font-serif text-foreground/85"
-            >
-              <Check size={18} className="text-accent-foreground shrink-0 mt-1" />
-              <span className="leading-relaxed">{w}</span>
-          </li>
-        ))}
-      </ul>
+      <Section id="vi-sao-chon-taf" className="relative">
+        {/* decorative backdrop */}
+        <div
+          aria-hidden
+          className="pointer-events-none absolute inset-x-0 top-0 h-[60%] -z-10 bg-[radial-gradient(ellipse_at_top,color-mix(in_oklab,var(--color-accent)_14%,transparent),transparent_70%)]"
+        />
 
-      <Reveal>
-        <div className="mt-12 border border-border rounded-[2px] overflow-hidden bg-cream shadow-[var(--shadow-card)]">
-          <div className="aspect-video w-full">
-            <iframe
-              className="w-full h-full block"
-              src="https://www.youtube.com/embed/uwiuHO1uN0A"
-              title="Vì sao chọn dịch vụ kiểm toán TAF"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-              allowFullScreen
-              loading="lazy"
-            />
+        <div className="grid lg:grid-cols-12 gap-10 lg:gap-14">
+          {/* Left: sticky editorial intro */}
+          <div className="lg:col-span-5">
+            <div className="lg:sticky lg:top-28">
+              <Eyebrow>07</Eyebrow>
+              <h2 className="font-display text-3xl md:text-[2.5rem] leading-[1.1] text-foreground">
+                Vì sao chọn dịch vụ{" "}
+                <span className="italic text-accent-foreground">kiểm toán</span> của TAF
+              </h2>
+              <div className="rule-gold mt-6 mb-6" />
+              <p className="font-serif text-base md:text-lg text-foreground/80 leading-relaxed max-w-md">
+                Năng lực hành nghề được Bộ Tài chính cấp phép, quy trình minh bạch và
+                công nghệ giám sát trực tuyến — ba cam kết định hình chất lượng dịch vụ
+                kiểm toán tại TAF.
+              </p>
+              <div className="mt-8 hidden lg:flex items-center gap-4">
+                <TafSeal className="w-14 h-14 opacity-90" />
+                <div className="font-serif text-sm text-muted-foreground leading-snug">
+                  <div className="text-foreground font-medium">TAF Audit</div>
+                  <div>Giấy phép hành nghề kiểm toán độc lập</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Right: video + numbered commitments */}
+          <div className="lg:col-span-7 space-y-10">
+            <Reveal>
+              <figure className="relative">
+                {/* corner accents */}
+                <span aria-hidden className="absolute -top-2 -left-2 w-6 h-6 border-t border-l border-accent-foreground/70" />
+                <span aria-hidden className="absolute -top-2 -right-2 w-6 h-6 border-t border-r border-accent-foreground/70" />
+                <span aria-hidden className="absolute -bottom-2 -left-2 w-6 h-6 border-b border-l border-accent-foreground/70" />
+                <span aria-hidden className="absolute -bottom-2 -right-2 w-6 h-6 border-b border-r border-accent-foreground/70" />
+
+                <div className="relative border border-border rounded-[2px] overflow-hidden bg-cream shadow-[var(--shadow-elegant)]">
+                  <div className="aspect-video w-full">
+                    <iframe
+                      className="w-full h-full block"
+                      src="https://www.youtube.com/embed/uwiuHO1uN0A"
+                      title="Vì sao chọn dịch vụ kiểm toán TAF"
+                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                      allowFullScreen
+                      loading="lazy"
+                    />
+                  </div>
+                </div>
+                <figcaption className="mt-3 text-[0.7rem] uppercase tracking-[0.22em] text-muted-foreground flex items-center gap-2.5">
+                  <span className="inline-block w-6 h-px bg-accent/60" />
+                  Giới thiệu dịch vụ kiểm toán TAF
+                </figcaption>
+              </figure>
+            </Reveal>
+
+            <ol className="grid sm:grid-cols-2 gap-x-6 gap-y-0">
+              {WHY_TAF.map((w, i) => (
+                <li
+                  key={w}
+                  className="group relative flex gap-4 py-5 border-t border-border/80 transition-colors hover:border-accent-foreground/60"
+                >
+                  <span className="font-display text-accent-foreground/90 text-sm tabular-nums tracking-wider pt-0.5">
+                    {String(i + 1).padStart(2, "0")}
+                  </span>
+                  <span className="font-serif text-foreground/85 leading-relaxed">
+                    {w}
+                  </span>
+                </li>
+              ))}
+            </ol>
           </div>
         </div>
-      </Reveal>
       </Section>
 
       {/* Phí kiểm toán + CTA */}
