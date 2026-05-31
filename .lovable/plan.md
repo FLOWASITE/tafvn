@@ -1,104 +1,65 @@
-# Kế hoạch build TAF v1 — Corporate Prestige
+## Mục tiêu
 
-Hướng đã chốt: **Corporate Prestige** — navy đậm + gold accent, Playfair Display (heading) + Source Serif 4 / Inter (body), cảm giác Big4 châu Âu, đẳng cấp truyền thống, nghiêm túc. Đỏ TAF được giữ làm accent thứ cấp (logo, dấu) để vẫn nhận diện được thương hiệu, nhưng palette chính là navy + gold + cream.
+Trang chủ hiện dùng palette navy + gold cream, logo đỏ TAF đứng đơn độc ở header/footer trông "lạc tông". Kế hoạch này đưa sắc đỏ TAF (`--brand-red`) vào hệ thống thị giác như một accent thứ hai — có chủ đích, tiết chế, không phá vỡ tinh thần editorial luxury đã thiết lập.
 
-## 1. Design system (`src/styles.css` + fonts)
+## Nguyên tắc
 
-Tokens oklch (light + dark):
-- `--background` cream `oklch(0.98 0.01 85)`, `--foreground` navy `oklch(0.18 0.04 260)`
-- `--primary` navy deep `oklch(0.22 0.06 260)`, `--primary-foreground` cream
-- `--accent` gold `oklch(0.72 0.12 80)`, `--accent-foreground` navy
-- `--brand-red` (TAF red, dùng cho logo + dấu) `oklch(0.48 0.18 25)`
-- `--muted` ivory, `--border` warm gray, `--ring` gold
-- Shadow elegant + gradient subtle navy→navy-glow
+- **Vàng (gold) vẫn là accent chính** cho số hiệu, italic nhấn, hairline. Đỏ là accent phụ, chỉ xuất hiện ở các điểm "hành động" và "dấu ấn thương hiệu".
+- **Tỷ lệ ~80/15/5**: navy + cream nền 80%, gold accent 15%, đỏ TAF 5%.
+- Đỏ không dùng cho khối lớn, không gradient sến — chỉ hairline, underline, dot, icon, hover state, và CTA chính.
 
-Fonts qua `@fontsource` (Vietnamese subset bắt buộc):
-- `@fontsource/playfair-display` (700, 900) → headings
-- `@fontsource/source-serif-4` (400, 600) → body dài, article
-- `@fontsource/inter` (400, 500, 600) → UI, nav, form
-Import trong `src/router.tsx` hoặc shell, set qua CSS variables `--font-display / --font-serif / --font-sans`.
+## Các thay đổi cụ thể
 
-## 2. Khung shell (`__root.tsx`)
+### 1. Design tokens (`src/styles.css`)
+- Thêm `--brand-red-soft` (đỏ pha cream cho hover/bg nhẹ) và `--brand-red-ink` (đỏ đậm cho text trên cream).
+- Thêm utility `.rule-red` (hairline đỏ) song song với `.rule-gold` đã có.
+- Giữ nguyên `--primary` (navy) — không đổi semantic token.
 
-- Header: logo TAF (wordmark serif + dấu đỏ), nav ngang (Dịch vụ, Địa bàn, Giới thiệu, Đội ngũ, Tin tức, Liên hệ), CTA "Yêu cầu báo giá" gold outline
-- Breadcrumb component (ẩn ở `/`)
-- `<main>` 1 lần, `<Outlet/>`
-- Footer: NAP duy nhất (từ `offices`), license info, social, sitemap link, copyright
-- `HeadContent` + `Scripts` đúng chuẩn TanStack
-- JSON-LD `Organization` + `LocalBusiness` ở root (KHÔNG og:image, KHÔNG canonical ở root)
-- Sitewide meta defaults; per-route override
+### 2. Header (`src/components/site/Header.tsx`)
+- CTA "Yêu cầu báo giá" đổi từ viền vàng sang **viền đỏ TAF + hover fill đỏ + chữ trắng** → ăn nhập với logo đỏ ngay cạnh.
+- Active nav link: thêm underline đỏ 2px dưới chữ thay vì chỉ bold.
 
-## 3. Component thư viện (`src/components/`)
+### 3. Hero (`src/routes/index.tsx`)
+- Eyebrow "Kiểm toán độc lập · Tư vấn thuế · Kế toán": thêm **dot đỏ** ở đầu (giống ấn phẩm tài chính).
+- Số `23` faded background: giữ italic nhưng đổi sang **đỏ TAF 5% opacity** thay vì gold 7% → cộng hưởng với logo.
+- CTA chính "Yêu cầu báo giá": đổi nền từ navy `--primary` sang **đỏ `--brand-red`** với hover sang đỏ đậm. Mũi tên giữ trắng. Đây là CTA quan trọng nhất — cần là điểm nóng nhất trang.
+- Hairline mark góc phải đổi sang đỏ.
 
-Button (variants: primary navy, gold outline, ghost), Card (border mỏng + shadow elegant), Section (container + eyebrow), FAQ accordion, Stat (số lớn serif), Testimonial (quote serif italic), AuthorByline (avatar + chức danh + số CCKT), Breadcrumb, CTABlock, ContactForm (Zod + server route).
+### 4. USP section
+- Border-left của 4 thẻ: đổi từ `border-accent/40` (vàng) sang **xen kẽ vàng/đỏ** (1,3 vàng — 2,4 đỏ) tạo nhịp.
+- Icon lucide: thẻ 1,3 giữ gold; thẻ 2,4 chuyển **đỏ TAF** → cân bằng hai accent.
 
-## 4. Routes (Phase 3 — nội dung placeholder hợp lý, chưa migrate)
+### 5. Services dark ledger
+- Số `01–06` italic: giữ vàng (đỏ trên navy sẽ rung mắt).
+- Mũi tên `ArrowUpRight` ở mỗi dòng: chuyển sang **đỏ sáng** khi hover (hiện đang vàng nhạt).
+- Thêm **dot đỏ 6px** trước eyebrow "Dịch vụ chính" để thống nhất hệ ngôn ngữ với hero.
 
-```
-src/routes/
-  __root.tsx
-  index.tsx                 trang chủ: hero + USP + dịch vụ chính + stat + testimonial + CTA
-  dich-vu.tsx               tổng quan dịch vụ
-  dich-vu.$slug.tsx         template dịch vụ (động, Supabase)
-  dia-ban.tsx               tổng quan tỉnh
-  dia-ban.$slug.tsx         template tỉnh (động)
-  tin-tuc.tsx               listing
-  tin-tuc.$slug.tsx         bài viết (động)
-  gioi-thieu.tsx
-  doi-ngu.tsx
-  van-phong.tsx
-  lien-he.tsx
-  chinh-sach-bao-mat.tsx
-  sitemap[.]xml.ts          server route
-  api/public/contact.ts     server route nhận lead
-```
+### 6. Testimonial
+- Dấu `"` khổng lồ: giữ vàng (đặc trưng editorial).
+- Hairline trước attribution `h-px w-8`: đổi sang **đỏ TAF** → tín hiệu xác thực, mạnh hơn.
 
-Mỗi route có `head()` riêng: title từ khóa trước, meta description riêng, og:title/og:description, canonical chỉ ở leaf, og:image chỉ ở leaf khi có ảnh thật. Cấu trúc i18n: route phẳng v1, sau wrap `/$lang/...` không refactor.
+### 7. FAQ
+- Icon `+` xoay 45°: chuyển từ `accent-foreground` sang **đỏ TAF** → khi user mở câu hỏi thấy đỏ → cảm giác "kích hoạt".
+- Số `01–05` italic: giữ vàng.
 
-## 5. Supabase CMS (Phase 4)
+### 8. CTA cuối trang
+- Khối CTA hiện chỉ có nút navy → đổi sang **nút đỏ TAF** đồng bộ với hero CTA → khép vòng thị giác (mở đầu đỏ, kết đỏ).
+- Dòng italic "bạn có thể tin cậy?" giữ vàng.
 
-Bảng (đầy đủ GRANT + RLS):
-- `pages` (slug PK, type enum [service|province|article|static], title, meta_description, h1, body_html, og_image, author_id, published_at, updated_at, noindex bool, faq jsonb, breadcrumb jsonb)
-- `authors` (id, name, title, credentials, bio, avatar)
-- `offices` (NAP duy nhất: name, address, ward, district, city, phone, email, hours, lat, lng)
-- `contact_leads` (insert anon, read service_role)
-- `redirects` (from_path PK, to_path, status default 301)
+### 9. Footer (`src/components/site/Footer.tsx`)
+- Hover state của social icons: chuyển sang **đỏ TAF** (hiện đang foreground trắng).
+- Hairline phân cách giữ nguyên.
 
-RLS: read public cho `pages/authors/offices/redirects`; `contact_leads` chỉ insert anon. Route động loader dùng `createServerFn` đọc qua `supabaseAdmin` → inject vào `head()` SSR-ready.
+## Kết quả mong đợi
 
-## 6. SEO kỹ thuật (Phase 5)
+- Logo đỏ ở header không còn "lạc loài" — sắc đỏ được nhắc lại nhịp nhàng xuống các CTA, hairline xác thực, hover state.
+- Vàng vẫn dẫn dắt typography và số hiệu (editorial DNA), đỏ đóng vai trò "call to action + dấu triện thương hiệu".
+- CTA chính nổi bật rõ ràng hơn (đỏ > navy về độ thu hút mắt) → tăng conversion tiềm năng.
+- Không thêm component mới, không đụng route/business logic — thuần presentation.
 
-- 1 H1 mỗi trang, text mặc định visible (motion chỉ `whileInView`)
-- JSON-LD: Organization+LocalBusiness ở root; Service per `/dich-vu/$slug`; FAQPage khi có FAQ; BreadcrumbList mọi trang sâu; Article cho tin tức. **Không** AggregateRating
-- `sitemap.xml` server route gộp routes tĩnh + `pages` published
-- `robots.txt` mở, chưa baked Sitemap URL (chờ domain)
-- Ảnh có alt, `loading="lazy"`, aspect ratio
-- Chatbot AI: chỉ floating button + panel placeholder (chưa LLM)
+## File sẽ chỉnh sửa
 
-## 7. Migrate (Phase 6 — sau khi khung ổn)
-
-Crawl Firecrawl → import `pages` giữ nguyên slug `.html` → `redirects` cho path đổi → viết lại trang tỉnh khác biệt thật (nếu chưa kịp set `noindex`) → thay "Boss TAF" bằng KTV thật → go-live + Search Console.
-
-## Chi tiết kỹ thuật
-
-- TanStack Start SSR mặc định, không cần entry-client/server
-- Data: `createServerFn` + `queryOptions` + `ensureQueryData` trong loader + `useSuspenseQuery` trong component
-- Form `/api/public/contact`: Zod validate + rate-limit + insert `contact_leads`
-- Motion `motion/react`, text render mặc định không opacity:0
-- Chỉ semantic class (`bg-primary`, `text-foreground`), không hard-code màu
-
-## Phạm vi loop tới (sau khi duyệt plan này)
-
-1. Bật Lovable Cloud + tạo migration đầy đủ bảng/GRANT/RLS
-2. Cài fonts + ghi tokens vào `src/styles.css`
-3. Build `__root.tsx` shell (header/footer/JSON-LD/NAP placeholder)
-4. Build component library
-5. Build trang chủ + các trang tĩnh với nội dung placeholder hợp lý theo ngành
-6. Build route động đọc Supabase + sitemap.xml + /api/public/contact
-7. Chatbot UI placeholder
-
-Migrate nội dung thật (Phase 6) tách thành loop riêng sau.
-
-## Ngoài phạm vi v1
-
-LLM thật cho chatbot, bản EN (route đã chừa), DNS trỏ taf.vn.
+- `src/styles.css` (thêm 2 token đỏ + utility)
+- `src/components/site/Header.tsx` (CTA + active link)
+- `src/components/site/Footer.tsx` (hover social)
+- `src/routes/index.tsx` (hero, USP, services, testimonial, FAQ, CTA cuối)
