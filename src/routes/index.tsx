@@ -77,13 +77,12 @@ function HomePage() {
           className="pointer-events-none absolute top-0 right-0 w-40 h-40 border-r border-t border-brand-red/40 -mr-10 -mt-6 hidden md:block"
           aria-hidden
         />
-        {/* Faded numeral */}
+        {/* Faded TAF seal watermark (replaces stray numeral) */}
         <div
-          className="pointer-events-none absolute right-[-3rem] bottom-[-4rem] font-display italic text-brand-red/[0.05] leading-none select-none hidden lg:block"
+          className="pointer-events-none absolute -right-24 -bottom-24 hidden lg:block opacity-[0.05]"
           aria-hidden
-          style={{ fontSize: "clamp(14rem, 22vw, 26rem)" }}
         >
-          {years}
+          <TafSeal size={420} spin />
         </div>
 
         <div className="mx-auto max-w-6xl px-5 md:px-8 pt-16 pb-12 md:pt-24 md:pb-20 grid lg:grid-cols-12 gap-12 lg:gap-16 items-center relative">
@@ -93,7 +92,7 @@ function HomePage() {
             <h1 className="font-display text-[2.25rem] sm:text-5xl lg:text-[4rem] leading-[1.05] tracking-tight text-foreground text-balance">
               Báo cáo kiểm toán
               <span className="block">
-                <em className="not-italic font-display italic text-accent-foreground italic-mark">đúng</em>{" "}
+                <em className="not-italic font-display italic text-accent-foreground">đúng</em>{" "}
                 chuẩn mực,
               </span>
               <span className="block">
@@ -127,7 +126,7 @@ function HomePage() {
           </div>
 
           {/* Right: photo collage */}
-          <Reveal className="lg:col-span-5 relative" delay={120}>
+          <Reveal className="lg:col-span-5 relative pr-2 md:pr-4 pt-4 md:pt-8 self-center" delay={120}>
             <div className="relative">
               <div style={{ transform: "rotate(-1.2deg)" }}>
                 <EditorialImage
@@ -135,13 +134,13 @@ function HomePage() {
                   alt="Kiểm toán viên TAF kiểm tra Báo cáo Tài chính khách hàng"
                   aspect="portrait"
                   accent="red"
-                  caption="Tại văn phòng TAF — kiểm tra Báo cáo Tài chính khách hàng FDI."
+                  caption="— Kiểm tra BCTC tại doanh nghiệp khách hàng."
                 />
               </div>
-              {/* Overlap mini image */}
+              {/* Polaroid-style overlap mini image */}
               <div
-                className="hidden sm:block absolute -bottom-6 -left-6 w-2/5 ring-8 ring-background"
-                style={{ transform: "rotate(2deg)" }}
+                className="hidden sm:block absolute -bottom-8 left-2 sm:left-4 w-[44%] bg-cream p-2 shadow-[0_18px_40px_-12px_rgba(0,0,0,0.35)]"
+                style={{ transform: "rotate(3deg)" }}
               >
                 <EditorialImage
                   src={reportSealImg}
@@ -150,9 +149,12 @@ function HomePage() {
                   accent="gold"
                 />
               </div>
-              {/* TAF seal floating top-left */}
-              <div className="absolute -top-6 -left-4 sm:-top-8 sm:-left-8 hidden md:block">
-                <TafSeal size={88} spin />
+              {/* TAF seal stamped onto top-right corner of the main image */}
+              <div
+                className="absolute top-4 right-4 md:top-6 md:right-6 hidden md:block"
+                style={{ transform: "rotate(-12deg)" }}
+              >
+                <TafSeal size={92} />
               </div>
             </div>
           </Reveal>
@@ -162,7 +164,7 @@ function HomePage() {
         <div className="relative">
           <div className="rule-gold" />
           <div className="mx-auto max-w-6xl px-5 md:px-8 py-8 grid grid-cols-3 gap-6 md:gap-10">
-            <Stat value={20} suffix="+" label="Năm hành nghề" />
+            <Stat value={15} suffix="+" label="Năm hành nghề" />
             <Stat value={500} suffix="+" label="Khách hàng doanh nghiệp" />
             <Stat value={60} suffix="+" label="Tỉnh / thành phục vụ" />
           </div>
