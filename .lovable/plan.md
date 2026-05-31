@@ -1,65 +1,122 @@
-## Mục tiêu
 
-Trang chủ hiện dùng palette navy + gold cream, logo đỏ TAF đứng đơn độc ở header/footer trông "lạc tông". Kế hoạch này đưa sắc đỏ TAF (`--brand-red`) vào hệ thống thị giác như một accent thứ hai — có chủ đích, tiết chế, không phá vỡ tinh thần editorial luxury đã thiết lập.
+# Kế hoạch nâng cấp thẩm mỹ Trang chủ TAF (sử dụng 4 ảnh thật)
 
-## Nguyên tắc
+Anh đã cung cấp 4 ảnh thương hiệu TAF chất lượng cao — đây là chất liệu chính để giải quyết "lỗ hổng lớn nhất: thiếu ảnh". Bốn ảnh sẽ được copy vào `src/assets/` và dùng trực tiếp (giữ màu gốc — ảnh đã có vibe navy/đỏ TAF, không cần ép duotone gắt làm mất chi tiết logo đỏ và con dấu đỏ thật).
 
-- **Vàng (gold) vẫn là accent chính** cho số hiệu, italic nhấn, hairline. Đỏ là accent phụ, chỉ xuất hiện ở các điểm "hành động" và "dấu ấn thương hiệu".
-- **Tỷ lệ ~80/15/5**: navy + cream nền 80%, gold accent 15%, đỏ TAF 5%.
-- Đỏ không dùng cho khối lớn, không gradient sến — chỉ hairline, underline, dot, icon, hover state, và CTA chính.
+- `taf-portrait.jpg` — KTV nữ đọc báo cáo (cho Hero)
+- `taf-meeting.jpg` — phòng họp 4 người với "Audit Plan Overview" (cho section Quy trình hoặc About strip)
+- `taf-report-seal.jpg` — chồng Audit Report + con dấu đỏ TAF (cho section Services/CTA — vũ khí lớn nhất)
+- `taf-handshake.jpg` — bắt tay tại lễ tân (cho Testimonial hoặc CTA cuối)
 
-## Các thay đổi cụ thể
+Xử lý ảnh: chỉ thêm overlay tinh tế (gradient navy-to-transparent + viền hairline gold + slight grain) thay vì duotone cứng, để giữ nguyên logo đỏ TAF trong ảnh — biến chính ảnh thành "chữ ký thương hiệu" mạnh nhất.
 
-### 1. Design tokens (`src/styles.css`)
-- Thêm `--brand-red-soft` (đỏ pha cream cho hover/bg nhẹ) và `--brand-red-ink` (đỏ đậm cho text trên cream).
-- Thêm utility `.rule-red` (hairline đỏ) song song với `.rule-gold` đã có.
-- Giữ nguyên `--primary` (navy) — không đổi semantic token.
+---
 
-### 2. Header (`src/components/site/Header.tsx`)
-- CTA "Yêu cầu báo giá" đổi từ viền vàng sang **viền đỏ TAF + hover fill đỏ + chữ trắng** → ăn nhập với logo đỏ ngay cạnh.
-- Active nav link: thêm underline đỏ 2px dưới chữ thay vì chỉ bold.
+## Ưu tiên 1 — Hình ảnh & chất liệu
 
-### 3. Hero (`src/routes/index.tsx`)
-- Eyebrow "Kiểm toán độc lập · Tư vấn thuế · Kế toán": thêm **dot đỏ** ở đầu (giống ấn phẩm tài chính).
-- Số `23` faded background: giữ italic nhưng đổi sang **đỏ TAF 5% opacity** thay vì gold 7% → cộng hưởng với logo.
-- CTA chính "Yêu cầu báo giá": đổi nền từ navy `--primary` sang **đỏ `--brand-red`** với hover sang đỏ đậm. Mũi tên giữ trắng. Đây là CTA quan trọng nhất — cần là điểm nóng nhất trang.
-- Hairline mark góc phải đổi sang đỏ.
+**1.1 Component `<EditorialImage />`** (`src/components/site/EditorialImage.tsx`)
+- Wrapper: `<figure>` với `<img>` + overlay layer:
+  - `::after` gradient từ navy 25% → transparent (đáy → đỉnh) tạo cảm giác "in trên giấy"
+  - Hairline gold 1px viền (chỉ top + left) như ảnh báo
+  - Optional caption italic Playfair nhỏ phía dưới ảnh
+- Props: `src`, `alt`, `caption?`, `aspect` (`portrait` / `landscape` / `square`), `accent` (`gold` / `red`).
 
-### 4. USP section
-- Border-left của 4 thẻ: đổi từ `border-accent/40` (vàng) sang **xen kẽ vàng/đỏ** (1,3 vàng — 2,4 đỏ) tạo nhịp.
-- Icon lucide: thẻ 1,3 giữ gold; thẻ 2,4 chuyển **đỏ TAF** → cân bằng hai accent.
+**1.2 Texture giấy `.paper-grain`** trong `src/styles.css`
+- SVG noise base64 nhẹ, `opacity: 0.04`, áp vào `body::before` fixed full-viewport.
+- Ledger grid hiện tại tăng từ opacity `0.03` → `0.045` và mở rộng ra USP + FAQ sections.
 
-### 5. Services dark ledger
-- Số `01–06` italic: giữ vàng (đỏ trên navy sẽ rung mắt).
-- Mũi tên `ArrowUpRight` ở mỗi dòng: chuyển sang **đỏ sáng** khi hover (hiện đang vàng nhạt).
-- Thêm **dot đỏ 6px** trước eyebrow "Dịch vụ chính" để thống nhất hệ ngôn ngữ với hero.
+**1.3 Hero restructure (cột phải có ảnh)**
+- Grid Hero: `lg:grid-cols-12` chia `7/5`.
+- **Cột trái (7):** giữ Eyebrow + Headline italic + paragraph + CTA (đã đẹp).
+- **Cột phải (5):** collage 2 ảnh xếp lệch:
+  - Ảnh chính: `taf-portrait.jpg` (lớn, ratio 4/5)
+  - Ảnh phụ: `taf-report-seal.jpg` cắt vuông nhỏ, đè lên góc dưới-trái ảnh chính ~35%, có border cream dày 8px
+  - Caption italic dưới ảnh chính: "Tại văn phòng TAF — kiểm tra Báo cáo Tài chính khách hàng FDI."
+- **Stats ledger** di chuyển xuống thành **strip ngang full-width** dưới hero, có `.rule-gold` trên/dưới — không còn nằm cột phải.
 
-### 6. Testimonial
-- Dấu `"` khổng lồ: giữ vàng (đặc trưng editorial).
-- Hairline trước attribution `h-px w-8`: đổi sang **đỏ TAF** → tín hiệu xác thực, mạnh hơn.
+---
 
-### 7. FAQ
-- Icon `+` xoay 45°: chuyển từ `accent-foreground` sang **đỏ TAF** → khi user mở câu hỏi thấy đỏ → cảm giác "kích hoạt".
-- Số `01–05` italic: giữ vàng.
+## Ưu tiên 2 — Visual hoá phần đang là text
 
-### 8. CTA cuối trang
-- Khối CTA hiện chỉ có nút navy → đổi sang **nút đỏ TAF** đồng bộ với hero CTA → khép vòng thị giác (mở đầu đỏ, kết đỏ).
-- Dòng italic "bạn có thể tin cậy?" giữ vàng.
+**2.1 Dải logo khách hàng + emblems chứng nhận** (section mới, ngay dưới Hero, nền cream nhạt)
+- 2 hàng: hàng trên là 6 wordmark khách hàng greyscale (Đèo Cả, Nguyễn Hoàng, ILA, Vinamilk, Coteccons, Hòa Phát — render bằng `<span>` font-display, hover → màu thật, dễ thay bằng SVG thật sau).
+- Hàng dưới là 3 emblems "Đăng ký hành nghề Bộ Tài chính / Thành viên VACPA / Chuẩn mực VSA & IFRS" — viền hairline gold đôi.
 
-### 9. Footer (`src/components/site/Footer.tsx`)
-- Hover state của social icons: chuyển sang **đỏ TAF** (hiện đang foreground trắng).
-- Hairline phân cách giữ nguyên.
+**2.2 Bản đồ Việt Nam SVG cách điệu** (section mới, sau USP)
+- Component `<VietnamMap />` (`src/components/site/VietnamMap.tsx`): outline VN stylized + ~30 chấm đại diện 60 tỉnh, 3 chấm lớn pulse đỏ ở Hà Nội/Đà Nẵng/TP.HCM, hairline gold nối.
+- Layout 2 cột: trái map, phải eyebrow + heading "60 tỉnh thành. Một chuẩn mực." + 3 cụm tỉnh tiêu biểu.
 
-## Kết quả mong đợi
+**2.3 Timeline quy trình 5 bước** (section mới, trước Testimonial)
+- 5 bước: Khảo sát → Lập kế hoạch → Kiểm toán hiện trường → Soát xét → Phát hành báo cáo.
+- Desktop: ngang, 5 cột nối bằng `.rule-gold` có chấm đỏ; mobile: dọc với đường nối bên trái.
+- Bên cạnh timeline (trên desktop): ảnh `taf-meeting.jpg` qua `<EditorialImage />` để minh hoạ "kiểm toán hiện trường".
 
-- Logo đỏ ở header không còn "lạc loài" — sắc đỏ được nhắc lại nhịp nhàng xuống các CTA, hairline xác thực, hover state.
-- Vàng vẫn dẫn dắt typography và số hiệu (editorial DNA), đỏ đóng vai trò "call to action + dấu triện thương hiệu".
-- CTA chính nổi bật rõ ràng hơn (đỏ > navy về độ thu hút mắt) → tăng conversion tiềm năng.
-- Không thêm component mới, không đụng route/business logic — thuần presentation.
+---
 
-## File sẽ chỉnh sửa
+## Ưu tiên 3 — Depth thay khối phẳng
 
-- `src/styles.css` (thêm 2 token đỏ + utility)
-- `src/components/site/Header.tsx` (CTA + active link)
-- `src/components/site/Footer.tsx` (hover social)
-- `src/routes/index.tsx` (hero, USP, services, testimonial, FAQ, CTA cuối)
+- **Navy Services section**: thêm radial gradient ở góc trên-trái (`bg-[radial-gradient(circle_at_top_left,...primary-glow...,transparent_60%)]`), watermark số "01–06" lớn hơn (9rem) và đẩy opacity 0.04.
+- **USP cards**: thêm `shadow-card` (đã có trong tokens), nền cream-tint trên nền cream.
+- **Testimonial bg ảnh mờ**: dùng `taf-handshake.jpg` blur 8px + overlay navy 88% làm nền section testimonial, tạo chiều sâu thay vì nền background phẳng. Text vẫn đọc tốt do overlay đặc.
+- **Hairline gold** thay border xám ở: divider FAQ, top/bottom của stat strip, đầu mỗi section quan trọng.
+
+---
+
+## Ưu tiên 4 — Micro-interactions tiết chế
+
+- **Stat counter**: hook `useCountUp(target, duration)` (`src/hooks/use-count-up.ts`) dùng IntersectionObserver, đếm 0 → target khi vào viewport. Áp cho 20+/500+/60+.
+- **Service rows hover**: thêm gạch chân vàng "vẽ" ra dưới tiêu đề (pseudo `::after` scaleX 0→1), mũi tên đã có translate giữ nguyên.
+- **Testimonial → carousel**: dùng shadcn `carousel`, 3 quote, dấu `"` vàng khổng lồ cố định.
+- **FAQ**: convert `<details>` → shadcn `Accordion` cho animation height mượt.
+- **Reveal on scroll**: hook `useReveal()` IntersectionObserver, áp cho decorative (ảnh, map dots, timeline, logo strip) — KHÔNG áp text chính (SSR-safe).
+
+---
+
+## Ưu tiên 5 — Chữ ký thương hiệu
+
+**5.1 Component `<TafSeal />`** (`src/components/site/TafSeal.tsx`)
+- SVG vòng tròn đôi đỏ TAF + chữ "TAF · AUDIT · TAX · ADVISORY · FINANCE · EST. 2002" xoay quanh viền (`<textPath>` quanh circle), giữa là "T" italic Playfair đỏ.
+- Dùng ở: góc collage Hero (nổi 80px), cuối CTA section như "đóng dấu" (120px, opacity 0.15), watermark mờ trong Testimonial.
+
+**5.2 Emblems** — đã gộp vào 2.1.
+
+---
+
+## Files thay đổi
+
+**Copy vào `src/assets/`:**
+- `taf-portrait.jpg`, `taf-meeting.jpg`, `taf-report-seal.jpg`, `taf-handshake.jpg` (từ user-uploads)
+
+**Tạo mới:**
+- `src/components/site/EditorialImage.tsx`
+- `src/components/site/VietnamMap.tsx`
+- `src/components/site/TafSeal.tsx`
+- `src/components/site/Emblem.tsx`
+- `src/components/site/ClientLogos.tsx`
+- `src/components/site/ProcessTimeline.tsx`
+- `src/components/site/TestimonialCarousel.tsx`
+- `src/hooks/use-count-up.ts`
+- `src/hooks/use-reveal.ts`
+
+**Sửa:**
+- `src/routes/index.tsx` — restructure Hero (7/5 + collage ảnh + seal), thêm 3 section mới (ClientLogos + Emblems strip, VietnamMap, ProcessTimeline), Testimonial bg ảnh handshake + carousel, FAQ accordion.
+- `src/styles.css` — `.paper-grain`, gradient radial cho navy section, tăng opacity grid.
+
+**Không đụng:** tokens màu, font, business logic, server functions, các route khác.
+
+---
+
+## Thứ tự thi công
+
+1. Copy 4 ảnh user-uploads → `src/assets/`.
+2. Tạo `EditorialImage`, `TafSeal`, `Emblem`, `ClientLogos` + utility CSS (paper-grain, gradient).
+3. Restructure Hero (cột phải collage 2 ảnh + seal floating, stats strip ngang dưới hero).
+4. Thêm section ClientLogos + Emblems strip ngay dưới Hero.
+5. Tạo `VietnamMap` + section sau USP.
+6. Tạo `ProcessTimeline` + ảnh meeting bên cạnh, đặt trước Testimonial.
+7. Testimonial: bg ảnh handshake blur + carousel + seal watermark.
+8. FAQ → shadcn Accordion.
+9. Hooks `useCountUp` + `useReveal`, áp dụng.
+10. Polish: radial gradient navy section, hairline gold thay border xám, kiểm tra responsive 707px.
+
+**Kết quả mong đợi:** Trang chủ có ảnh thương hiệu thật của TAF (4 ảnh chất lượng cao mà anh upload) đóng vai trò chính, bản đồ VN trực quan, logo khách hàng + emblems uy tín, timeline quy trình, depth qua gradient + overlay ảnh blur, micro-interaction tiết chế. Đồng nhất logo đỏ + bảng màu navy/cream/gold.
