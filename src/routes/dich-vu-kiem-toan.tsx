@@ -38,17 +38,22 @@ const REASONS = [
   },
 ];
 
-const SUBJECTS = [
-  "Doanh nghiệp có vốn đầu tư nước ngoài (FDI)",
-  "Tổ chức tín dụng theo Luật Các tổ chức tín dụng",
-  "Tổ chức tài chính, doanh nghiệp bảo hiểm, tái bảo hiểm, môi giới bảo hiểm",
-  "Công ty đại chúng, tổ chức phát hành và kinh doanh chứng khoán",
-  "Doanh nghiệp nhà nước",
-  "Doanh nghiệp, tổ chức thực hiện dự án quan trọng quốc gia",
-  "Doanh nghiệp, tổ chức có vốn nhà nước nắm giữ từ 20% trở lên",
-  "Doanh nghiệp mà tổ chức niêm yết/phát hành/kinh doanh chứng khoán nắm từ 20% quyền biểu quyết",
-  "Doanh nghiệp kiểm toán, chi nhánh doanh nghiệp kiểm toán nước ngoài tại Việt Nam",
-  "Dự án sử dụng nguồn vốn ODA",
+const SUBJECTS: { title: string; detail?: string }[] = [
+  { title: "Doanh nghiệp có vốn đầu tư nước ngoài (FDI)" },
+  { title: "Tổ chức tín dụng theo Luật Các tổ chức tín dụng" },
+  { title: "Tổ chức tài chính, doanh nghiệp bảo hiểm, tái bảo hiểm, môi giới bảo hiểm" },
+  { title: "Công ty đại chúng, tổ chức phát hành và kinh doanh chứng khoán" },
+  { title: "Doanh nghiệp nhà nước" },
+  { title: "Doanh nghiệp, tổ chức thực hiện dự án quan trọng quốc gia" },
+  { title: "Doanh nghiệp, tổ chức có vốn nhà nước nắm giữ từ 20% trở lên" },
+  { title: "Doanh nghiệp mà tổ chức niêm yết/phát hành/kinh doanh chứng khoán nắm từ 20% quyền biểu quyết" },
+  { title: "Doanh nghiệp kiểm toán, chi nhánh doanh nghiệp kiểm toán nước ngoài tại Việt Nam" },
+  { title: "Dự án sử dụng nguồn vốn ODA" },
+  {
+    title: "Doanh nghiệp quy mô lớn (bổ sung theo Luật 56/2024/QH15)",
+    detail:
+      "Thỏa mãn ít nhất 2/3 tiêu chí: trên 200 lao động tham gia BHXH bình quân năm; doanh thu năm trên 300 tỷ đồng; tổng tài sản trên 100 tỷ đồng. Xác định theo BCTC năm trước liền kề; nếu 2 năm liên tiếp không đáp ứng thì không còn bắt buộc cho đến khi đáp ứng trở lại.",
+  },
 ];
 
 const TAF_SERVICES: { label: string; to?: string; slug?: string }[] = [
