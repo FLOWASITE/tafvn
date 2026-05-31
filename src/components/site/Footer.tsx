@@ -9,9 +9,7 @@ export function Footer({ offices }: { offices: Office[] }) {
     <footer className="border-t border-border bg-primary text-primary-foreground">
       <div className="mx-auto max-w-6xl px-5 md:px-8 py-14 grid gap-10 md:grid-cols-12">
         <div className="md:col-span-4">
-          <div className="[&_span]:text-primary-foreground [&_.text-muted-foreground]:text-primary-foreground/60">
-            <Logo />
-          </div>
+          <Logo variant="light" />
           <p className="mt-4 text-sm leading-relaxed text-primary-foreground/75 font-serif">
             {SITE.legalName} — hãng kiểm toán độc lập đăng ký hành nghề với Bộ Tài chính, phục vụ
             doanh nghiệp Việt Nam và FDI từ năm {SITE.established}.
