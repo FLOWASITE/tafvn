@@ -435,7 +435,7 @@ function AuditServicePage() {
       </Section>
 
       {/* Đối tượng */}
-      <Section>
+      <Section id="doi-tuong-bat-buoc">
         <Eyebrow>04</Eyebrow>
         <h2 className="font-display text-3xl md:text-[2.25rem] leading-tight text-foreground max-w-3xl">
           Các đối tượng bắt buộc phải kiểm toán
