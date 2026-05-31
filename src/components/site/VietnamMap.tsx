@@ -61,37 +61,36 @@ export function VietnamMap({ className = "" }: { className?: string }) {
       {/* Dotted interior */}
       <rect width="560" height="648" fill="url(#vnmap-dots)" clipPath="url(#vnmap-clip)" />
 
-      {/* Hoàng Sa & Trường Sa */}
+      {/* Hoàng Sa & Trường Sa — group halo so each archipelago reads clearly */}
+      <circle cx="416" cy="294" r="14" fill="url(#vnmap-gold)" />
+      <circle cx="496" cy="570" r="14" fill="url(#vnmap-gold)" />
       {ISLAND_DOTS.map((d, i) => (
-        <circle key={`is-${i}`} cx={d.x} cy={d.y} r="1.6" fill="var(--color-accent)" opacity="0.5" />
+        <circle key={`is-${i}`} cx={d.x} cy={d.y} r="1.6" fill="var(--color-accent)" opacity="0.75" />
       ))}
       <text
         x="406"
-        y="295"
+        y="278"
         fill="var(--color-foreground)"
-        opacity="0.6"
+        opacity="0.65"
         textAnchor="end"
-        style={{ fontFamily: "var(--font-display)", fontSize: "10px", fontStyle: "italic" }}
+        style={{ fontFamily: "var(--font-display)", fontSize: "10.5px", fontStyle: "italic" }}
       >
         Hoàng Sa
       </text>
       <text
         x="486"
-        y="571"
+        y="554"
         fill="var(--color-foreground)"
-        opacity="0.6"
+        opacity="0.65"
         textAnchor="end"
-        style={{ fontFamily: "var(--font-display)", fontSize: "10px", fontStyle: "italic" }}
+        style={{ fontFamily: "var(--font-display)", fontSize: "10.5px", fontStyle: "italic" }}
       >
         Trường Sa
       </text>
 
-      {/* Secondary provincial markers */}
+      {/* Secondary provincial markers — small dots only, no large halo (avoid orphan blobs) */}
       {SECONDARY_DOTS.map((d, i) => (
-        <g key={`sec-${i}`}>
-          <circle cx={d.x} cy={d.y} r="10" fill="url(#vnmap-gold)" />
-          <circle cx={d.x} cy={d.y} r="2.6" fill="var(--color-accent)" />
-        </g>
+        <circle key={`sec-${i}`} cx={d.x} cy={d.y} r="2.4" fill="var(--color-accent)" opacity="0.65" />
       ))}
 
       {/* Tier-2 cities — gold */}
