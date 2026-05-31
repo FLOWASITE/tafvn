@@ -324,7 +324,7 @@ function AuditServicePage() {
       </Section>
 
       {/* Định nghĩa */}
-      <Section className="pt-0">
+      <Section id="dinh-nghia" className="pt-0">
         <div className="rule-gold mb-12" />
         <Reveal>
           <div className="grid lg:grid-cols-12 gap-10">
