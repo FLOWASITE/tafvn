@@ -211,7 +211,7 @@ function HomePage() {
               cho ban lãnh đạo.”
             </blockquote>
             <div className="mt-6 flex items-center gap-3 text-sm text-muted-foreground font-serif">
-              <span className="h-px w-8 bg-accent" />
+              <span className="h-px w-8 bg-brand-red" />
               Giám đốc Tài chính — Doanh nghiệp sản xuất FDI, Bình Dương
             </div>
           </div>
