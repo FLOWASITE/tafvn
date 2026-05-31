@@ -160,6 +160,16 @@ export const Route = createFileRoute("/dich-vu-kiem-toan")({
             url: CANONICAL,
             telephone: "+84924580580",
             email: "info@taf.vn",
+            sameAs: [
+              "https://www.facebook.com/taf.vn",
+              "https://www.youtube.com/channel/UC6SN58so0Iy1nnf46LYJw1A",
+              "https://x.com/dichvuketoantaf",
+              "https://www.instagram.com/tax_audit_finance/",
+              "https://www.linkedin.com/in/dichvuketoantaf1/",
+              "https://www.pinterest.com/dichvukiemtoantaf",
+              "https://www.tiktok.com/@ketoan.taf",
+              "https://www.threads.com/@tax_audit_finance",
+            ],
             address: {
               "@type": "PostalAddress",
               streetAddress: "62A Phạm Ngọc Thạch",
