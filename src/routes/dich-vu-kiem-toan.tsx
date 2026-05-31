@@ -122,7 +122,9 @@ const RELATED = [
 ];
 
 export const Route = createFileRoute("/dich-vu-kiem-toan")({
-  head: () => ({
+  head: () => {
+    const ogImage = `https://tafvn.lovable.app${heroImage}`;
+    return ({
     meta: [
       { title: TITLE },
       { name: "description", content: DESCRIPTION },
@@ -130,6 +132,9 @@ export const Route = createFileRoute("/dich-vu-kiem-toan")({
       { property: "og:description", content: DESCRIPTION },
       { property: "og:url", content: CANONICAL },
       { property: "og:type", content: "website" },
+      { property: "og:image", content: ogImage },
+      { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:image", content: ogImage },
     ],
     links: [{ rel: "canonical", href: CANONICAL }],
     scripts: [
@@ -141,6 +146,7 @@ export const Route = createFileRoute("/dich-vu-kiem-toan")({
           name: "Dịch vụ kiểm toán độc lập",
           serviceType: "Kiểm toán độc lập",
           description: DESCRIPTION,
+          image: ogImage,
           areaServed: { "@type": "Country", name: "Vietnam" },
           provider: {
             "@type": "Organization",
