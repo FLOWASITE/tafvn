@@ -121,15 +121,15 @@ const FAQS = [
   },
 ];
 
-const TOC = [
-  { id: "dinh-nghia", label: "Dịch vụ kiểm toán là gì?" },
-  { id: "vi-sao-thue", label: "Vì sao doanh nghiệp nên thuê kiểm toán?" },
-  { id: "quy-dinh-bat-buoc", label: "Quy định về kiểm toán bắt buộc" },
-  { id: "doi-tuong-bat-buoc", label: "Các đối tượng bắt buộc phải kiểm toán" },
-  { id: "dich-vu-taf", label: "Các dịch vụ kiểm toán TAF cung cấp" },
-  { id: "quy-trinh", label: "Quy trình kiểm toán tại TAF" },
-  { id: "vi-sao-chon-taf", label: "Vì sao chọn TAF" },
-  { id: "faq", label: "Câu hỏi thường gặp" },
+const TOC: { id: string; label: string; desc: string }[] = [
+  { id: "dinh-nghia", label: "Dịch vụ kiểm toán là gì?", desc: "Khái niệm & vai trò của kiểm toán độc lập." },
+  { id: "vi-sao-thue", label: "Vì sao doanh nghiệp nên thuê dịch vụ kiểm toán?", desc: "5 lợi ích cốt lõi với chủ doanh nghiệp & nhà đầu tư." },
+  { id: "quy-dinh-bat-buoc", label: "Quy định pháp luật về kiểm toán bắt buộc", desc: "Luật 56/2024/QH15 & Nghị định 90/2025/NĐ-CP." },
+  { id: "doi-tuong-bat-buoc", label: "Các đối tượng bắt buộc phải kiểm toán", desc: "Danh mục doanh nghiệp phải kiểm toán BCTC năm." },
+  { id: "dich-vu-taf", label: "Các dịch vụ kiểm toán TAF cung cấp", desc: "BCTC, quyết toán dự án, soát xét, tuân thủ…" },
+  { id: "quy-trinh", label: "Quy trình kiểm toán tại TAF", desc: "4 bước chuẩn từ khảo sát đến phát hành báo cáo." },
+  { id: "vi-sao-chon-taf", label: "Vì sao chọn dịch vụ kiểm toán của TAF", desc: "Năng lực, kinh nghiệm và cam kết chất lượng." },
+  { id: "faq", label: "Câu hỏi thường gặp về dịch vụ kiểm toán", desc: "Giải đáp về phí, thời gian, hồ sơ và phạm vi." },
 ];
 
 const RELATED = [
@@ -342,14 +342,19 @@ function AuditServicePage() {
       {/* Mục lục */}
       <Section className="pt-0 pb-6">
         <nav
-          aria-label="Mục lục bài viết"
+          aria-label="Mục lục: Dịch vụ kiểm toán độc lập tại TAF"
           className="border border-border bg-cream/60 rounded-[2px] p-6 md:p-8"
         >
-          <div className="flex items-center gap-2.5 text-[0.7rem] uppercase tracking-[0.22em] text-accent-foreground/90 mb-5 font-medium">
+          <div className="flex items-center gap-2.5 text-[0.7rem] uppercase tracking-[0.22em] text-accent-foreground/90 mb-3 font-medium">
             <List size={14} className="text-brand-red" />
-            Mục lục
+            Mục lục bài viết
           </div>
-          <ol className="grid sm:grid-cols-2 gap-x-8 gap-y-2 font-serif text-foreground/85 counter-reset-toc">
+          <p className="font-serif text-sm md:text-base text-muted-foreground leading-relaxed mb-6 max-w-3xl">
+            Trang tổng quan về <strong className="text-foreground font-medium">dịch vụ kiểm toán độc lập</strong> của
+            TAF: khái niệm, căn cứ pháp lý mới nhất, đối tượng kiểm toán bắt buộc, danh mục
+            dịch vụ kiểm toán TAF cung cấp, quy trình triển khai và câu hỏi thường gặp.
+          </p>
+          <ol className="grid sm:grid-cols-2 gap-x-8 gap-y-3 font-serif text-foreground/85 counter-reset-toc">
             {TOC.map((item, i) => (
               <li key={item.id} className="flex gap-3 leading-snug">
                 <span className="font-mono text-xs text-muted-foreground tabular-nums mt-1 shrink-0 w-6">
@@ -357,15 +362,21 @@ function AuditServicePage() {
                 </span>
                 <a
                   href={`#${item.id}`}
-                  className="text-foreground/85 hover:text-brand-red-ink underline decoration-transparent hover:decoration-brand-red/50 underline-offset-4 transition-colors"
+                  className="group flex-1 text-foreground/85 underline-offset-4 transition-colors"
                 >
-                  {item.label}
+                  <span className="block text-foreground/90 group-hover:text-brand-red-ink underline decoration-transparent group-hover:decoration-brand-red/50">
+                    {item.label}
+                  </span>
+                  <span className="block text-xs text-muted-foreground mt-0.5">
+                    {item.desc}
+                  </span>
                 </a>
               </li>
             ))}
           </ol>
         </nav>
       </Section>
+
 
       {/* Định nghĩa */}
       <Section id="dinh-nghia" className="pt-0">
@@ -425,7 +436,7 @@ function AuditServicePage() {
           <div className="lg:col-span-5">
             <Eyebrow>03</Eyebrow>
             <h2 className="font-display text-3xl md:text-[2.25rem] leading-tight text-foreground">
-              Quy định về việc <span className="italic text-accent-foreground">kiểm toán bắt buộc</span>
+              Quy định pháp luật về <span className="italic text-accent-foreground">kiểm toán bắt buộc</span>
             </h2>
             <div className="mt-8 hidden lg:flex items-center gap-3 text-xs uppercase tracking-[0.2em] text-muted-foreground">
               <ScrollText size={14} className="text-brand-red" />
@@ -658,11 +669,11 @@ function AuditServicePage() {
           <div className="lg:col-span-4">
             <Eyebrow>FAQ</Eyebrow>
             <h2 className="font-display text-3xl md:text-[2.25rem] leading-tight text-foreground">
-              Câu hỏi thường gặp
+              Câu hỏi thường gặp về dịch vụ kiểm toán
             </h2>
             <p className="mt-4 text-sm text-muted-foreground font-serif leading-relaxed">
-              Câu trả lời ngắn cho những thắc mắc phổ biến nhất về dịch vụ kiểm toán độc
-              lập.
+              Giải đáp về chi phí, thời gian, hồ sơ và phạm vi dịch vụ kiểm toán độc lập
+              tại TAF.
             </p>
           </div>
           <div className="lg:col-span-8">
