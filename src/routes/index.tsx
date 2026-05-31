@@ -1,7 +1,34 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { ArrowUpRight, ShieldCheck, FileCheck2, Scale, Building2 } from "lucide-react";
+import {
+  ArrowUpRight,
+  ShieldCheck,
+  FileCheck2,
+  Scale,
+  Building2,
+  Award,
+  Landmark,
+  BookOpen,
+} from "lucide-react";
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion";
 import { Section, SectionHeading, Eyebrow } from "@/components/site/Section";
+import { EditorialImage } from "@/components/site/EditorialImage";
+import { TafSeal } from "@/components/site/TafSeal";
+import { Emblem } from "@/components/site/Emblem";
+import { ClientLogos } from "@/components/site/ClientLogos";
+import { VietnamMap } from "@/components/site/VietnamMap";
+import { ProcessTimeline } from "@/components/site/ProcessTimeline";
+import { TestimonialCarousel } from "@/components/site/TestimonialCarousel";
+import { useCountUp } from "@/hooks/use-count-up";
 import { SERVICES, SITE, FAQ_GENERAL } from "@/lib/site";
+import portraitImg from "@/assets/taf-portrait.png";
+import reportSealImg from "@/assets/taf-report-seal.png";
+import meetingImg from "@/assets/taf-meeting.png";
+import handshakeImg from "@/assets/taf-handshake.png";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -31,8 +58,8 @@ function HomePage() {
     <>
       {/* HERO */}
       <section className="relative overflow-hidden border-b border-border">
-        {/* Subtle grid texture */}
-        <div className="absolute inset-0 -z-10 opacity-[0.03]" aria-hidden>
+        {/* Ledger grid texture */}
+        <div className="absolute inset-0 -z-10 opacity-[0.045]" aria-hidden>
           <div
             className="absolute inset-0"
             style={{
@@ -42,24 +69,27 @@ function HomePage() {
             }}
           />
         </div>
+        {/* Paper grain wash */}
+        <div className="absolute inset-0 -z-10 opacity-[0.04] paper-grain" aria-hidden />
         {/* Corner hairline mark */}
         <div
           className="pointer-events-none absolute top-0 right-0 w-40 h-40 border-r border-t border-brand-red/40 -mr-10 -mt-6 hidden md:block"
           aria-hidden
         />
-        {/* Oversized faded numeral — years of practice */}
+        {/* Faded numeral */}
         <div
-          className="pointer-events-none absolute right-[-2rem] bottom-[-3rem] font-display italic text-brand-red/[0.06] leading-none select-none hidden md:block"
+          className="pointer-events-none absolute right-[-3rem] bottom-[-4rem] font-display italic text-brand-red/[0.05] leading-none select-none hidden lg:block"
           aria-hidden
-          style={{ fontSize: "clamp(14rem, 22vw, 24rem)" }}
+          style={{ fontSize: "clamp(14rem, 22vw, 26rem)" }}
         >
           {years}
         </div>
 
-        <div className="mx-auto max-w-6xl px-5 md:px-8 pt-20 pb-16 md:pt-28 md:pb-24 grid lg:grid-cols-12 gap-10 items-end relative">
-          <div className="lg:col-span-8">
+        <div className="mx-auto max-w-6xl px-5 md:px-8 pt-16 pb-12 md:pt-24 md:pb-20 grid lg:grid-cols-12 gap-12 lg:gap-16 items-center relative">
+          {/* Left: copy */}
+          <div className="lg:col-span-7">
             <Eyebrow>Kiểm toán độc lập · Tư vấn thuế · Kế toán</Eyebrow>
-            <h1 className="font-display text-[2.5rem] sm:text-5xl lg:text-[4rem] leading-[1.05] tracking-tight text-foreground">
+            <h1 className="font-display text-[2.25rem] sm:text-5xl lg:text-[4rem] leading-[1.05] tracking-tight text-foreground">
               Báo cáo kiểm toán
               <span className="block">
                 <em className="not-italic font-display italic text-accent-foreground">đúng</em>{" "}
@@ -95,26 +125,66 @@ function HomePage() {
             </div>
           </div>
 
-          {/* Stats — ledger column */}
-          <div className="lg:col-span-4">
-            <div className="border-t border-border pt-6 grid grid-cols-3 lg:grid-cols-1 gap-6 lg:gap-7 lg:border-t-0 lg:border-l lg:border-accent/40 lg:pl-7 lg:pt-0">
-              <Stat value="20+" label="Năm hành nghề" />
-              <Stat value="500+" label="Khách hàng doanh nghiệp" />
-              <Stat value="60+" label="Tỉnh / thành phục vụ" />
+          {/* Right: photo collage */}
+          <div className="lg:col-span-5 relative">
+            <div className="relative">
+              <EditorialImage
+                src={portraitImg}
+                alt="Kiểm toán viên TAF kiểm tra Báo cáo Tài chính khách hàng"
+                aspect="portrait"
+                accent="red"
+                caption="Tại văn phòng TAF — kiểm tra Báo cáo Tài chính khách hàng FDI."
+              />
+              {/* Overlap mini image */}
+              <div className="hidden sm:block absolute -bottom-6 -left-6 w-2/5 ring-8 ring-background">
+                <EditorialImage
+                  src={reportSealImg}
+                  alt="Chồng báo cáo kiểm toán TAF kèm con dấu đỏ"
+                  aspect="square"
+                  accent="gold"
+                />
+              </div>
+              {/* TAF seal floating top-left */}
+              <div className="absolute -top-6 -left-4 sm:-top-8 sm:-left-8 hidden md:block">
+                <TafSeal size={88} />
+              </div>
             </div>
+          </div>
+        </div>
+
+        {/* Stats ledger strip */}
+        <div className="relative">
+          <div className="rule-gold" />
+          <div className="mx-auto max-w-6xl px-5 md:px-8 py-8 grid grid-cols-3 gap-6 md:gap-10">
+            <Stat value={20} suffix="+" label="Năm hành nghề" />
+            <Stat value={500} suffix="+" label="Khách hàng doanh nghiệp" />
+            <Stat value={60} suffix="+" label="Tỉnh / thành phục vụ" />
+          </div>
+          <div className="rule-gold" />
+        </div>
+      </section>
+
+      {/* TRUST STRIP — clients + emblems */}
+      <section className="bg-cream border-b border-border">
+        <div className="mx-auto max-w-6xl px-5 md:px-8 py-12 md:py-16 space-y-10">
+          <ClientLogos />
+          <div className="grid sm:grid-cols-3 gap-3 md:gap-4">
+            <Emblem
+              icon={Landmark}
+              label="Đăng ký hành nghề"
+              sublabel="Bộ Tài chính"
+            />
+            <Emblem icon={Award} label="Thành viên" sublabel="VACPA" />
+            <Emblem icon={BookOpen} label="Chuẩn mực" sublabel="VSA & IFRS" />
           </div>
         </div>
       </section>
 
       {/* USP — staggered with serif numerals */}
-      <Section className="bg-cream relative">
+      <Section className="bg-background relative">
         <div className="grid md:grid-cols-2 gap-x-10 gap-y-14">
           {USP.map((u, i) => (
-            <div
-              key={u.title}
-              className={`relative ${i % 2 === 1 ? "md:mt-12" : ""}`}
-            >
-              {/* Massive faded numeral */}
+            <div key={u.title} className={`relative ${i % 2 === 1 ? "md:mt-12" : ""}`}>
               <div
                 aria-hidden
                 className="pointer-events-none absolute -left-2 -top-8 font-display italic text-accent/10 leading-none select-none"
@@ -122,8 +192,13 @@ function HomePage() {
               >
                 {String(i + 1).padStart(2, "0")}
               </div>
-              <div className={`relative pl-6 border-l ${i % 2 === 1 ? "border-brand-red/50" : "border-accent/40"}`}>
-                <u.icon size={20} className={i % 2 === 1 ? "text-brand-red" : "text-accent-foreground"} />
+              <div
+                className={`relative pl-6 border-l ${i % 2 === 1 ? "border-brand-red/50" : "border-accent/40"}`}
+              >
+                <u.icon
+                  size={20}
+                  className={i % 2 === 1 ? "text-brand-red" : "text-accent-foreground"}
+                />
                 <h3 className="mt-4 font-display text-xl text-foreground leading-snug">
                   {u.title}
                 </h3>
@@ -136,13 +211,62 @@ function HomePage() {
         </div>
       </Section>
 
+      {/* MAP — network */}
+      <Section className="bg-cream border-y border-border">
+        <div className="grid lg:grid-cols-12 gap-12 items-center">
+          <div className="lg:col-span-5 order-2 lg:order-1">
+            <div className="relative max-w-[280px] mx-auto lg:mx-0">
+              <VietnamMap />
+            </div>
+          </div>
+          <div className="lg:col-span-7 order-1 lg:order-2">
+            <Eyebrow>Mạng lưới phục vụ</Eyebrow>
+            <h2 className="font-display text-3xl md:text-4xl lg:text-[2.5rem] leading-[1.1] text-foreground">
+              60 tỉnh thành.
+              <span className="block italic text-accent-foreground">Một chuẩn mực.</span>
+            </h2>
+            <p className="mt-5 max-w-xl text-muted-foreground font-serif leading-relaxed">
+              Đội ngũ KTV của TAF có mặt tại ba trung tâm kinh tế lớn, sẵn sàng đến tận trụ sở
+              khách hàng tại mọi tỉnh thành để thực hiện kiểm toán hiện trường.
+            </p>
+            <dl className="mt-8 grid grid-cols-3 gap-6 max-w-md">
+              {[
+                { city: "Hà Nội", count: "180+", note: "Khách hàng phía Bắc" },
+                { city: "Đà Nẵng", count: "70+", note: "Miền Trung & Tây Nguyên" },
+                { city: "TP. HCM", count: "250+", note: "Phía Nam & FDI" },
+              ].map((c) => (
+                <div key={c.city} className="border-t border-accent/40 pt-3">
+                  <dt className="font-display italic text-accent-foreground text-xl">
+                    {c.count}
+                  </dt>
+                  <dd className="mt-1 text-[0.7rem] uppercase tracking-[0.18em] text-muted-foreground">
+                    {c.city}
+                  </dd>
+                  <dd className="text-xs text-muted-foreground/80 font-serif italic mt-1">
+                    {c.note}
+                  </dd>
+                </div>
+              ))}
+            </dl>
+          </div>
+        </div>
+      </Section>
+
       {/* SERVICES — dark ledger list */}
       <section className="relative bg-primary text-primary-foreground overflow-hidden">
         <div
           aria-hidden
+          className="absolute inset-0 pointer-events-none"
+          style={{
+            background:
+              "radial-gradient(800px 500px at 0% 0%, color-mix(in oklab, var(--color-accent) 14%, transparent), transparent 60%)",
+          }}
+        />
+        <div
+          aria-hidden
           className="pointer-events-none absolute top-10 right-10 w-40 h-40 border-t border-r border-brand-red/40 hidden md:block"
         />
-        <div className="mx-auto max-w-6xl px-5 md:px-8 py-20 md:py-28 grid lg:grid-cols-12 gap-12">
+        <div className="mx-auto max-w-6xl px-5 md:px-8 py-20 md:py-28 grid lg:grid-cols-12 gap-12 relative">
           <div className="lg:col-span-4">
             <p className="text-[0.7rem] uppercase tracking-[0.28em] text-accent mb-4 font-medium flex items-center gap-2.5">
               <span className="inline-block w-1.5 h-1.5 rounded-full bg-brand-red" />
@@ -170,8 +294,8 @@ function HomePage() {
                     {String(i + 1).padStart(2, "0")}
                   </span>
                   <div className="min-w-0">
-                    <h3 className="font-display text-lg md:text-xl leading-snug transition-colors group-hover:text-accent">
-                      {s.title}
+                    <h3 className="font-display text-lg md:text-xl leading-snug transition-colors group-hover:text-accent inline-block">
+                      <span className="draw-underline">{s.title}</span>
                     </h3>
                     <p className="mt-2 text-sm text-primary-foreground/60 font-serif leading-relaxed line-clamp-2">
                       {s.summary}
@@ -188,35 +312,79 @@ function HomePage() {
         </div>
       </section>
 
-      {/* TESTIMONIAL — giant serif quote */}
-      <Section className="bg-background relative">
-        <div className="grid lg:grid-cols-12 gap-10 items-start">
-          <div className="lg:col-span-2 hidden lg:block">
-            <span
-              aria-hidden
-              className="font-display italic text-accent/40 leading-[0.7] block"
-              style={{ fontSize: "10rem" }}
-            >
-              “
-            </span>
-          </div>
-          <div className="lg:col-span-10">
-            <Eyebrow>Khách hàng nói về TAF</Eyebrow>
-            <blockquote className="font-display text-2xl md:text-3xl lg:text-[2.25rem] leading-[1.3] text-foreground">
-              “TAF bám sát kế hoạch kiểm toán, phát hiện vấn đề kế toán quan trọng trước khi nộp
-              BCTC và{" "}
-              <em className="not-italic font-display italic text-accent-foreground">
-                giải thích kiến nghị một cách thực tế
-              </em>{" "}
-              cho ban lãnh đạo.”
-            </blockquote>
-            <div className="mt-6 flex items-center gap-3 text-sm text-muted-foreground font-serif">
-              <span className="h-px w-8 bg-brand-red" />
-              Giám đốc Tài chính — Doanh nghiệp sản xuất FDI, Bình Dương
+      {/* PROCESS TIMELINE */}
+      <Section className="bg-background">
+        <div className="grid lg:grid-cols-12 gap-12 items-start">
+          <div className="lg:col-span-5">
+            <Eyebrow>Quy trình kiểm toán</Eyebrow>
+            <h2 className="font-display text-3xl md:text-4xl leading-[1.1] text-foreground">
+              Năm bước,
+              <span className="block italic text-accent-foreground">một chuẩn mực.</span>
+            </h2>
+            <p className="mt-5 text-muted-foreground font-serif leading-relaxed">
+              Mỗi cuộc kiểm toán của TAF tuân thủ quy trình chuẩn theo VSA — từ khảo sát ban đầu
+              đến phát hành báo cáo.
+            </p>
+            <div className="mt-8 hidden lg:block">
+              <EditorialImage
+                src={meetingImg}
+                alt="Đội ngũ TAF họp lập kế hoạch kiểm toán"
+                aspect="landscape"
+                accent="gold"
+                caption="Buổi họp lập kế hoạch kiểm toán — đánh giá rủi ro và phạm vi."
+              />
             </div>
+          </div>
+          <div className="lg:col-span-7">
+            <ProcessTimeline />
           </div>
         </div>
       </Section>
+
+      {/* TESTIMONIAL — image background carousel */}
+      <section className="relative overflow-hidden">
+        <div className="absolute inset-0 -z-10">
+          <img
+            src={handshakeImg}
+            alt=""
+            aria-hidden
+            className="w-full h-full object-cover"
+            style={{ filter: "blur(10px) saturate(0.9)" }}
+          />
+          <div
+            className="absolute inset-0"
+            style={{
+              background:
+                "linear-gradient(135deg, color-mix(in oklab, var(--color-primary) 94%, transparent), color-mix(in oklab, var(--color-primary) 88%, transparent))",
+            }}
+          />
+        </div>
+        <div className="mx-auto max-w-6xl px-5 md:px-8 py-20 md:py-28 relative">
+          {/* Seal watermark */}
+          <div className="absolute top-8 right-8 hidden md:block">
+            <TafSeal size={140} opacity={0.12} />
+          </div>
+          <div className="grid lg:grid-cols-12 gap-10 items-start">
+            <div className="lg:col-span-2 hidden lg:block">
+              <span
+                aria-hidden
+                className="font-display italic text-accent/50 leading-[0.7] block"
+                style={{ fontSize: "10rem" }}
+              >
+                “
+              </span>
+            </div>
+            <div className="lg:col-span-10">
+              <p className="text-[0.7rem] uppercase tracking-[0.22em] text-accent mb-6 flex items-center gap-2.5">
+                <span className="inline-block w-1.5 h-1.5 rounded-full bg-brand-red" />
+                <span className="inline-block w-5 h-px bg-accent" />
+                Khách hàng nói về TAF
+              </p>
+              <TestimonialCarousel />
+            </div>
+          </div>
+        </div>
+      </section>
 
       {/* FAQ */}
       <Section className="bg-cream">
@@ -228,33 +396,36 @@ function HomePage() {
             />
           </div>
           <div className="lg:col-span-8">
-            <dl className="divide-y divide-border border-y border-border">
+            <Accordion type="single" collapsible className="border-y border-border">
               {FAQ_GENERAL.map((f, i) => (
-                <details key={f.q} className="group py-5">
-                  <summary className="flex items-start justify-between gap-4 cursor-pointer list-none">
-                    <dt className="flex items-baseline gap-4">
-                      <span className="font-display italic text-accent-foreground/80 text-sm tabular-nums">
+                <AccordionItem key={f.q} value={`item-${i}`} className="border-border">
+                  <AccordionTrigger className="hover:no-underline py-5 [&[data-state=open]>span>span.plus]:rotate-45 [&>svg]:hidden">
+                    <span className="flex items-baseline gap-4 text-left">
+                      <span className="font-display italic text-accent-foreground/80 text-sm tabular-nums shrink-0">
                         {String(i + 1).padStart(2, "0")}
                       </span>
                       <span className="font-display text-lg text-foreground">{f.q}</span>
-                    </dt>
-                    <span className="text-brand-red text-xl leading-none group-open:rotate-45 transition-transform">
-                      +
+                      <span className="plus ml-auto text-brand-red text-xl leading-none transition-transform shrink-0">
+                        +
+                      </span>
                     </span>
-                  </summary>
-                  <dd className="mt-3 pl-10 text-muted-foreground font-serif leading-relaxed">
+                  </AccordionTrigger>
+                  <AccordionContent className="pl-10 text-muted-foreground font-serif leading-relaxed text-base">
                     {f.a}
-                  </dd>
-                </details>
+                  </AccordionContent>
+                </AccordionItem>
               ))}
-            </dl>
+            </Accordion>
           </div>
         </div>
       </Section>
 
       {/* CTA */}
-      <Section className="bg-background border-t border-border">
-        <div className="grid md:grid-cols-12 gap-8 items-center">
+      <Section className="bg-background border-t border-border relative overflow-hidden">
+        <div className="absolute -bottom-10 -right-10 hidden md:block opacity-[0.07]" aria-hidden>
+          <TafSeal size={260} />
+        </div>
+        <div className="grid md:grid-cols-12 gap-8 items-center relative">
           <div className="md:col-span-8">
             <h2 className="font-display text-3xl md:text-4xl text-foreground leading-tight">
               Cần một hãng kiểm toán
@@ -306,11 +477,13 @@ const USP = [
   },
 ];
 
-function Stat({ value, label }: { value: string; label: string }) {
+function Stat({ value, suffix = "", label }: { value: number; suffix?: string; label: string }) {
+  const { ref, value: animated } = useCountUp(value);
   return (
-    <div>
-      <div className="font-display italic text-3xl md:text-4xl lg:text-5xl text-accent-foreground leading-none">
-        {value}
+    <div className="text-center md:text-left">
+      <div className="font-display italic text-3xl md:text-4xl lg:text-5xl text-accent-foreground leading-none tabular-nums">
+        <span ref={ref}>{animated}</span>
+        {suffix}
       </div>
       <div className="mt-2 text-[0.7rem] uppercase tracking-[0.18em] text-muted-foreground">
         {label}
