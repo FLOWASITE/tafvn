@@ -1,8 +1,9 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { ArrowUpRight, Check, Phone } from "lucide-react";
+import { ArrowUpRight, Check, Phone, ScrollText } from "lucide-react";
 import { Breadcrumb } from "@/components/site/Breadcrumb";
 import { Section, Eyebrow } from "@/components/site/Section";
 import { Reveal } from "@/components/site/Reveal";
+import { TafSeal } from "@/components/site/TafSeal";
 import {
   Accordion,
   AccordionContent,
