@@ -9,38 +9,271 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as VanPhongRouteImport } from './routes/van-phong'
+import { Route as TinTucRouteImport } from './routes/tin-tuc'
+import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
+import { Route as LienHeRouteImport } from './routes/lien-he'
+import { Route as GioiThieuRouteImport } from './routes/gioi-thieu'
+import { Route as DoiNguRouteImport } from './routes/doi-ngu'
+import { Route as DichVuRouteImport } from './routes/dich-vu'
+import { Route as DiaBanRouteImport } from './routes/dia-ban'
+import { Route as ChinhSachBaoMatRouteImport } from './routes/chinh-sach-bao-mat'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as TinTucSlugRouteImport } from './routes/tin-tuc.$slug'
+import { Route as DichVuSlugRouteImport } from './routes/dich-vu.$slug'
+import { Route as DiaBanSlugRouteImport } from './routes/dia-ban.$slug'
+import { Route as ApiPublicContactRouteImport } from './routes/api/public/contact'
 
+const VanPhongRoute = VanPhongRouteImport.update({
+  id: '/van-phong',
+  path: '/van-phong',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const TinTucRoute = TinTucRouteImport.update({
+  id: '/tin-tuc',
+  path: '/tin-tuc',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
+  id: '/sitemap.xml',
+  path: '/sitemap.xml',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const LienHeRoute = LienHeRouteImport.update({
+  id: '/lien-he',
+  path: '/lien-he',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const GioiThieuRoute = GioiThieuRouteImport.update({
+  id: '/gioi-thieu',
+  path: '/gioi-thieu',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const DoiNguRoute = DoiNguRouteImport.update({
+  id: '/doi-ngu',
+  path: '/doi-ngu',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const DichVuRoute = DichVuRouteImport.update({
+  id: '/dich-vu',
+  path: '/dich-vu',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const DiaBanRoute = DiaBanRouteImport.update({
+  id: '/dia-ban',
+  path: '/dia-ban',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ChinhSachBaoMatRoute = ChinhSachBaoMatRouteImport.update({
+  id: '/chinh-sach-bao-mat',
+  path: '/chinh-sach-bao-mat',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const TinTucSlugRoute = TinTucSlugRouteImport.update({
+  id: '/$slug',
+  path: '/$slug',
+  getParentRoute: () => TinTucRoute,
+} as any)
+const DichVuSlugRoute = DichVuSlugRouteImport.update({
+  id: '/$slug',
+  path: '/$slug',
+  getParentRoute: () => DichVuRoute,
+} as any)
+const DiaBanSlugRoute = DiaBanSlugRouteImport.update({
+  id: '/$slug',
+  path: '/$slug',
+  getParentRoute: () => DiaBanRoute,
+} as any)
+const ApiPublicContactRoute = ApiPublicContactRouteImport.update({
+  id: '/api/public/contact',
+  path: '/api/public/contact',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/chinh-sach-bao-mat': typeof ChinhSachBaoMatRoute
+  '/dia-ban': typeof DiaBanRouteWithChildren
+  '/dich-vu': typeof DichVuRouteWithChildren
+  '/doi-ngu': typeof DoiNguRoute
+  '/gioi-thieu': typeof GioiThieuRoute
+  '/lien-he': typeof LienHeRoute
+  '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/tin-tuc': typeof TinTucRouteWithChildren
+  '/van-phong': typeof VanPhongRoute
+  '/dia-ban/$slug': typeof DiaBanSlugRoute
+  '/dich-vu/$slug': typeof DichVuSlugRoute
+  '/tin-tuc/$slug': typeof TinTucSlugRoute
+  '/api/public/contact': typeof ApiPublicContactRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/chinh-sach-bao-mat': typeof ChinhSachBaoMatRoute
+  '/dia-ban': typeof DiaBanRouteWithChildren
+  '/dich-vu': typeof DichVuRouteWithChildren
+  '/doi-ngu': typeof DoiNguRoute
+  '/gioi-thieu': typeof GioiThieuRoute
+  '/lien-he': typeof LienHeRoute
+  '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/tin-tuc': typeof TinTucRouteWithChildren
+  '/van-phong': typeof VanPhongRoute
+  '/dia-ban/$slug': typeof DiaBanSlugRoute
+  '/dich-vu/$slug': typeof DichVuSlugRoute
+  '/tin-tuc/$slug': typeof TinTucSlugRoute
+  '/api/public/contact': typeof ApiPublicContactRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/chinh-sach-bao-mat': typeof ChinhSachBaoMatRoute
+  '/dia-ban': typeof DiaBanRouteWithChildren
+  '/dich-vu': typeof DichVuRouteWithChildren
+  '/doi-ngu': typeof DoiNguRoute
+  '/gioi-thieu': typeof GioiThieuRoute
+  '/lien-he': typeof LienHeRoute
+  '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/tin-tuc': typeof TinTucRouteWithChildren
+  '/van-phong': typeof VanPhongRoute
+  '/dia-ban/$slug': typeof DiaBanSlugRoute
+  '/dich-vu/$slug': typeof DichVuSlugRoute
+  '/tin-tuc/$slug': typeof TinTucSlugRoute
+  '/api/public/contact': typeof ApiPublicContactRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    | '/'
+    | '/chinh-sach-bao-mat'
+    | '/dia-ban'
+    | '/dich-vu'
+    | '/doi-ngu'
+    | '/gioi-thieu'
+    | '/lien-he'
+    | '/sitemap.xml'
+    | '/tin-tuc'
+    | '/van-phong'
+    | '/dia-ban/$slug'
+    | '/dich-vu/$slug'
+    | '/tin-tuc/$slug'
+    | '/api/public/contact'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to:
+    | '/'
+    | '/chinh-sach-bao-mat'
+    | '/dia-ban'
+    | '/dich-vu'
+    | '/doi-ngu'
+    | '/gioi-thieu'
+    | '/lien-he'
+    | '/sitemap.xml'
+    | '/tin-tuc'
+    | '/van-phong'
+    | '/dia-ban/$slug'
+    | '/dich-vu/$slug'
+    | '/tin-tuc/$slug'
+    | '/api/public/contact'
+  id:
+    | '__root__'
+    | '/'
+    | '/chinh-sach-bao-mat'
+    | '/dia-ban'
+    | '/dich-vu'
+    | '/doi-ngu'
+    | '/gioi-thieu'
+    | '/lien-he'
+    | '/sitemap.xml'
+    | '/tin-tuc'
+    | '/van-phong'
+    | '/dia-ban/$slug'
+    | '/dich-vu/$slug'
+    | '/tin-tuc/$slug'
+    | '/api/public/contact'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  ChinhSachBaoMatRoute: typeof ChinhSachBaoMatRoute
+  DiaBanRoute: typeof DiaBanRouteWithChildren
+  DichVuRoute: typeof DichVuRouteWithChildren
+  DoiNguRoute: typeof DoiNguRoute
+  GioiThieuRoute: typeof GioiThieuRoute
+  LienHeRoute: typeof LienHeRoute
+  SitemapDotxmlRoute: typeof SitemapDotxmlRoute
+  TinTucRoute: typeof TinTucRouteWithChildren
+  VanPhongRoute: typeof VanPhongRoute
+  ApiPublicContactRoute: typeof ApiPublicContactRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/van-phong': {
+      id: '/van-phong'
+      path: '/van-phong'
+      fullPath: '/van-phong'
+      preLoaderRoute: typeof VanPhongRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/tin-tuc': {
+      id: '/tin-tuc'
+      path: '/tin-tuc'
+      fullPath: '/tin-tuc'
+      preLoaderRoute: typeof TinTucRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/sitemap.xml': {
+      id: '/sitemap.xml'
+      path: '/sitemap.xml'
+      fullPath: '/sitemap.xml'
+      preLoaderRoute: typeof SitemapDotxmlRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/lien-he': {
+      id: '/lien-he'
+      path: '/lien-he'
+      fullPath: '/lien-he'
+      preLoaderRoute: typeof LienHeRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/gioi-thieu': {
+      id: '/gioi-thieu'
+      path: '/gioi-thieu'
+      fullPath: '/gioi-thieu'
+      preLoaderRoute: typeof GioiThieuRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/doi-ngu': {
+      id: '/doi-ngu'
+      path: '/doi-ngu'
+      fullPath: '/doi-ngu'
+      preLoaderRoute: typeof DoiNguRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/dich-vu': {
+      id: '/dich-vu'
+      path: '/dich-vu'
+      fullPath: '/dich-vu'
+      preLoaderRoute: typeof DichVuRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/dia-ban': {
+      id: '/dia-ban'
+      path: '/dia-ban'
+      fullPath: '/dia-ban'
+      preLoaderRoute: typeof DiaBanRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/chinh-sach-bao-mat': {
+      id: '/chinh-sach-bao-mat'
+      path: '/chinh-sach-bao-mat'
+      fullPath: '/chinh-sach-bao-mat'
+      preLoaderRoute: typeof ChinhSachBaoMatRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/': {
       id: '/'
       path: '/'
@@ -48,11 +281,82 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/tin-tuc/$slug': {
+      id: '/tin-tuc/$slug'
+      path: '/$slug'
+      fullPath: '/tin-tuc/$slug'
+      preLoaderRoute: typeof TinTucSlugRouteImport
+      parentRoute: typeof TinTucRoute
+    }
+    '/dich-vu/$slug': {
+      id: '/dich-vu/$slug'
+      path: '/$slug'
+      fullPath: '/dich-vu/$slug'
+      preLoaderRoute: typeof DichVuSlugRouteImport
+      parentRoute: typeof DichVuRoute
+    }
+    '/dia-ban/$slug': {
+      id: '/dia-ban/$slug'
+      path: '/$slug'
+      fullPath: '/dia-ban/$slug'
+      preLoaderRoute: typeof DiaBanSlugRouteImport
+      parentRoute: typeof DiaBanRoute
+    }
+    '/api/public/contact': {
+      id: '/api/public/contact'
+      path: '/api/public/contact'
+      fullPath: '/api/public/contact'
+      preLoaderRoute: typeof ApiPublicContactRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
+interface DiaBanRouteChildren {
+  DiaBanSlugRoute: typeof DiaBanSlugRoute
+}
+
+const DiaBanRouteChildren: DiaBanRouteChildren = {
+  DiaBanSlugRoute: DiaBanSlugRoute,
+}
+
+const DiaBanRouteWithChildren =
+  DiaBanRoute._addFileChildren(DiaBanRouteChildren)
+
+interface DichVuRouteChildren {
+  DichVuSlugRoute: typeof DichVuSlugRoute
+}
+
+const DichVuRouteChildren: DichVuRouteChildren = {
+  DichVuSlugRoute: DichVuSlugRoute,
+}
+
+const DichVuRouteWithChildren =
+  DichVuRoute._addFileChildren(DichVuRouteChildren)
+
+interface TinTucRouteChildren {
+  TinTucSlugRoute: typeof TinTucSlugRoute
+}
+
+const TinTucRouteChildren: TinTucRouteChildren = {
+  TinTucSlugRoute: TinTucSlugRoute,
+}
+
+const TinTucRouteWithChildren =
+  TinTucRoute._addFileChildren(TinTucRouteChildren)
+
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  ChinhSachBaoMatRoute: ChinhSachBaoMatRoute,
+  DiaBanRoute: DiaBanRouteWithChildren,
+  DichVuRoute: DichVuRouteWithChildren,
+  DoiNguRoute: DoiNguRoute,
+  GioiThieuRoute: GioiThieuRoute,
+  LienHeRoute: LienHeRoute,
+  SitemapDotxmlRoute: SitemapDotxmlRoute,
+  TinTucRoute: TinTucRouteWithChildren,
+  VanPhongRoute: VanPhongRoute,
+  ApiPublicContactRoute: ApiPublicContactRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

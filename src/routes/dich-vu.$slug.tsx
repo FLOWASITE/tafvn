@@ -59,7 +59,7 @@ function ServicePage() {
   const { slug } = Route.useParams();
   const title = cms?.title ?? fallback?.title ?? "Dịch vụ";
   const summary = cms?.excerpt ?? fallback?.summary;
-  const points = fallback?.points ?? [];
+  const points: string[] = fallback?.points ?? [];
 
   return (
     <>
