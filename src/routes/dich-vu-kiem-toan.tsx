@@ -233,6 +233,22 @@ export const Route = createFileRoute("/dich-vu-kiem-toan")({
           ],
         }),
       },
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "ItemList",
+          name: "Mục lục: Dịch vụ kiểm toán độc lập tại Việt Nam",
+          itemListOrder: "https://schema.org/ItemListOrderAscending",
+          numberOfItems: TOC.length,
+          itemListElement: TOC.map((item, i) => ({
+            "@type": "ListItem",
+            position: i + 1,
+            name: item.label,
+            url: `${CANONICAL}#${item.id}`,
+          })),
+        }),
+      },
     ],
     });
   },
