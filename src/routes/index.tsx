@@ -218,12 +218,13 @@ function HomePage() {
       {/* MAP — network */}
       <Section className="bg-cream border-y border-border">
         <div className="grid lg:grid-cols-12 gap-12 items-center">
-          <div className="lg:col-span-5 order-2 lg:order-1">
+          <Reveal className="lg:col-span-5 order-2 lg:order-1">
             <div className="relative max-w-[280px] mx-auto lg:mx-0">
               <VietnamMap />
             </div>
-          </div>
+          </Reveal>
           <div className="lg:col-span-7 order-1 lg:order-2">
+            <div className="rule-gold w-24 mb-6 opacity-70" />
             <Eyebrow>Mạng lưới phục vụ</Eyebrow>
             <h2 className="font-display text-3xl md:text-4xl lg:text-[2.5rem] leading-[1.1] text-foreground">
               60 tỉnh thành.
@@ -235,21 +236,11 @@ function HomePage() {
             </p>
             <dl className="mt-8 grid grid-cols-3 gap-6 max-w-md">
               {[
-                { city: "Hà Nội", count: "180+", note: "Khách hàng phía Bắc" },
-                { city: "Đà Nẵng", count: "70+", note: "Miền Trung & Tây Nguyên" },
-                { city: "TP. HCM", count: "250+", note: "Phía Nam & FDI" },
+                { city: "Hà Nội", count: 180, note: "Khách hàng phía Bắc" },
+                { city: "Đà Nẵng", count: 70, note: "Miền Trung & Tây Nguyên" },
+                { city: "TP. HCM", count: 250, note: "Phía Nam & FDI" },
               ].map((c) => (
-                <div key={c.city} className="border-t border-accent/40 pt-3">
-                  <dt className="font-display italic text-accent-foreground text-xl">
-                    {c.count}
-                  </dt>
-                  <dd className="mt-1 text-[0.7rem] uppercase tracking-[0.18em] text-muted-foreground">
-                    {c.city}
-                  </dd>
-                  <dd className="text-xs text-muted-foreground/80 font-serif italic mt-1">
-                    {c.note}
-                  </dd>
-                </div>
+                <CityStat key={c.city} city={c.city} count={c.count} note={c.note} />
               ))}
             </dl>
           </div>
