@@ -121,15 +121,15 @@ const FAQS = [
   },
 ];
 
-const TOC = [
-  { id: "dinh-nghia", label: "Dịch vụ kiểm toán là gì?" },
-  { id: "vi-sao-thue", label: "Vì sao doanh nghiệp nên thuê kiểm toán?" },
-  { id: "quy-dinh-bat-buoc", label: "Quy định về kiểm toán bắt buộc" },
-  { id: "doi-tuong-bat-buoc", label: "Các đối tượng bắt buộc phải kiểm toán" },
-  { id: "dich-vu-taf", label: "Các dịch vụ kiểm toán TAF cung cấp" },
-  { id: "quy-trinh", label: "Quy trình kiểm toán tại TAF" },
-  { id: "vi-sao-chon-taf", label: "Vì sao chọn TAF" },
-  { id: "faq", label: "Câu hỏi thường gặp" },
+const TOC: { id: string; label: string; desc: string }[] = [
+  { id: "dinh-nghia", label: "Dịch vụ kiểm toán là gì?", desc: "Khái niệm & vai trò của kiểm toán độc lập." },
+  { id: "vi-sao-thue", label: "Vì sao doanh nghiệp nên thuê dịch vụ kiểm toán?", desc: "5 lợi ích cốt lõi với chủ doanh nghiệp & nhà đầu tư." },
+  { id: "quy-dinh-bat-buoc", label: "Quy định pháp luật về kiểm toán bắt buộc", desc: "Luật 56/2024/QH15 & Nghị định 90/2025/NĐ-CP." },
+  { id: "doi-tuong-bat-buoc", label: "Các đối tượng bắt buộc phải kiểm toán", desc: "Danh mục doanh nghiệp phải kiểm toán BCTC năm." },
+  { id: "dich-vu-taf", label: "Các dịch vụ kiểm toán TAF cung cấp", desc: "BCTC, quyết toán dự án, soát xét, tuân thủ…" },
+  { id: "quy-trinh", label: "Quy trình kiểm toán tại TAF", desc: "4 bước chuẩn từ khảo sát đến phát hành báo cáo." },
+  { id: "vi-sao-chon-taf", label: "Vì sao chọn dịch vụ kiểm toán của TAF", desc: "Năng lực, kinh nghiệm và cam kết chất lượng." },
+  { id: "faq", label: "Câu hỏi thường gặp về dịch vụ kiểm toán", desc: "Giải đáp về phí, thời gian, hồ sơ và phạm vi." },
 ];
 
 const RELATED = [
