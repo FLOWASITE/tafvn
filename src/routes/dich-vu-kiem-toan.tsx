@@ -334,7 +334,7 @@ function AuditServicePage() {
           <div className="lg:col-span-5">
             <Eyebrow>03</Eyebrow>
             <h2 className="font-display text-3xl md:text-[2.25rem] leading-tight text-foreground">
-              Quy định về <span className="italic text-accent-foreground">kiểm toán bắt buộc</span>
+              Đối tượng <span className="italic text-accent-foreground">kiểm toán bắt buộc</span>
             </h2>
             <div className="mt-8 hidden lg:flex items-center gap-3 text-xs uppercase tracking-[0.2em] text-muted-foreground">
               <ScrollText size={14} className="text-brand-red" />
@@ -343,19 +343,23 @@ function AuditServicePage() {
           </div>
           <div className="lg:col-span-7 font-serif text-foreground/85 leading-relaxed space-y-5">
             <p>
-              Kiểm toán bắt buộc được quy định tại{" "}
+              Đối tượng kiểm toán bắt buộc được quy định tại{" "}
               <strong className="font-medium text-foreground">
-                Điều 37 Luật Kiểm toán độc lập (29/03/2011)
-              </strong>
-              ;{" "}
-              <strong className="font-medium text-foreground">
-                Điều 15 Nghị định 17/2012/NĐ-CP (13/02/2012)
+                Điều 37 Luật Kiểm toán độc lập 2011
               </strong>{" "}
-              về đối tượng kiểm toán; và chế tài xử phạt tại{" "}
+              (sửa đổi bởi{" "}
               <strong className="font-medium text-foreground">
-                Điều 53 Nghị định 41/2018/NĐ-CP (12/03/2018)
+                Luật số 56/2024/QH15
               </strong>
-              .
+              , hiệu lực 01/01/2025) và hướng dẫn tại{" "}
+              <strong className="font-medium text-foreground">
+                Điều 15 Nghị định 17/2012/NĐ-CP
+              </strong>{" "}
+              (sửa đổi bởi{" "}
+              <strong className="font-medium text-foreground">
+                Nghị định 90/2025/NĐ-CP
+              </strong>
+              , hiệu lực 14/04/2025).
             </p>
             <div className="relative bg-background border border-brand-red/30 pl-6 pr-6 py-6 rounded-[2px] shadow-[var(--shadow-card)]">
               <span
