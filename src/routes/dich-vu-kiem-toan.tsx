@@ -436,7 +436,7 @@ function AuditServicePage() {
           <div className="lg:col-span-5">
             <Eyebrow>03</Eyebrow>
             <h2 className="font-display text-3xl md:text-[2.25rem] leading-tight text-foreground">
-              Quy định về việc <span className="italic text-accent-foreground">kiểm toán bắt buộc</span>
+              Quy định pháp luật về <span className="italic text-accent-foreground">kiểm toán bắt buộc</span>
             </h2>
             <div className="mt-8 hidden lg:flex items-center gap-3 text-xs uppercase tracking-[0.2em] text-muted-foreground">
               <ScrollText size={14} className="text-brand-red" />
