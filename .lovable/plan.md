@@ -1,23 +1,14 @@
-## Bổ sung Section Phí kiểm toán vào trang Dịch vụ kiểm toán
+Gộp Section "Báo giá dịch vụ kiểm toán" (`id="phi-kiem-toan"`) và CTA section độc lập phía sau thành một section duy nhất.
 
-### Các thay đổi cần thực hiện
+## Thay đổi
 
-1. **Cập nhật mảng `TOC`**
-   - Thêm mục mới `id: "phi-kiem-toan"` vào sau `vi-sao-chon-taf` và trước `faq`.
-   - Label: `"Báo giá dịch vụ kiểm toán"`.
-   - Viết `desc` ngắn phù hợp SEO (~20–30 từ).
+1. **Giữ `<Section id="phi-kiem-toan">`** làm vỏ ngoài.
+2. **Bên trong section gộp:**
+   - **Phần nội dung (trên):** Giữ nguyên layout grid 12 cột với Eyebrow `08`, tiêu đề, và 3 đoạn văn hiện tại.
+   - **Phần CTA (dưới):** Chuyển 2 nút "Yêu cầu báo giá" và "Hotline / Zalo" từ CTA section độc lập xuống dưới nội dung, trong cùng section. Style CTA bằng card có border + background nhạt (`bg-cream/60 border border-border`) thay vì full dark banner, để đồng nhất với các section khác trên trang.
+3. **Xóa** CTA section độc lập (`bg-foreground text-background`) hiện tại.
+4. **TOC:** Không thay đổi — vẫn giữ 1 mục `phi-kiem-toan` duy nhất.
 
-2. **Thêm section JSX mới**
-   - Đặt sau `<Section id="vi-sao-chon-taf">` và trước CTA section `"Báo giá dịch vụ"` hiện có.
-   - `<Section id="phi-kiem-toan">` với `className="pt-0"` hoặc `bg-cream` tùy flow.
-   - Sử dụng pattern `Eyebrow` + `h2` hiện tại: `<Eyebrow>08</Eyebrow>` + `<h2>Báo giá dịch vụ kiểm toán</h2>`.
-   - Nội dung 3 đoạn văn theo đúng text người dùng cung cấp, render trong `font-serif text-foreground/85 leading-relaxed` (hoặc grid 12 cột nếu cần cân bằng với sidebar).
-   - Giữ nguyên section CTA (dark banner) phía sau để duy trì các nút `"Yêu cầu báo giá"` và `"Hotline / Zalo"`.
-
-3. **JSON-LD / Schema**
-   - `ItemList` schema đang ánh xạ từ `TOC.map`, nên chỉ cần mảng `TOC` được cập nhật là schema tự động đúng.
-   - Không cần sửa thêm logic JSON-LD.
-
-### Phạm vi
-- Chỉ sửa file `src/routes/dich-vu-kiem-toan.tsx`.
-- Không thay đổi component, style, hay route khác.
+## Kết quả mong đợi
+- Chỉ còn 1 section duy nhất cho "Báo giá dịch vụ kiểm toán", bao gồm cả nội dung lẫn nút kêu gọi hành động.
+- CTA không còn là section riêng biệt, tránh trùng lặp chủ đề "báo giá" trên trang.
