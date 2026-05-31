@@ -615,6 +615,38 @@ function AuditServicePage() {
         </ul>
       </Section>
 
+      {/* Phí kiểm toán */}
+      <Section id="phi-kiem-toan" className="pt-0">
+        <div className="rule-gold mb-12" />
+        <div className="grid lg:grid-cols-12 gap-10">
+          <div className="lg:col-span-4">
+            <Eyebrow>08</Eyebrow>
+            <h2 className="font-display text-3xl md:text-[2.25rem] leading-tight text-foreground">
+              Báo giá dịch vụ <span className="italic text-accent-foreground">kiểm toán</span>
+            </h2>
+          </div>
+          <div className="lg:col-span-8 font-serif text-base md:text-lg text-foreground/85 leading-relaxed space-y-5">
+            <p>
+              Để đảm bảo chất lượng công việc kiểm toán, chính xác thì các bạn nên tìm
+              đến các công ty dịch vụ kiểm toán uy tín.
+            </p>
+            <p>
+              Bảng giá dịch vụ kiểm toán sẽ được thông báo cụ thể tới bạn khi các bạn chủ
+              động liên hệ Hotline của công ty. Giá dịch vụ kiểm toán tại{" "}
+              <strong className="font-medium text-foreground">TAF</strong> cam kết cạnh
+              tranh nhất thị trường.
+            </p>
+            <p>
+              Chất lượng dịch vụ kiểm toán sẽ do chính khách hàng giám sát thông qua ứng
+              dụng công nghệ với tài khoản trực tuyến miễn phí. Qua đó, khách hàng có thể
+              trực tiếp giám sát công việc của kiểm toán viên.
+            </p>
+          </div>
+        </div>
+      </Section>
+
+
+
       {/* CTA báo giá */}
       <Section className="bg-foreground text-background relative overflow-hidden">
         <div
