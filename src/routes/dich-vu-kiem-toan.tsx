@@ -464,16 +464,26 @@ function AuditServicePage() {
       </Section>
 
       {/* CTA báo giá */}
-      <Section className="bg-foreground text-background">
-        <div className="grid lg:grid-cols-12 gap-8 items-end">
+      <Section className="bg-foreground text-background relative overflow-hidden">
+        <div
+          aria-hidden
+          className="pointer-events-none absolute -bottom-24 -left-24 opacity-[0.06]"
+        >
+          <TafSeal size={420} spin />
+        </div>
+        <div className="rule-gold mb-10 opacity-60" />
+        <div className="grid lg:grid-cols-12 gap-10 items-end relative">
           <div className="lg:col-span-8">
-            <p className="text-[0.7rem] uppercase tracking-[0.22em] text-background/60 mb-3">
+            <p className="text-[0.7rem] uppercase tracking-[0.22em] text-accent-foreground mb-4 flex items-center gap-2.5">
+              <span className="inline-block w-1.5 h-1.5 rounded-full bg-brand-red" />
+              <span className="inline-block w-6 h-px bg-accent/60" />
               Báo giá dịch vụ
             </p>
-            <h2 className="font-display text-3xl md:text-4xl leading-tight">
-              Phí kiểm toán minh bạch, tương xứng phạm vi công việc
+            <h2 className="font-display text-3xl md:text-[2.5rem] leading-[1.1]">
+              Phí kiểm toán <span className="italic text-accent-foreground">minh bạch</span>,<br className="hidden md:block" />
+              {" "}tương xứng phạm vi công việc
             </h2>
-            <p className="mt-4 text-background/75 font-serif text-lg leading-relaxed max-w-2xl">
+            <p className="mt-5 text-background/70 font-serif text-lg leading-relaxed max-w-2xl">
               TAF báo giá sau khảo sát sơ bộ. Chất lượng dịch vụ được khách hàng theo dõi
               trực tiếp qua tài khoản trực tuyến.
             </p>
@@ -481,18 +491,22 @@ function AuditServicePage() {
           <div className="lg:col-span-4 flex flex-col gap-3">
             <Link
               to="/lien-he"
-              className="inline-flex items-center justify-between gap-2 bg-brand-red text-white px-6 py-4 text-sm font-medium rounded-[2px] hover:opacity-90 transition"
+              className="group inline-flex items-center justify-between gap-2 bg-brand-red text-white px-6 py-4 text-sm font-medium rounded-[2px] hover:bg-brand-red-ink transition-all shadow-[0_8px_24px_-12px_color-mix(in_oklab,var(--color-brand-red)_60%,transparent)]"
             >
-              Yêu cầu báo giá <ArrowUpRight size={18} />
+              <span className="uppercase tracking-[0.15em]">Yêu cầu báo giá</span>
+              <ArrowUpRight
+                size={18}
+                className="group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform"
+              />
             </Link>
             <a
               href="tel:+84924580580"
-              className="inline-flex items-center justify-between gap-2 border border-background/30 text-background px-6 py-4 text-sm font-medium rounded-[2px] hover:bg-background/10 transition"
+              className="inline-flex items-center justify-between gap-2 border border-background/25 text-background px-6 py-4 text-sm font-medium rounded-[2px] hover:bg-background/10 hover:border-accent/60 transition"
             >
-              <span className="flex items-center gap-2">
+              <span className="flex items-center gap-2 text-background/80">
                 <Phone size={16} /> Hotline / Zalo
               </span>
-              <span className="font-mono">0924 580 580</span>
+              <span className="font-mono text-accent-foreground">0924 580 580</span>
             </a>
           </div>
         </div>
