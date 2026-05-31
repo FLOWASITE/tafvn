@@ -121,6 +121,17 @@ const FAQS = [
   },
 ];
 
+const TOC = [
+  { id: "dinh-nghia", label: "Dịch vụ kiểm toán là gì?" },
+  { id: "vi-sao-thue", label: "Vì sao doanh nghiệp nên thuê kiểm toán?" },
+  { id: "quy-dinh-bat-buoc", label: "Quy định về kiểm toán bắt buộc" },
+  { id: "doi-tuong-bat-buoc", label: "Các đối tượng bắt buộc phải kiểm toán" },
+  { id: "dich-vu-taf", label: "Các dịch vụ kiểm toán TAF cung cấp" },
+  { id: "quy-trinh", label: "Quy trình kiểm toán tại TAF" },
+  { id: "vi-sao-chon-taf", label: "Vì sao chọn TAF" },
+  { id: "faq", label: "Câu hỏi thường gặp" },
+];
+
 const RELATED = [
   { to: "/dich-vu/kiem-toan-bao-cao-tai-chinh", label: "Kiểm toán báo cáo tài chính" },
   { to: "/dich-vu/soat-xet-tuan-thu", label: "Soát xét tuân thủ & nội bộ" },
