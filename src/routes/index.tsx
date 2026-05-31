@@ -238,7 +238,7 @@ function HomePage() {
                       </span>
                       <span className="font-display text-lg text-foreground">{f.q}</span>
                     </dt>
-                    <span className="text-accent-foreground text-xl leading-none group-open:rotate-45 transition-transform">
+                    <span className="text-brand-red text-xl leading-none group-open:rotate-45 transition-transform">
                       +
                     </span>
                   </summary>
