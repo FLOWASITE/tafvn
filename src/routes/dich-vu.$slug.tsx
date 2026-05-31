@@ -163,7 +163,6 @@ function ServicePage() {
           </div>
           <Link
             to="/lien-he"
-            search={{ s: slug }}
             className="inline-flex items-center gap-2 bg-primary text-primary-foreground px-6 py-3.5 text-sm font-medium rounded-[2px] hover:bg-primary/90"
           >
             Yêu cầu báo giá <ArrowUpRight size={16} />
