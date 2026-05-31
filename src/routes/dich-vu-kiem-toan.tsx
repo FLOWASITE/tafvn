@@ -11,6 +11,7 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 import { SITE } from "@/lib/site";
+import heroImage from "@/assets/dich-vu-kiem-toan-bao-cao-tai-chinh-taf.jpg";
 
 const TITLE = "Dịch vụ kiểm toán độc lập tại Việt Nam | TAF";
 const DESCRIPTION =
