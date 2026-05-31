@@ -23,16 +23,16 @@ export function ProcessTimeline() {
       />
       {STEPS.map((s, i) => (
         <li key={s.title} className="relative pl-10 md:pl-0">
-          {/* Node */}
+          {/* Node — double ring seal */}
           <span
             aria-hidden
-            className="absolute md:relative left-0 md:left-auto top-1 md:top-auto flex items-center justify-center w-6 h-6 rounded-full bg-background border border-brand-red"
+            className="absolute md:relative left-0 md:left-auto top-1 md:top-auto flex items-center justify-center w-7 h-7 rounded-full bg-background border border-accent/70 shadow-[0_0_0_3px_color-mix(in_oklab,var(--color-brand-red)_12%,transparent)]"
           >
-            <span className="block w-1.5 h-1.5 rounded-full bg-brand-red" />
+            <span className="block w-2 h-2 rounded-full bg-brand-red" />
           </span>
           <div className="md:mt-5">
-            <div className="flex items-center gap-2 mb-2">
-              <span className="font-display italic text-accent-foreground/80 tabular-nums text-sm">
+            <div className="flex items-baseline gap-2 mb-2">
+              <span className="font-display italic text-accent-foreground tabular-nums text-2xl leading-none">
                 {String(i + 1).padStart(2, "0")}
               </span>
               <s.icon size={16} className="text-accent-foreground/60" strokeWidth={1.5} />

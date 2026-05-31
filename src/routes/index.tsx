@@ -23,6 +23,7 @@ import { ClientLogos } from "@/components/site/ClientLogos";
 import { VietnamMap } from "@/components/site/VietnamMap";
 import { ProcessTimeline } from "@/components/site/ProcessTimeline";
 import { TestimonialCarousel } from "@/components/site/TestimonialCarousel";
+import { Reveal } from "@/components/site/Reveal";
 import { useCountUp } from "@/hooks/use-count-up";
 import { SERVICES, SITE, FAQ_GENERAL } from "@/lib/site";
 import portraitImg from "@/assets/taf-portrait.png";
@@ -89,14 +90,14 @@ function HomePage() {
           {/* Left: copy */}
           <div className="lg:col-span-7">
             <Eyebrow>Kiểm toán độc lập · Tư vấn thuế · Kế toán</Eyebrow>
-            <h1 className="font-display text-[2.25rem] sm:text-5xl lg:text-[4rem] leading-[1.05] tracking-tight text-foreground">
+            <h1 className="font-display text-[2.25rem] sm:text-5xl lg:text-[4rem] leading-[1.05] tracking-tight text-foreground text-balance">
               Báo cáo kiểm toán
               <span className="block">
-                <em className="not-italic font-display italic text-accent-foreground">đúng</em>{" "}
+                <em className="not-italic font-display italic text-accent-foreground italic-mark">đúng</em>{" "}
                 chuẩn mực,
               </span>
               <span className="block">
-                <em className="not-italic font-display italic text-accent-foreground">đúng</em>{" "}
+                <em className="not-italic font-display italic text-accent-foreground italic-mark">đúng</em>{" "}
                 thời hạn.
               </span>
             </h1>
@@ -126,17 +127,22 @@ function HomePage() {
           </div>
 
           {/* Right: photo collage */}
-          <div className="lg:col-span-5 relative">
+          <Reveal className="lg:col-span-5 relative" delay={120}>
             <div className="relative">
-              <EditorialImage
-                src={portraitImg}
-                alt="Kiểm toán viên TAF kiểm tra Báo cáo Tài chính khách hàng"
-                aspect="portrait"
-                accent="red"
-                caption="Tại văn phòng TAF — kiểm tra Báo cáo Tài chính khách hàng FDI."
-              />
+              <div style={{ transform: "rotate(-1.2deg)" }}>
+                <EditorialImage
+                  src={portraitImg}
+                  alt="Kiểm toán viên TAF kiểm tra Báo cáo Tài chính khách hàng"
+                  aspect="portrait"
+                  accent="red"
+                  caption="Tại văn phòng TAF — kiểm tra Báo cáo Tài chính khách hàng FDI."
+                />
+              </div>
               {/* Overlap mini image */}
-              <div className="hidden sm:block absolute -bottom-6 -left-6 w-2/5 ring-8 ring-background">
+              <div
+                className="hidden sm:block absolute -bottom-6 -left-6 w-2/5 ring-8 ring-background"
+                style={{ transform: "rotate(2deg)" }}
+              >
                 <EditorialImage
                   src={reportSealImg}
                   alt="Chồng báo cáo kiểm toán TAF kèm con dấu đỏ"
@@ -146,10 +152,10 @@ function HomePage() {
               </div>
               {/* TAF seal floating top-left */}
               <div className="absolute -top-6 -left-4 sm:-top-8 sm:-left-8 hidden md:block">
-                <TafSeal size={88} />
+                <TafSeal size={88} spin />
               </div>
             </div>
-          </div>
+          </Reveal>
         </div>
 
         {/* Stats ledger strip */}
@@ -167,16 +173,14 @@ function HomePage() {
       {/* TRUST STRIP — clients + emblems */}
       <section className="bg-cream border-b border-border">
         <div className="mx-auto max-w-6xl px-5 md:px-8 py-12 md:py-16 space-y-10">
-          <ClientLogos />
-          <div className="grid sm:grid-cols-3 gap-3 md:gap-4">
-            <Emblem
-              icon={Landmark}
-              label="Đăng ký hành nghề"
-              sublabel="Bộ Tài chính"
-            />
-            <Emblem icon={Award} label="Thành viên" sublabel="VACPA" />
-            <Emblem icon={BookOpen} label="Chuẩn mực" sublabel="VSA & IFRS" />
-          </div>
+          <Reveal small><ClientLogos /></Reveal>
+          <Reveal small delay={120}>
+            <div className="grid sm:grid-cols-3 gap-3 md:gap-4">
+              <Emblem icon={Landmark} label="Đăng ký hành nghề" sublabel="Bộ Tài chính" />
+              <Emblem icon={Award} label="Thành viên" sublabel="VACPA" />
+              <Emblem icon={BookOpen} label="Chuẩn mực" sublabel="VSA & IFRS" />
+            </div>
+          </Reveal>
         </div>
       </section>
 
@@ -214,12 +218,13 @@ function HomePage() {
       {/* MAP — network */}
       <Section className="bg-cream border-y border-border">
         <div className="grid lg:grid-cols-12 gap-12 items-center">
-          <div className="lg:col-span-5 order-2 lg:order-1">
+          <Reveal className="lg:col-span-5 order-2 lg:order-1">
             <div className="relative max-w-[280px] mx-auto lg:mx-0">
               <VietnamMap />
             </div>
-          </div>
+          </Reveal>
           <div className="lg:col-span-7 order-1 lg:order-2">
+            <div className="rule-gold w-24 mb-6 opacity-70" />
             <Eyebrow>Mạng lưới phục vụ</Eyebrow>
             <h2 className="font-display text-3xl md:text-4xl lg:text-[2.5rem] leading-[1.1] text-foreground">
               60 tỉnh thành.
@@ -231,21 +236,11 @@ function HomePage() {
             </p>
             <dl className="mt-8 grid grid-cols-3 gap-6 max-w-md">
               {[
-                { city: "Hà Nội", count: "180+", note: "Khách hàng phía Bắc" },
-                { city: "Đà Nẵng", count: "70+", note: "Miền Trung & Tây Nguyên" },
-                { city: "TP. HCM", count: "250+", note: "Phía Nam & FDI" },
+                { city: "Hà Nội", count: 180, note: "Khách hàng phía Bắc" },
+                { city: "Đà Nẵng", count: 70, note: "Miền Trung & Tây Nguyên" },
+                { city: "TP. HCM", count: 250, note: "Phía Nam & FDI" },
               ].map((c) => (
-                <div key={c.city} className="border-t border-accent/40 pt-3">
-                  <dt className="font-display italic text-accent-foreground text-xl">
-                    {c.count}
-                  </dt>
-                  <dd className="mt-1 text-[0.7rem] uppercase tracking-[0.18em] text-muted-foreground">
-                    {c.city}
-                  </dd>
-                  <dd className="text-xs text-muted-foreground/80 font-serif italic mt-1">
-                    {c.note}
-                  </dd>
-                </div>
+                <CityStat key={c.city} city={c.city} count={c.count} note={c.note} />
               ))}
             </dl>
           </div>
@@ -335,9 +330,9 @@ function HomePage() {
               />
             </div>
           </div>
-          <div className="lg:col-span-7">
+          <Reveal className="lg:col-span-7" delay={100}>
             <ProcessTimeline />
-          </div>
+          </Reveal>
         </div>
       </Section>
 
@@ -362,18 +357,18 @@ function HomePage() {
         <div className="mx-auto max-w-6xl px-5 md:px-8 py-20 md:py-28 relative">
           {/* Seal watermark */}
           <div className="absolute top-8 right-8 hidden md:block">
-            <TafSeal size={140} opacity={0.12} />
+            <TafSeal size={140} opacity={0.12} spin />
           </div>
           <div className="grid lg:grid-cols-12 gap-10 items-start">
-            <div className="lg:col-span-2 hidden lg:block">
+            <Reveal className="lg:col-span-2 hidden lg:block" small>
               <span
                 aria-hidden
-                className="font-display italic text-accent/50 leading-[0.7] block"
+                className="font-display italic text-accent/60 leading-[0.7] block brace-glow"
                 style={{ fontSize: "10rem" }}
               >
                 “
               </span>
-            </div>
+            </Reveal>
             <div className="lg:col-span-10">
               <p className="text-[0.7rem] uppercase tracking-[0.22em] text-accent mb-6 flex items-center gap-2.5">
                 <span className="inline-block w-1.5 h-1.5 rounded-full bg-brand-red" />
@@ -423,7 +418,7 @@ function HomePage() {
       {/* CTA */}
       <Section className="bg-background border-t border-border relative overflow-hidden">
         <div className="absolute -bottom-10 -right-10 hidden md:block opacity-[0.07]" aria-hidden>
-          <TafSeal size={260} />
+          <TafSeal size={260} spin />
         </div>
         <div className="grid md:grid-cols-12 gap-8 items-center relative">
           <div className="md:col-span-8">
@@ -480,14 +475,30 @@ const USP = [
 function Stat({ value, suffix = "", label }: { value: number; suffix?: string; label: string }) {
   const { ref, value: animated } = useCountUp(value);
   return (
-    <div className="text-center md:text-left">
-      <div className="font-display italic text-3xl md:text-4xl lg:text-5xl text-accent-foreground leading-none tabular-nums">
+    <div className="stat-card text-center md:text-left cursor-default">
+      <div className="font-display italic text-3xl md:text-4xl lg:text-5xl text-accent-foreground leading-none tabular-nums stat-num">
         <span ref={ref}>{animated}</span>
         {suffix}
       </div>
+      <span className="stat-rule mx-auto md:mx-0" aria-hidden />
       <div className="mt-2 text-[0.7rem] uppercase tracking-[0.18em] text-muted-foreground">
         {label}
       </div>
+    </div>
+  );
+}
+
+function CityStat({ city, count, note }: { city: string; count: number; note: string }) {
+  const { ref, value } = useCountUp(count);
+  return (
+    <div className="border-t border-accent/40 pt-3">
+      <dt className="font-display italic text-accent-foreground text-xl tabular-nums">
+        <span ref={ref}>{value}</span>+
+      </dt>
+      <dd className="mt-1 text-[0.7rem] uppercase tracking-[0.18em] text-muted-foreground">
+        {city}
+      </dd>
+      <dd className="text-xs text-muted-foreground/80 font-serif italic mt-1">{note}</dd>
     </div>
   );
 }

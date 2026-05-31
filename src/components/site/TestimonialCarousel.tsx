@@ -39,7 +39,7 @@ export function TestimonialCarousel() {
           <CarouselItem key={i} className="basis-full">
             <figure>
               <blockquote className="font-display text-2xl md:text-3xl lg:text-[2.25rem] leading-[1.3] text-white">
-                <span className="text-white">“</span>
+                <span className="text-accent brace-glow">“</span>
                 {q.quote.split(" giải thích kiến nghị một cách thực tế").length > 1 ? (
                   <>
                     {q.quote.split(" giải thích kiến nghị một cách thực tế")[0]}{" "}
@@ -51,7 +51,7 @@ export function TestimonialCarousel() {
                 ) : (
                   q.quote
                 )}
-                <span className="text-white">”</span>
+                <span className="text-accent brace-glow">”</span>
               </blockquote>
               <figcaption className="mt-7 flex items-center gap-4">
                 <span className="inline-flex items-center justify-center w-11 h-11 rounded-full border border-accent/70 text-accent font-display italic text-sm tabular-nums">
@@ -67,8 +67,8 @@ export function TestimonialCarousel() {
         ))}
       </CarouselContent>
       <div className="mt-8 flex items-center gap-3">
-        <CarouselPrevious className="static translate-x-0 translate-y-0 bg-transparent text-white border-white/30 hover:bg-white/10 hover:text-white" />
-        <CarouselNext className="static translate-x-0 translate-y-0 bg-transparent text-white border-white/30 hover:bg-white/10 hover:text-white" />
+        <CarouselPrevious className="static translate-x-0 translate-y-0 bg-transparent text-accent border-accent/50 hover:bg-brand-red hover:text-white hover:border-brand-red" />
+        <CarouselNext className="static translate-x-0 translate-y-0 bg-transparent text-accent border-accent/50 hover:bg-brand-red hover:text-white hover:border-brand-red" />
       </div>
     </Carousel>
   );

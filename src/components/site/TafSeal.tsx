@@ -2,10 +2,12 @@ export function TafSeal({
   size = 96,
   className = "",
   opacity = 1,
+  spin = false,
 }: {
   size?: number;
   className?: string;
   opacity?: number;
+  spin?: boolean;
 }) {
   const id = "seal-curve";
   return (
@@ -13,7 +15,7 @@ export function TafSeal({
       viewBox="0 0 200 200"
       width={size}
       height={size}
-      className={className}
+      className={`${spin ? "spin-slow" : ""} ${className}`}
       style={{ opacity }}
       aria-hidden
     >

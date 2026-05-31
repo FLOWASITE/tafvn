@@ -51,17 +51,28 @@ export function VietnamMap({ className = "" }: { className?: string }) {
       <circle cx="285" cy="400" r="1.5" fill="var(--color-accent)" opacity="0.5" />
 
       {DOTS.map((d, i) => (
-        <g key={i}>
+        <g key={i} className={d.major ? "map-halo" : ""}>
           {d.major && (
-            <circle
-              cx={d.x}
-              cy={d.y}
-              r={(d.r ?? 3) + 8}
-              fill="var(--color-brand-red)"
-              opacity="0.15"
-              className="animate-ping"
-              style={{ animationDuration: "2.8s" }}
-            />
+            <>
+              <circle
+                cx={d.x}
+                cy={d.y}
+                r={(d.r ?? 3) + 10}
+                fill="var(--color-brand-red)"
+                opacity="0.12"
+                className="animate-ping"
+                style={{ animationDuration: "2.8s" }}
+              />
+              <circle
+                cx={d.x}
+                cy={d.y}
+                r={(d.r ?? 3) + 4}
+                fill="none"
+                stroke="var(--color-brand-red)"
+                strokeOpacity="0.35"
+                strokeWidth="0.8"
+              />
+            </>
           )}
           <circle
             cx={d.x}
