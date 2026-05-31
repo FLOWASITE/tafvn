@@ -1,8 +1,9 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { ArrowUpRight, Check, Phone } from "lucide-react";
+import { ArrowUpRight, Check, Phone, ScrollText } from "lucide-react";
 import { Breadcrumb } from "@/components/site/Breadcrumb";
 import { Section, Eyebrow } from "@/components/site/Section";
 import { Reveal } from "@/components/site/Reveal";
+import { TafSeal } from "@/components/site/TafSeal";
 import {
   Accordion,
   AccordionContent,
@@ -190,17 +191,32 @@ function AuditServicePage() {
       <Breadcrumb items={[{ label: "Dịch vụ", to: "/dich-vu" }, { label: "Dịch vụ kiểm toán" }]} />
 
       {/* Hero */}
-      <Section className="pb-10 md:pb-14">
-        <div className="grid lg:grid-cols-12 gap-10">
+      <Section className="pb-10 md:pb-14 relative overflow-hidden">
+        <div
+          aria-hidden
+          className="pointer-events-none absolute -top-10 -right-16 md:right-0 opacity-[0.07] hidden md:block"
+        >
+          <TafSeal size={420} spin />
+        </div>
+        <div className="grid lg:grid-cols-12 gap-10 relative">
           <header className="lg:col-span-8">
             <Eyebrow>Kiểm toán độc lập</Eyebrow>
-            <h1 className="font-display text-4xl md:text-5xl lg:text-[3.25rem] leading-[1.05] text-foreground">
-              Dịch vụ kiểm toán
+            <h1 className="font-display text-4xl md:text-5xl lg:text-[3.5rem] leading-[1.02] text-foreground">
+              Dịch vụ <span className="italic text-accent-foreground italic-mark">kiểm toán</span>
+              <span className="block text-foreground/55 text-2xl md:text-3xl lg:text-4xl font-display italic mt-2">
+                độc lập tại Việt Nam
+              </span>
             </h1>
-            <p className="mt-3 text-xs uppercase tracking-[0.2em] text-muted-foreground">
+            <p className="mt-5 text-xs uppercase tracking-[0.2em] text-muted-foreground">
               Phụ trách chuyên môn:{" "}
               <span className="text-foreground/90">Huỳnh Thế Tho — Giám đốc kiểm toán</span>
             </p>
+            <div className="mt-6 flex items-center gap-4">
+              <span className="block h-px w-12 bg-brand-red" />
+              <span className="text-[0.7rem] uppercase tracking-[0.22em] text-brand-red-ink font-medium">
+                Đăng ký số · Bộ Tài chính
+              </span>
+            </div>
             <p className="mt-6 text-lg md:text-xl text-muted-foreground font-serif leading-relaxed">
               Dịch vụ kiểm toán giúp doanh nghiệp chứng minh tính minh bạch, trung thực của
               báo cáo tài chính: đối chiếu số liệu, xác thực và đưa ra ý kiến độc lập về độ
@@ -214,11 +230,14 @@ function AuditServicePage() {
               { k: "Đội ngũ", v: "KTV có chứng chỉ hành nghề" },
               { k: "Báo giá", v: "Minh bạch sau khảo sát sơ bộ" },
             ].map((i) => (
-              <div key={i.k} className="border-b border-border pb-3 last:border-0">
-                <div className="text-[0.7rem] uppercase tracking-[0.2em] text-muted-foreground">
+              <div key={i.k} className="border-b border-border pb-3 last:border-0 group">
+                <div className="text-[0.7rem] uppercase tracking-[0.2em] text-muted-foreground flex items-center gap-2">
+                  <span className="inline-block w-1 h-1 rounded-full bg-brand-red" />
                   {i.k}
                 </div>
-                <div className="font-display text-base text-foreground mt-1">{i.v}</div>
+                <div className="font-display text-base text-foreground mt-1.5 group-hover:text-accent-foreground transition-colors">
+                  {i.v}
+                </div>
               </div>
             ))}
           </aside>
@@ -272,13 +291,17 @@ function AuditServicePage() {
       </Section>
 
       {/* Quy định bắt buộc */}
-      <Section className="bg-cream border-y border-border">
+      <Section className="bg-cream border-y border-border relative">
         <div className="grid lg:grid-cols-12 gap-10">
           <div className="lg:col-span-5">
             <Eyebrow>03</Eyebrow>
             <h2 className="font-display text-3xl md:text-[2.25rem] leading-tight text-foreground">
-              Quy định về kiểm toán bắt buộc
+              Quy định về <span className="italic text-accent-foreground">kiểm toán bắt buộc</span>
             </h2>
+            <div className="mt-8 hidden lg:flex items-center gap-3 text-xs uppercase tracking-[0.2em] text-muted-foreground">
+              <ScrollText size={14} className="text-brand-red" />
+              Trích dẫn pháp lý
+            </div>
           </div>
           <div className="lg:col-span-7 font-serif text-foreground/85 leading-relaxed space-y-5">
             <p>
@@ -296,15 +319,26 @@ function AuditServicePage() {
               </strong>
               .
             </p>
-            <div className="border-l-2 border-brand-red pl-5 bg-background/60 py-4 pr-5">
-              <div className="text-[0.7rem] uppercase tracking-[0.2em] text-muted-foreground mb-1.5">
-                Mức phạt
+            <div className="relative bg-background border border-brand-red/30 pl-6 pr-6 py-6 rounded-[2px] shadow-[var(--shadow-card)]">
+              <span
+                aria-hidden
+                className="absolute left-0 top-0 bottom-0 w-1 bg-brand-red"
+              />
+              <div className="text-[0.7rem] uppercase tracking-[0.22em] text-brand-red-ink mb-2 font-medium">
+                Mức phạt theo Điều 53 NĐ 41/2018
               </div>
-              <p className="text-foreground">
-                Phạt tiền từ <strong>40.000.000 – 50.000.000 đồng</strong> đối với đơn vị
-                không thực hiện kiểm toán bắt buộc đối với báo cáo tài chính, báo cáo quyết
-                toán dự án hoàn thành, báo cáo tài chính hợp nhất, báo cáo tài chính tổng
-                hợp và các công việc kiểm toán khác theo quy định.
+              <div className="flex items-baseline gap-3 mb-3">
+                <span className="font-display text-4xl md:text-5xl text-foreground tabular-nums leading-none">
+                  40–50
+                </span>
+                <span className="text-sm uppercase tracking-[0.18em] text-muted-foreground">
+                  triệu đồng
+                </span>
+              </div>
+              <p className="text-foreground/85 text-sm md:text-base">
+                Áp dụng với đơn vị không thực hiện kiểm toán bắt buộc đối với báo cáo tài
+                chính, báo cáo quyết toán dự án hoàn thành, báo cáo tài chính hợp nhất,
+                báo cáo tài chính tổng hợp và các công việc kiểm toán khác theo quy định.
               </p>
             </div>
           </div>
@@ -321,12 +355,16 @@ function AuditServicePage() {
           {SUBJECTS.map((s, i) => (
             <li
               key={s}
-              className="flex gap-5 py-4 border-t border-border font-serif text-foreground/85"
+              className="group flex gap-5 py-4 border-t border-border font-serif text-foreground/85 hover:text-foreground transition-colors"
             >
-              <span className="font-mono text-sm text-accent-foreground tabular-nums shrink-0 w-8">
+              <span className="font-mono text-sm text-accent-foreground tabular-nums shrink-0 w-8 group-hover:text-brand-red transition-colors">
                 {String(i + 1).padStart(2, "0")}
               </span>
-              <span className="leading-relaxed">{s}</span>
+              <span className="leading-relaxed flex-1">{s}</span>
+              <span
+                aria-hidden
+                className="hidden md:block self-center w-0 group-hover:w-6 h-px bg-accent transition-all duration-300"
+              />
             </li>
           ))}
         </ol>
@@ -342,17 +380,21 @@ function AuditServicePage() {
         <div className="mt-10 grid sm:grid-cols-2 lg:grid-cols-3 gap-3">
           {TAF_SERVICES.map((s, i) => {
             const inner = (
-              <div className="group h-full bg-card border border-border hover:border-accent p-5 rounded-[2px] transition-colors flex items-start gap-4">
-                <span className="font-mono text-xs text-muted-foreground tabular-nums mt-0.5 shrink-0">
+              <div className="group relative h-full bg-card border border-border hover:border-accent p-5 rounded-[2px] transition-all duration-300 flex items-start gap-4 hover:shadow-[var(--shadow-card)] hover:-translate-y-0.5">
+                <span
+                  aria-hidden
+                  className="absolute top-0 right-0 w-3 h-3 border-t border-r border-accent opacity-0 group-hover:opacity-100 transition-opacity"
+                />
+                <span className="font-mono text-xs text-muted-foreground tabular-nums mt-0.5 shrink-0 group-hover:text-brand-red transition-colors">
                   {String(i + 1).padStart(2, "0")}
                 </span>
-                <span className="font-display text-base text-foreground leading-snug flex-1">
+                <span className="font-display text-base text-foreground leading-snug flex-1 group-hover:text-accent-foreground transition-colors">
                   {s.label}
                 </span>
                 {s.slug ? (
                   <ArrowUpRight
                     size={16}
-                    className="text-muted-foreground group-hover:text-accent-foreground shrink-0 mt-1"
+                    className="text-muted-foreground group-hover:text-accent-foreground group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all shrink-0 mt-1"
                   />
                 ) : null}
               </div>
@@ -422,16 +464,26 @@ function AuditServicePage() {
       </Section>
 
       {/* CTA báo giá */}
-      <Section className="bg-foreground text-background">
-        <div className="grid lg:grid-cols-12 gap-8 items-end">
+      <Section className="bg-foreground text-background relative overflow-hidden">
+        <div
+          aria-hidden
+          className="pointer-events-none absolute -bottom-24 -left-24 opacity-[0.06]"
+        >
+          <TafSeal size={420} spin />
+        </div>
+        <div className="rule-gold mb-10 opacity-60" />
+        <div className="grid lg:grid-cols-12 gap-10 items-end relative">
           <div className="lg:col-span-8">
-            <p className="text-[0.7rem] uppercase tracking-[0.22em] text-background/60 mb-3">
+            <p className="text-[0.7rem] uppercase tracking-[0.22em] text-accent-foreground mb-4 flex items-center gap-2.5">
+              <span className="inline-block w-1.5 h-1.5 rounded-full bg-brand-red" />
+              <span className="inline-block w-6 h-px bg-accent/60" />
               Báo giá dịch vụ
             </p>
-            <h2 className="font-display text-3xl md:text-4xl leading-tight">
-              Phí kiểm toán minh bạch, tương xứng phạm vi công việc
+            <h2 className="font-display text-3xl md:text-[2.5rem] leading-[1.1]">
+              Phí kiểm toán <span className="italic text-accent-foreground">minh bạch</span>,<br className="hidden md:block" />
+              {" "}tương xứng phạm vi công việc
             </h2>
-            <p className="mt-4 text-background/75 font-serif text-lg leading-relaxed max-w-2xl">
+            <p className="mt-5 text-background/70 font-serif text-lg leading-relaxed max-w-2xl">
               TAF báo giá sau khảo sát sơ bộ. Chất lượng dịch vụ được khách hàng theo dõi
               trực tiếp qua tài khoản trực tuyến.
             </p>
@@ -439,18 +491,22 @@ function AuditServicePage() {
           <div className="lg:col-span-4 flex flex-col gap-3">
             <Link
               to="/lien-he"
-              className="inline-flex items-center justify-between gap-2 bg-brand-red text-white px-6 py-4 text-sm font-medium rounded-[2px] hover:opacity-90 transition"
+              className="group inline-flex items-center justify-between gap-2 bg-brand-red text-white px-6 py-4 text-sm font-medium rounded-[2px] hover:bg-brand-red-ink transition-all shadow-[0_8px_24px_-12px_color-mix(in_oklab,var(--color-brand-red)_60%,transparent)]"
             >
-              Yêu cầu báo giá <ArrowUpRight size={18} />
+              <span className="uppercase tracking-[0.15em]">Yêu cầu báo giá</span>
+              <ArrowUpRight
+                size={18}
+                className="group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform"
+              />
             </Link>
             <a
               href="tel:+84924580580"
-              className="inline-flex items-center justify-between gap-2 border border-background/30 text-background px-6 py-4 text-sm font-medium rounded-[2px] hover:bg-background/10 transition"
+              className="inline-flex items-center justify-between gap-2 border border-background/25 text-background px-6 py-4 text-sm font-medium rounded-[2px] hover:bg-background/10 hover:border-accent/60 transition"
             >
-              <span className="flex items-center gap-2">
+              <span className="flex items-center gap-2 text-background/80">
                 <Phone size={16} /> Hotline / Zalo
               </span>
-              <span className="font-mono">0924 580 580</span>
+              <span className="font-mono text-accent-foreground">0924 580 580</span>
             </a>
           </div>
         </div>
@@ -499,17 +555,24 @@ function AuditServicePage() {
           Dịch vụ liên quan
         </h2>
         <div className="mt-8 grid sm:grid-cols-3 gap-4">
-          {RELATED.map((r) => (
+          {RELATED.map((r, i) => (
             <Link
               key={r.to}
               to={r.to}
-              className="group bg-card border border-border hover:border-accent p-5 rounded-[2px] transition-colors flex items-center justify-between gap-4"
+              className="group relative bg-card border border-border hover:border-accent p-6 rounded-[2px] transition-all duration-300 hover:shadow-[var(--shadow-card)] hover:-translate-y-0.5 flex flex-col gap-6 min-h-[160px]"
             >
-              <span className="font-display text-base text-foreground">{r.label}</span>
-              <ArrowUpRight
-                size={16}
-                className="text-muted-foreground group-hover:text-accent-foreground shrink-0"
-              />
+              <span className="font-mono text-xs text-muted-foreground tabular-nums group-hover:text-brand-red transition-colors">
+                {String(i + 1).padStart(2, "0")} / {String(RELATED.length).padStart(2, "0")}
+              </span>
+              <div className="flex items-end justify-between gap-3 mt-auto">
+                <span className="font-display text-lg text-foreground leading-snug">
+                  {r.label}
+                </span>
+                <ArrowUpRight
+                  size={18}
+                  className="text-muted-foreground group-hover:text-accent-foreground group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all shrink-0"
+                />
+              </div>
             </Link>
           ))}
         </div>
