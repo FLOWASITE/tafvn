@@ -669,11 +669,11 @@ function AuditServicePage() {
           <div className="lg:col-span-4">
             <Eyebrow>FAQ</Eyebrow>
             <h2 className="font-display text-3xl md:text-[2.25rem] leading-tight text-foreground">
-              Câu hỏi thường gặp
+              Câu hỏi thường gặp về dịch vụ kiểm toán
             </h2>
             <p className="mt-4 text-sm text-muted-foreground font-serif leading-relaxed">
-              Câu trả lời ngắn cho những thắc mắc phổ biến nhất về dịch vụ kiểm toán độc
-              lập.
+              Giải đáp về chi phí, thời gian, hồ sơ và phạm vi dịch vụ kiểm toán độc lập
+              tại TAF.
             </p>
           </div>
           <div className="lg:col-span-8">
