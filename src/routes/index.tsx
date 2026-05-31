@@ -330,9 +330,9 @@ function HomePage() {
               />
             </div>
           </div>
-          <div className="lg:col-span-7">
+          <Reveal className="lg:col-span-7" delay={100}>
             <ProcessTimeline />
-          </div>
+          </Reveal>
         </div>
       </Section>
 
@@ -357,18 +357,18 @@ function HomePage() {
         <div className="mx-auto max-w-6xl px-5 md:px-8 py-20 md:py-28 relative">
           {/* Seal watermark */}
           <div className="absolute top-8 right-8 hidden md:block">
-            <TafSeal size={140} opacity={0.12} />
+            <TafSeal size={140} opacity={0.12} spin />
           </div>
           <div className="grid lg:grid-cols-12 gap-10 items-start">
-            <div className="lg:col-span-2 hidden lg:block">
+            <Reveal className="lg:col-span-2 hidden lg:block" small>
               <span
                 aria-hidden
-                className="font-display italic text-accent/50 leading-[0.7] block"
+                className="font-display italic text-accent/60 leading-[0.7] block brace-glow"
                 style={{ fontSize: "10rem" }}
               >
                 “
               </span>
-            </div>
+            </Reveal>
             <div className="lg:col-span-10">
               <p className="text-[0.7rem] uppercase tracking-[0.22em] text-accent mb-6 flex items-center gap-2.5">
                 <span className="inline-block w-1.5 h-1.5 rounded-full bg-brand-red" />
@@ -418,7 +418,7 @@ function HomePage() {
       {/* CTA */}
       <Section className="bg-background border-t border-border relative overflow-hidden">
         <div className="absolute -bottom-10 -right-10 hidden md:block opacity-[0.07]" aria-hidden>
-          <TafSeal size={260} />
+          <TafSeal size={260} spin />
         </div>
         <div className="grid md:grid-cols-12 gap-8 items-center relative">
           <div className="md:col-span-8">
