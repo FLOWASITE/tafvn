@@ -21,7 +21,7 @@ export function EditorialImage({
   return (
     <figure className={`relative ${className}`}>
       <div
-        className={`relative ${ratio} overflow-hidden bg-muted before:absolute before:top-0 before:left-0 before:h-px before:w-16 before:z-10 ${accentBorder} after:absolute after:top-0 after:left-0 after:w-px after:h-16 after:bg-accent after:z-10`}
+        className={`relative ${ratio} overflow-hidden rounded-[3px] bg-muted shadow-[0_24px_60px_-24px_rgba(20,20,30,0.45)] before:absolute before:top-0 before:left-0 before:h-px before:w-16 before:z-10 ${accentBorder} after:absolute after:top-0 after:left-0 after:w-px after:h-16 after:bg-accent after:z-10`}
       >
         <img
           src={src}
@@ -42,7 +42,7 @@ export function EditorialImage({
         <div aria-hidden className="absolute inset-0 pointer-events-none opacity-[0.08] mix-blend-overlay paper-grain" />
       </div>
       {caption ? (
-        <figcaption className="mt-3 text-xs md:text-sm text-muted-foreground font-serif italic leading-snug">
+        <figcaption className="mt-3 pr-2 block w-full text-xs md:text-sm text-muted-foreground font-serif italic leading-snug">
           {caption}
         </figcaption>
       ) : null}

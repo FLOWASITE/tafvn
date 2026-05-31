@@ -6,7 +6,7 @@ export const SITE = {
   tagline: "Kiểm toán độc lập — minh bạch, đúng chuẩn mực, đúng thời hạn",
   description:
     "TAF là hãng kiểm toán độc lập tại Việt Nam, cung cấp dịch vụ kiểm toán báo cáo tài chính, tư vấn thuế, kế toán và soát xét tuân thủ cho doanh nghiệp trong nước và FDI.",
-  established: 2003,
+  established: 2011,
   // Đặt rỗng vì chưa có domain custom; canonical/og:url dùng path tương đối.
   url: "",
 };

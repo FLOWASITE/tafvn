@@ -171,12 +171,13 @@
   @keyframes spin-slow { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
   .spin-slow { animation: spin-slow 90s linear infinite; transform-origin: 50% 50%; }
 
-  /* Hero italic hand underline */
+  /* Hero italic hand underline — thin brush stroke, single emphasis */
   .italic-mark { position: relative; display: inline-block; }
   .italic-mark::after {
-    content: ""; position: absolute; left: 4%; right: 4%; bottom: -0.18em; height: 0.18em;
-    background: var(--color-accent); opacity: 0.55; border-radius: 999px;
-    transform: skewY(-2deg);
+    content: ""; position: absolute; left: 6%; right: 6%; bottom: -0.08em; height: 2px;
+    background: linear-gradient(90deg, transparent, var(--color-accent) 18%, var(--color-accent) 82%, transparent);
+    opacity: 0.85; border-radius: 2px;
+    transform: skewX(-8deg) rotate(-0.6deg);
   }
 
   /* Stat hover underline */
