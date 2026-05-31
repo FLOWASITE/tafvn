@@ -29,8 +29,8 @@ function HomePage() {
   const years = new Date().getFullYear() - SITE.established;
   return (
     <>
-      {/* HERO — Editorial broadsheet */}
-      <section className="relative overflow-hidden bg-cream">
+      {/* HERO */}
+      <section className="relative overflow-hidden border-b border-border">
         {/* Subtle grid texture */}
         <div className="absolute inset-0 -z-10 opacity-[0.03]" aria-hidden>
           <div
@@ -42,48 +42,45 @@ function HomePage() {
             }}
           />
         </div>
-        {/* Oversized watermark numeral — years of practice */}
+        {/* Corner hairline mark */}
         <div
-          className="pointer-events-none absolute right-[-3rem] top-1/2 -translate-y-1/2 font-display text-brand-red/[0.05] leading-none select-none"
+          className="pointer-events-none absolute top-0 right-0 w-40 h-40 border-r border-t border-brand-red/40 -mr-10 -mt-6 hidden md:block"
           aria-hidden
-          style={{ fontSize: "clamp(14rem, 28vw, 32rem)" }}
+        />
+        {/* Oversized faded numeral — years of practice */}
+        <div
+          className="pointer-events-none absolute right-[-2rem] bottom-[-3rem] font-display italic text-brand-red/[0.06] leading-none select-none hidden md:block"
+          aria-hidden
+          style={{ fontSize: "clamp(14rem, 22vw, 24rem)" }}
         >
           {years}
         </div>
-        {/* Bottom navy hairline anchor */}
-        <div aria-hidden className="absolute bottom-0 left-0 right-0 h-px bg-primary/80" />
 
-        <div className="mx-auto max-w-6xl px-5 md:px-8 pt-20 pb-20 md:pt-28 md:pb-28 grid lg:grid-cols-12 gap-12 lg:gap-16 items-start relative">
-          <div className="lg:col-span-7">
+        <div className="mx-auto max-w-6xl px-5 md:px-8 pt-20 pb-16 md:pt-28 md:pb-24 grid lg:grid-cols-12 gap-10 items-end relative">
+          <div className="lg:col-span-8">
             <Eyebrow>Kiểm toán độc lập · Tư vấn thuế · Kế toán</Eyebrow>
-
-            <div className="border-l border-accent/40 pl-6 md:pl-8 mt-4">
-              <h1 className="font-display text-[2.5rem] sm:text-5xl lg:text-[4.25rem] leading-[1.05] tracking-tight text-foreground font-medium">
-                Báo cáo{" "}
-                <em className="not-italic font-display italic font-normal text-accent-foreground">
-                  kiểm toán
-                </em>
-                <span className="block">đúng chuẩn mực,</span>
-                <span className="block">
-                  đúng{" "}
-                  <em className="not-italic font-display italic font-normal text-accent-foreground">
-                    thời hạn.
-                  </em>
-                </span>
-              </h1>
-              <p className="mt-7 max-w-xl text-base md:text-lg text-foreground/75 font-serif leading-relaxed">
-                {SITE.legalName} là hãng kiểm toán độc lập tại Việt Nam, đăng ký hành nghề với Bộ
-                Tài chính. Hơn {years} năm phục vụ doanh nghiệp trong nước, FDI và các dự án đầu
-                tư công với sự tận tâm và chính trực.
-              </p>
-            </div>
-
-            <div className="mt-10 flex flex-col sm:flex-row gap-3 max-w-xl">
+            <h1 className="font-display text-[2.5rem] sm:text-5xl lg:text-[4rem] leading-[1.05] tracking-tight text-foreground">
+              Báo cáo kiểm toán
+              <span className="block">
+                <em className="not-italic font-display italic text-accent-foreground">đúng</em>{" "}
+                chuẩn mực,
+              </span>
+              <span className="block">
+                <em className="not-italic font-display italic text-accent-foreground">đúng</em>{" "}
+                thời hạn.
+              </span>
+            </h1>
+            <p className="mt-6 max-w-2xl text-lg text-muted-foreground font-serif leading-relaxed">
+              {SITE.legalName} là hãng kiểm toán độc lập tại Việt Nam, đăng ký hành nghề với Bộ
+              Tài chính. Hơn {years} năm phục vụ doanh nghiệp trong nước, FDI và các dự án đầu tư
+              công.
+            </p>
+            <div className="mt-8 flex flex-wrap gap-3">
               <Link
                 to="/lien-he"
-                className="group inline-flex items-center justify-between gap-2 bg-brand-red text-white px-6 py-4 text-xs font-semibold tracking-[0.2em] uppercase rounded-[2px] hover:bg-brand-red-ink transition shadow-[0_10px_28px_-12px_var(--color-brand-red)] flex-1"
+                className="group inline-flex items-center gap-2 bg-brand-red text-white px-6 py-3.5 text-xs font-semibold tracking-[0.18em] uppercase rounded-[2px] hover:bg-brand-red-ink transition shadow-[0_8px_24px_-12px_var(--color-brand-red)]"
               >
-                <span>Yêu cầu báo giá</span>
+                Yêu cầu báo giá
                 <ArrowUpRight
                   size={16}
                   className="transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
@@ -91,7 +88,7 @@ function HomePage() {
               </Link>
               <Link
                 to="/dich-vu"
-                className="inline-flex items-center justify-center gap-2 border border-foreground/20 text-foreground px-6 py-4 text-xs font-semibold tracking-[0.2em] uppercase rounded-[2px] hover:bg-foreground/5 transition flex-1"
+                className="inline-flex items-center gap-2 border border-input text-foreground px-6 py-3.5 text-xs font-semibold tracking-[0.18em] uppercase rounded-[2px] hover:bg-muted transition"
               >
                 Khám phá dịch vụ
               </Link>
@@ -99,24 +96,11 @@ function HomePage() {
           </div>
 
           {/* Stats — ledger column */}
-          <div className="lg:col-span-5 lg:pt-16">
-            <div className="relative">
-              <span aria-hidden className="absolute -top-5 left-0 w-12 h-px bg-accent" />
-              <div className="grid grid-cols-2 gap-y-10 gap-x-8">
-                <Stat value="20+" label="Năm hành nghề" />
-                <Stat value="500+" label="Khách hàng DN" />
-                <div className="col-span-2">
-                  <div className="w-full h-px bg-foreground/10 mb-7" />
-                  <div className="flex items-baseline gap-4">
-                    <span className="font-display italic text-3xl md:text-4xl lg:text-5xl text-accent-foreground leading-none">
-                      60+
-                    </span>
-                    <span className="text-[0.7rem] uppercase tracking-[0.18em] text-muted-foreground">
-                      Tỉnh / Thành phục vụ
-                    </span>
-                  </div>
-                </div>
-              </div>
+          <div className="lg:col-span-4">
+            <div className="border-t border-border pt-6 grid grid-cols-3 lg:grid-cols-1 gap-6 lg:gap-7 lg:border-t-0 lg:border-l lg:border-accent/40 lg:pl-7 lg:pt-0">
+              <Stat value="20+" label="Năm hành nghề" />
+              <Stat value="500+" label="Khách hàng doanh nghiệp" />
+              <Stat value="60+" label="Tỉnh / thành phục vụ" />
             </div>
           </div>
         </div>
