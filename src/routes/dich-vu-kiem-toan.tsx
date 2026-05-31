@@ -1,6 +1,8 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
+import { useState, useRef, useEffect } from "react";
 import {
   ArrowUpRight,
+  Play,
   Phone,
   ScrollText,
   List,
@@ -267,6 +269,88 @@ export const Route = createFileRoute("/dich-vu-kiem-toan")({
   },
   component: AuditServicePage,
 });
+
+function LazyYouTube({ videoId, title }: { videoId: string; title: string }) {
+  const [loaded, setLoaded] = useState(false);
+  const containerRef = useRef<HTMLDivElement>(null);
+  const [inView, setInView] = useState(false);
+
+  useEffect(() => {
+    const el = containerRef.current;
+    if (!el) return;
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) setInView(true);
+      },
+      { rootMargin: "200px" }
+    );
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, []);
+
+  const handleKeyDown = (e: React.KeyboardEvent<HTMLButtonElement>) => {
+    if (e.key === "Enter" || e.key === " ") {
+      e.preventDefault();
+      setLoaded(true);
+    }
+  };
+
+  const thumbSrc = `https://img.youtube.com/vi/${videoId}/maxresdefault.jpg`;
+  const iframeSrc = `https://www.youtube.com/embed/${videoId}?autoplay=1&rel=0`;
+
+  return (
+    <div
+      ref={containerRef}
+      className="aspect-video w-full relative bg-black"
+    >
+      {loaded ? (
+        <iframe
+          className="w-full h-full block"
+          src={iframeSrc}
+          title={title}
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          allowFullScreen
+        />
+      ) : (
+        <>
+          {inView && (
+            <img
+              src={thumbSrc}
+              alt={`Thumbnail video: ${title}`}
+              loading="lazy"
+              decoding="async"
+              className="w-full h-full object-cover block"
+              onError={(e) => {
+                (e.target as HTMLImageElement).src = thumbSrc.replace(
+                  "maxresdefault",
+                  "sddefault"
+                );
+              }}
+            />
+          )}
+          <button
+            type="button"
+            onClick={() => setLoaded(true)}
+            onKeyDown={handleKeyDown}
+            tabIndex={0}
+            aria-label={`Phát video: ${title}`}
+            className="absolute inset-0 flex items-center justify-center bg-black/15 hover:bg-black/25 transition-colors duration-300 group focus:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 rounded-[2px]"
+          >
+            <span className="sr-only">Phát video: {title}</span>
+            <span className="w-16 h-16 rounded-full bg-white/95 shadow-[var(--shadow-elegant)] flex items-center justify-center group-hover:scale-110 group-hover:bg-white transition-all duration-300">
+              <Play
+                size={28}
+                className="text-brand-red ml-1"
+                fill="currentColor"
+                aria-hidden="true"
+              />
+            </span>
+          </button>
+        </>
+      )}
+    </div>
+  );
+}
 
 function AuditServicePage() {
   return (
@@ -652,16 +736,10 @@ function AuditServicePage() {
                 <span aria-hidden className="absolute -bottom-2 -right-2 w-6 h-6 border-b border-r border-accent-foreground/70" />
 
                 <div className="relative border border-border rounded-[2px] overflow-hidden bg-cream shadow-[var(--shadow-elegant)]">
-                  <div className="aspect-video w-full">
-                    <iframe
-                      className="w-full h-full block"
-                      src="https://www.youtube.com/embed/uwiuHO1uN0A"
-                      title="Vì sao chọn dịch vụ kiểm toán TAF"
-                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                      allowFullScreen
-                      loading="lazy"
-                    />
-                  </div>
+                  <LazyYouTube
+                    videoId="uwiuHO1uN0A"
+                    title="Giới thiệu dịch vụ kiểm toán độc lập TAF — Kiểm toán viên được Bộ Tài chính cấp phép hành nghề"
+                  />
                 </div>
                 <figcaption className="mt-3 text-[0.7rem] uppercase tracking-[0.22em] text-muted-foreground flex items-center gap-2.5">
                   <span className="inline-block w-6 h-px bg-accent/60" />
