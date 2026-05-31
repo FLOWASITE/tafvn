@@ -191,17 +191,32 @@ function AuditServicePage() {
       <Breadcrumb items={[{ label: "Dịch vụ", to: "/dich-vu" }, { label: "Dịch vụ kiểm toán" }]} />
 
       {/* Hero */}
-      <Section className="pb-10 md:pb-14">
-        <div className="grid lg:grid-cols-12 gap-10">
+      <Section className="pb-10 md:pb-14 relative overflow-hidden">
+        <div
+          aria-hidden
+          className="pointer-events-none absolute -top-10 -right-16 md:right-0 opacity-[0.07] hidden md:block"
+        >
+          <TafSeal size={420} spin />
+        </div>
+        <div className="grid lg:grid-cols-12 gap-10 relative">
           <header className="lg:col-span-8">
             <Eyebrow>Kiểm toán độc lập</Eyebrow>
-            <h1 className="font-display text-4xl md:text-5xl lg:text-[3.25rem] leading-[1.05] text-foreground">
-              Dịch vụ kiểm toán
+            <h1 className="font-display text-4xl md:text-5xl lg:text-[3.5rem] leading-[1.02] text-foreground">
+              Dịch vụ <span className="italic text-accent-foreground italic-mark">kiểm toán</span>
+              <span className="block text-foreground/55 text-2xl md:text-3xl lg:text-4xl font-display italic mt-2">
+                độc lập tại Việt Nam
+              </span>
             </h1>
-            <p className="mt-3 text-xs uppercase tracking-[0.2em] text-muted-foreground">
+            <p className="mt-5 text-xs uppercase tracking-[0.2em] text-muted-foreground">
               Phụ trách chuyên môn:{" "}
               <span className="text-foreground/90">Huỳnh Thế Tho — Giám đốc kiểm toán</span>
             </p>
+            <div className="mt-6 flex items-center gap-4">
+              <span className="block h-px w-12 bg-brand-red" />
+              <span className="text-[0.7rem] uppercase tracking-[0.22em] text-brand-red-ink font-medium">
+                Đăng ký số · Bộ Tài chính
+              </span>
+            </div>
             <p className="mt-6 text-lg md:text-xl text-muted-foreground font-serif leading-relaxed">
               Dịch vụ kiểm toán giúp doanh nghiệp chứng minh tính minh bạch, trung thực của
               báo cáo tài chính: đối chiếu số liệu, xác thực và đưa ra ý kiến độc lập về độ
@@ -215,11 +230,14 @@ function AuditServicePage() {
               { k: "Đội ngũ", v: "KTV có chứng chỉ hành nghề" },
               { k: "Báo giá", v: "Minh bạch sau khảo sát sơ bộ" },
             ].map((i) => (
-              <div key={i.k} className="border-b border-border pb-3 last:border-0">
-                <div className="text-[0.7rem] uppercase tracking-[0.2em] text-muted-foreground">
+              <div key={i.k} className="border-b border-border pb-3 last:border-0 group">
+                <div className="text-[0.7rem] uppercase tracking-[0.2em] text-muted-foreground flex items-center gap-2">
+                  <span className="inline-block w-1 h-1 rounded-full bg-brand-red" />
                   {i.k}
                 </div>
-                <div className="font-display text-base text-foreground mt-1">{i.v}</div>
+                <div className="font-display text-base text-foreground mt-1.5 group-hover:text-accent-foreground transition-colors">
+                  {i.v}
+                </div>
               </div>
             ))}
           </aside>
