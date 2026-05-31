@@ -1,66 +1,37 @@
-# Polish Trang chủ — micro-interactions, reveal & tinh chỉnh
+# Thay bản đồ Việt Nam — section "Mạng lưới phục vụ"
 
-Mục tiêu: tăng độ "đắt" của Trang chủ mà không thay đổi cấu trúc đã được duyệt. Chỉ chỉnh frontend (`src/routes/index.tsx`, `src/styles.css`, components site đã có) — không đụng tokens, dữ liệu, business logic.
+## Mục tiêu
+Thay outline VN cách điệu hiện tại (S-curve abstract trong `src/components/site/VietnamMap.tsx`) bằng inline SVG geo-chính xác user vừa cung cấp (viewBox 560×648, có Hoàng Sa / Trường Sa, 4 thành phố lớn + 14 marker tỉnh phụ, dot pattern bên trong, halo + animate-ping cho Hà Nội & TP.HCM).
 
-## 1) Scroll reveal (SSR-safe)
-Hook `useReveal` đã tồn tại nhưng chưa được dùng. Áp lên các **khối trang trí** (không áp cho heading/paragraph để tránh nhấp nháy SSR):
-- Hero collage bên phải (portrait + report-seal + seal) — reveal-up, delay 120ms.
-- ClientLogos strip & 3 Emblems — reveal-up so le 80ms.
-- VietnamMap SVG — reveal-up; các city stats giữ nguyên.
-- ProcessTimeline — reveal-up cả khối, các step con stagger 90ms qua CSS `--i` variable.
-- Testimonial dấu ngoặc kép `"` khổng lồ — reveal-up + nhẹ scale 0.92 → 1.
-- CTA TafSeal nền — reveal kèm fade từ 0 → 0.07.
+## Phạm vi (chỉ frontend, không đụng data/tokens)
 
-Thêm vào `src/styles.css`:
-- `.reveal-up-sm` (translateY 10px, 500ms) cho elements nhỏ.
-- `.reveal-delay-1/2/3` (100/200/300ms).
-- `.stagger > *` dùng `transition-delay: calc(var(--i, 0) * 80ms)`.
+### 1) Viết lại `src/components/site/VietnamMap.tsx`
+- Thay toàn bộ nội dung component bằng SVG mới (viewBox `0 0 560 648`).
+- Giữ nguyên signature: `export function VietnamMap({ className = "" }: { className?: string })` để `src/routes/index.tsx` không cần đổi import.
+- Inline đầy đủ `<defs>` (pattern `d`, radialGradient `g`/`gh`, clipPath `vn`).
+- Chuyển màu hard-code sang design tokens để đồng bộ chế độ sáng/tối + brand:
+  - `rgba(176,198,224,…)` (xanh nhạt outline + pattern) → `var(--color-accent)` với opacity.
+  - `#E6B450` / `#F4CD6B` (vàng halo) → giữ vì khớp `--color-accent` gold trong styles, nhưng map qua `var(--color-accent)` để khi đổi theme vẫn đồng bộ.
+  - `#EAE4D6` (text nhãn) → `var(--color-foreground)`.
+  - Halo đỏ brand cho Hà Nội & TP.HCM (major dots) đổi từ vàng sang `var(--color-brand-red)` để khớp pattern "major = brand red" hiện tại (Đà Nẵng/Nha Trang/Cần Thơ vẫn gold).
+- Font nhãn: thêm `fontFamily: var(--font-display)` + `fontStyle: italic` cho Hoàng Sa/Trường Sa; nhãn thành phố dùng sans hiện tại.
+- `animate-ping` ring đỏ (style hiện tại) thay cho `<animate>` element của Hà Nội/TP.HCM — đồng bộ với UX cũ và tránh SMIL trên Safari.
 
-## 2) Hero polish
-- Heading: thêm class `text-balance` cho h1 + lead paragraph để rớt dòng đẹp ở 707px.
-- Italic "đúng": thêm gạch chân vàng vẽ tay (SVG inline mảnh, opacity 0.6) ngay dưới chữ — chỉ desktop.
-- Hero CTA "Yêu cầu báo giá": thêm hairline gold bao quanh (ring-1 ring-accent/30) khi hover, shadow brand-red đậm hơn nhẹ.
-- Faded numeral `{years}`: tăng từ opacity 0.05 → 0.06, italic giữ; thêm letter-spacing hơi âm cho chắc.
-- Collage: thêm rotate `-1.5deg` cho ảnh portrait + `+2deg` cho mini report-seal để cảm giác "đặt lên bàn".
+### 2) Cập nhật wrapper trong `src/routes/index.tsx` (section MAP)
+- Tỉ lệ mới cao hơn (560×648 vs 320×600) → kiểm tra cột chứa map. Hiện wrapper là `Reveal` + grid; chỉ chỉnh `max-w` / `aspect-ratio` nếu map quá cao ở 707px viewport. Đề xuất: `max-w-[420px] mx-auto` desktop, `max-w-[320px]` mobile, giữ `w-full h-auto`.
+- City stats (180+/70+/250+) bên cạnh map giữ nguyên — chỉ map hiển thị bị thay.
 
-## 3) Stats ledger strip
-- Thêm dấu `·` Playfair italic vàng giữa 3 cột (chỉ desktop) để có nhịp editorial.
-- Trên hover từng cột: số bật scale 1.02 + underline gold xuất hiện 24px.
-
-## 4) Services dark list
-- Số thứ tự `01..06`: hover → đổi từ vàng → đỏ brand + bold weight thay đổi (italic giữ).
-- Hairline divider giữa các dòng: từ `divide-white/10` → gradient `via-accent/20` mảnh hơn.
-- Thêm cột phụ phía phải số trang nhỏ "Xem chi tiết" hiện ra khi hover (opacity 0 → 0.6, dịch 4px).
-
-## 5) MAP section
-- Pulse dots 3 thành phố: thêm halo glow ring nhỏ (box-shadow 0 0 0 6px rgba(red, 0.15)).
-- City stats `180+/70+/250+`: dùng `useCountUp` luôn (hiện đang static).
-- Thêm `rule-gold` mảnh phía trên heading.
-
-## 6) Process timeline
-- Đường nối ngang giữa các step: hairline gold gradient (transparent → gold → transparent) thay vì solid.
-- Mỗi chấm step: ring đôi (gold ngoài, đỏ trong) — visual seal mini.
-- Số step `01..05` italic Playfair lớn hơn (1.5rem → 2rem).
-
-## 7) Testimonial
-- Dấu `"` khổng lồ: thêm `text-shadow: 0 0 60px rgba(gold, 0.3)` tạo glow editorial.
-- Carousel dots/arrows: chuyển sang style hairline gold, hover đỏ brand.
-- Watermark TafSeal: chậm rãi rotate 360° trong 90s (CSS `animation: spin`).
-
-## 8) FAQ
-- Dấu `+`: bọc trong vòng tròn 28px hairline gold; mở → fill đỏ brand, dấu xoay 45° trắng.
-- Câu hỏi hover: chữ dịch phải 4px nhẹ.
-
-## 9) CTA cuối
-- TafSeal nền: rotate chậm như testimonial (90s) để page có "nhịp thở".
-- Thêm dải `rule-gold` phía trên CTA.
-
-## 10) Technical notes
-- `useReveal` import từ `@/hooks/use-reveal`. Mỗi block reveal cần `const ref = useReveal()` riêng — wrap bằng helper component `<Reveal>` mới (`src/components/site/Reveal.tsx`) nhận `delay?`, `className?`, `children`.
-- TafSeal spin: thêm prop `spin?: boolean` (mặc định false) → áp `animate-[spin_90s_linear_infinite]`.
-- `useCountUp` đã có — chỉ cần áp thêm cho 3 city stats.
-- Không tạo file mới ngoài `Reveal.tsx`. Không cài thêm package.
+### 3) Không cần
+- Không sửa `useReveal`, `useCountUp`, `styles.css`.
+- Không thêm package.
+- Không đụng routes khác.
 
 ## Files
-- Tạo: `src/components/site/Reveal.tsx`
-- Sửa: `src/routes/index.tsx`, `src/styles.css`, `src/components/site/TafSeal.tsx`, `src/components/site/ProcessTimeline.tsx`, `src/components/site/TestimonialCarousel.tsx`, `src/components/site/VietnamMap.tsx`
+- Rewrite: `src/components/site/VietnamMap.tsx`
+- Tinh chỉnh nhỏ: `src/routes/index.tsx` (chỉ wrapper container map nếu cần)
+
+## Lưu ý kỹ thuật
+- ID trong `<defs>` (`d`, `g`, `gh`, `vn`) là global trong document — nếu component render >1 lần sẽ xung đột. Prefix bằng `vnmap-` (vd `vnmap-dots`, `vnmap-clip`) để an toàn.
+- Path data dài (~10KB) — chấp nhận, vẫn nhẹ hơn raster.
+- `clipPath` áp dot pattern chỉ trong lãnh thổ — giữ.
+- Accessibility: thêm `role="img"` + `<title>` "Bản đồ Việt Nam — mạng lưới TAF".
