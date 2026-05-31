@@ -122,8 +122,8 @@ function HomePage() {
               >
                 {String(i + 1).padStart(2, "0")}
               </div>
-              <div className="relative pl-6 border-l border-accent/40">
-                <u.icon size={20} className="text-accent-foreground" />
+              <div className={`relative pl-6 border-l ${i % 2 === 1 ? "border-brand-red/50" : "border-accent/40"}`}>
+                <u.icon size={20} className={i % 2 === 1 ? "text-brand-red" : "text-accent-foreground"} />
                 <h3 className="mt-4 font-display text-xl text-foreground leading-snug">
                   {u.title}
                 </h3>
