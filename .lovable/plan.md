@@ -1,44 +1,32 @@
-# Thêm ảnh Hero — Trang Dịch vụ kiểm toán
+## Sửa trang `/dich-vu-kiem-toan` — Cập nhật đối tượng kiểm toán bắt buộc
 
-## 1. Lưu ảnh
+### Thay đổi nội dung
 
-- Copy `user-uploads://dich-vu-kiem-toan-bao-cao-tai-chinh-taf.jpg` → `src/assets/dich-vu-kiem-toan-bao-cao-tai-chinh-taf.jpg`.
-- Import ES6 trong `src/routes/dich-vu-kiem-toan.tsx`.
+1. **Tiêu đề Section 03** (dòng 331-332)
+   - Đổi từ: `"Quy định về kiểm toán bắt buộc"`
+   - Sang: `"Đối tượng kiểm toán bắt buộc"`
 
-## 2. Đặt ảnh vào trang
+2. **Trích dẫn pháp lý** (đoạn `<p>` dòng 340-353)
+   - Thay thế toàn bộ đoạn bằng văn bản mới:
+     > "Đối tượng kiểm toán bắt buộc được quy định tại Điều 37 Luật Kiểm toán độc lập 2011 (sửa đổi bởi Luật số 56/2024/QH15, hiệu lực 01/01/2025) và hướng dẫn tại Điều 15 Nghị định 17/2012/NĐ-CP (sửa đổi bởi Nghị định 90/2025/NĐ-CP, hiệu lực 14/04/2025)."
+   - Định dạng `<strong>` giữ nguyên pattern hiện tại cho tên văn bản.
+   - Xoá phần trích dẫn Nghị định 41/2018 và chế tài xử phạt khỏi đoạn này.
 
-Chèn **ngay sau Breadcrumb, trước Hero section** dưới dạng full-bleed banner (vì ảnh có sẵn logo TAF + khoảng trắng bên trái → đẹp khi đứng độc lập, không cần lồng vào cụm chữ).
+3. **Bổ sung đối tượng bắt buộc mới** — Doanh nghiệp quy mô lớn
+   - Thêm vào array `SUBJECTS` (sau item hiện tại số 9 hoặc cuối danh sách):
+     > "Doanh nghiệp quy mô lớn: thỏa mãn ít nhất 2/3 tiêu chí — trên 200 lao động BHXH bình quân năm; doanh thu năm trên 300 tỷ đồng; tổng tài sản trên 100 tỷ đồng. Xác định theo BCTC năm trước liền kề; nếu 2 năm liên tiếp không đáp ứng thì không còn bắt buộc cho đến khi đáp ứng trở lại."
+   - Số thứ tự tự động cập nhật theo `map((s, i) => ...)` hiện có.
 
-- Container `max-w-6xl` đồng bộ với `Section`, ratio ~16:9 trên desktop, bo nhẹ `rounded-[2px]`, viền `border border-border`, `shadow-[var(--shadow-card)]`.
-- `<img>` với:
-  - `alt="Dịch vụ kiểm toán báo cáo tài chính chuyên nghiệp của TAF tại Việt Nam"`
-  - `title="Dịch vụ kiểm toán báo cáo tài chính - TAF"`
-  - `loading="eager"` + `fetchPriority="high"` (hero LCP).
-  - `width`/`height` để tránh CLS.
-- `<figcaption>` ngay dưới: *"TAF cung cấp dịch vụ kiểm toán báo cáo tài chính cho doanh nghiệp trên toàn quốc."* — typography nhỏ, italic serif, màu `text-muted-foreground`, có gạch vàng mảnh `rule-gold` đứng đầu, canh trái.
+4. **(Tùy chọn) Chuyển SUBJECTS sang object array**
+   - Nếu item mới quá dài so với các item còn lại, chuyển `SUBJECTS` thành `Array<{title: string, detail?: string}>`.
+   - `title` hiển thị như hiện tại; `detail` (nếu có) hiển thị dưới dạng đoạn text nhỏ hoặc blockquote ngay bên dưới title trong cùng `<li>`.
 
-## 3. SEO bổ sung
+### Không thay đổi
+- Section 04 title hiện tại ("Các đối tượng bắt buộc phải kiểm toán") giữ nguyên.
+- Các section khác (05-08), FAQ, CTA, hero image, SEO meta giữ nguyên.
+- Không thay đổi route, URL, hoặc component structure.
 
-- Thêm `og:image` + `twitter:image` trỏ tới URL absolute của ảnh trong `head()` meta (leaf-only theo `head-meta` rule).
-- Cập nhật JSON-LD `Service` thêm field `image` = URL ảnh hero.
-- Ảnh trong `src/assets` được Vite hash → dùng URL import trả về để gán meta (build-time URL ổn định).
-
-## 4. Loại bỏ trùng lặp với hero hiện tại
-
-Hero hiện có TafSeal xoay mờ overlay decorative. Khi ảnh banner đặt trên cùng (có logo TAF), giảm opacity TafSeal trong hero xuống `0.04` để tránh trùng motif đỏ.
-
-## Việc KHÔNG làm
-
-- Không sửa các section khác.
-- Không tạo component `EditorialImage` mới — dùng `<figure>` inline vì chỉ 1 chỗ.
-- Không thay đổi route/URL.
-
-## Kỹ thuật
-
-```
-src/assets/dich-vu-kiem-toan-bao-cao-tai-chinh-taf.jpg   (mới)
-src/routes/dich-vu-kiem-toan.tsx                          (sửa)
-```
-
-Thứ tự render mới trong `AuditServicePage`:
-`Breadcrumb → <figure>hero image + caption</figure> → Section Hero (chữ) → ...`
+### Kỹ thuật
+- Chỉ sửa file `src/routes/dich-vu-kiem-toan.tsx`.
+- Không cần thêm dependency mới.
+- Không cần thay đổi database, auth, hay backend.
