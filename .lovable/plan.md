@@ -1,93 +1,104 @@
+# Kế hoạch build TAF v1 — Corporate Prestige
 
-# Kế hoạch xây dựng lại taf.vn
+Hướng đã chốt: **Corporate Prestige** — navy đậm + gold accent, Playfair Display (heading) + Source Serif 4 / Inter (body), cảm giác Big4 châu Âu, đẳng cấp truyền thống, nghiêm túc. Đỏ TAF được giữ làm accent thứ cấp (logo, dấu) để vẫn nhận diện được thương hiệu, nhưng palette chính là navy + gold + cream.
 
-Stack: TanStack Start + SSR (đã có sẵn trong project này), Tailwind v4, Lovable Cloud (Supabase) làm CMS nhẹ + form lead, Motion cho animation. Tiếng Việt v1, route chừa sẵn i18n.
+## 1. Design system (`src/styles.css` + fonts)
 
-## Phase 1 — Hướng thiết kế (chốt trước khi code)
+Tokens oklch (light + dark):
+- `--background` cream `oklch(0.98 0.01 85)`, `--foreground` navy `oklch(0.18 0.04 260)`
+- `--primary` navy deep `oklch(0.22 0.06 260)`, `--primary-foreground` cream
+- `--accent` gold `oklch(0.72 0.12 80)`, `--accent-foreground` navy
+- `--brand-red` (TAF red, dùng cho logo + dấu) `oklch(0.48 0.18 25)`
+- `--muted` ivory, `--border` warm gray, `--ring` gold
+- Shadow elegant + gradient subtle navy→navy-glow
 
-Sau khi bạn duyệt plan này, tôi sẽ generate **3 hướng thiết kế render thật** (HTML+Tailwind) để bạn chọn. Cả 3 đều theo brief: đỏ chủ đạo, hiện đại + đẳng cấp + nghiêm túc, có hơi hướng AI tinh tế, font hỗ trợ Vietnamese subset đầy đủ (loại Inter/Roboto/Arial). Khác nhau ở metaphor, mật độ, hierarchy và register của motion.
+Fonts qua `@fontsource` (Vietnamese subset bắt buộc):
+- `@fontsource/playfair-display` (700, 900) → headings
+- `@fontsource/source-serif-4` (400, 600) → body dài, article
+- `@fontsource/inter` (400, 500, 600) → UI, nav, form
+Import trong `src/router.tsx` hoặc shell, set qua CSS variables `--font-display / --font-serif / --font-sans`.
 
-Bạn pick 1 → tôi build theo đúng composition + tokens của hướng đó.
+## 2. Khung shell (`__root.tsx`)
 
-## Phase 2 — Design system + khung site
+- Header: logo TAF (wordmark serif + dấu đỏ), nav ngang (Dịch vụ, Địa bàn, Giới thiệu, Đội ngũ, Tin tức, Liên hệ), CTA "Yêu cầu báo giá" gold outline
+- Breadcrumb component (ẩn ở `/`)
+- `<main>` 1 lần, `<Outlet/>`
+- Footer: NAP duy nhất (từ `offices`), license info, social, sitemap link, copyright
+- `HeadContent` + `Scripts` đúng chuẩn TanStack
+- JSON-LD `Organization` + `LocalBusiness` ở root (KHÔNG og:image, KHÔNG canonical ở root)
+- Sitewide meta defaults; per-route override
 
-- Tokens (oklch) đỏ TAF trong `src/styles.css`: primary, surfaces, ink, accent, shadow. Light + dark.
-- Font qua `@fontsource` (không CDN), bắt buộc có Vietnamese subset.
-- Layout shell trong `__root.tsx`: header với nav rõ ràng + breadcrumb component, footer chuẩn NAP duy nhất, `<main>` đúng 1 lần, `<HeadContent />` / `<Scripts />` chuẩn TanStack.
-- Component thư viện: Button, Card, Section, FAQ accordion, Stat, Testimonial, Author byline (chức danh + chứng chỉ KTV), Breadcrumb, CTA block, ContactForm.
+## 3. Component thư viện (`src/components/`)
 
-## Phase 3 — Routes & nội dung mẫu (chưa migrate dữ liệu thật)
+Button (variants: primary navy, gold outline, ghost), Card (border mỏng + shadow elegant), Section (container + eyebrow), FAQ accordion, Stat (số lớn serif), Testimonial (quote serif italic), AuthorByline (avatar + chức danh + số CCKT), Breadcrumb, CTABlock, ContactForm (Zod + server route).
 
-Cấu trúc route (mỗi route file có `head()` riêng — title đặt từ khóa trước, meta description riêng, OG/Twitter, canonical leaf-only):
+## 4. Routes (Phase 3 — nội dung placeholder hợp lý, chưa migrate)
 
 ```
-/                       trang chủ
-/dich-vu                tổng quan dịch vụ
-/dich-vu/$slug          template dịch vụ (động, đọc Supabase)
-/dia-ban                tổng quan phạm vi hoạt động
-/dia-ban/$slug          template trang tỉnh (động)
-/tin-tuc                listing
-/tin-tuc/$slug          bài viết (động)
-/gioi-thieu, /doi-ngu, /van-phong, /lien-he, /chinh-sach-*
-/sitemap.xml            server route (sinh từ DB + routes)
-/api/public/contact     server route nhận lead → Supabase
+src/routes/
+  __root.tsx
+  index.tsx                 trang chủ: hero + USP + dịch vụ chính + stat + testimonial + CTA
+  dich-vu.tsx               tổng quan dịch vụ
+  dich-vu.$slug.tsx         template dịch vụ (động, Supabase)
+  dia-ban.tsx               tổng quan tỉnh
+  dia-ban.$slug.tsx         template tỉnh (động)
+  tin-tuc.tsx               listing
+  tin-tuc.$slug.tsx         bài viết (động)
+  gioi-thieu.tsx
+  doi-ngu.tsx
+  van-phong.tsx
+  lien-he.tsx
+  chinh-sach-bao-mat.tsx
+  sitemap[.]xml.ts          server route
+  api/public/contact.ts     server route nhận lead
 ```
 
-Chuẩn bị i18n: tất cả route phẳng ở root v1; sau này wrap thành `/$lang/...` layout, helpers `t()` đã sẵn sàng — không phải refactor.
+Mỗi route có `head()` riêng: title từ khóa trước, meta description riêng, og:title/og:description, canonical chỉ ở leaf, og:image chỉ ở leaf khi có ảnh thật. Cấu trúc i18n: route phẳng v1, sau wrap `/$lang/...` không refactor.
 
-Trang chủ + dịch vụ + tỉnh + bài viết được điền nội dung **placeholder hợp lý** (không phải lorem; viết đúng tinh thần ngành kiểm toán) để bạn xem giao diện thật. Chatbot AI: chỉ UI floating button + panel placeholder, chưa nối LLM.
+## 5. Supabase CMS (Phase 4)
 
-## Phase 4 — Supabase làm CMS nhẹ
-
-Bật Lovable Cloud, tạo bảng:
-
-- `pages` (slug PK, type enum [`service`,`province`,`article`,`static`], title, meta_description, h1, body_html, og_image, author_id, published_at, updated_at, noindex bool, faq jsonb, breadcrumb jsonb)
+Bảng (đầy đủ GRANT + RLS):
+- `pages` (slug PK, type enum [service|province|article|static], title, meta_description, h1, body_html, og_image, author_id, published_at, updated_at, noindex bool, faq jsonb, breadcrumb jsonb)
 - `authors` (id, name, title, credentials, bio, avatar)
-- `offices` (name, address, ward, district, city, phone, email, hours, lat, lng) — nguồn NAP duy nhất
-- `contact_leads` (form submit)
-- `redirects` (from_path PK, to_path, status default 301) — chuẩn bị cho phase migrate
-- RLS: read public cho `pages/authors/offices`; `contact_leads` chỉ insert anon + service_role read; `redirects` read public.
+- `offices` (NAP duy nhất: name, address, ward, district, city, phone, email, hours, lat, lng)
+- `contact_leads` (insert anon, read service_role)
+- `redirects` (from_path PK, to_path, status default 301)
 
-Route động (`/dich-vu/$slug`, `/dia-ban/$slug`, `/tin-tuc/$slug`) loader gọi `createServerFn` đọc Supabase qua `supabaseAdmin` (public reads), inject vào `head()` → SSR có sẵn title/meta/JSON-LD đúng dữ liệu.
+RLS: read public cho `pages/authors/offices/redirects`; `contact_leads` chỉ insert anon. Route động loader dùng `createServerFn` đọc qua `supabaseAdmin` → inject vào `head()` SSR-ready.
 
-## Phase 5 — SEO kỹ thuật
+## 6. SEO kỹ thuật (Phase 5)
 
-- Mỗi trang: 1 H1 duy nhất, heading sạch (không nhiễm tên class), text trong HTML — không phụ thuộc JS để hiện (motion chỉ dùng `whileInView` đảm bảo nội dung mặc định visible).
-- JSON-LD: `Organization` + `LocalBusiness` ở `__root.tsx` (NAP từ `offices`); `Service` per trang dịch vụ; `FAQPage` khi có FAQ; `BreadcrumbList` mọi trang sâu; `Article` cho tin tức. **Không** tự gắn `AggregateRating`.
-- `og:image` chỉ ở leaf (không ở root); dynamic route đọc `og_image` từ DB.
-- `src/routes/sitemap[.]xml.ts` server route: gộp routes tĩnh + query toàn bộ `pages` published từ Supabase.
-- `public/robots.txt` mở; thêm `Sitemap:` khi domain trỏ về.
-- Ảnh `<img>` đều có `alt`, `loading="lazy"`, `aspect-*` để CLS=0.
-- Sau go-live: chạy SEO review tool và sửa.
+- 1 H1 mỗi trang, text mặc định visible (motion chỉ `whileInView`)
+- JSON-LD: Organization+LocalBusiness ở root; Service per `/dich-vu/$slug`; FAQPage khi có FAQ; BreadcrumbList mọi trang sâu; Article cho tin tức. **Không** AggregateRating
+- `sitemap.xml` server route gộp routes tĩnh + `pages` published
+- `robots.txt` mở, chưa baked Sitemap URL (chờ domain)
+- Ảnh có alt, `loading="lazy"`, aspect ratio
+- Chatbot AI: chỉ floating button + panel placeholder (chưa LLM)
 
-## Phase 6 — Migrate URL & nội dung (sau khi khung ổn)
+## 7. Migrate (Phase 6 — sau khi khung ổn)
 
-Quy trình tách riêng để bạn chạy khi sẵn sàng:
-
-1. **Crawl**: kết nối Firecrawl, lấy sitemap `taf.vn/sitemap.xml`, crawl từng URL → trích slug/title/meta/H1/body/ảnh/ngày/loại. Làm sạch heading rác `"icon but chi"`, chuẩn hóa NAP về `offices` table.
-2. **Import**: script Node đẩy vào `pages` (giữ nguyên slug gốc, kể cả đuôi `.html`).
-3. **URL strategy**:
-   - Ưu tiên giữ nguyên path cũ → route `$slug` match được, không cần redirect.
-   - Path bắt buộc đổi → bảng `redirects` 301 1-1; server route `__root` middleware check và `Response.redirect(301)`.
-   - Trang trùng → chọn 1 canonical, 301 phần còn lại.
-4. **Trang tỉnh**: viết lại nội dung **khác biệt thật** (khách hàng/đặc thù từng tỉnh). Tôi sẽ tạo template structure + checklist nội dung; bạn (hoặc tôi với AI) soạn từng tỉnh. Trang nào chưa kịp viết khác biệt → set `noindex=true` thay vì xóa.
-5. **Tác giả**: thay "Boss TAF" bằng KTV thật trong `authors`.
-6. **Post-launch**: submit sitemap GSC, theo dõi Coverage 4–8 tuần.
+Crawl Firecrawl → import `pages` giữ nguyên slug `.html` → `redirects` cho path đổi → viết lại trang tỉnh khác biệt thật (nếu chưa kịp set `noindex`) → thay "Boss TAF" bằng KTV thật → go-live + Search Console.
 
 ## Chi tiết kỹ thuật
 
-- SSR mặc định TanStack Start (đã có), không cần `entry-client/server`.
-- Data: `createServerFn` + `queryOptions` + `ensureQueryData` trong loader, `useSuspenseQuery` trong component (canonical pattern của template).
-- Form liên hệ: server route `/api/public/contact` validate Zod + rate-limit + insert `contact_leads`.
-- Motion: dùng `motion/react`, nội dung text render mặc định (không `opacity:0` chờ JS).
-- Tokens đỏ TAF chỉ qua semantic class (`bg-primary`, `text-foreground`...), không hard-code màu trong component.
+- TanStack Start SSR mặc định, không cần entry-client/server
+- Data: `createServerFn` + `queryOptions` + `ensureQueryData` trong loader + `useSuspenseQuery` trong component
+- Form `/api/public/contact`: Zod validate + rate-limit + insert `contact_leads`
+- Motion `motion/react`, text render mặc định không opacity:0
+- Chỉ semantic class (`bg-primary`, `text-foreground`), không hard-code màu
+
+## Phạm vi loop tới (sau khi duyệt plan này)
+
+1. Bật Lovable Cloud + tạo migration đầy đủ bảng/GRANT/RLS
+2. Cài fonts + ghi tokens vào `src/styles.css`
+3. Build `__root.tsx` shell (header/footer/JSON-LD/NAP placeholder)
+4. Build component library
+5. Build trang chủ + các trang tĩnh với nội dung placeholder hợp lý theo ngành
+6. Build route động đọc Supabase + sitemap.xml + /api/public/contact
+7. Chatbot UI placeholder
+
+Migrate nội dung thật (Phase 6) tách thành loop riêng sau.
 
 ## Ngoài phạm vi v1
 
-- LLM thật cho chatbot (chỉ UI).
-- Bản tiếng Anh (route đã chừa cấu trúc).
-- Trỏ DNS Cloudflare về taf.vn — bạn tự làm khi go-live.
-
----
-
-**Bước tiếp theo nếu duyệt plan**: tôi gọi tool generate 3 hướng thiết kế và gửi bạn pick.
+LLM thật cho chatbot, bản EN (route đã chừa), DNS trỏ taf.vn.
