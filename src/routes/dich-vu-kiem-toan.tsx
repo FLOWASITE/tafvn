@@ -100,14 +100,14 @@ const PROCESS = [
   },
 ];
 
-const WHY_TAF = [
-  "Được Bộ Tài chính cấp phép đủ điều kiện hành nghề kiểm toán",
-  "Môi trường pháp lý rõ ràng, minh bạch",
-  "Ứng dụng công nghệ, giúp khách hàng theo dõi tiến độ kiểm toán",
-  "Đội ngũ KTV có chuyên môn cao, tận tâm với nghề",
-  "Chi phí minh bạch, tương xứng với phạm vi công việc",
-  "Hỗ trợ, tư vấn khách hàng kịp thời",
-  "Cam kết bảo mật thông tin khách hàng",
+const WHY_TAF: { text: string; icon: React.ElementType }[] = [
+  { text: "Được Bộ Tài chính cấp phép đủ điều kiện hành nghề kiểm toán", icon: Award },
+  { text: "Môi trường pháp lý rõ ràng, minh bạch", icon: Scale },
+  { text: "Ứng dụng công nghệ, giúp khách hàng theo dõi tiến độ kiểm toán", icon: Monitor },
+  { text: "Đội ngũ KTV có chuyên môn cao, tận tâm với nghề", icon: Users },
+  { text: "Chi phí minh bạch, tương xứng với phạm vi công việc", icon: Wallet },
+  { text: "Hỗ trợ, tư vấn khách hàng kịp thời", icon: MessageCircle },
+  { text: "Cam kết bảo mật thông tin khách hàng", icon: Lock },
 ];
 
 const FAQS = [
