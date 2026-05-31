@@ -168,6 +168,12 @@ export const Route = createFileRoute("/dich-vu-kiem-toan")({
               addressCountry: "VN",
             },
           },
+          author: {
+            "@type": "Person",
+            name: "Huỳnh Thế Tho",
+            jobTitle: "Giám đốc kiểm toán",
+            worksFor: { "@type": "Organization", name: SITE.legalName },
+          },
           hasOfferCatalog: {
             "@type": "OfferCatalog",
             name: "Danh mục dịch vụ kiểm toán của TAF",
@@ -236,7 +242,7 @@ function AuditServicePage() {
           <figcaption className="mt-4 flex items-start gap-3 text-sm font-serif italic text-muted-foreground leading-relaxed">
             <span aria-hidden className="rule-gold mt-2 w-8 shrink-0" />
             <span>
-              TAF cung cấp dịch vụ kiểm toán báo cáo tài chính cho doanh nghiệp trên toàn quốc.
+              TAF — hãng kiểm toán độc lập được Bộ Tài chính cấp phép, phục vụ doanh nghiệp FDI và trong nước trên toàn quốc từ năm {SITE.established}.
             </span>
           </figcaption>
         </figure>
@@ -309,8 +315,14 @@ function AuditServicePage() {
             </div>
             <p className="lg:col-span-8 text-base md:text-lg text-foreground/85 font-serif leading-relaxed">
               Dịch vụ kiểm toán là quá trình kiểm tra, xem xét, thẩm định, đánh giá và xác
-              nhận tính đầy đủ, trung thực, hợp lý của số liệu, tài liệu kế toán và báo cáo
-              tài chính của một đơn vị, do tổ chức kiểm toán độc lập thực hiện.
+              nhận tính đầy đủ, trung thực, hợp lý của số liệu, tài liệu kế toán và{" "}
+              <Link to="/dich-vu/$slug" params={{ slug: "kiem-toan-bao-cao-tai-chinh" }} className="underline decoration-brand-red/40 underline-offset-4 hover:decoration-brand-red text-foreground">
+                báo cáo tài chính
+              </Link>{" "}
+              của một đơn vị, do tổ chức kiểm toán độc lập thực hiện. Xem thêm{" "}
+              <Link to="/dich-vu" className="underline decoration-brand-red/40 underline-offset-4 hover:decoration-brand-red text-foreground">
+                toàn bộ dịch vụ chuyên môn của TAF
+              </Link>.
             </p>
           </div>
         </Reveal>
