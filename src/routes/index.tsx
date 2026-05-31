@@ -49,7 +49,7 @@ function HomePage() {
         />
         {/* Oversized faded numeral — years of practice */}
         <div
-          className="pointer-events-none absolute right-[-2rem] bottom-[-3rem] font-display italic text-accent/[0.07] leading-none select-none hidden md:block"
+          className="pointer-events-none absolute right-[-2rem] bottom-[-3rem] font-display italic text-brand-red/[0.06] leading-none select-none hidden md:block"
           aria-hidden
           style={{ fontSize: "clamp(14rem, 22vw, 24rem)" }}
         >
