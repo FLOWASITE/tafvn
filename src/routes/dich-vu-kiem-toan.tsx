@@ -610,9 +610,24 @@ function AuditServicePage() {
             >
               <Check size={18} className="text-accent-foreground shrink-0 mt-1" />
               <span className="leading-relaxed">{w}</span>
-            </li>
-          ))}
-        </ul>
+          </li>
+        ))}
+      </ul>
+
+      <Reveal>
+        <div className="mt-12 border border-border rounded-[2px] overflow-hidden bg-cream shadow-[var(--shadow-card)]">
+          <div className="aspect-video w-full">
+            <iframe
+              className="w-full h-full block"
+              src="https://www.youtube.com/embed/uwiuHO1uN0A"
+              title="Vì sao chọn dịch vụ kiểm toán TAF"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              allowFullScreen
+              loading="lazy"
+            />
+          </div>
+        </div>
+      </Reveal>
       </Section>
 
       {/* Phí kiểm toán + CTA */}
