@@ -291,13 +291,17 @@ function AuditServicePage() {
       </Section>
 
       {/* Quy định bắt buộc */}
-      <Section className="bg-cream border-y border-border">
+      <Section className="bg-cream border-y border-border relative">
         <div className="grid lg:grid-cols-12 gap-10">
           <div className="lg:col-span-5">
             <Eyebrow>03</Eyebrow>
             <h2 className="font-display text-3xl md:text-[2.25rem] leading-tight text-foreground">
-              Quy định về kiểm toán bắt buộc
+              Quy định về <span className="italic text-accent-foreground">kiểm toán bắt buộc</span>
             </h2>
+            <div className="mt-8 hidden lg:flex items-center gap-3 text-xs uppercase tracking-[0.2em] text-muted-foreground">
+              <ScrollText size={14} className="text-brand-red" />
+              Trích dẫn pháp lý
+            </div>
           </div>
           <div className="lg:col-span-7 font-serif text-foreground/85 leading-relaxed space-y-5">
             <p>
@@ -315,15 +319,26 @@ function AuditServicePage() {
               </strong>
               .
             </p>
-            <div className="border-l-2 border-brand-red pl-5 bg-background/60 py-4 pr-5">
-              <div className="text-[0.7rem] uppercase tracking-[0.2em] text-muted-foreground mb-1.5">
-                Mức phạt
+            <div className="relative bg-background border border-brand-red/30 pl-6 pr-6 py-6 rounded-[2px] shadow-[var(--shadow-card)]">
+              <span
+                aria-hidden
+                className="absolute left-0 top-0 bottom-0 w-1 bg-brand-red"
+              />
+              <div className="text-[0.7rem] uppercase tracking-[0.22em] text-brand-red-ink mb-2 font-medium">
+                Mức phạt theo Điều 53 NĐ 41/2018
               </div>
-              <p className="text-foreground">
-                Phạt tiền từ <strong>40.000.000 – 50.000.000 đồng</strong> đối với đơn vị
-                không thực hiện kiểm toán bắt buộc đối với báo cáo tài chính, báo cáo quyết
-                toán dự án hoàn thành, báo cáo tài chính hợp nhất, báo cáo tài chính tổng
-                hợp và các công việc kiểm toán khác theo quy định.
+              <div className="flex items-baseline gap-3 mb-3">
+                <span className="font-display text-4xl md:text-5xl text-foreground tabular-nums leading-none">
+                  40–50
+                </span>
+                <span className="text-sm uppercase tracking-[0.18em] text-muted-foreground">
+                  triệu đồng
+                </span>
+              </div>
+              <p className="text-foreground/85 text-sm md:text-base">
+                Áp dụng với đơn vị không thực hiện kiểm toán bắt buộc đối với báo cáo tài
+                chính, báo cáo quyết toán dự án hoàn thành, báo cáo tài chính hợp nhất,
+                báo cáo tài chính tổng hợp và các công việc kiểm toán khác theo quy định.
               </p>
             </div>
           </div>
