@@ -221,7 +221,16 @@ function HomePage() {
       <Section className="bg-cream border-y border-border">
         <div className="grid lg:grid-cols-12 gap-12 items-center">
           <Reveal className="lg:col-span-5 order-2 lg:order-1">
-            <div className="relative max-w-[360px] mx-auto lg:mx-0 lg:max-w-[420px]">
+            <div className="relative max-w-[360px] mx-auto lg:max-w-[420px]">
+              {/* Ledger frame */}
+              <div
+                aria-hidden
+                className="pointer-events-none absolute -inset-4 md:-inset-6 border border-accent/20"
+              />
+              <div
+                aria-hidden
+                className="pointer-events-none absolute -inset-4 md:-inset-6 border-t-2 border-l-2 border-brand-red/40 w-10 h-10"
+              />
               <VietnamMap />
             </div>
           </Reveal>
@@ -236,7 +245,7 @@ function HomePage() {
               Đội ngũ KTV của TAF có mặt tại ba trung tâm kinh tế lớn, sẵn sàng đến tận trụ sở
               khách hàng tại mọi tỉnh thành để thực hiện kiểm toán hiện trường.
             </p>
-            <dl className="mt-8 grid grid-cols-3 gap-6 max-w-md">
+            <dl className="mt-8 grid grid-cols-3 gap-6 max-w-lg">
               {[
                 { city: "Hà Nội", count: 180, note: "Khách hàng phía Bắc" },
                 { city: "Đà Nẵng", count: 70, note: "Miền Trung & Tây Nguyên" },
@@ -281,26 +290,31 @@ function HomePage() {
           </div>
           <ul className="lg:col-span-8 divide-y divide-white/10 border-y border-white/10">
             {SERVICES.map((s, i) => (
-              <li key={s.slug}>
+              <li key={s.slug} className="relative">
+                {/* Red rule that slides in from left on hover */}
+                <span
+                  aria-hidden
+                  className="absolute left-0 top-0 bottom-0 w-px bg-brand-red origin-top scale-y-0 group-hover/row:scale-y-100 transition-transform duration-500"
+                />
                 <Link
                   to="/dich-vu/$slug"
                   params={{ slug: s.slug }}
-                  className="group grid grid-cols-[auto,1fr,auto] items-start gap-4 md:gap-8 py-6 md:py-7 hover:bg-white/[0.03] transition-colors -mx-3 px-3"
+                  className="group/row grid grid-cols-[2.5rem_1fr_1.25rem] md:grid-cols-[3rem_1fr_1.25rem] items-baseline gap-x-5 md:gap-x-8 py-5 md:py-6 hover:bg-white/[0.03] transition-colors px-3 -mx-3"
                 >
-                  <span className="font-display italic text-accent text-sm md:text-base pt-1 tabular-nums">
+                  <span className="font-display italic text-accent text-base md:text-lg tabular-nums">
                     {String(i + 1).padStart(2, "0")}
                   </span>
                   <div className="min-w-0">
-                    <h3 className="font-display text-lg md:text-xl leading-snug transition-colors group-hover:text-accent inline-block">
+                    <h3 className="font-display text-lg md:text-xl leading-snug transition-colors group-hover/row:text-accent">
                       <span className="draw-underline">{s.title}</span>
                     </h3>
-                    <p className="mt-2 text-sm text-primary-foreground/60 font-serif leading-relaxed line-clamp-2">
+                    <p className="mt-1.5 text-sm text-primary-foreground/55 font-serif leading-relaxed line-clamp-2">
                       {s.summary}
                     </p>
                   </div>
                   <ArrowUpRight
                     size={18}
-                    className="text-accent/70 mt-1 transition-all group-hover:translate-x-0.5 group-hover:-translate-y-0.5 group-hover:text-brand-red"
+                    className="text-accent/60 self-center transition-all group-hover/row:translate-x-0.5 group-hover/row:-translate-y-0.5 group-hover/row:text-brand-red group-hover/row:opacity-100"
                   />
                 </Link>
               </li>
