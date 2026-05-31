@@ -44,12 +44,12 @@ function HomePage() {
         </div>
         {/* Corner hairline mark */}
         <div
-          className="pointer-events-none absolute top-0 right-0 w-40 h-40 border-r border-t border-accent/30 -mr-10 -mt-6 hidden md:block"
+          className="pointer-events-none absolute top-0 right-0 w-40 h-40 border-r border-t border-brand-red/40 -mr-10 -mt-6 hidden md:block"
           aria-hidden
         />
         {/* Oversized faded numeral — years of practice */}
         <div
-          className="pointer-events-none absolute right-[-2rem] bottom-[-3rem] font-display italic text-accent/[0.07] leading-none select-none hidden md:block"
+          className="pointer-events-none absolute right-[-2rem] bottom-[-3rem] font-display italic text-brand-red/[0.06] leading-none select-none hidden md:block"
           aria-hidden
           style={{ fontSize: "clamp(14rem, 22vw, 24rem)" }}
         >
@@ -78,7 +78,7 @@ function HomePage() {
             <div className="mt-8 flex flex-wrap gap-3">
               <Link
                 to="/lien-he"
-                className="group inline-flex items-center gap-2 bg-primary text-primary-foreground px-6 py-3.5 text-xs font-semibold tracking-[0.18em] uppercase rounded-[2px] hover:bg-primary/90 transition"
+                className="group inline-flex items-center gap-2 bg-brand-red text-white px-6 py-3.5 text-xs font-semibold tracking-[0.18em] uppercase rounded-[2px] hover:bg-brand-red-ink transition shadow-[0_8px_24px_-12px_var(--color-brand-red)]"
               >
                 Yêu cầu báo giá
                 <ArrowUpRight
@@ -122,8 +122,8 @@ function HomePage() {
               >
                 {String(i + 1).padStart(2, "0")}
               </div>
-              <div className="relative pl-6 border-l border-accent/40">
-                <u.icon size={20} className="text-accent-foreground" />
+              <div className={`relative pl-6 border-l ${i % 2 === 1 ? "border-brand-red/50" : "border-accent/40"}`}>
+                <u.icon size={20} className={i % 2 === 1 ? "text-brand-red" : "text-accent-foreground"} />
                 <h3 className="mt-4 font-display text-xl text-foreground leading-snug">
                   {u.title}
                 </h3>
@@ -140,12 +140,13 @@ function HomePage() {
       <section className="relative bg-primary text-primary-foreground overflow-hidden">
         <div
           aria-hidden
-          className="pointer-events-none absolute top-10 right-10 w-40 h-40 border-t border-r border-accent/30 hidden md:block"
+          className="pointer-events-none absolute top-10 right-10 w-40 h-40 border-t border-r border-brand-red/40 hidden md:block"
         />
         <div className="mx-auto max-w-6xl px-5 md:px-8 py-20 md:py-28 grid lg:grid-cols-12 gap-12">
           <div className="lg:col-span-4">
-            <p className="text-[0.7rem] uppercase tracking-[0.28em] text-accent mb-4 font-medium">
-              <span className="inline-block w-6 h-px bg-accent align-middle mr-2" />
+            <p className="text-[0.7rem] uppercase tracking-[0.28em] text-accent mb-4 font-medium flex items-center gap-2.5">
+              <span className="inline-block w-1.5 h-1.5 rounded-full bg-brand-red" />
+              <span className="inline-block w-5 h-px bg-accent" />
               Dịch vụ chính
             </p>
             <h2 className="font-display text-3xl md:text-4xl lg:text-[2.75rem] leading-[1.1]">
@@ -178,7 +179,7 @@ function HomePage() {
                   </div>
                   <ArrowUpRight
                     size={18}
-                    className="text-accent/70 mt-1 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
+                    className="text-accent/70 mt-1 transition-all group-hover:translate-x-0.5 group-hover:-translate-y-0.5 group-hover:text-brand-red"
                   />
                 </Link>
               </li>
@@ -210,7 +211,7 @@ function HomePage() {
               cho ban lãnh đạo.”
             </blockquote>
             <div className="mt-6 flex items-center gap-3 text-sm text-muted-foreground font-serif">
-              <span className="h-px w-8 bg-accent" />
+              <span className="h-px w-8 bg-brand-red" />
               Giám đốc Tài chính — Doanh nghiệp sản xuất FDI, Bình Dương
             </div>
           </div>
@@ -237,7 +238,7 @@ function HomePage() {
                       </span>
                       <span className="font-display text-lg text-foreground">{f.q}</span>
                     </dt>
-                    <span className="text-accent-foreground text-xl leading-none group-open:rotate-45 transition-transform">
+                    <span className="text-brand-red text-xl leading-none group-open:rotate-45 transition-transform">
                       +
                     </span>
                   </summary>
@@ -267,7 +268,7 @@ function HomePage() {
           <div className="md:col-span-4 md:text-right">
             <Link
               to="/lien-he"
-              className="group inline-flex items-center gap-2 bg-primary text-primary-foreground px-6 py-3.5 text-xs font-semibold tracking-[0.18em] uppercase rounded-[2px] hover:bg-primary/90 transition"
+              className="group inline-flex items-center gap-2 bg-brand-red text-white px-6 py-3.5 text-xs font-semibold tracking-[0.18em] uppercase rounded-[2px] hover:bg-brand-red-ink transition shadow-[0_8px_24px_-12px_var(--color-brand-red)]"
             >
               Yêu cầu báo giá
               <ArrowUpRight
