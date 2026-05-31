@@ -350,7 +350,7 @@ function AuditServicePage() {
       </Section>
 
       {/* Vì sao thuê */}
-      <Section className="pt-0">
+      <Section id="vi-sao-thue" className="pt-0">
         <div className="rule-gold mb-12" />
         <Eyebrow>02</Eyebrow>
         <h2 className="font-display text-3xl md:text-[2.25rem] leading-tight text-foreground max-w-2xl">
