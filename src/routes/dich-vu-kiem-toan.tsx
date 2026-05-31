@@ -198,11 +198,36 @@ function AuditServicePage() {
     <>
       <Breadcrumb items={[{ label: "Dịch vụ", to: "/dich-vu" }, { label: "Dịch vụ kiểm toán" }]} />
 
+      {/* Hero image */}
+      <div className="mx-auto max-w-6xl px-5 md:px-8 pt-2 md:pt-4">
+        <figure className="group">
+          <div className="overflow-hidden rounded-[2px] border border-border shadow-[var(--shadow-card)] bg-cream">
+            <img
+              src={heroImage}
+              alt="Dịch vụ kiểm toán báo cáo tài chính chuyên nghiệp của TAF tại Việt Nam"
+              title="Dịch vụ kiểm toán báo cáo tài chính - TAF"
+              width={1920}
+              height={1080}
+              loading="eager"
+              fetchPriority="high"
+              decoding="async"
+              className="w-full h-auto block aspect-[16/9] object-cover"
+            />
+          </div>
+          <figcaption className="mt-4 flex items-start gap-3 text-sm font-serif italic text-muted-foreground leading-relaxed">
+            <span aria-hidden className="rule-gold mt-2 w-8 shrink-0" />
+            <span>
+              TAF cung cấp dịch vụ kiểm toán báo cáo tài chính cho doanh nghiệp trên toàn quốc.
+            </span>
+          </figcaption>
+        </figure>
+      </div>
+
       {/* Hero */}
       <Section className="pb-10 md:pb-14 relative overflow-hidden">
         <div
           aria-hidden
-          className="pointer-events-none absolute -top-10 -right-16 md:right-0 opacity-[0.07] hidden md:block"
+          className="pointer-events-none absolute -top-10 -right-16 md:right-0 opacity-[0.04] hidden md:block"
         >
           <TafSeal size={420} spin />
         </div>
