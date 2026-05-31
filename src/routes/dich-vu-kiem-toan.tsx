@@ -1,5 +1,17 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { ArrowUpRight, Phone, ScrollText, List } from "lucide-react";
+import {
+  ArrowUpRight,
+  Phone,
+  ScrollText,
+  List,
+  Award,
+  Scale,
+  Monitor,
+  Users,
+  Wallet,
+  MessageCircle,
+  Lock,
+} from "lucide-react";
 import { Breadcrumb } from "@/components/site/Breadcrumb";
 import { Section, Eyebrow } from "@/components/site/Section";
 import { Reveal } from "@/components/site/Reveal";
