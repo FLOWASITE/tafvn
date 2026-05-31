@@ -355,12 +355,16 @@ function AuditServicePage() {
           {SUBJECTS.map((s, i) => (
             <li
               key={s}
-              className="flex gap-5 py-4 border-t border-border font-serif text-foreground/85"
+              className="group flex gap-5 py-4 border-t border-border font-serif text-foreground/85 hover:text-foreground transition-colors"
             >
-              <span className="font-mono text-sm text-accent-foreground tabular-nums shrink-0 w-8">
+              <span className="font-mono text-sm text-accent-foreground tabular-nums shrink-0 w-8 group-hover:text-brand-red transition-colors">
                 {String(i + 1).padStart(2, "0")}
               </span>
-              <span className="leading-relaxed">{s}</span>
+              <span className="leading-relaxed flex-1">{s}</span>
+              <span
+                aria-hidden
+                className="hidden md:block self-center w-0 group-hover:w-6 h-px bg-accent transition-all duration-300"
+              />
             </li>
           ))}
         </ol>
