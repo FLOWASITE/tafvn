@@ -1,5 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { ArrowUpRight, Check, Phone, ScrollText } from "lucide-react";
+import { ArrowUpRight, Check, Phone, ScrollText, List } from "lucide-react";
 import { Breadcrumb } from "@/components/site/Breadcrumb";
 import { Section, Eyebrow } from "@/components/site/Section";
 import { Reveal } from "@/components/site/Reveal";
@@ -121,6 +121,17 @@ const FAQS = [
   },
 ];
 
+const TOC = [
+  { id: "dinh-nghia", label: "Dịch vụ kiểm toán là gì?" },
+  { id: "vi-sao-thue", label: "Vì sao doanh nghiệp nên thuê kiểm toán?" },
+  { id: "quy-dinh-bat-buoc", label: "Quy định về kiểm toán bắt buộc" },
+  { id: "doi-tuong-bat-buoc", label: "Các đối tượng bắt buộc phải kiểm toán" },
+  { id: "dich-vu-taf", label: "Các dịch vụ kiểm toán TAF cung cấp" },
+  { id: "quy-trinh", label: "Quy trình kiểm toán tại TAF" },
+  { id: "vi-sao-chon-taf", label: "Vì sao chọn TAF" },
+  { id: "faq", label: "Câu hỏi thường gặp" },
+];
+
 const RELATED = [
   { to: "/dich-vu/kiem-toan-bao-cao-tai-chinh", label: "Kiểm toán báo cáo tài chính" },
   { to: "/dich-vu/soat-xet-tuan-thu", label: "Soát xét tuân thủ & nội bộ" },
@@ -222,6 +233,22 @@ export const Route = createFileRoute("/dich-vu-kiem-toan")({
           ],
         }),
       },
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "ItemList",
+          name: "Mục lục: Dịch vụ kiểm toán độc lập tại Việt Nam",
+          itemListOrder: "https://schema.org/ItemListOrderAscending",
+          numberOfItems: TOC.length,
+          itemListElement: TOC.map((item, i) => ({
+            "@type": "ListItem",
+            position: i + 1,
+            name: item.label,
+            url: `${CANONICAL}#${item.id}`,
+          })),
+        }),
+      },
     ],
     });
   },
@@ -312,8 +339,36 @@ function AuditServicePage() {
         </div>
       </Section>
 
+      {/* Mục lục */}
+      <Section className="pt-0 pb-6">
+        <nav
+          aria-label="Mục lục bài viết"
+          className="border border-border bg-cream/60 rounded-[2px] p-6 md:p-8"
+        >
+          <div className="flex items-center gap-2.5 text-[0.7rem] uppercase tracking-[0.22em] text-accent-foreground/90 mb-5 font-medium">
+            <List size={14} className="text-brand-red" />
+            Mục lục
+          </div>
+          <ol className="grid sm:grid-cols-2 gap-x-8 gap-y-2 font-serif text-foreground/85 counter-reset-toc">
+            {TOC.map((item, i) => (
+              <li key={item.id} className="flex gap-3 leading-snug">
+                <span className="font-mono text-xs text-muted-foreground tabular-nums mt-1 shrink-0 w-6">
+                  {String(i + 1).padStart(2, "0")}
+                </span>
+                <a
+                  href={`#${item.id}`}
+                  className="text-foreground/85 hover:text-brand-red-ink underline decoration-transparent hover:decoration-brand-red/50 underline-offset-4 transition-colors"
+                >
+                  {item.label}
+                </a>
+              </li>
+            ))}
+          </ol>
+        </nav>
+      </Section>
+
       {/* Định nghĩa */}
-      <Section className="pt-0">
+      <Section id="dinh-nghia" className="pt-0">
         <div className="rule-gold mb-12" />
         <Reveal>
           <div className="grid lg:grid-cols-12 gap-10">
@@ -339,7 +394,7 @@ function AuditServicePage() {
       </Section>
 
       {/* Vì sao thuê */}
-      <Section className="pt-0">
+      <Section id="vi-sao-thue" className="pt-0">
         <div className="rule-gold mb-12" />
         <Eyebrow>02</Eyebrow>
         <h2 className="font-display text-3xl md:text-[2.25rem] leading-tight text-foreground max-w-2xl">
@@ -365,7 +420,7 @@ function AuditServicePage() {
       </Section>
 
       {/* Quy định bắt buộc */}
-      <Section className="bg-cream border-y border-border relative">
+      <Section id="quy-dinh-bat-buoc" className="bg-cream border-y border-border relative">
         <div className="grid lg:grid-cols-12 gap-10">
           <div className="lg:col-span-5">
             <Eyebrow>03</Eyebrow>
@@ -424,7 +479,7 @@ function AuditServicePage() {
       </Section>
 
       {/* Đối tượng */}
-      <Section>
+      <Section id="doi-tuong-bat-buoc">
         <Eyebrow>04</Eyebrow>
         <h2 className="font-display text-3xl md:text-[2.25rem] leading-tight text-foreground max-w-3xl">
           Các đối tượng bắt buộc phải kiểm toán
@@ -456,7 +511,7 @@ function AuditServicePage() {
       </Section>
 
       {/* Dịch vụ TAF cung cấp */}
-      <Section className="pt-0">
+      <Section id="dich-vu-taf" className="pt-0">
         <div className="rule-gold mb-12" />
         <Eyebrow>05</Eyebrow>
         <h2 className="font-display text-3xl md:text-[2.25rem] leading-tight text-foreground max-w-3xl">
@@ -496,7 +551,7 @@ function AuditServicePage() {
       </Section>
 
       {/* Quy trình */}
-      <Section className="bg-cream border-y border-border">
+      <Section id="quy-trinh" className="bg-cream border-y border-border">
         <Eyebrow>06</Eyebrow>
         <h2 className="font-display text-3xl md:text-[2.25rem] leading-tight text-foreground max-w-3xl">
           Quy trình kiểm toán tại TAF
@@ -530,7 +585,7 @@ function AuditServicePage() {
       </Section>
 
       {/* Vì sao chọn TAF */}
-      <Section>
+      <Section id="vi-sao-chon-taf">
         <Eyebrow>07</Eyebrow>
         <h2 className="font-display text-3xl md:text-[2.25rem] leading-tight text-foreground max-w-3xl">
           Vì sao chọn dịch vụ kiểm toán của TAF
@@ -598,7 +653,7 @@ function AuditServicePage() {
       </Section>
 
       {/* FAQ */}
-      <Section>
+      <Section id="faq">
         <div className="grid lg:grid-cols-12 gap-10">
           <div className="lg:col-span-4">
             <Eyebrow>FAQ</Eyebrow>
