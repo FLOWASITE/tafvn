@@ -168,6 +168,12 @@ export const Route = createFileRoute("/dich-vu-kiem-toan")({
               addressCountry: "VN",
             },
           },
+          author: {
+            "@type": "Person",
+            name: "Huỳnh Thế Tho",
+            jobTitle: "Giám đốc kiểm toán",
+            worksFor: { "@type": "Organization", name: SITE.legalName },
+          },
           hasOfferCatalog: {
             "@type": "OfferCatalog",
             name: "Danh mục dịch vụ kiểm toán của TAF",
