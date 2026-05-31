@@ -69,7 +69,9 @@
   --muted-foreground: oklch(0.42 0.03 260);
   --accent: oklch(0.72 0.13 80);                /* gold */
   --accent-foreground: oklch(0.18 0.04 260);
-  --brand-red: oklch(0.48 0.18 25);             /* TAF deep red — mark only */
+  --brand-red: oklch(0.48 0.18 25);             /* TAF deep red */
+  --brand-red-ink: oklch(0.42 0.19 25);         /* slightly darker, for text on cream */
+  --brand-red-soft: oklch(0.94 0.04 25);        /* tinted cream for soft fills */
 
   --destructive: oklch(0.55 0.22 25);
   --destructive-foreground: oklch(0.98 0.005 85);
