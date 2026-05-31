@@ -15,6 +15,7 @@ import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 import { Route as LienHeRouteImport } from './routes/lien-he'
 import { Route as GioiThieuRouteImport } from './routes/gioi-thieu'
 import { Route as DoiNguRouteImport } from './routes/doi-ngu'
+import { Route as DichVuKiemToanRouteImport } from './routes/dich-vu-kiem-toan'
 import { Route as DichVuRouteImport } from './routes/dich-vu'
 import { Route as DiaBanRouteImport } from './routes/dia-ban'
 import { Route as ChinhSachBaoMatRouteImport } from './routes/chinh-sach-bao-mat'
@@ -52,6 +53,11 @@ const GioiThieuRoute = GioiThieuRouteImport.update({
 const DoiNguRoute = DoiNguRouteImport.update({
   id: '/doi-ngu',
   path: '/doi-ngu',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const DichVuKiemToanRoute = DichVuKiemToanRouteImport.update({
+  id: '/dich-vu-kiem-toan',
+  path: '/dich-vu-kiem-toan',
   getParentRoute: () => rootRouteImport,
 } as any)
 const DichVuRoute = DichVuRouteImport.update({
@@ -100,6 +106,7 @@ export interface FileRoutesByFullPath {
   '/chinh-sach-bao-mat': typeof ChinhSachBaoMatRoute
   '/dia-ban': typeof DiaBanRouteWithChildren
   '/dich-vu': typeof DichVuRouteWithChildren
+  '/dich-vu-kiem-toan': typeof DichVuKiemToanRoute
   '/doi-ngu': typeof DoiNguRoute
   '/gioi-thieu': typeof GioiThieuRoute
   '/lien-he': typeof LienHeRoute
@@ -116,6 +123,7 @@ export interface FileRoutesByTo {
   '/chinh-sach-bao-mat': typeof ChinhSachBaoMatRoute
   '/dia-ban': typeof DiaBanRouteWithChildren
   '/dich-vu': typeof DichVuRouteWithChildren
+  '/dich-vu-kiem-toan': typeof DichVuKiemToanRoute
   '/doi-ngu': typeof DoiNguRoute
   '/gioi-thieu': typeof GioiThieuRoute
   '/lien-he': typeof LienHeRoute
@@ -133,6 +141,7 @@ export interface FileRoutesById {
   '/chinh-sach-bao-mat': typeof ChinhSachBaoMatRoute
   '/dia-ban': typeof DiaBanRouteWithChildren
   '/dich-vu': typeof DichVuRouteWithChildren
+  '/dich-vu-kiem-toan': typeof DichVuKiemToanRoute
   '/doi-ngu': typeof DoiNguRoute
   '/gioi-thieu': typeof GioiThieuRoute
   '/lien-he': typeof LienHeRoute
@@ -151,6 +160,7 @@ export interface FileRouteTypes {
     | '/chinh-sach-bao-mat'
     | '/dia-ban'
     | '/dich-vu'
+    | '/dich-vu-kiem-toan'
     | '/doi-ngu'
     | '/gioi-thieu'
     | '/lien-he'
@@ -167,6 +177,7 @@ export interface FileRouteTypes {
     | '/chinh-sach-bao-mat'
     | '/dia-ban'
     | '/dich-vu'
+    | '/dich-vu-kiem-toan'
     | '/doi-ngu'
     | '/gioi-thieu'
     | '/lien-he'
@@ -183,6 +194,7 @@ export interface FileRouteTypes {
     | '/chinh-sach-bao-mat'
     | '/dia-ban'
     | '/dich-vu'
+    | '/dich-vu-kiem-toan'
     | '/doi-ngu'
     | '/gioi-thieu'
     | '/lien-he'
@@ -200,6 +212,7 @@ export interface RootRouteChildren {
   ChinhSachBaoMatRoute: typeof ChinhSachBaoMatRoute
   DiaBanRoute: typeof DiaBanRouteWithChildren
   DichVuRoute: typeof DichVuRouteWithChildren
+  DichVuKiemToanRoute: typeof DichVuKiemToanRoute
   DoiNguRoute: typeof DoiNguRoute
   GioiThieuRoute: typeof GioiThieuRoute
   LienHeRoute: typeof LienHeRoute
@@ -251,6 +264,13 @@ declare module '@tanstack/react-router' {
       path: '/doi-ngu'
       fullPath: '/doi-ngu'
       preLoaderRoute: typeof DoiNguRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/dich-vu-kiem-toan': {
+      id: '/dich-vu-kiem-toan'
+      path: '/dich-vu-kiem-toan'
+      fullPath: '/dich-vu-kiem-toan'
+      preLoaderRoute: typeof DichVuKiemToanRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/dich-vu': {
@@ -350,6 +370,7 @@ const rootRouteChildren: RootRouteChildren = {
   ChinhSachBaoMatRoute: ChinhSachBaoMatRoute,
   DiaBanRoute: DiaBanRouteWithChildren,
   DichVuRoute: DichVuRouteWithChildren,
+  DichVuKiemToanRoute: DichVuKiemToanRoute,
   DoiNguRoute: DoiNguRoute,
   GioiThieuRoute: GioiThieuRoute,
   LienHeRoute: LienHeRoute,
@@ -361,13 +382,3 @@ const rootRouteChildren: RootRouteChildren = {
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
-
-import type { getRouter } from './router.tsx'
-import type { startInstance } from './start.ts'
-declare module '@tanstack/react-start' {
-  interface Register {
-    ssr: true
-    router: Awaited<ReturnType<typeof getRouter>>
-    config: Awaited<ReturnType<typeof startInstance.getOptions>>
-  }
-}
