@@ -23,6 +23,7 @@ import { ClientLogos } from "@/components/site/ClientLogos";
 import { VietnamMap } from "@/components/site/VietnamMap";
 import { ProcessTimeline } from "@/components/site/ProcessTimeline";
 import { TestimonialCarousel } from "@/components/site/TestimonialCarousel";
+import { Reveal } from "@/components/site/Reveal";
 import { useCountUp } from "@/hooks/use-count-up";
 import { SERVICES, SITE, FAQ_GENERAL } from "@/lib/site";
 import portraitImg from "@/assets/taf-portrait.png";
@@ -89,14 +90,14 @@ function HomePage() {
           {/* Left: copy */}
           <div className="lg:col-span-7">
             <Eyebrow>Kiểm toán độc lập · Tư vấn thuế · Kế toán</Eyebrow>
-            <h1 className="font-display text-[2.25rem] sm:text-5xl lg:text-[4rem] leading-[1.05] tracking-tight text-foreground">
+            <h1 className="font-display text-[2.25rem] sm:text-5xl lg:text-[4rem] leading-[1.05] tracking-tight text-foreground text-balance">
               Báo cáo kiểm toán
               <span className="block">
-                <em className="not-italic font-display italic text-accent-foreground">đúng</em>{" "}
+                <em className="not-italic font-display italic text-accent-foreground italic-mark">đúng</em>{" "}
                 chuẩn mực,
               </span>
               <span className="block">
-                <em className="not-italic font-display italic text-accent-foreground">đúng</em>{" "}
+                <em className="not-italic font-display italic text-accent-foreground italic-mark">đúng</em>{" "}
                 thời hạn.
               </span>
             </h1>
@@ -126,17 +127,22 @@ function HomePage() {
           </div>
 
           {/* Right: photo collage */}
-          <div className="lg:col-span-5 relative">
+          <Reveal className="lg:col-span-5 relative" delay={120}>
             <div className="relative">
-              <EditorialImage
-                src={portraitImg}
-                alt="Kiểm toán viên TAF kiểm tra Báo cáo Tài chính khách hàng"
-                aspect="portrait"
-                accent="red"
-                caption="Tại văn phòng TAF — kiểm tra Báo cáo Tài chính khách hàng FDI."
-              />
+              <div style={{ transform: "rotate(-1.2deg)" }}>
+                <EditorialImage
+                  src={portraitImg}
+                  alt="Kiểm toán viên TAF kiểm tra Báo cáo Tài chính khách hàng"
+                  aspect="portrait"
+                  accent="red"
+                  caption="Tại văn phòng TAF — kiểm tra Báo cáo Tài chính khách hàng FDI."
+                />
+              </div>
               {/* Overlap mini image */}
-              <div className="hidden sm:block absolute -bottom-6 -left-6 w-2/5 ring-8 ring-background">
+              <div
+                className="hidden sm:block absolute -bottom-6 -left-6 w-2/5 ring-8 ring-background"
+                style={{ transform: "rotate(2deg)" }}
+              >
                 <EditorialImage
                   src={reportSealImg}
                   alt="Chồng báo cáo kiểm toán TAF kèm con dấu đỏ"
@@ -146,10 +152,10 @@ function HomePage() {
               </div>
               {/* TAF seal floating top-left */}
               <div className="absolute -top-6 -left-4 sm:-top-8 sm:-left-8 hidden md:block">
-                <TafSeal size={88} />
+                <TafSeal size={88} spin />
               </div>
             </div>
-          </div>
+          </Reveal>
         </div>
 
         {/* Stats ledger strip */}
@@ -167,16 +173,14 @@ function HomePage() {
       {/* TRUST STRIP — clients + emblems */}
       <section className="bg-cream border-b border-border">
         <div className="mx-auto max-w-6xl px-5 md:px-8 py-12 md:py-16 space-y-10">
-          <ClientLogos />
-          <div className="grid sm:grid-cols-3 gap-3 md:gap-4">
-            <Emblem
-              icon={Landmark}
-              label="Đăng ký hành nghề"
-              sublabel="Bộ Tài chính"
-            />
-            <Emblem icon={Award} label="Thành viên" sublabel="VACPA" />
-            <Emblem icon={BookOpen} label="Chuẩn mực" sublabel="VSA & IFRS" />
-          </div>
+          <Reveal small><ClientLogos /></Reveal>
+          <Reveal small delay={120}>
+            <div className="grid sm:grid-cols-3 gap-3 md:gap-4">
+              <Emblem icon={Landmark} label="Đăng ký hành nghề" sublabel="Bộ Tài chính" />
+              <Emblem icon={Award} label="Thành viên" sublabel="VACPA" />
+              <Emblem icon={BookOpen} label="Chuẩn mực" sublabel="VSA & IFRS" />
+            </div>
+          </Reveal>
         </div>
       </section>
 
