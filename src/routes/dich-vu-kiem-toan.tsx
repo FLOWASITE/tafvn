@@ -1,5 +1,17 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { ArrowUpRight, Phone, ScrollText, List } from "lucide-react";
+import {
+  ArrowUpRight,
+  Phone,
+  ScrollText,
+  List,
+  Award,
+  Scale,
+  Monitor,
+  Users,
+  Wallet,
+  MessageCircle,
+  Lock,
+} from "lucide-react";
 import { Breadcrumb } from "@/components/site/Breadcrumb";
 import { Section, Eyebrow } from "@/components/site/Section";
 import { Reveal } from "@/components/site/Reveal";
@@ -88,14 +100,14 @@ const PROCESS = [
   },
 ];
 
-const WHY_TAF = [
-  "Được Bộ Tài chính cấp phép đủ điều kiện hành nghề kiểm toán",
-  "Môi trường pháp lý rõ ràng, minh bạch",
-  "Ứng dụng công nghệ, giúp khách hàng theo dõi tiến độ kiểm toán",
-  "Đội ngũ KTV có chuyên môn cao, tận tâm với nghề",
-  "Chi phí minh bạch, tương xứng với phạm vi công việc",
-  "Hỗ trợ, tư vấn khách hàng kịp thời",
-  "Cam kết bảo mật thông tin khách hàng",
+const WHY_TAF: { text: string; icon: React.ElementType }[] = [
+  { text: "Được Bộ Tài chính cấp phép đủ điều kiện hành nghề kiểm toán", icon: Award },
+  { text: "Môi trường pháp lý rõ ràng, minh bạch", icon: Scale },
+  { text: "Ứng dụng công nghệ, giúp khách hàng theo dõi tiến độ kiểm toán", icon: Monitor },
+  { text: "Đội ngũ KTV có chuyên môn cao, tận tâm với nghề", icon: Users },
+  { text: "Chi phí minh bạch, tương xứng với phạm vi công việc", icon: Wallet },
+  { text: "Hỗ trợ, tư vấn khách hàng kịp thời", icon: MessageCircle },
+  { text: "Cam kết bảo mật thông tin khách hàng", icon: Lock },
 ];
 
 const FAQS = [
@@ -658,20 +670,33 @@ function AuditServicePage() {
               </figure>
             </Reveal>
 
-            <ol className="grid sm:grid-cols-2 gap-x-6 gap-y-0">
-              {WHY_TAF.map((w, i) => (
-                <li
-                  key={w}
-                  className="group relative flex gap-4 py-5 border-t border-border/80 transition-colors hover:border-accent-foreground/60"
-                >
-                  <span className="font-display text-accent-foreground/90 text-sm tabular-nums tracking-wider pt-0.5">
-                    {String(i + 1).padStart(2, "0")}
-                  </span>
-                  <span className="font-serif text-foreground/85 leading-relaxed">
-                    {w}
-                  </span>
-                </li>
-              ))}
+            <ol className="grid sm:grid-cols-2 gap-x-6 gap-y-0" role="list">
+              {WHY_TAF.map((w, i) => {
+                const Icon = w.icon;
+                return (
+                  <li
+                    key={w.text}
+                    tabIndex={0}
+                    className="group relative flex items-start gap-4 py-5 border-t border-border/80 transition-all duration-300 hover:border-accent hover:bg-cream/40 hover:shadow-[var(--shadow-card)] hover:-translate-y-0.5 rounded-[2px] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent/60 focus-visible:ring-offset-2 cursor-default"
+                  >
+                    <span className="font-display text-accent-foreground/90 text-sm tabular-nums tracking-wider pt-0.5 shrink-0">
+                      {String(i + 1).padStart(2, "0")}
+                    </span>
+                    <Icon
+                      size={18}
+                      className="shrink-0 mt-0.5 text-muted-foreground/70 group-hover:text-brand-red transition-colors duration-300"
+                      aria-hidden="true"
+                    />
+                    <span className="font-serif text-foreground/85 leading-relaxed group-hover:text-foreground transition-colors duration-300">
+                      {w.text}
+                    </span>
+                    <span
+                      aria-hidden
+                      className="absolute top-0 right-0 w-3 h-3 border-t border-r border-accent opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-tr-[2px]"
+                    />
+                  </li>
+                );
+              })}
             </ol>
           </div>
         </div>
