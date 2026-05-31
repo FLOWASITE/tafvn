@@ -376,7 +376,7 @@ function AuditServicePage() {
       </Section>
 
       {/* Quy định bắt buộc */}
-      <Section className="bg-cream border-y border-border relative">
+      <Section id="quy-dinh-bat-buoc" className="bg-cream border-y border-border relative">
         <div className="grid lg:grid-cols-12 gap-10">
           <div className="lg:col-span-5">
             <Eyebrow>03</Eyebrow>
