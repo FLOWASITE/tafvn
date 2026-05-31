@@ -179,7 +179,7 @@ function HomePage() {
                   </div>
                   <ArrowUpRight
                     size={18}
-                    className="text-accent/70 mt-1 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
+                    className="text-accent/70 mt-1 transition-all group-hover:translate-x-0.5 group-hover:-translate-y-0.5 group-hover:text-brand-red"
                   />
                 </Link>
               </li>
