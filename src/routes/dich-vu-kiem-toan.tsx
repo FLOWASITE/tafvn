@@ -555,17 +555,24 @@ function AuditServicePage() {
           Dịch vụ liên quan
         </h2>
         <div className="mt-8 grid sm:grid-cols-3 gap-4">
-          {RELATED.map((r) => (
+          {RELATED.map((r, i) => (
             <Link
               key={r.to}
               to={r.to}
-              className="group bg-card border border-border hover:border-accent p-5 rounded-[2px] transition-colors flex items-center justify-between gap-4"
+              className="group relative bg-card border border-border hover:border-accent p-6 rounded-[2px] transition-all duration-300 hover:shadow-[var(--shadow-card)] hover:-translate-y-0.5 flex flex-col gap-6 min-h-[160px]"
             >
-              <span className="font-display text-base text-foreground">{r.label}</span>
-              <ArrowUpRight
-                size={16}
-                className="text-muted-foreground group-hover:text-accent-foreground shrink-0"
-              />
+              <span className="font-mono text-xs text-muted-foreground tabular-nums group-hover:text-brand-red transition-colors">
+                {String(i + 1).padStart(2, "0")} / {String(RELATED.length).padStart(2, "0")}
+              </span>
+              <div className="flex items-end justify-between gap-3 mt-auto">
+                <span className="font-display text-lg text-foreground leading-snug">
+                  {r.label}
+                </span>
+                <ArrowUpRight
+                  size={18}
+                  className="text-muted-foreground group-hover:text-accent-foreground group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all shrink-0"
+                />
+              </div>
             </Link>
           ))}
         </div>
