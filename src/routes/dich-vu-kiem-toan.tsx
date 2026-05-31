@@ -665,8 +665,11 @@ function AuditServicePage() {
                 </div>
                 <figcaption className="mt-3 text-[0.7rem] uppercase tracking-[0.22em] text-muted-foreground flex items-center gap-2.5">
                   <span className="inline-block w-6 h-px bg-accent/60" />
-                  Giới thiệu dịch vụ kiểm toán TAF
+                  Video giới thiệu dịch vụ kiểm toán độc lập — Kiểm toán viên được Bộ Tài chính cấp phép hành nghề
                 </figcaption>
+                <p className="mt-4 text-sm text-muted-foreground/80 font-serif leading-relaxed max-w-2xl">
+                  Đoạn phim ngắn giúp quý khách hàng hình dung quy trình kiểm toán minh bạch tại TAF: từ lập kế hoạch, thực hiện thủ tục kiểm toán đến phát hành báo cáo tài chính đã soát xét. Mọi công việc đều do kiểm toán viên độc lập được Nhà nước cấp chứng chỉ đảm nhiệm, đảm bảo tính khách quan và tuân thủ chuẩn mực kiểm toán Việt Nam.
+                </p>
               </figure>
             </Reveal>
 
