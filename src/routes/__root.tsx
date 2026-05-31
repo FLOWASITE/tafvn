@@ -127,7 +127,11 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
         { property: "og:description", content: SITE.description },
         { name: "twitter:card", content: "summary" },
       ],
-      links: [{ rel: "stylesheet", href: appCss }],
+      links: [
+        { rel: "stylesheet", href: appCss },
+        { rel: "icon", type: "image/png", href: "/favicon.png" },
+        { rel: "apple-touch-icon", href: "/taf-avatar.png" },
+      ],
       scripts: [
         {
           type: "application/ld+json",
