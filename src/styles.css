@@ -142,4 +142,5 @@
 
   /* Hairline rule used throughout the prestige theme */
   .rule-gold { background: linear-gradient(90deg, transparent, var(--color-accent), transparent); height: 1px; }
+  .rule-red { background: linear-gradient(90deg, transparent, var(--color-brand-red), transparent); height: 1px; }
 }
