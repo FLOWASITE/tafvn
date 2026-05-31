@@ -323,6 +323,34 @@ function AuditServicePage() {
         </div>
       </Section>
 
+      {/* Mục lục */}
+      <Section className="pt-0 pb-6">
+        <nav
+          aria-label="Mục lục bài viết"
+          className="border border-border bg-cream/60 rounded-[2px] p-6 md:p-8"
+        >
+          <div className="flex items-center gap-2.5 text-[0.7rem] uppercase tracking-[0.22em] text-accent-foreground/90 mb-5 font-medium">
+            <List size={14} className="text-brand-red" />
+            Mục lục
+          </div>
+          <ol className="grid sm:grid-cols-2 gap-x-8 gap-y-2 font-serif text-foreground/85 counter-reset-toc">
+            {TOC.map((item, i) => (
+              <li key={item.id} className="flex gap-3 leading-snug">
+                <span className="font-mono text-xs text-muted-foreground tabular-nums mt-1 shrink-0 w-6">
+                  {String(i + 1).padStart(2, "0")}
+                </span>
+                <a
+                  href={`#${item.id}`}
+                  className="text-foreground/85 hover:text-brand-red-ink underline decoration-transparent hover:decoration-brand-red/50 underline-offset-4 transition-colors"
+                >
+                  {item.label}
+                </a>
+              </li>
+            ))}
+          </ol>
+        </nav>
+      </Section>
+
       {/* Định nghĩa */}
       <Section id="dinh-nghia" className="pt-0">
         <div className="rule-gold mb-12" />
