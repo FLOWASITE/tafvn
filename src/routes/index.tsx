@@ -78,7 +78,7 @@ function HomePage() {
             <div className="mt-8 flex flex-wrap gap-3">
               <Link
                 to="/lien-he"
-                className="group inline-flex items-center gap-2 bg-primary text-primary-foreground px-6 py-3.5 text-xs font-semibold tracking-[0.18em] uppercase rounded-[2px] hover:bg-primary/90 transition"
+                className="group inline-flex items-center gap-2 bg-brand-red text-white px-6 py-3.5 text-xs font-semibold tracking-[0.18em] uppercase rounded-[2px] hover:bg-brand-red-ink transition shadow-[0_8px_24px_-12px_var(--color-brand-red)]"
               >
                 Yêu cầu báo giá
                 <ArrowUpRight
