@@ -475,14 +475,30 @@ const USP = [
 function Stat({ value, suffix = "", label }: { value: number; suffix?: string; label: string }) {
   const { ref, value: animated } = useCountUp(value);
   return (
-    <div className="text-center md:text-left">
-      <div className="font-display italic text-3xl md:text-4xl lg:text-5xl text-accent-foreground leading-none tabular-nums">
+    <div className="stat-card text-center md:text-left cursor-default">
+      <div className="font-display italic text-3xl md:text-4xl lg:text-5xl text-accent-foreground leading-none tabular-nums stat-num">
         <span ref={ref}>{animated}</span>
         {suffix}
       </div>
+      <span className="stat-rule mx-auto md:mx-0" aria-hidden />
       <div className="mt-2 text-[0.7rem] uppercase tracking-[0.18em] text-muted-foreground">
         {label}
       </div>
+    </div>
+  );
+}
+
+function CityStat({ city, count, note }: { city: string; count: number; note: string }) {
+  const { ref, value } = useCountUp(count);
+  return (
+    <div className="border-t border-accent/40 pt-3">
+      <dt className="font-display italic text-accent-foreground text-xl tabular-nums">
+        <span ref={ref}>{value}</span>+
+      </dt>
+      <dd className="mt-1 text-[0.7rem] uppercase tracking-[0.18em] text-muted-foreground">
+        {city}
+      </dd>
+      <dd className="text-xs text-muted-foreground/80 font-serif italic mt-1">{note}</dd>
     </div>
   );
 }
