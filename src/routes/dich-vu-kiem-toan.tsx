@@ -380,17 +380,21 @@ function AuditServicePage() {
         <div className="mt-10 grid sm:grid-cols-2 lg:grid-cols-3 gap-3">
           {TAF_SERVICES.map((s, i) => {
             const inner = (
-              <div className="group h-full bg-card border border-border hover:border-accent p-5 rounded-[2px] transition-colors flex items-start gap-4">
-                <span className="font-mono text-xs text-muted-foreground tabular-nums mt-0.5 shrink-0">
+              <div className="group relative h-full bg-card border border-border hover:border-accent p-5 rounded-[2px] transition-all duration-300 flex items-start gap-4 hover:shadow-[var(--shadow-card)] hover:-translate-y-0.5">
+                <span
+                  aria-hidden
+                  className="absolute top-0 right-0 w-3 h-3 border-t border-r border-accent opacity-0 group-hover:opacity-100 transition-opacity"
+                />
+                <span className="font-mono text-xs text-muted-foreground tabular-nums mt-0.5 shrink-0 group-hover:text-brand-red transition-colors">
                   {String(i + 1).padStart(2, "0")}
                 </span>
-                <span className="font-display text-base text-foreground leading-snug flex-1">
+                <span className="font-display text-base text-foreground leading-snug flex-1 group-hover:text-accent-foreground transition-colors">
                   {s.label}
                 </span>
                 {s.slug ? (
                   <ArrowUpRight
                     size={16}
-                    className="text-muted-foreground group-hover:text-accent-foreground shrink-0 mt-1"
+                    className="text-muted-foreground group-hover:text-accent-foreground group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all shrink-0 mt-1"
                   />
                 ) : null}
               </div>
