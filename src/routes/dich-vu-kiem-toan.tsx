@@ -736,16 +736,10 @@ function AuditServicePage() {
                 <span aria-hidden className="absolute -bottom-2 -right-2 w-6 h-6 border-b border-r border-accent-foreground/70" />
 
                 <div className="relative border border-border rounded-[2px] overflow-hidden bg-cream shadow-[var(--shadow-elegant)]">
-                  <div className="aspect-video w-full">
-                    <iframe
-                      className="w-full h-full block"
-                      src="https://www.youtube.com/embed/uwiuHO1uN0A"
-                      title="Vì sao chọn dịch vụ kiểm toán TAF"
-                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                      allowFullScreen
-                      loading="lazy"
-                    />
-                  </div>
+                  <LazyYouTube
+                    videoId="uwiuHO1uN0A"
+                    title="Giới thiệu dịch vụ kiểm toán độc lập TAF — Kiểm toán viên được Bộ Tài chính cấp phép hành nghề"
+                  />
                 </div>
                 <figcaption className="mt-3 text-[0.7rem] uppercase tracking-[0.22em] text-muted-foreground flex items-center gap-2.5">
                   <span className="inline-block w-6 h-px bg-accent/60" />
