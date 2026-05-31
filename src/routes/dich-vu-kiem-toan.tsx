@@ -13,11 +13,12 @@ import {
 import { SITE } from "@/lib/site";
 import heroImage from "@/assets/dich-vu-kiem-toan-bao-cao-tai-chinh-taf.jpg";
 
+const SITE_ORIGIN = "https://tafvn.lovable.app";
 const TITLE = "Dịch vụ kiểm toán độc lập tại Việt Nam | TAF";
 const DESCRIPTION =
-  "Dịch vụ kiểm toán độc lập của TAF giúp doanh nghiệp minh bạch báo cáo tài chính, đúng chuẩn mực kiểm toán Việt Nam. Đội ngũ KTV được Bộ Tài chính cấp phép.";
+  "TAF cung cấp dịch vụ kiểm toán độc lập, minh bạch báo cáo tài chính theo chuẩn mực Việt Nam. KTV được Bộ Tài chính cấp phép hành nghề.";
 const PATH = "/dich-vu-kiem-toan";
-const CANONICAL = `https://tafvn.lovable.app${PATH}`;
+const CANONICAL = `${SITE_ORIGIN}${PATH}`;
 
 const REASONS = [
   {
@@ -128,7 +129,7 @@ const RELATED = [
 
 export const Route = createFileRoute("/dich-vu-kiem-toan")({
   head: () => {
-    const ogImage = `https://tafvn.lovable.app${heroImage}`;
+    const ogImage = new URL(heroImage, SITE_ORIGIN).href;
     return ({
     meta: [
       { title: TITLE },
@@ -162,9 +163,22 @@ export const Route = createFileRoute("/dich-vu-kiem-toan")({
             address: {
               "@type": "PostalAddress",
               streetAddress: "62A Phạm Ngọc Thạch",
-              addressLocality: "Phường Xuân Hoà, TP. Hồ Chí Minh",
+              addressLocality: "TP. Hồ Chí Minh",
+              addressRegion: "Phường Xuân Hoà",
               addressCountry: "VN",
             },
+          },
+          hasOfferCatalog: {
+            "@type": "OfferCatalog",
+            name: "Danh mục dịch vụ kiểm toán của TAF",
+            itemListElement: TAF_SERVICES.map((s) => ({
+              "@type": "Offer",
+              itemOffered: {
+                "@type": "Service",
+                name: s.label,
+                ...(s.slug ? { url: `${SITE_ORIGIN}/dich-vu/${s.slug}` } : {}),
+              },
+            })),
           },
         }),
       },
