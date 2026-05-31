@@ -26,10 +26,12 @@ export const Route = createFileRoute("/")({
 });
 
 function HomePage() {
+  const years = new Date().getFullYear() - SITE.established;
   return (
     <>
       {/* HERO */}
       <section className="relative overflow-hidden border-b border-border">
+        {/* Subtle grid texture */}
         <div className="absolute inset-0 -z-10 opacity-[0.03]" aria-hidden>
           <div
             className="absolute inset-0"
@@ -40,113 +42,183 @@ function HomePage() {
             }}
           />
         </div>
-        <div className="mx-auto max-w-6xl px-5 md:px-8 pt-20 pb-16 md:pt-28 md:pb-24 grid lg:grid-cols-12 gap-10 items-end">
+        {/* Corner hairline mark */}
+        <div
+          className="pointer-events-none absolute top-0 right-0 w-40 h-40 border-r border-t border-accent/30 -mr-10 -mt-6 hidden md:block"
+          aria-hidden
+        />
+        {/* Oversized faded numeral — years of practice */}
+        <div
+          className="pointer-events-none absolute right-[-2rem] bottom-[-3rem] font-display italic text-accent/[0.07] leading-none select-none hidden md:block"
+          aria-hidden
+          style={{ fontSize: "clamp(14rem, 22vw, 24rem)" }}
+        >
+          {years}
+        </div>
+
+        <div className="mx-auto max-w-6xl px-5 md:px-8 pt-20 pb-16 md:pt-28 md:pb-24 grid lg:grid-cols-12 gap-10 items-end relative">
           <div className="lg:col-span-8">
             <Eyebrow>Kiểm toán độc lập · Tư vấn thuế · Kế toán</Eyebrow>
             <h1 className="font-display text-[2.5rem] sm:text-5xl lg:text-[4rem] leading-[1.05] tracking-tight text-foreground">
               Báo cáo kiểm toán
-              <span className="block text-accent-foreground/90 italic font-normal">
-                đúng chuẩn mực, đúng thời hạn.
+              <span className="block">
+                <em className="not-italic font-display italic text-accent-foreground">đúng</em>{" "}
+                chuẩn mực,
+              </span>
+              <span className="block">
+                <em className="not-italic font-display italic text-accent-foreground">đúng</em>{" "}
+                thời hạn.
               </span>
             </h1>
             <p className="mt-6 max-w-2xl text-lg text-muted-foreground font-serif leading-relaxed">
               {SITE.legalName} là hãng kiểm toán độc lập tại Việt Nam, đăng ký hành nghề với Bộ
-              Tài chính. Hơn {new Date().getFullYear() - SITE.established} năm phục vụ doanh nghiệp
-              trong nước, FDI và các dự án đầu tư công.
+              Tài chính. Hơn {years} năm phục vụ doanh nghiệp trong nước, FDI và các dự án đầu tư
+              công.
             </p>
             <div className="mt-8 flex flex-wrap gap-3">
               <Link
                 to="/lien-he"
-                className="inline-flex items-center gap-2 bg-primary text-primary-foreground px-6 py-3.5 text-sm font-medium rounded-[2px] hover:bg-primary/90 transition"
+                className="group inline-flex items-center gap-2 bg-primary text-primary-foreground px-6 py-3.5 text-xs font-semibold tracking-[0.18em] uppercase rounded-[2px] hover:bg-primary/90 transition"
               >
-                Yêu cầu báo giá <ArrowUpRight size={16} />
+                Yêu cầu báo giá
+                <ArrowUpRight
+                  size={16}
+                  className="transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
+                />
               </Link>
               <Link
                 to="/dich-vu"
-                className="inline-flex items-center gap-2 border border-input text-foreground px-6 py-3.5 text-sm font-medium rounded-[2px] hover:bg-muted transition"
+                className="inline-flex items-center gap-2 border border-input text-foreground px-6 py-3.5 text-xs font-semibold tracking-[0.18em] uppercase rounded-[2px] hover:bg-muted transition"
               >
                 Khám phá dịch vụ
               </Link>
             </div>
           </div>
+
+          {/* Stats — ledger column */}
           <div className="lg:col-span-4">
-            <div className="border-l-2 border-accent pl-5 space-y-5">
-              <Stat value="20+" label="năm hành nghề kiểm toán" />
-              <Stat value="500+" label="khách hàng doanh nghiệp" />
-              <Stat value="60+" label="tỉnh / thành phục vụ" />
+            <div className="border-t border-border pt-6 grid grid-cols-3 lg:grid-cols-1 gap-6 lg:gap-7 lg:border-t-0 lg:border-l lg:border-accent/40 lg:pl-7 lg:pt-0">
+              <Stat value="20+" label="Năm hành nghề" />
+              <Stat value="500+" label="Khách hàng doanh nghiệp" />
+              <Stat value="60+" label="Tỉnh / thành phục vụ" />
             </div>
           </div>
         </div>
       </section>
 
-      {/* USP */}
-      <Section className="bg-cream">
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-px bg-border border border-border">
-          {USP.map((u) => (
-            <div key={u.title} className="bg-background p-7">
-              <u.icon size={22} className="text-accent-foreground" />
-              <h3 className="mt-4 font-display text-lg text-foreground">{u.title}</h3>
-              <p className="mt-2 text-sm text-muted-foreground font-serif leading-relaxed">
-                {u.body}
-              </p>
+      {/* USP — staggered with serif numerals */}
+      <Section className="bg-cream relative">
+        <div className="grid md:grid-cols-2 gap-x-10 gap-y-14">
+          {USP.map((u, i) => (
+            <div
+              key={u.title}
+              className={`relative ${i % 2 === 1 ? "md:mt-12" : ""}`}
+            >
+              {/* Massive faded numeral */}
+              <div
+                aria-hidden
+                className="pointer-events-none absolute -left-2 -top-8 font-display italic text-accent/10 leading-none select-none"
+                style={{ fontSize: "7rem" }}
+              >
+                {String(i + 1).padStart(2, "0")}
+              </div>
+              <div className="relative pl-6 border-l border-accent/40">
+                <u.icon size={20} className="text-accent-foreground" />
+                <h3 className="mt-4 font-display text-xl text-foreground leading-snug">
+                  {u.title}
+                </h3>
+                <p className="mt-2 text-sm md:text-[0.95rem] text-muted-foreground font-serif leading-relaxed">
+                  {u.body}
+                </p>
+              </div>
             </div>
           ))}
         </div>
       </Section>
 
-      {/* SERVICES */}
-      <Section>
-        <div className="grid lg:grid-cols-12 gap-10">
+      {/* SERVICES — dark ledger list */}
+      <section className="relative bg-primary text-primary-foreground overflow-hidden">
+        <div
+          aria-hidden
+          className="pointer-events-none absolute top-10 right-10 w-40 h-40 border-t border-r border-accent/30 hidden md:block"
+        />
+        <div className="mx-auto max-w-6xl px-5 md:px-8 py-20 md:py-28 grid lg:grid-cols-12 gap-12">
           <div className="lg:col-span-4">
-            <SectionHeading
-              eyebrow="Dịch vụ chính"
-              title="Sáu nhóm dịch vụ chuyên sâu cho doanh nghiệp."
-              lead="Mỗi tuyến dịch vụ do KTV phụ trách trực tiếp, có chứng chỉ hành nghề và kinh nghiệm ngành tương ứng."
-            />
+            <p className="text-[0.7rem] uppercase tracking-[0.28em] text-accent mb-4 font-medium">
+              <span className="inline-block w-6 h-px bg-accent align-middle mr-2" />
+              Dịch vụ chính
+            </p>
+            <h2 className="font-display text-3xl md:text-4xl lg:text-[2.75rem] leading-[1.1]">
+              Sáu nhóm dịch vụ
+              <span className="block italic opacity-80">chuyên sâu.</span>
+            </h2>
+            <p className="mt-5 text-primary-foreground/65 font-serif leading-relaxed">
+              Mỗi tuyến dịch vụ do KTV phụ trách trực tiếp, có chứng chỉ hành nghề và kinh nghiệm
+              ngành tương ứng.
+            </p>
           </div>
-          <div className="lg:col-span-8 grid sm:grid-cols-2 gap-4">
+          <ul className="lg:col-span-8 divide-y divide-white/10 border-y border-white/10">
             {SERVICES.map((s, i) => (
-              <Link
-                key={s.slug}
-                to="/dich-vu/$slug"
-                params={{ slug: s.slug }}
-                className="group bg-card border border-border hover:border-accent p-6 rounded-[2px] transition-colors"
-              >
-                <div className="flex items-baseline justify-between gap-3 mb-3">
-                  <span className="text-[0.7rem] font-mono text-muted-foreground">
-                    0{i + 1}
+              <li key={s.slug}>
+                <Link
+                  to="/dich-vu/$slug"
+                  params={{ slug: s.slug }}
+                  className="group grid grid-cols-[auto,1fr,auto] items-start gap-4 md:gap-8 py-6 md:py-7 hover:bg-white/[0.03] transition-colors -mx-3 px-3"
+                >
+                  <span className="font-display italic text-accent text-sm md:text-base pt-1 tabular-nums">
+                    {String(i + 1).padStart(2, "0")}
                   </span>
+                  <div className="min-w-0">
+                    <h3 className="font-display text-lg md:text-xl leading-snug transition-colors group-hover:text-accent">
+                      {s.title}
+                    </h3>
+                    <p className="mt-2 text-sm text-primary-foreground/60 font-serif leading-relaxed line-clamp-2">
+                      {s.summary}
+                    </p>
+                  </div>
                   <ArrowUpRight
-                    size={16}
-                    className="text-muted-foreground group-hover:text-accent-foreground transition"
+                    size={18}
+                    className="text-accent/70 mt-1 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
                   />
-                </div>
-                <h3 className="font-display text-lg text-foreground leading-snug">{s.title}</h3>
-                <p className="mt-2 text-sm text-muted-foreground font-serif line-clamp-3 leading-relaxed">
-                  {s.summary}
-                </p>
-              </Link>
+                </Link>
+              </li>
             ))}
-          </div>
+          </ul>
         </div>
-      </Section>
+      </section>
 
-      {/* TESTIMONIAL */}
-      <Section className="bg-primary text-primary-foreground">
-        <div className="max-w-3xl">
-          <Eyebrow>Khách hàng nói về TAF</Eyebrow>
-          <blockquote className="font-display text-2xl md:text-3xl lg:text-[2.25rem] leading-[1.25] italic text-primary-foreground">
-            “TAF bám sát kế hoạch kiểm toán, phát hiện vấn đề kế toán quan trọng trước khi nộp
-            BCTC và giải thích kiến nghị một cách thực tế cho ban lãnh đạo.”
-          </blockquote>
-          <div className="mt-6 text-sm text-primary-foreground/70 font-serif">
-            Giám đốc Tài chính — Doanh nghiệp sản xuất FDI, Bình Dương
+      {/* TESTIMONIAL — giant serif quote */}
+      <Section className="bg-background relative">
+        <div className="grid lg:grid-cols-12 gap-10 items-start">
+          <div className="lg:col-span-2 hidden lg:block">
+            <span
+              aria-hidden
+              className="font-display italic text-accent/40 leading-[0.7] block"
+              style={{ fontSize: "10rem" }}
+            >
+              “
+            </span>
+          </div>
+          <div className="lg:col-span-10">
+            <Eyebrow>Khách hàng nói về TAF</Eyebrow>
+            <blockquote className="font-display text-2xl md:text-3xl lg:text-[2.25rem] leading-[1.3] text-foreground">
+              “TAF bám sát kế hoạch kiểm toán, phát hiện vấn đề kế toán quan trọng trước khi nộp
+              BCTC và{" "}
+              <em className="not-italic font-display italic text-accent-foreground">
+                giải thích kiến nghị một cách thực tế
+              </em>{" "}
+              cho ban lãnh đạo.”
+            </blockquote>
+            <div className="mt-6 flex items-center gap-3 text-sm text-muted-foreground font-serif">
+              <span className="h-px w-8 bg-accent" />
+              Giám đốc Tài chính — Doanh nghiệp sản xuất FDI, Bình Dương
+            </div>
           </div>
         </div>
       </Section>
 
       {/* FAQ */}
-      <Section>
+      <Section className="bg-cream">
         <div className="grid lg:grid-cols-12 gap-10">
           <div className="lg:col-span-4">
             <SectionHeading
@@ -156,15 +228,22 @@ function HomePage() {
           </div>
           <div className="lg:col-span-8">
             <dl className="divide-y divide-border border-y border-border">
-              {FAQ_GENERAL.map((f) => (
+              {FAQ_GENERAL.map((f, i) => (
                 <details key={f.q} className="group py-5">
                   <summary className="flex items-start justify-between gap-4 cursor-pointer list-none">
-                    <dt className="font-display text-lg text-foreground">{f.q}</dt>
+                    <dt className="flex items-baseline gap-4">
+                      <span className="font-display italic text-accent-foreground/80 text-sm tabular-nums">
+                        {String(i + 1).padStart(2, "0")}
+                      </span>
+                      <span className="font-display text-lg text-foreground">{f.q}</span>
+                    </dt>
                     <span className="text-accent-foreground text-xl leading-none group-open:rotate-45 transition-transform">
                       +
                     </span>
                   </summary>
-                  <dd className="mt-3 text-muted-foreground font-serif leading-relaxed">{f.a}</dd>
+                  <dd className="mt-3 pl-10 text-muted-foreground font-serif leading-relaxed">
+                    {f.a}
+                  </dd>
                 </details>
               ))}
             </dl>
@@ -173,11 +252,12 @@ function HomePage() {
       </Section>
 
       {/* CTA */}
-      <Section className="bg-cream border-t border-border">
+      <Section className="bg-background border-t border-border">
         <div className="grid md:grid-cols-12 gap-8 items-center">
           <div className="md:col-span-8">
-            <h2 className="font-display text-3xl md:text-4xl text-foreground">
-              Cần một hãng kiểm toán bạn có thể tin cậy?
+            <h2 className="font-display text-3xl md:text-4xl text-foreground leading-tight">
+              Cần một hãng kiểm toán
+              <span className="block italic text-accent-foreground">bạn có thể tin cậy?</span>
             </h2>
             <p className="mt-3 text-muted-foreground font-serif max-w-2xl">
               Gửi mô tả ngắn về doanh nghiệp và nhu cầu. KTV phụ trách sẽ liên hệ lại trong vòng 1
@@ -187,9 +267,13 @@ function HomePage() {
           <div className="md:col-span-4 md:text-right">
             <Link
               to="/lien-he"
-              className="inline-flex items-center gap-2 bg-primary text-primary-foreground px-6 py-3.5 text-sm font-medium rounded-[2px] hover:bg-primary/90 transition"
+              className="group inline-flex items-center gap-2 bg-primary text-primary-foreground px-6 py-3.5 text-xs font-semibold tracking-[0.18em] uppercase rounded-[2px] hover:bg-primary/90 transition"
             >
-              Yêu cầu báo giá <ArrowUpRight size={16} />
+              Yêu cầu báo giá
+              <ArrowUpRight
+                size={16}
+                className="transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
+              />
             </Link>
           </div>
         </div>
@@ -224,8 +308,12 @@ const USP = [
 function Stat({ value, label }: { value: string; label: string }) {
   return (
     <div>
-      <div className="font-display text-4xl text-foreground">{value}</div>
-      <div className="mt-1 text-xs uppercase tracking-wider text-muted-foreground">{label}</div>
+      <div className="font-display italic text-3xl md:text-4xl lg:text-5xl text-accent-foreground leading-none">
+        {value}
+      </div>
+      <div className="mt-2 text-[0.7rem] uppercase tracking-[0.18em] text-muted-foreground">
+        {label}
+      </div>
     </div>
   );
 }
