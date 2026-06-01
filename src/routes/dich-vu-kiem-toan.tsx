@@ -24,6 +24,9 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
+import { AspectRatio } from "@/components/ui/aspect-ratio";
+import { Skeleton } from "@/components/ui/skeleton";
+import { cn } from "@/lib/utils";
 import { SITE } from "@/lib/site";
 import heroImage from "@/assets/dich-vu-kiem-toan-bao-cao-tai-chinh-taf.jpg";
 
@@ -272,21 +275,36 @@ export const Route = createFileRoute("/dich-vu-kiem-toan")({
 
 function LazyYouTube({ videoId, title }: { videoId: string; title: string }) {
   const [loaded, setLoaded] = useState(false);
-  const containerRef = useRef<HTMLDivElement>(null);
   const [inView, setInView] = useState(false);
+  const [thumbReady, setThumbReady] = useState(false);
+  const [iframeReady, setIframeReady] = useState(false);
+  const [iframeError, setIframeError] = useState(false);
+  const containerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const el = containerRef.current;
     if (!el) return;
     const observer = new IntersectionObserver(
       ([entry]) => {
-        if (entry.isIntersecting) setInView(true);
+        if (entry.isIntersecting) {
+          setInView(true);
+          observer.disconnect();
+        }
       },
       { rootMargin: "200px" }
     );
     observer.observe(el);
     return () => observer.disconnect();
   }, []);
+
+  // Timeout fallback: if iframe doesn't signal load within 8s, show retry CTA.
+  useEffect(() => {
+    if (!loaded || iframeReady) return;
+    const t = setTimeout(() => {
+      if (!iframeReady) setIframeError(true);
+    }, 8000);
+    return () => clearTimeout(t);
+  }, [loaded, iframeReady]);
 
   const handleKeyDown = (e: React.KeyboardEvent<HTMLButtonElement>) => {
     if (e.key === "Enter" || e.key === " ") {
@@ -295,22 +313,69 @@ function LazyYouTube({ videoId, title }: { videoId: string; title: string }) {
     }
   };
 
+  const handlePlay = () => {
+    setIframeError(false);
+    setIframeReady(false);
+    setLoaded(true);
+  };
+
   const thumbSrc = `https://img.youtube.com/vi/${videoId}/maxresdefault.jpg`;
   const iframeSrc = `https://www.youtube.com/embed/${videoId}?autoplay=1&rel=0`;
+  const watchUrl = `https://www.youtube.com/watch?v=${videoId}`;
 
   return (
-    <div
-      ref={containerRef}
-      className="aspect-video w-full relative bg-black"
+    <AspectRatio
+      ratio={16 / 9}
+      ref={containerRef as unknown as React.Ref<HTMLDivElement>}
+      className="w-full relative bg-ink/90 overflow-hidden"
     >
+      {/* Skeleton — always reserves space, fades out when content ready */}
+      <div
+        aria-hidden="true"
+        className={cn(
+          "absolute inset-0 transition-opacity duration-500",
+          (loaded ? iframeReady : thumbReady) ? "opacity-0" : "opacity-100",
+        )}
+      >
+        <Skeleton className="w-full h-full rounded-none bg-ink/20" />
+      </div>
+
       {loaded ? (
-        <iframe
-          className="w-full h-full block"
-          src={iframeSrc}
-          title={title}
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-          allowFullScreen
-        />
+        <>
+          {!iframeError && (
+            <iframe
+              className="absolute inset-0 w-full h-full block"
+              src={iframeSrc}
+              title={title}
+              loading="lazy"
+              onLoad={() => setIframeReady(true)}
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              allowFullScreen
+            />
+          )}
+          {iframeError && (
+            <div className="absolute inset-0 flex flex-col items-center justify-center gap-3 bg-ink/90 text-cream p-6 text-center">
+              <p className="text-sm">Không thể tải video. Vui lòng thử lại.</p>
+              <div className="flex gap-2">
+                <button
+                  type="button"
+                  onClick={handlePlay}
+                  className="px-4 py-2 text-sm border border-accent/60 hover:bg-accent/10 transition-colors rounded-[2px]"
+                >
+                  Thử lại
+                </button>
+                <a
+                  href={watchUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="px-4 py-2 text-sm bg-brand-red hover:bg-brand-red-ink transition-colors rounded-[2px]"
+                >
+                  Mở trên YouTube
+                </a>
+              </div>
+            </div>
+          )}
+        </>
       ) : (
         <>
           {inView && (
@@ -319,18 +384,26 @@ function LazyYouTube({ videoId, title }: { videoId: string; title: string }) {
               alt={`Thumbnail video: ${title}`}
               loading="lazy"
               decoding="async"
-              className="w-full h-full object-cover block"
+              width={1280}
+              height={720}
+              onLoad={() => setThumbReady(true)}
+              className={cn(
+                "absolute inset-0 w-full h-full object-cover block transition-opacity duration-500",
+                thumbReady ? "opacity-100" : "opacity-0",
+              )}
               onError={(e) => {
-                (e.target as HTMLImageElement).src = thumbSrc.replace(
-                  "maxresdefault",
-                  "sddefault"
-                );
+                const img = e.target as HTMLImageElement;
+                if (img.src.includes("maxresdefault")) {
+                  img.src = thumbSrc.replace("maxresdefault", "sddefault");
+                } else {
+                  setThumbReady(true);
+                }
               }}
             />
           )}
           <button
             type="button"
-            onClick={() => setLoaded(true)}
+            onClick={handlePlay}
             onKeyDown={handleKeyDown}
             tabIndex={0}
             aria-label={`Phát video: ${title}`}
@@ -348,7 +421,7 @@ function LazyYouTube({ videoId, title }: { videoId: string; title: string }) {
           </button>
         </>
       )}
-    </div>
+    </AspectRatio>
   );
 }
 
