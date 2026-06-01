@@ -299,11 +299,11 @@ const FAQS = [
   },
 ];
 
-const RELATED = [
-  { to: "/dich-vu-kiem-toan", label: "Dịch vụ kiểm toán độc lập" },
-  { to: "/dich-vu/$slug", params: { slug: "kiem-toan-bao-cao-tai-chinh" }, label: "Kiểm toán báo cáo tài chính" },
-  { to: "/dich-vu/$slug", params: { slug: "tu-van-thue" }, label: "Tư vấn thuế" },
-] as const;
+const RELATED: { href: string; label: string }[] = [
+  { href: "/dich-vu-kiem-toan", label: "Dịch vụ kiểm toán độc lập" },
+  { href: "/dich-vu/kiem-toan-bao-cao-tai-chinh", label: "Kiểm toán báo cáo tài chính" },
+  { href: "/dich-vu/tu-van-thue", label: "Tư vấn thuế" },
+];
 
 export const Route = createFileRoute("/dich-vu/dich-vu-ke-toan")({
   head: () => ({
