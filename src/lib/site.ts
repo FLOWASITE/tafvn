@@ -20,7 +20,24 @@ export const NAV: { label: string; to: string }[] = [
   { label: "Liên hệ", to: "/lien-he" },
 ];
 
-export const SERVICES = [
+export const SERVICES: {
+  slug: string;
+  path?: string;
+  title: string;
+  summary: string;
+  points: string[];
+}[] = [
+  {
+    slug: "thanh-lap-doanh-nghiep",
+    path: "/dich-vu-thanh-lap-doanh-nghiep-tron-goi",
+    title: "Thành lập doanh nghiệp trọn gói",
+    summary:
+      "Dịch vụ đăng ký thành lập doanh nghiệp trọn gói tại Việt Nam: soạn hồ sơ, nộp đăng ký, khắc dấu, đăng ký thuế, mở tài khoản ngân hàng trong 3–5 ngày.",
+    points: [
+      "Trọn gói từ hồ sơ đến giấy phép kinh doanh, khắc dấu và đăng ký mã số thuế",
+      "Hỗ trợ tất cả loại hình: TNHH, cổ phần, doanh nghiệp tư nhân",
+    ],
+  },
   {
     slug: "kiem-toan-bao-cao-tai-chinh",
     title: "Kiểm toán báo cáo tài chính",

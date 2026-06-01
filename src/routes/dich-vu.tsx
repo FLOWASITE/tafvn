@@ -36,36 +36,49 @@ function ServicesIndex() {
           lead="Mỗi tuyến dịch vụ được dẫn dắt bởi KTV có chứng chỉ hành nghề và kinh nghiệm ngành cụ thể. Chọn dịch vụ để xem phạm vi, đối tượng phù hợp và quy trình triển khai."
         />
         <div className="mt-12 grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
-          {SERVICES.map((s, i) => (
-            <Link
-              key={s.slug}
-              to="/dich-vu/$slug"
-              params={{ slug: s.slug }}
-              className="group bg-card border border-border hover:border-accent p-6 rounded-[2px] transition-colors flex flex-col"
-            >
-              <div className="flex items-baseline justify-between mb-3">
-                <span className="text-[0.7rem] font-mono text-muted-foreground">0{i + 1}</span>
-                <ArrowUpRight
-                  size={16}
-                  className="text-muted-foreground group-hover:text-accent-foreground transition"
-                />
-              </div>
-              <h2 className="font-display text-xl text-foreground leading-snug">{s.title}</h2>
-              <p className="mt-3 text-sm text-muted-foreground font-serif leading-relaxed flex-1">
-                {s.summary}
-              </p>
-              <ul className="mt-4 space-y-1.5">
-                {s.points.slice(0, 2).map((p) => (
-                  <li
-                    key={p}
-                    className="text-xs text-foreground/70 flex gap-2 before:content-['—'] before:text-accent-foreground"
-                  >
-                    {p}
-                  </li>
-                ))}
-              </ul>
-            </Link>
-          ))}
+          {SERVICES.map((s, i) => {
+            const cardClass =
+              "group bg-card border border-border hover:border-accent p-6 rounded-[2px] transition-colors flex flex-col";
+            const inner = (
+              <>
+                <div className="flex items-baseline justify-between mb-3">
+                  <span className="text-[0.7rem] font-mono text-muted-foreground">0{i + 1}</span>
+                  <ArrowUpRight
+                    size={16}
+                    className="text-muted-foreground group-hover:text-accent-foreground transition"
+                  />
+                </div>
+                <h2 className="font-display text-xl text-foreground leading-snug">{s.title}</h2>
+                <p className="mt-3 text-sm text-muted-foreground font-serif leading-relaxed flex-1">
+                  {s.summary}
+                </p>
+                <ul className="mt-4 space-y-1.5">
+                  {s.points.slice(0, 2).map((p) => (
+                    <li
+                      key={p}
+                      className="text-xs text-foreground/70 flex gap-2 before:content-['—'] before:text-accent-foreground"
+                    >
+                      {p}
+                    </li>
+                  ))}
+                </ul>
+              </>
+            );
+            return s.path ? (
+              <a key={s.slug} href={s.path} className={cardClass}>
+                {inner}
+              </a>
+            ) : (
+              <Link
+                key={s.slug}
+                to="/dich-vu/$slug"
+                params={{ slug: s.slug }}
+                className={cardClass}
+              >
+                {inner}
+              </Link>
+            );
+          })}
         </div>
       </Section>
     </>
