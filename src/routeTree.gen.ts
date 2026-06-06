@@ -21,6 +21,7 @@ import { Route as DichVuRouteImport } from './routes/dich-vu'
 import { Route as DiaBanRouteImport } from './routes/dia-ban'
 import { Route as ChinhSachBaoMatRouteImport } from './routes/chinh-sach-bao-mat'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as DichVuIndexRouteImport } from './routes/dich-vu.index'
 import { Route as TinTucSlugRouteImport } from './routes/tin-tuc.$slug'
 import { Route as DichVuDichVuKeToanRouteImport } from './routes/dich-vu.dich-vu-ke-toan'
 import { Route as DichVuSlugRouteImport } from './routes/dich-vu.$slug'
@@ -88,6 +89,11 @@ const IndexRoute = IndexRouteImport.update({
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const DichVuIndexRoute = DichVuIndexRouteImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => DichVuRoute,
+} as any)
 const TinTucSlugRoute = TinTucSlugRouteImport.update({
   id: '/$slug',
   path: '/$slug',
@@ -131,13 +137,13 @@ export interface FileRoutesByFullPath {
   '/dich-vu/$slug': typeof DichVuSlugRoute
   '/dich-vu/dich-vu-ke-toan': typeof DichVuDichVuKeToanRoute
   '/tin-tuc/$slug': typeof TinTucSlugRoute
+  '/dich-vu/': typeof DichVuIndexRoute
   '/api/public/contact': typeof ApiPublicContactRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/chinh-sach-bao-mat': typeof ChinhSachBaoMatRoute
   '/dia-ban': typeof DiaBanRouteWithChildren
-  '/dich-vu': typeof DichVuRouteWithChildren
   '/dich-vu-kiem-toan': typeof DichVuKiemToanRoute
   '/dich-vu-thanh-lap-doanh-nghiep-tron-goi': typeof DichVuThanhLapDoanhNghiepTronGoiRoute
   '/doi-ngu': typeof DoiNguRoute
@@ -150,6 +156,7 @@ export interface FileRoutesByTo {
   '/dich-vu/$slug': typeof DichVuSlugRoute
   '/dich-vu/dich-vu-ke-toan': typeof DichVuDichVuKeToanRoute
   '/tin-tuc/$slug': typeof TinTucSlugRoute
+  '/dich-vu': typeof DichVuIndexRoute
   '/api/public/contact': typeof ApiPublicContactRoute
 }
 export interface FileRoutesById {
@@ -170,6 +177,7 @@ export interface FileRoutesById {
   '/dich-vu/$slug': typeof DichVuSlugRoute
   '/dich-vu/dich-vu-ke-toan': typeof DichVuDichVuKeToanRoute
   '/tin-tuc/$slug': typeof TinTucSlugRoute
+  '/dich-vu/': typeof DichVuIndexRoute
   '/api/public/contact': typeof ApiPublicContactRoute
 }
 export interface FileRouteTypes {
@@ -191,13 +199,13 @@ export interface FileRouteTypes {
     | '/dich-vu/$slug'
     | '/dich-vu/dich-vu-ke-toan'
     | '/tin-tuc/$slug'
+    | '/dich-vu/'
     | '/api/public/contact'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
     | '/chinh-sach-bao-mat'
     | '/dia-ban'
-    | '/dich-vu'
     | '/dich-vu-kiem-toan'
     | '/dich-vu-thanh-lap-doanh-nghiep-tron-goi'
     | '/doi-ngu'
@@ -210,6 +218,7 @@ export interface FileRouteTypes {
     | '/dich-vu/$slug'
     | '/dich-vu/dich-vu-ke-toan'
     | '/tin-tuc/$slug'
+    | '/dich-vu'
     | '/api/public/contact'
   id:
     | '__root__'
@@ -229,6 +238,7 @@ export interface FileRouteTypes {
     | '/dich-vu/$slug'
     | '/dich-vu/dich-vu-ke-toan'
     | '/tin-tuc/$slug'
+    | '/dich-vu/'
     | '/api/public/contact'
   fileRoutesById: FileRoutesById
 }
@@ -334,6 +344,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/dich-vu/': {
+      id: '/dich-vu/'
+      path: '/'
+      fullPath: '/dich-vu/'
+      preLoaderRoute: typeof DichVuIndexRouteImport
+      parentRoute: typeof DichVuRoute
+    }
     '/tin-tuc/$slug': {
       id: '/tin-tuc/$slug'
       path: '/$slug'
@@ -386,11 +403,13 @@ const DiaBanRouteWithChildren =
 interface DichVuRouteChildren {
   DichVuSlugRoute: typeof DichVuSlugRoute
   DichVuDichVuKeToanRoute: typeof DichVuDichVuKeToanRoute
+  DichVuIndexRoute: typeof DichVuIndexRoute
 }
 
 const DichVuRouteChildren: DichVuRouteChildren = {
   DichVuSlugRoute: DichVuSlugRoute,
   DichVuDichVuKeToanRoute: DichVuDichVuKeToanRoute,
+  DichVuIndexRoute: DichVuIndexRoute,
 }
 
 const DichVuRouteWithChildren =
