@@ -305,7 +305,7 @@ const RELATED: { href: string; label: string }[] = [
   { href: "/dich-vu/tu-van-thue", label: "Tư vấn thuế" },
 ];
 
-export const Route = createFileRoute("/dich-vu/dich-vu-ke-toan")({
+export const Route = createFileRoute("/dich-vu-ke-toan")({
   head: () => ({
     meta: [
       { title: TITLE },
