@@ -73,6 +73,7 @@ export const SERVICES: {
   },
   {
     slug: "dich-vu-ke-toan",
+    path: "/dich-vu-ke-toan",
     title: "Dịch vụ kế toán trọn gói",
     summary:
       "Ghi sổ kế toán, lập BCTC, kê khai thuế hàng tháng/quý cho doanh nghiệp vừa và nhỏ, văn phòng đại diện.",

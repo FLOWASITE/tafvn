@@ -40,7 +40,7 @@ const SITE_ORIGIN = "https://tafvn.lovable.app";
 const TITLE = "Dịch vụ kế toán trọn gói cho doanh nghiệp | TAF";
 const DESCRIPTION =
   "Dịch vụ kế toán trọn gói của TAF: kế toán thuế, lập BCTC, kê khai thuế và BHXH cho doanh nghiệp vừa và nhỏ. Minh bạch, đúng luật, đội ngũ KTV giàu kinh nghiệm.";
-const PATH = "/dich-vu/dich-vu-ke-toan";
+const PATH = "/dich-vu-ke-toan";
 const CANONICAL = `${SITE_ORIGIN}${PATH}`;
 
 // TODO: thay bằng tên Kế toán trưởng/CPA phụ trách chuyên môn thực tế.
@@ -305,7 +305,7 @@ const RELATED: { href: string; label: string }[] = [
   { href: "/dich-vu/tu-van-thue", label: "Tư vấn thuế" },
 ];
 
-export const Route = createFileRoute("/dich-vu/dich-vu-ke-toan")({
+export const Route = createFileRoute("/dich-vu-ke-toan")({
   head: () => ({
     meta: [
       { title: TITLE },

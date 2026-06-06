@@ -10,7 +10,7 @@ const STATIC_PATHS: string[] = [
   "/",
   "/dich-vu",
   "/dich-vu-kiem-toan",
-  "/dich-vu/dich-vu-ke-toan",
+  "/dich-vu-ke-toan",
   "/dich-vu-thanh-lap-doanh-nghiep-tron-goi",
   "/dia-ban",
   "/tin-tuc",

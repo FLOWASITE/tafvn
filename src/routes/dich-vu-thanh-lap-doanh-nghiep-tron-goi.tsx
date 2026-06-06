@@ -230,7 +230,7 @@ const FAQS = [
 ];
 
 const RELATED = [
-  { href: "/dich-vu/dich-vu-ke-toan", label: "Dịch vụ kế toán trọn gói" },
+  { href: "/dich-vu-ke-toan", label: "Dịch vụ kế toán trọn gói" },
   { href: "/dich-vu/tu-van-thue", label: "Tư vấn thuế" },
   { href: "/dich-vu/soat-xet-tuan-thu", label: "Soát xét tuân thủ & nội bộ" },
 ];
