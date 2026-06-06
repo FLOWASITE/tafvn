@@ -15,6 +15,7 @@ import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 import { Route as LienHeRouteImport } from './routes/lien-he'
 import { Route as GioiThieuRouteImport } from './routes/gioi-thieu'
 import { Route as DoiNguRouteImport } from './routes/doi-ngu'
+import { Route as DichVuThanhLapDoanhNghiepTronGoiRouteImport } from './routes/dich-vu-thanh-lap-doanh-nghiep-tron-goi'
 import { Route as DichVuKiemToanRouteImport } from './routes/dich-vu-kiem-toan'
 import { Route as DichVuRouteImport } from './routes/dich-vu'
 import { Route as DiaBanRouteImport } from './routes/dia-ban'
@@ -56,6 +57,12 @@ const DoiNguRoute = DoiNguRouteImport.update({
   path: '/doi-ngu',
   getParentRoute: () => rootRouteImport,
 } as any)
+const DichVuThanhLapDoanhNghiepTronGoiRoute =
+  DichVuThanhLapDoanhNghiepTronGoiRouteImport.update({
+    id: '/dich-vu-thanh-lap-doanh-nghiep-tron-goi',
+    path: '/dich-vu-thanh-lap-doanh-nghiep-tron-goi',
+    getParentRoute: () => rootRouteImport,
+  } as any)
 const DichVuKiemToanRoute = DichVuKiemToanRouteImport.update({
   id: '/dich-vu-kiem-toan',
   path: '/dich-vu-kiem-toan',
@@ -113,6 +120,7 @@ export interface FileRoutesByFullPath {
   '/dia-ban': typeof DiaBanRouteWithChildren
   '/dich-vu': typeof DichVuRouteWithChildren
   '/dich-vu-kiem-toan': typeof DichVuKiemToanRoute
+  '/dich-vu-thanh-lap-doanh-nghiep-tron-goi': typeof DichVuThanhLapDoanhNghiepTronGoiRoute
   '/doi-ngu': typeof DoiNguRoute
   '/gioi-thieu': typeof GioiThieuRoute
   '/lien-he': typeof LienHeRoute
@@ -131,6 +139,7 @@ export interface FileRoutesByTo {
   '/dia-ban': typeof DiaBanRouteWithChildren
   '/dich-vu': typeof DichVuRouteWithChildren
   '/dich-vu-kiem-toan': typeof DichVuKiemToanRoute
+  '/dich-vu-thanh-lap-doanh-nghiep-tron-goi': typeof DichVuThanhLapDoanhNghiepTronGoiRoute
   '/doi-ngu': typeof DoiNguRoute
   '/gioi-thieu': typeof GioiThieuRoute
   '/lien-he': typeof LienHeRoute
@@ -150,6 +159,7 @@ export interface FileRoutesById {
   '/dia-ban': typeof DiaBanRouteWithChildren
   '/dich-vu': typeof DichVuRouteWithChildren
   '/dich-vu-kiem-toan': typeof DichVuKiemToanRoute
+  '/dich-vu-thanh-lap-doanh-nghiep-tron-goi': typeof DichVuThanhLapDoanhNghiepTronGoiRoute
   '/doi-ngu': typeof DoiNguRoute
   '/gioi-thieu': typeof GioiThieuRoute
   '/lien-he': typeof LienHeRoute
@@ -170,6 +180,7 @@ export interface FileRouteTypes {
     | '/dia-ban'
     | '/dich-vu'
     | '/dich-vu-kiem-toan'
+    | '/dich-vu-thanh-lap-doanh-nghiep-tron-goi'
     | '/doi-ngu'
     | '/gioi-thieu'
     | '/lien-he'
@@ -188,6 +199,7 @@ export interface FileRouteTypes {
     | '/dia-ban'
     | '/dich-vu'
     | '/dich-vu-kiem-toan'
+    | '/dich-vu-thanh-lap-doanh-nghiep-tron-goi'
     | '/doi-ngu'
     | '/gioi-thieu'
     | '/lien-he'
@@ -206,6 +218,7 @@ export interface FileRouteTypes {
     | '/dia-ban'
     | '/dich-vu'
     | '/dich-vu-kiem-toan'
+    | '/dich-vu-thanh-lap-doanh-nghiep-tron-goi'
     | '/doi-ngu'
     | '/gioi-thieu'
     | '/lien-he'
@@ -225,6 +238,7 @@ export interface RootRouteChildren {
   DiaBanRoute: typeof DiaBanRouteWithChildren
   DichVuRoute: typeof DichVuRouteWithChildren
   DichVuKiemToanRoute: typeof DichVuKiemToanRoute
+  DichVuThanhLapDoanhNghiepTronGoiRoute: typeof DichVuThanhLapDoanhNghiepTronGoiRoute
   DoiNguRoute: typeof DoiNguRoute
   GioiThieuRoute: typeof GioiThieuRoute
   LienHeRoute: typeof LienHeRoute
@@ -276,6 +290,13 @@ declare module '@tanstack/react-router' {
       path: '/doi-ngu'
       fullPath: '/doi-ngu'
       preLoaderRoute: typeof DoiNguRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/dich-vu-thanh-lap-doanh-nghiep-tron-goi': {
+      id: '/dich-vu-thanh-lap-doanh-nghiep-tron-goi'
+      path: '/dich-vu-thanh-lap-doanh-nghiep-tron-goi'
+      fullPath: '/dich-vu-thanh-lap-doanh-nghiep-tron-goi'
+      preLoaderRoute: typeof DichVuThanhLapDoanhNghiepTronGoiRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/dich-vu-kiem-toan': {
@@ -392,6 +413,7 @@ const rootRouteChildren: RootRouteChildren = {
   DiaBanRoute: DiaBanRouteWithChildren,
   DichVuRoute: DichVuRouteWithChildren,
   DichVuKiemToanRoute: DichVuKiemToanRoute,
+  DichVuThanhLapDoanhNghiepTronGoiRoute: DichVuThanhLapDoanhNghiepTronGoiRoute,
   DoiNguRoute: DoiNguRoute,
   GioiThieuRoute: GioiThieuRoute,
   LienHeRoute: LienHeRoute,
@@ -403,3 +425,13 @@ const rootRouteChildren: RootRouteChildren = {
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
+
+import type { getRouter } from './router.tsx'
+import type { startInstance } from './start.ts'
+declare module '@tanstack/react-start' {
+  interface Register {
+    ssr: true
+    router: Awaited<ReturnType<typeof getRouter>>
+    config: Awaited<ReturnType<typeof startInstance.getOptions>>
+  }
+}
