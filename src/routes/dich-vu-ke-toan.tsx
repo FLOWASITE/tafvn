@@ -807,11 +807,22 @@ function AccountingServicePage() {
         <div className="mt-10 grid md:grid-cols-2 gap-6">
           {TAF_ACCOUNTING_SERVICES.map((s, i) => (
             <Reveal key={s.label} delay={i * 60}>
-              <div className="h-full bg-card border border-border hover:border-accent p-6 rounded-[2px] transition-all duration-300 hover:shadow-[var(--shadow-card)]">
-                <div className="font-mono text-xs text-muted-foreground tabular-nums mb-3">
-                  {String(i + 1).padStart(2, "0")}
+              <div className="group relative h-full bg-card border border-border hover:border-accent p-7 md:p-8 rounded-[3px] transition-all duration-500 hover:shadow-[var(--shadow-elegant)] hover:-translate-y-0.5 overflow-hidden">
+                {/* Corner ornaments */}
+                <span aria-hidden className="absolute top-0 left-0 w-10 h-px bg-accent/70" />
+                <span aria-hidden className="absolute top-0 left-0 w-px h-10 bg-accent/70" />
+                <span aria-hidden className="absolute bottom-0 right-0 w-10 h-px bg-brand-red/60 origin-right scale-x-0 group-hover:scale-x-100 transition-transform duration-500" />
+                <span aria-hidden className="absolute bottom-0 right-0 w-px h-10 bg-brand-red/60 origin-bottom scale-y-0 group-hover:scale-y-100 transition-transform duration-500" />
+
+                <div className="flex items-center justify-between mb-4">
+                  <span className="font-display italic text-accent-foreground tabular-nums text-3xl leading-none">
+                    {String(i + 1).padStart(2, "0")}
+                  </span>
+                  <span aria-hidden className="block h-px flex-1 ml-4 bg-gradient-to-r from-accent/60 to-transparent" />
                 </div>
-                <h3 className="font-display text-xl text-foreground mb-3">{s.label}</h3>
+                <h3 className="font-display text-xl md:text-2xl text-foreground mb-3 group-hover:text-accent-foreground transition-colors">
+                  {s.label}
+                </h3>
                 <p className="font-serif text-sm md:text-base text-muted-foreground leading-relaxed">
                   {s.detail}
                 </p>
