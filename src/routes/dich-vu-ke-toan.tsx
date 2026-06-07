@@ -69,6 +69,41 @@ const TOC: { id: string; label: string; desc: string }[] = [
   { id: "can-cung-cap", label: "Khách hàng cần cung cấp những gì?", desc: "Danh mục chứng từ và thông tin cần bàn giao." },
   { id: "phan-biet", label: "Phân biệt dịch vụ kế toán & báo cáo thuế", desc: "So sánh phạm vi, pháp lý và lợi ích chính." },
   { id: "faq", label: "Câu hỏi thường gặp", desc: "Hợp đồng, hoá đơn, BHXH và phạm vi áp dụng toàn quốc." },
+  { id: "niem-tin", label: "Khách hàng nói gì về TAF", desc: "Phản hồi thực tế và huy hiệu uy tín ngành nghề." },
+];
+
+const TRUST_BADGES: { icon: typeof Award; label: string; sublabel: string }[] = [
+  { icon: BadgeCheck, label: "Giấy chứng nhận đủ điều kiện KDDV kế toán", sublabel: "Bộ Tài chính cấp" },
+  { icon: Scale, label: "Tuân thủ Luật Kế toán 2015", sublabel: "TT 296/2016/TT-BTC" },
+  { icon: Award, label: "Đội ngũ KTV & CPA hành nghề", sublabel: "Cập nhật chuẩn mực" },
+  { icon: Building2, label: "1.500+ doanh nghiệp đồng hành", sublabel: "Từ 2011 đến nay" },
+];
+
+const TESTIMONIALS: { quote: string; name: string; role: string; org: string; initials: string }[] = [
+  {
+    quote:
+      "TAF tiếp nhận sổ sách cũ trong 2 tuần, lập lại BCTC và xử lý dứt điểm tồn đọng thuế GTGT mà kế toán nội bộ trước đó bỏ sót — chúng tôi yên tâm bước vào kỳ quyết toán.",
+    name: "Chị Lan",
+    role: "Giám đốc tài chính",
+    org: "Công ty sản xuất nhựa · Bình Dương",
+    initials: "NL",
+  },
+  {
+    quote:
+      "Báo cáo thuế nộp đúng hạn từng tháng, đội TAF chủ động nhắc lịch và giải trình thay chúng tôi khi cơ quan thuế hỏi. Chi phí bằng 1/3 thuê kế toán nội bộ trọn thời gian.",
+    name: "Anh Hùng",
+    role: "Giám đốc điều hành",
+    org: "Startup thương mại điện tử · TP. HCM",
+    initials: "TH",
+  },
+  {
+    quote:
+      "Bàn giao file mềm hằng tháng kèm bộ chứng từ in đóng quyển — kiểm toán độc lập cuối năm đi rất nhanh, không phải bổ sung gì thêm.",
+    name: "Chị Phương",
+    role: "Kế toán trưởng",
+    org: "Công ty xây dựng · Hà Nội",
+    initials: "DP",
+  },
 ];
 
 const TAF_ACCOUNTING_SERVICES: { label: string; detail: string }[] = [
