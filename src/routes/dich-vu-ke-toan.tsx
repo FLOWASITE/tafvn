@@ -12,6 +12,11 @@ import {
   Lock,
   Users,
   CheckCircle2,
+  Handshake,
+  ClipboardList,
+  PenLine,
+  Workflow,
+  Archive,
 } from "lucide-react";
 import { Breadcrumb } from "@/components/site/Breadcrumb";
 import { Section, Eyebrow } from "@/components/site/Section";
@@ -173,27 +178,39 @@ const SUBJECTS = [
   "Doanh nghiệp muốn tái cấu trúc hệ thống kế toán và xử lý tồn đọng.",
 ];
 
-const PROCESS = [
+const PROCESS: { t: string; d: string; icon: React.ElementType }[] = [
   {
     t: "Tiếp nhận hồ sơ",
     d: "Tiếp nhận yêu cầu qua điện thoại/email/website, liên hệ trao đổi chi tiết.",
+    icon: ClipboardList,
   },
   {
     t: "Khảo sát & báo giá",
     d: "Nắm tình hình doanh nghiệp, tư vấn gói phù hợp, báo giá và thỏa thuận điều khoản.",
+    icon: Workflow,
   },
   {
     t: "Ký kết hợp đồng",
     d: "Thống nhất hạng mục, đại diện hai bên ký hợp đồng.",
+    icon: PenLine,
   },
   {
     t: "Triển khai & báo cáo",
     d: "Rà soát số liệu, chứng từ; trao đổi thường xuyên; xử lý phát sinh đúng quy định.",
+    icon: Handshake,
   },
   {
     t: "Lưu trữ hồ sơ",
     d: "Thiết lập và lưu trữ trên phần mềm kế toán.",
+    icon: Archive,
   },
+];
+
+const HERO_STATS = [
+  { k: "1.500+", v: "Doanh nghiệp tin dùng" },
+  { k: "10+", v: "Năm kinh nghiệm" },
+  { k: "100%", v: "Tuân thủ pháp luật" },
+  { k: "24/7", v: "Hỗ trợ tư vấn" },
 ];
 
 const SCOPE: { t: string; items: string[] }[] = [
@@ -538,30 +555,43 @@ function LazyYouTube({ videoId, title }: { videoId: string; title: string }) {
 
 function PriceTable({ rows, caption }: { rows: typeof PRICE_TABLE_1; caption: string }) {
   return (
-    <div className="border border-border rounded-[2px] bg-background overflow-hidden">
-      <div className="px-5 py-4 border-b border-border bg-cream/60">
+    <div className="border border-border rounded-[3px] bg-background overflow-hidden shadow-[var(--shadow-card)]">
+      <div className="px-5 md:px-6 py-4 border-b border-border bg-gradient-to-r from-cream/80 via-cream/40 to-transparent flex items-center gap-3">
+        <span aria-hidden className="inline-block w-1.5 h-1.5 rounded-full bg-brand-red" />
+        <span aria-hidden className="inline-block w-5 h-px bg-accent" />
         <div className="text-[0.7rem] uppercase tracking-[0.22em] text-accent-foreground/90 font-medium">
           {caption}
         </div>
       </div>
       <Table>
         <TableHeader>
-          <TableRow>
+          <TableRow className="bg-cream/40 hover:bg-cream/40">
             <TableHead className="w-12">STT</TableHead>
             <TableHead>Số hoá đơn/tháng (đầu vào + đầu ra)</TableHead>
             <TableHead className="text-right">Kế toán thuế</TableHead>
             <TableHead className="text-right">Lương, BHXH</TableHead>
-            <TableHead className="text-right font-medium text-foreground">Tổng</TableHead>
+            <TableHead className="text-right font-medium text-foreground bg-accent/10">
+              Tổng
+            </TableHead>
           </TableRow>
         </TableHeader>
         <TableBody>
-          {rows.map((r) => (
-            <TableRow key={r.stt} className="font-serif">
-              <TableCell className="text-muted-foreground tabular-nums">{r.stt}</TableCell>
+          {rows.map((r, i) => (
+            <TableRow
+              key={r.stt}
+              className={cn(
+                "font-serif transition-colors",
+                i % 2 === 1 && "bg-cream/30",
+                "hover:bg-accent/5",
+              )}
+            >
+              <TableCell className="text-muted-foreground tabular-nums font-mono text-xs">
+                {String(r.stt).padStart(2, "0")}
+              </TableCell>
               <TableCell className="text-foreground/85">{r.range}</TableCell>
               <TableCell className="text-right tabular-nums text-foreground/85">{r.tax}</TableCell>
               <TableCell className="text-right tabular-nums text-foreground/85">{r.bhxh}</TableCell>
-              <TableCell className="text-right tabular-nums font-medium text-foreground">
+              <TableCell className="text-right tabular-nums font-medium text-foreground bg-accent/[0.06] border-l border-accent/20">
                 {r.total}
               </TableCell>
             </TableRow>
@@ -633,6 +663,30 @@ function AccountingServicePage() {
                 <span className="font-mono text-accent-foreground">0924 580 580</span>
               </a>
             </div>
+
+            {/* Trust strip — editorial stats */}
+            <dl className="mt-10 grid grid-cols-2 md:grid-cols-4 border-t border-border/80">
+              {HERO_STATS.map((s, i) => (
+                <div
+                  key={s.k}
+                  className={cn(
+                    "py-5 px-4 first:pl-0 group",
+                    i !== HERO_STATS.length - 1 && "md:border-r border-border/80",
+                    i < 2 && "border-r border-border/80 md:border-r",
+                    i === 0 && "border-r",
+                    i === 2 && "md:border-l-0",
+                  )}
+                >
+                  <dt className="font-display text-3xl md:text-[2.25rem] text-foreground leading-none tabular-nums">
+                    {s.k}
+                    <span className="inline-block align-top w-1 h-1 rounded-full bg-brand-red ml-1 mt-1.5 group-hover:scale-150 transition-transform" />
+                  </dt>
+                  <dd className="mt-2 text-[0.7rem] uppercase tracking-[0.18em] text-muted-foreground">
+                    {s.v}
+                  </dd>
+                </div>
+              ))}
+            </dl>
           </header>
           <aside className="lg:col-span-4 lg:border-l lg:border-border lg:pl-8 flex flex-col gap-4 text-sm">
             {[
@@ -753,11 +807,22 @@ function AccountingServicePage() {
         <div className="mt-10 grid md:grid-cols-2 gap-6">
           {TAF_ACCOUNTING_SERVICES.map((s, i) => (
             <Reveal key={s.label} delay={i * 60}>
-              <div className="h-full bg-card border border-border hover:border-accent p-6 rounded-[2px] transition-all duration-300 hover:shadow-[var(--shadow-card)]">
-                <div className="font-mono text-xs text-muted-foreground tabular-nums mb-3">
-                  {String(i + 1).padStart(2, "0")}
+              <div className="group relative h-full bg-card border border-border hover:border-accent p-7 md:p-8 rounded-[3px] transition-all duration-500 hover:shadow-[var(--shadow-elegant)] hover:-translate-y-0.5 overflow-hidden">
+                {/* Corner ornaments */}
+                <span aria-hidden className="absolute top-0 left-0 w-10 h-px bg-accent/70" />
+                <span aria-hidden className="absolute top-0 left-0 w-px h-10 bg-accent/70" />
+                <span aria-hidden className="absolute bottom-0 right-0 w-10 h-px bg-brand-red/60 origin-right scale-x-0 group-hover:scale-x-100 transition-transform duration-500" />
+                <span aria-hidden className="absolute bottom-0 right-0 w-px h-10 bg-brand-red/60 origin-bottom scale-y-0 group-hover:scale-y-100 transition-transform duration-500" />
+
+                <div className="flex items-center justify-between mb-4">
+                  <span className="font-display italic text-accent-foreground tabular-nums text-3xl leading-none">
+                    {String(i + 1).padStart(2, "0")}
+                  </span>
+                  <span aria-hidden className="block h-px flex-1 ml-4 bg-gradient-to-r from-accent/60 to-transparent" />
                 </div>
-                <h3 className="font-display text-xl text-foreground mb-3">{s.label}</h3>
+                <h3 className="font-display text-xl md:text-2xl text-foreground mb-3 group-hover:text-accent-foreground transition-colors">
+                  {s.label}
+                </h3>
                 <p className="font-serif text-sm md:text-base text-muted-foreground leading-relaxed">
                   {s.detail}
                 </p>
@@ -971,25 +1036,31 @@ function AccountingServicePage() {
             className="hidden md:block absolute left-0 right-0 top-3 h-px bg-gradient-to-r from-transparent via-accent/60 to-transparent"
           />
           <span aria-hidden className="md:hidden absolute left-[11px] top-0 bottom-0 w-px bg-accent/40" />
-          {PROCESS.map((s, i) => (
-            <li key={s.t} className="relative pl-10 md:pl-0">
-              <span
-                aria-hidden
-                className="absolute md:relative left-0 md:left-auto top-0 flex items-center justify-center w-6 h-6 rounded-full bg-background border border-accent/70 shadow-[0_0_0_3px_color-mix(in_oklab,var(--color-brand-red)_12%,transparent)]"
-              >
-                <span className="block w-1.5 h-1.5 rounded-full bg-brand-red" />
-              </span>
-              <div className="md:mt-5">
-                <span className="font-display italic text-accent-foreground tabular-nums text-2xl leading-none block mb-2">
-                  {String(i + 1).padStart(2, "0")}
+          {PROCESS.map((s, i) => {
+            const Icon = s.icon;
+            return (
+              <li key={s.t} className="relative pl-10 md:pl-0">
+                <span
+                  aria-hidden
+                  className="absolute md:relative left-0 md:left-auto top-0 flex items-center justify-center w-7 h-7 rounded-full bg-background border border-accent/70 shadow-[0_0_0_3px_color-mix(in_oklab,var(--color-brand-red)_12%,transparent)]"
+                >
+                  <span className="block w-2 h-2 rounded-full bg-brand-red" />
                 </span>
-                <h3 className="font-display text-lg text-foreground">{s.t}</h3>
-                <p className="mt-1.5 text-sm text-muted-foreground font-serif leading-relaxed">
-                  {s.d}
-                </p>
-              </div>
-            </li>
-          ))}
+                <div className="md:mt-5">
+                  <div className="flex items-baseline gap-2 mb-2">
+                    <span className="font-display italic text-accent-foreground tabular-nums text-2xl leading-none">
+                      {String(i + 1).padStart(2, "0")}
+                    </span>
+                    <Icon size={16} className="text-accent-foreground/60" strokeWidth={1.5} aria-hidden="true" />
+                  </div>
+                  <h3 className="font-display text-lg text-foreground">{s.t}</h3>
+                  <p className="mt-1.5 text-sm text-muted-foreground font-serif leading-relaxed">
+                    {s.d}
+                  </p>
+                </div>
+              </li>
+            );
+          })}
         </ol>
       </Section>
 
