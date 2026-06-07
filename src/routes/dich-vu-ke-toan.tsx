@@ -1237,6 +1237,132 @@ function AccountingServicePage() {
         </div>
       </Section>
 
+      {/* Trust / Testimonials */}
+      <Section id="niem-tin" className="pt-0">
+        <div className="rule-gold mb-12" />
+        <div className="grid lg:grid-cols-12 gap-10 lg:gap-16">
+          <div className="lg:col-span-4">
+            <Eyebrow>13 · Niềm tin</Eyebrow>
+            <h2 className="font-display text-3xl md:text-[2.5rem] leading-[1.1] text-foreground">
+              Khách hàng nói gì <em className="not-italic italic text-brand-red">về TAF</em>
+            </h2>
+            <p className="mt-5 text-base text-muted-foreground font-serif leading-relaxed">
+              Hơn một thập kỷ đồng hành cùng doanh nghiệp trong nước và FDI — sau đây là vài tiếng nói
+              tiêu biểu từ các đối tác đang sử dụng dịch vụ kế toán trọn gói của TAF.
+            </p>
+
+            <ul className="mt-10 space-y-4">
+              {TRUST_BADGES.map((b) => {
+                const Icon = b.icon;
+                return (
+                  <li
+                    key={b.label}
+                    className="relative flex items-start gap-4 px-5 py-4 border border-accent/40 bg-cream/40 rounded-[2px]"
+                  >
+                    <span aria-hidden className="absolute inset-x-2 top-1 h-px bg-accent/30" />
+                    <span aria-hidden className="absolute inset-x-2 bottom-1 h-px bg-accent/30" />
+                    <Icon size={22} strokeWidth={1.5} className="text-brand-red shrink-0 mt-0.5" />
+                    <div className="min-w-0">
+                      <div className="font-display text-sm md:text-[0.95rem] text-foreground leading-tight">
+                        {b.label}
+                      </div>
+                      <div className="text-[0.65rem] uppercase tracking-[0.2em] text-muted-foreground mt-1">
+                        {b.sublabel}
+                      </div>
+                    </div>
+                  </li>
+                );
+              })}
+            </ul>
+          </div>
+
+          <div className="lg:col-span-8">
+            <div className="grid md:grid-cols-2 gap-5">
+              {TESTIMONIALS.map((t, i) => (
+                <Reveal
+                  key={t.initials}
+                  delay={i * 80}
+                  className={cn(
+                    "relative bg-card border border-border p-7 md:p-8 rounded-[3px] flex flex-col",
+                    i === 0 && "md:col-span-2 bg-foreground text-background border-foreground",
+                  )}
+                >
+                  <span
+                    aria-hidden
+                    className={cn(
+                      "absolute top-0 left-0 right-0 h-px",
+                      i === 0 ? "bg-accent/60" : "bg-gradient-to-r from-transparent via-accent/40 to-transparent",
+                    )}
+                  />
+                  <Quote
+                    size={28}
+                    strokeWidth={1.25}
+                    className={cn(
+                      "shrink-0 mb-4",
+                      i === 0 ? "text-accent" : "text-brand-red/70",
+                    )}
+                  />
+                  <blockquote
+                    className={cn(
+                      "font-display leading-[1.4]",
+                      i === 0
+                        ? "text-xl md:text-2xl text-background"
+                        : "text-base md:text-lg text-foreground",
+                    )}
+                  >
+                    “{t.quote}”
+                  </blockquote>
+                  <figcaption
+                    className={cn(
+                      "mt-6 pt-5 border-t flex items-center gap-3",
+                      i === 0 ? "border-background/15" : "border-border",
+                    )}
+                  >
+                    <span
+                      className={cn(
+                        "inline-flex items-center justify-center w-10 h-10 rounded-full border font-display italic text-sm tabular-nums shrink-0",
+                        i === 0
+                          ? "border-accent/70 text-accent"
+                          : "border-brand-red/40 text-brand-red",
+                      )}
+                    >
+                      {t.initials}
+                    </span>
+                    <div className="min-w-0">
+                      <div
+                        className={cn(
+                          "font-display text-sm",
+                          i === 0 ? "text-background" : "text-foreground",
+                        )}
+                      >
+                        {t.name} — <span className="text-muted-foreground">{t.role}</span>
+                      </div>
+                      <div
+                        className={cn(
+                          "text-xs mt-0.5 font-serif",
+                          i === 0 ? "text-background/60" : "text-muted-foreground",
+                        )}
+                      >
+                        {t.org}
+                      </div>
+                    </div>
+                  </figcaption>
+                </Reveal>
+              ))}
+            </div>
+
+            <div className="mt-6 flex flex-wrap items-center gap-x-6 gap-y-2 text-[0.7rem] uppercase tracking-[0.2em] text-muted-foreground">
+              <span className="inline-flex items-center gap-2">
+                <span className="w-1.5 h-1.5 rounded-full bg-brand-red" />
+                Tên và đơn vị đã ẩn theo cam kết bảo mật
+              </span>
+              <span className="hidden md:inline-block w-5 h-px bg-accent" />
+              <span>Hợp đồng dịch vụ có điều khoản NDA</span>
+            </div>
+          </div>
+        </div>
+      </Section>
+
       {/* Related */}
       <Section className="pt-0">
         <div className="rule-gold mb-12" />
