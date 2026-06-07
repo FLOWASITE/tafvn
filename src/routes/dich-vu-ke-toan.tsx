@@ -17,6 +17,11 @@ import {
   PenLine,
   Workflow,
   Archive,
+  Award,
+  BadgeCheck,
+  Scale,
+  Building2,
+  Quote,
 } from "lucide-react";
 import { Breadcrumb } from "@/components/site/Breadcrumb";
 import { Section, Eyebrow } from "@/components/site/Section";
