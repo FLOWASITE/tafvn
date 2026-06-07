@@ -12,6 +12,11 @@ import {
   Lock,
   Users,
   CheckCircle2,
+  Handshake,
+  ClipboardList,
+  PenLine,
+  Workflow,
+  Archive,
 } from "lucide-react";
 import { Breadcrumb } from "@/components/site/Breadcrumb";
 import { Section, Eyebrow } from "@/components/site/Section";
