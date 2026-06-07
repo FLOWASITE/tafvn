@@ -663,6 +663,30 @@ function AccountingServicePage() {
                 <span className="font-mono text-accent-foreground">0924 580 580</span>
               </a>
             </div>
+
+            {/* Trust strip — editorial stats */}
+            <dl className="mt-10 grid grid-cols-2 md:grid-cols-4 border-t border-border/80">
+              {HERO_STATS.map((s, i) => (
+                <div
+                  key={s.k}
+                  className={cn(
+                    "py-5 px-4 first:pl-0 group",
+                    i !== HERO_STATS.length - 1 && "md:border-r border-border/80",
+                    i < 2 && "border-r border-border/80 md:border-r",
+                    i === 0 && "border-r",
+                    i === 2 && "md:border-l-0",
+                  )}
+                >
+                  <dt className="font-display text-3xl md:text-[2.25rem] text-foreground leading-none tabular-nums">
+                    {s.k}
+                    <span className="inline-block align-top w-1 h-1 rounded-full bg-brand-red ml-1 mt-1.5 group-hover:scale-150 transition-transform" />
+                  </dt>
+                  <dd className="mt-2 text-[0.7rem] uppercase tracking-[0.18em] text-muted-foreground">
+                    {s.v}
+                  </dd>
+                </div>
+              ))}
+            </dl>
           </header>
           <aside className="lg:col-span-4 lg:border-l lg:border-border lg:pl-8 flex flex-col gap-4 text-sm">
             {[
