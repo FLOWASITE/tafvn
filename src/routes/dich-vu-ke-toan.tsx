@@ -555,30 +555,43 @@ function LazyYouTube({ videoId, title }: { videoId: string; title: string }) {
 
 function PriceTable({ rows, caption }: { rows: typeof PRICE_TABLE_1; caption: string }) {
   return (
-    <div className="border border-border rounded-[2px] bg-background overflow-hidden">
-      <div className="px-5 py-4 border-b border-border bg-cream/60">
+    <div className="border border-border rounded-[3px] bg-background overflow-hidden shadow-[var(--shadow-card)]">
+      <div className="px-5 md:px-6 py-4 border-b border-border bg-gradient-to-r from-cream/80 via-cream/40 to-transparent flex items-center gap-3">
+        <span aria-hidden className="inline-block w-1.5 h-1.5 rounded-full bg-brand-red" />
+        <span aria-hidden className="inline-block w-5 h-px bg-accent" />
         <div className="text-[0.7rem] uppercase tracking-[0.22em] text-accent-foreground/90 font-medium">
           {caption}
         </div>
       </div>
       <Table>
         <TableHeader>
-          <TableRow>
+          <TableRow className="bg-cream/40 hover:bg-cream/40">
             <TableHead className="w-12">STT</TableHead>
             <TableHead>Số hoá đơn/tháng (đầu vào + đầu ra)</TableHead>
             <TableHead className="text-right">Kế toán thuế</TableHead>
             <TableHead className="text-right">Lương, BHXH</TableHead>
-            <TableHead className="text-right font-medium text-foreground">Tổng</TableHead>
+            <TableHead className="text-right font-medium text-foreground bg-accent/10">
+              Tổng
+            </TableHead>
           </TableRow>
         </TableHeader>
         <TableBody>
-          {rows.map((r) => (
-            <TableRow key={r.stt} className="font-serif">
-              <TableCell className="text-muted-foreground tabular-nums">{r.stt}</TableCell>
+          {rows.map((r, i) => (
+            <TableRow
+              key={r.stt}
+              className={cn(
+                "font-serif transition-colors",
+                i % 2 === 1 && "bg-cream/30",
+                "hover:bg-accent/5",
+              )}
+            >
+              <TableCell className="text-muted-foreground tabular-nums font-mono text-xs">
+                {String(r.stt).padStart(2, "0")}
+              </TableCell>
               <TableCell className="text-foreground/85">{r.range}</TableCell>
               <TableCell className="text-right tabular-nums text-foreground/85">{r.tax}</TableCell>
               <TableCell className="text-right tabular-nums text-foreground/85">{r.bhxh}</TableCell>
-              <TableCell className="text-right tabular-nums font-medium text-foreground">
+              <TableCell className="text-right tabular-nums font-medium text-foreground bg-accent/[0.06] border-l border-accent/20">
                 {r.total}
               </TableCell>
             </TableRow>
