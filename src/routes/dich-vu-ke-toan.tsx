@@ -178,27 +178,39 @@ const SUBJECTS = [
   "Doanh nghiệp muốn tái cấu trúc hệ thống kế toán và xử lý tồn đọng.",
 ];
 
-const PROCESS = [
+const PROCESS: { t: string; d: string; icon: React.ElementType }[] = [
   {
     t: "Tiếp nhận hồ sơ",
     d: "Tiếp nhận yêu cầu qua điện thoại/email/website, liên hệ trao đổi chi tiết.",
+    icon: ClipboardList,
   },
   {
     t: "Khảo sát & báo giá",
     d: "Nắm tình hình doanh nghiệp, tư vấn gói phù hợp, báo giá và thỏa thuận điều khoản.",
+    icon: Workflow,
   },
   {
     t: "Ký kết hợp đồng",
     d: "Thống nhất hạng mục, đại diện hai bên ký hợp đồng.",
+    icon: PenLine,
   },
   {
     t: "Triển khai & báo cáo",
     d: "Rà soát số liệu, chứng từ; trao đổi thường xuyên; xử lý phát sinh đúng quy định.",
+    icon: Handshake,
   },
   {
     t: "Lưu trữ hồ sơ",
     d: "Thiết lập và lưu trữ trên phần mềm kế toán.",
+    icon: Archive,
   },
+];
+
+const HERO_STATS = [
+  { k: "1.500+", v: "Doanh nghiệp tin dùng" },
+  { k: "10+", v: "Năm kinh nghiệm" },
+  { k: "100%", v: "Tuân thủ pháp luật" },
+  { k: "24/7", v: "Hỗ trợ tư vấn" },
 ];
 
 const SCOPE: { t: string; items: string[] }[] = [
