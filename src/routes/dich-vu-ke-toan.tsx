@@ -79,7 +79,16 @@ const TRUST_BADGES: { icon: typeof Award; label: string; sublabel: string }[] = 
   { icon: Building2, label: "1.500+ doanh nghiệp đồng hành", sublabel: "Từ 2011 đến nay" },
 ];
 
-const TESTIMONIALS: { quote: string; name: string; role: string; org: string; initials: string }[] = [
+const TESTIMONIALS: {
+  quote: string;
+  name: string;
+  role: string;
+  org: string;
+  initials: string;
+  rating: number;
+  datePublished: string;
+  reviewTitle: string;
+}[] = [
   {
     quote:
       "TAF tiếp nhận sổ sách cũ trong 2 tuần, lập lại BCTC và xử lý dứt điểm tồn đọng thuế GTGT mà kế toán nội bộ trước đó bỏ sót — chúng tôi yên tâm bước vào kỳ quyết toán.",
@@ -87,6 +96,9 @@ const TESTIMONIALS: { quote: string; name: string; role: string; org: string; in
     role: "Giám đốc tài chính",
     org: "Công ty sản xuất nhựa · Bình Dương",
     initials: "NL",
+    rating: 5,
+    datePublished: "2025-03-18",
+    reviewTitle: "Xử lý dứt điểm tồn đọng thuế GTGT",
   },
   {
     quote:
@@ -95,6 +107,9 @@ const TESTIMONIALS: { quote: string; name: string; role: string; org: string; in
     role: "Giám đốc điều hành",
     org: "Startup thương mại điện tử · TP. HCM",
     initials: "TH",
+    rating: 5,
+    datePublished: "2025-06-02",
+    reviewTitle: "Chủ động, tiết kiệm chi phí",
   },
   {
     quote:
@@ -103,6 +118,9 @@ const TESTIMONIALS: { quote: string; name: string; role: string; org: string; in
     role: "Kế toán trưởng",
     org: "Công ty xây dựng · Hà Nội",
     initials: "DP",
+    rating: 5,
+    datePublished: "2025-09-12",
+    reviewTitle: "Hồ sơ chỉn chu, kiểm toán nhanh",
   },
 ];
 
@@ -463,31 +481,35 @@ export const Route = createFileRoute("/dich-vu-ke-toan")({
           },
           aggregateRating: {
             "@type": "AggregateRating",
-            ratingValue: "4.9",
-            bestRating: "5",
-            worstRating: "1",
-            ratingCount: String(TESTIMONIALS.length),
-            reviewCount: String(TESTIMONIALS.length),
+            ratingValue: 4.9,
+            bestRating: 5,
+            worstRating: 1,
+            ratingCount: TESTIMONIALS.length,
+            reviewCount: TESTIMONIALS.length,
           },
           review: TESTIMONIALS.map((t) => ({
             "@type": "Review",
+            name: t.reviewTitle,
+            reviewBody: t.quote,
+            datePublished: t.datePublished,
+            inLanguage: "vi-VN",
             reviewRating: {
               "@type": "Rating",
-              ratingValue: "5",
-              bestRating: "5",
-              worstRating: "1",
+              ratingValue: t.rating,
+              bestRating: 5,
+              worstRating: 1,
             },
             author: {
               "@type": "Person",
               name: t.name,
               jobTitle: t.role,
-              worksFor: { "@type": "Organization", name: t.org },
+              affiliation: { "@type": "Organization", name: t.org },
             },
-            reviewBody: t.quote,
+            publisher: { "@id": `${CANONICAL}#organization` },
             itemReviewed: {
               "@type": "Service",
               name: "Dịch vụ kế toán trọn gói",
-              provider: { "@type": "Organization", name: SITE.legalName },
+              provider: { "@id": `${CANONICAL}#organization` },
             },
           })),
           hasCredential: TRUST_BADGES.map((b) => ({
