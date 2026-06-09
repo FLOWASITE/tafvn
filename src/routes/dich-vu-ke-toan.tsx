@@ -443,8 +443,63 @@ export const Route = createFileRoute("/dich-vu-ke-toan")({
           ],
         }),
       },
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "Organization",
+          "@id": `${CANONICAL}#organization`,
+          name: SITE.legalName,
+          alternateName: SITE.name,
+          url: CANONICAL,
+          telephone: "+84924580580",
+          email: "info@taf.vn",
+          address: {
+            "@type": "PostalAddress",
+            streetAddress: "62A Phạm Ngọc Thạch",
+            addressLocality: "TP. Hồ Chí Minh",
+            addressRegion: "Phường Xuân Hoà",
+            addressCountry: "VN",
+          },
+          aggregateRating: {
+            "@type": "AggregateRating",
+            ratingValue: "4.9",
+            bestRating: "5",
+            worstRating: "1",
+            ratingCount: String(TESTIMONIALS.length),
+            reviewCount: String(TESTIMONIALS.length),
+          },
+          review: TESTIMONIALS.map((t) => ({
+            "@type": "Review",
+            reviewRating: {
+              "@type": "Rating",
+              ratingValue: "5",
+              bestRating: "5",
+              worstRating: "1",
+            },
+            author: {
+              "@type": "Person",
+              name: t.name,
+              jobTitle: t.role,
+              worksFor: { "@type": "Organization", name: t.org },
+            },
+            reviewBody: t.quote,
+            itemReviewed: {
+              "@type": "Service",
+              name: "Dịch vụ kế toán trọn gói",
+              provider: { "@type": "Organization", name: SITE.legalName },
+            },
+          })),
+          hasCredential: TRUST_BADGES.map((b) => ({
+            "@type": "EducationalOccupationalCredential",
+            name: b.label,
+            credentialCategory: b.sublabel,
+          })),
+        }),
+      },
     ],
   }),
+
   component: AccountingServicePage,
 });
 
