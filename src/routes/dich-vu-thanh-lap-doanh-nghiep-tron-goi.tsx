@@ -613,42 +613,53 @@ function ThanhLapDNPage() {
           Báo giá chính thức được cung cấp sau khi khảo sát sơ bộ (miễn phí) để đánh giá đúng
           phạm vi công việc.
         </p>
-        <div className="mt-10 grid md:grid-cols-3 gap-4">
-          {PRICING.map((p) => (
-            <div
-              key={p.tier}
-              className={`relative flex flex-col border rounded-[2px] p-6 transition-all ${
-                p.highlight
-                  ? "border-accent-foreground/40 shadow-[var(--shadow-elegant)] bg-card"
-                  : "border-border bg-card hover:border-accent hover:shadow-[var(--shadow-card)]"
-              }`}
-            >
-              {p.highlight && (
-                <span className="absolute -top-3 left-6 text-[0.65rem] uppercase tracking-[0.22em] bg-brand-red text-white px-3 py-1 rounded-[2px] font-medium">
-                  {p.note}
-                </span>
-              )}
-              <div className="font-display text-lg text-foreground mb-4">{p.tier}</div>
-              <ul className="space-y-2.5 flex-1 mb-6">
-                {p.features.map((f) => (
-                  <li
-                    key={f}
-                    className="flex items-start gap-2.5 font-serif text-sm text-foreground/80"
-                  >
-                    <CheckCircle2 size={14} className="text-brand-red shrink-0 mt-0.5" />
-                    {f}
-                  </li>
-                ))}
-              </ul>
-              <div className="border-t border-border pt-4">
-                <div className="font-mono text-sm text-accent-foreground tabular-nums">
-                  {p.fee}
-                </div>
-                {!p.highlight && (
-                  <div className="text-xs text-muted-foreground mt-1">{p.note}</div>
+        <div className="mt-10 grid md:grid-cols-3 gap-5 md:items-stretch">
+          {PRICING.map((p, idx) => (
+            <Reveal key={p.tier} delay={idx * 80}>
+              <div
+                className={`relative flex flex-col h-full border rounded-[3px] p-7 transition-all duration-300 ${
+                  p.highlight
+                    ? "border-accent-foreground/50 shadow-[var(--shadow-elegant)] bg-card md:-translate-y-2 md:scale-[1.02] ring-1 ring-accent/30"
+                    : "border-border bg-card hover:border-accent hover:shadow-[var(--shadow-card)] hover:-translate-y-0.5"
+                }`}
+              >
+                {p.highlight && (
+                  <>
+                    <span aria-hidden className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-brand-red to-transparent" />
+                    <span className="absolute -top-3 left-6 text-[0.65rem] uppercase tracking-[0.22em] bg-brand-red text-white px-3 py-1 rounded-[2px] font-medium shadow-[0_4px_14px_-4px_color-mix(in_oklab,var(--color-brand-red)_55%,transparent)]">
+                      ★ {p.note}
+                    </span>
+                  </>
                 )}
+                {!p.highlight && (
+                  <span aria-hidden className="absolute top-0 left-0 w-px h-12 bg-accent/60" />
+                )}
+                <div className="font-display text-xl text-foreground mb-1">{p.tier}</div>
+                <div className="font-mono text-[0.65rem] uppercase tracking-[0.22em] text-muted-foreground mb-5">
+                  Gói {String(idx + 1).padStart(2, "0")}
+                </div>
+                <ul className="space-y-3 flex-1 mb-6">
+                  {p.features.map((f) => (
+                    <li
+                      key={f}
+                      className="flex items-start gap-2.5 font-serif text-sm text-foreground/85"
+                    >
+                      <CheckCircle2 size={15} className={`shrink-0 mt-0.5 ${p.highlight ? "text-brand-red" : "text-accent-foreground/70"}`} />
+                      <span className="leading-relaxed">{f}</span>
+                    </li>
+                  ))}
+                </ul>
+                <div className="border-t border-border pt-4">
+                  <div className="text-[0.65rem] uppercase tracking-[0.2em] text-muted-foreground mb-1">Phí dịch vụ</div>
+                  <div className="font-mono text-base text-accent-foreground tabular-nums">
+                    {p.fee}
+                  </div>
+                  {!p.highlight && (
+                    <div className="text-xs text-muted-foreground mt-1 font-serif italic">{p.note}</div>
+                  )}
+                </div>
               </div>
-            </div>
+            </Reveal>
           ))}
         </div>
         <p className="mt-4 text-xs text-muted-foreground font-serif">
