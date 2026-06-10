@@ -815,6 +815,53 @@ function ThanhLapDNPage() {
         </div>
       </Section>
 
+      {/* CTA banner — editorial */}
+      <Section className="pt-0">
+        <Reveal>
+          <div className="relative overflow-hidden rounded-[3px] border border-accent/40 bg-foreground text-background px-8 py-12 md:px-14 md:py-16">
+            <div aria-hidden className="absolute inset-0 opacity-[0.08] paper-grain pointer-events-none" />
+            <div aria-hidden className="absolute -top-24 -right-24 w-80 h-80 rounded-full bg-[radial-gradient(circle,color-mix(in_oklab,var(--color-brand-red)_45%,transparent),transparent_70%)]" />
+            <div aria-hidden className="absolute top-0 left-0 h-px w-24 bg-accent" />
+            <div aria-hidden className="absolute top-0 left-0 w-px h-24 bg-brand-red" />
+            <div className="relative grid lg:grid-cols-12 gap-8 items-end">
+              <div className="lg:col-span-8">
+                <span className="text-[0.7rem] uppercase tracking-[0.22em] text-accent/90 flex items-center gap-2.5 mb-4">
+                  <span className="inline-block w-1.5 h-1.5 rounded-full bg-brand-red" />
+                  Khởi sự kinh doanh cùng TAF
+                </span>
+                <h2 className="font-display text-3xl md:text-4xl lg:text-[2.75rem] leading-[1.1]">
+                  Sẵn sàng thành lập{" "}
+                  <span className="italic text-accent">doanh nghiệp</span> trong 3–5 ngày?
+                </h2>
+                <p className="mt-4 font-serif text-base md:text-lg text-background/75 leading-relaxed max-w-xl">
+                  Đội ngũ pháp lý TAF khảo sát miễn phí, tư vấn loại hình tối ưu và xử lý
+                  trọn bộ hồ sơ — bạn chỉ cần ký giấy ủy quyền.
+                </p>
+              </div>
+              <div className="lg:col-span-4 flex flex-col gap-3">
+                <Link
+                  to="/lien-he"
+                  className="group inline-flex items-center justify-between gap-2 bg-brand-red text-white px-6 py-4 text-sm font-medium rounded-[2px] hover:bg-brand-red-ink transition-all shadow-[0_8px_24px_-12px_color-mix(in_oklab,var(--color-brand-red)_70%,transparent)]"
+                >
+                  <span className="uppercase tracking-[0.15em]">Khảo sát miễn phí</span>
+                  <ArrowUpRight size={18} className="group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+                </Link>
+                <a
+                  href="tel:+84924580580"
+                  className="inline-flex items-center justify-between gap-2 border border-background/30 text-background px-6 py-4 text-sm font-medium rounded-[2px] hover:border-accent hover:bg-background/5 transition"
+                >
+                  <span className="inline-flex items-center gap-2">
+                    <Phone size={16} className="text-accent" />
+                    <span className="font-mono">0924 580 580</span>
+                  </span>
+                  <span className="text-[0.65rem] uppercase tracking-[0.2em] text-background/60">8h–18h</span>
+                </a>
+              </div>
+            </div>
+          </div>
+        </Reveal>
+      </Section>
+
       {/* Related */}
       <Section className="pt-0">
         <div className="rule-gold mb-12" />
