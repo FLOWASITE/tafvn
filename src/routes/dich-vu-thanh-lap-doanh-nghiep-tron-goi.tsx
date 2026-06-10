@@ -11,11 +11,18 @@ import {
   Zap,
   ShieldCheck,
   FileText,
+  Users,
+  Briefcase,
+  Store,
+  Sparkles,
+  BadgeCheck,
+  TrendingUp,
 } from "lucide-react";
 import { Breadcrumb } from "@/components/site/Breadcrumb";
 import { Section, Eyebrow } from "@/components/site/Section";
 import { Reveal } from "@/components/site/Reveal";
 import { TafSeal } from "@/components/site/TafSeal";
+import { Emblem } from "@/components/site/Emblem";
 import {
   Accordion,
   AccordionContent,
@@ -74,26 +81,30 @@ const TOC: { id: string; label: string; desc: string }[] = [
   },
 ];
 
-const LOAI_HINH = [
+const LOAI_HINH: { t: string; d: string; note: string; icon: React.ElementType }[] = [
   {
     t: "Công ty TNHH 1 thành viên",
     d: "Phù hợp chủ doanh nghiệp muốn toàn quyền quản lý. Chịu trách nhiệm hữu hạn trong phạm vi vốn điều lệ. Số lượng thành viên: 1.",
     note: "Phổ biến nhất với doanh nghiệp nhỏ và startup",
+    icon: Building2,
   },
   {
     t: "Công ty TNHH 2+ thành viên",
     d: "Có từ 2 đến 50 thành viên góp vốn. Quyền lợi và trách nhiệm phân chia theo tỷ lệ vốn góp. Không phát hành cổ phiếu.",
     note: "Thích hợp cho liên doanh, hợp tác kinh doanh",
+    icon: Users,
   },
   {
     t: "Công ty cổ phần",
     d: "Vốn điều lệ chia thành cổ phần. Tối thiểu 3 cổ đông, không giới hạn tối đa. Có thể huy động vốn qua phát hành cổ phiếu.",
     note: "Lý tưởng cho doanh nghiệp định hướng niêm yết hoặc gọi đầu tư",
+    icon: Briefcase,
   },
   {
     t: "Doanh nghiệp tư nhân / Hộ kinh doanh",
     d: "Cá nhân kinh doanh chịu trách nhiệm vô hạn bằng toàn bộ tài sản. Thủ tục đơn giản, phù hợp kinh doanh quy mô nhỏ.",
     note: "Thủ tục nhanh, chi phí thấp nhất",
+    icon: Store,
   },
 ];
 
@@ -408,6 +419,17 @@ function ThanhLapDNPage() {
         </div>
       </Section>
 
+      {/* Trust strip — emblems */}
+      <Section className="pt-0 pb-10">
+        <div className="rule-gold mb-10" />
+        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
+          <Reveal delay={0}><Emblem icon={Zap} label="3–5 ngày làm việc" sublabel="Hoàn thành thủ tục" /></Reveal>
+          <Reveal delay={60}><Emblem icon={BadgeCheck} label="Luật DN 2020" sublabel="NĐ 01/2021/NĐ-CP" /></Reveal>
+          <Reveal delay={120}><Emblem icon={ShieldCheck} label="Cam kết hoàn tiền" sublabel="Nếu hồ sơ sai sót" /></Reveal>
+          <Reveal delay={180}><Emblem icon={TrendingUp} label="1.200+ doanh nghiệp" sublabel="Đã đồng hành cùng TAF" /></Reveal>
+        </div>
+      </Section>
+
       {/* Mục lục */}
       <Section className="pt-0 pb-6">
         <nav
@@ -485,25 +507,37 @@ function ThanhLapDNPage() {
         <h2 className="font-display text-3xl md:text-[2.25rem] leading-tight text-foreground max-w-2xl">
           Các loại hình doanh nghiệp phổ biến
         </h2>
-        <div className="mt-10 grid md:grid-cols-2 gap-x-10 gap-y-8">
-          {LOAI_HINH.map((lh, i) => (
-            <Reveal key={lh.t} delay={i * 60}>
-              <div className="border-t border-border pt-6">
-                <div className="flex items-baseline gap-3 mb-2">
-                  <span className="font-display italic text-accent-foreground tabular-nums text-2xl">
-                    {String(i + 1).padStart(2, "0")}
+        <div className="mt-10 grid md:grid-cols-2 gap-5">
+          {LOAI_HINH.map((lh, i) => {
+            const Icon = lh.icon;
+            return (
+              <Reveal key={lh.t} delay={i * 60}>
+                <article className="group relative h-full border border-border bg-card rounded-[2px] p-6 md:p-7 transition-all duration-300 hover:border-accent hover:shadow-[var(--shadow-card)] hover:-translate-y-0.5 overflow-hidden">
+                  <span aria-hidden className="absolute top-0 left-0 h-px w-16 bg-brand-red" />
+                  <span aria-hidden className="absolute top-0 left-0 w-px h-16 bg-accent" />
+                  <span aria-hidden className="absolute -bottom-20 -right-20 w-44 h-44 rounded-full bg-[radial-gradient(circle,color-mix(in_oklab,var(--color-accent)_18%,transparent),transparent_70%)] opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                  <div className="flex items-start gap-4 mb-3 relative">
+                    <span className="flex items-center justify-center w-11 h-11 rounded-full border border-accent/40 bg-background shrink-0 group-hover:border-brand-red/50 transition-colors">
+                      <Icon size={20} className="text-brand-red" strokeWidth={1.5} />
+                    </span>
+                    <div className="flex-1 min-w-0">
+                      <span className="font-display italic text-accent-foreground tabular-nums text-sm tracking-wider">
+                        {String(i + 1).padStart(2, "0")}
+                      </span>
+                      <h3 className="font-display text-xl text-foreground leading-snug">{lh.t}</h3>
+                    </div>
+                  </div>
+                  <p className="text-sm md:text-base text-muted-foreground font-serif leading-relaxed relative">
+                    {lh.d}
+                  </p>
+                  <span className="mt-4 inline-flex items-center gap-1.5 text-xs text-accent-foreground border border-accent/40 rounded-[2px] px-2.5 py-1 font-mono relative">
+                    <Sparkles size={11} className="text-brand-red" />
+                    {lh.note}
                   </span>
-                  <h3 className="font-display text-xl text-foreground">{lh.t}</h3>
-                </div>
-                <p className="text-sm md:text-base text-muted-foreground font-serif leading-relaxed">
-                  {lh.d}
-                </p>
-                <span className="mt-3 inline-block text-xs text-accent-foreground border border-accent/40 rounded-[2px] px-2 py-0.5 font-mono">
-                  {lh.note}
-                </span>
-              </div>
-            </Reveal>
-          ))}
+                </article>
+              </Reveal>
+            );
+          })}
         </div>
       </Section>
 
@@ -579,42 +613,53 @@ function ThanhLapDNPage() {
           Báo giá chính thức được cung cấp sau khi khảo sát sơ bộ (miễn phí) để đánh giá đúng
           phạm vi công việc.
         </p>
-        <div className="mt-10 grid md:grid-cols-3 gap-4">
-          {PRICING.map((p) => (
-            <div
-              key={p.tier}
-              className={`relative flex flex-col border rounded-[2px] p-6 transition-all ${
-                p.highlight
-                  ? "border-accent-foreground/40 shadow-[var(--shadow-elegant)] bg-card"
-                  : "border-border bg-card hover:border-accent hover:shadow-[var(--shadow-card)]"
-              }`}
-            >
-              {p.highlight && (
-                <span className="absolute -top-3 left-6 text-[0.65rem] uppercase tracking-[0.22em] bg-brand-red text-white px-3 py-1 rounded-[2px] font-medium">
-                  {p.note}
-                </span>
-              )}
-              <div className="font-display text-lg text-foreground mb-4">{p.tier}</div>
-              <ul className="space-y-2.5 flex-1 mb-6">
-                {p.features.map((f) => (
-                  <li
-                    key={f}
-                    className="flex items-start gap-2.5 font-serif text-sm text-foreground/80"
-                  >
-                    <CheckCircle2 size={14} className="text-brand-red shrink-0 mt-0.5" />
-                    {f}
-                  </li>
-                ))}
-              </ul>
-              <div className="border-t border-border pt-4">
-                <div className="font-mono text-sm text-accent-foreground tabular-nums">
-                  {p.fee}
-                </div>
-                {!p.highlight && (
-                  <div className="text-xs text-muted-foreground mt-1">{p.note}</div>
+        <div className="mt-10 grid md:grid-cols-3 gap-5 md:items-stretch">
+          {PRICING.map((p, idx) => (
+            <Reveal key={p.tier} delay={idx * 80}>
+              <div
+                className={`relative flex flex-col h-full border rounded-[3px] p-7 transition-all duration-300 ${
+                  p.highlight
+                    ? "border-accent-foreground/50 shadow-[var(--shadow-elegant)] bg-card md:-translate-y-2 md:scale-[1.02] ring-1 ring-accent/30"
+                    : "border-border bg-card hover:border-accent hover:shadow-[var(--shadow-card)] hover:-translate-y-0.5"
+                }`}
+              >
+                {p.highlight && (
+                  <>
+                    <span aria-hidden className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-brand-red to-transparent" />
+                    <span className="absolute -top-3 left-6 text-[0.65rem] uppercase tracking-[0.22em] bg-brand-red text-white px-3 py-1 rounded-[2px] font-medium shadow-[0_4px_14px_-4px_color-mix(in_oklab,var(--color-brand-red)_55%,transparent)]">
+                      ★ {p.note}
+                    </span>
+                  </>
                 )}
+                {!p.highlight && (
+                  <span aria-hidden className="absolute top-0 left-0 w-px h-12 bg-accent/60" />
+                )}
+                <div className="font-display text-xl text-foreground mb-1">{p.tier}</div>
+                <div className="font-mono text-[0.65rem] uppercase tracking-[0.22em] text-muted-foreground mb-5">
+                  Gói {String(idx + 1).padStart(2, "0")}
+                </div>
+                <ul className="space-y-3 flex-1 mb-6">
+                  {p.features.map((f) => (
+                    <li
+                      key={f}
+                      className="flex items-start gap-2.5 font-serif text-sm text-foreground/85"
+                    >
+                      <CheckCircle2 size={15} className={`shrink-0 mt-0.5 ${p.highlight ? "text-brand-red" : "text-accent-foreground/70"}`} />
+                      <span className="leading-relaxed">{f}</span>
+                    </li>
+                  ))}
+                </ul>
+                <div className="border-t border-border pt-4">
+                  <div className="text-[0.65rem] uppercase tracking-[0.2em] text-muted-foreground mb-1">Phí dịch vụ</div>
+                  <div className="font-mono text-base text-accent-foreground tabular-nums">
+                    {p.fee}
+                  </div>
+                  {!p.highlight && (
+                    <div className="text-xs text-muted-foreground mt-1 font-serif italic">{p.note}</div>
+                  )}
+                </div>
               </div>
-            </div>
+            </Reveal>
           ))}
         </div>
         <p className="mt-4 text-xs text-muted-foreground font-serif">
@@ -768,6 +813,53 @@ function ThanhLapDNPage() {
             </Accordion>
           </div>
         </div>
+      </Section>
+
+      {/* CTA banner — editorial */}
+      <Section className="pt-0">
+        <Reveal>
+          <div className="relative overflow-hidden rounded-[3px] border border-accent/40 bg-foreground text-background px-8 py-12 md:px-14 md:py-16">
+            <div aria-hidden className="absolute inset-0 opacity-[0.08] paper-grain pointer-events-none" />
+            <div aria-hidden className="absolute -top-24 -right-24 w-80 h-80 rounded-full bg-[radial-gradient(circle,color-mix(in_oklab,var(--color-brand-red)_45%,transparent),transparent_70%)]" />
+            <div aria-hidden className="absolute top-0 left-0 h-px w-24 bg-accent" />
+            <div aria-hidden className="absolute top-0 left-0 w-px h-24 bg-brand-red" />
+            <div className="relative grid lg:grid-cols-12 gap-8 items-end">
+              <div className="lg:col-span-8">
+                <span className="text-[0.7rem] uppercase tracking-[0.22em] text-accent/90 flex items-center gap-2.5 mb-4">
+                  <span className="inline-block w-1.5 h-1.5 rounded-full bg-brand-red" />
+                  Khởi sự kinh doanh cùng TAF
+                </span>
+                <h2 className="font-display text-3xl md:text-4xl lg:text-[2.75rem] leading-[1.1]">
+                  Sẵn sàng thành lập{" "}
+                  <span className="italic text-accent">doanh nghiệp</span> trong 3–5 ngày?
+                </h2>
+                <p className="mt-4 font-serif text-base md:text-lg text-background/75 leading-relaxed max-w-xl">
+                  Đội ngũ pháp lý TAF khảo sát miễn phí, tư vấn loại hình tối ưu và xử lý
+                  trọn bộ hồ sơ — bạn chỉ cần ký giấy ủy quyền.
+                </p>
+              </div>
+              <div className="lg:col-span-4 flex flex-col gap-3">
+                <Link
+                  to="/lien-he"
+                  className="group inline-flex items-center justify-between gap-2 bg-brand-red text-white px-6 py-4 text-sm font-medium rounded-[2px] hover:bg-brand-red-ink transition-all shadow-[0_8px_24px_-12px_color-mix(in_oklab,var(--color-brand-red)_70%,transparent)]"
+                >
+                  <span className="uppercase tracking-[0.15em]">Khảo sát miễn phí</span>
+                  <ArrowUpRight size={18} className="group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+                </Link>
+                <a
+                  href="tel:+84924580580"
+                  className="inline-flex items-center justify-between gap-2 border border-background/30 text-background px-6 py-4 text-sm font-medium rounded-[2px] hover:border-accent hover:bg-background/5 transition"
+                >
+                  <span className="inline-flex items-center gap-2">
+                    <Phone size={16} className="text-accent" />
+                    <span className="font-mono">0924 580 580</span>
+                  </span>
+                  <span className="text-[0.65rem] uppercase tracking-[0.2em] text-background/60">8h–18h</span>
+                </a>
+              </div>
+            </div>
+          </div>
+        </Reveal>
       </Section>
 
       {/* Related */}
