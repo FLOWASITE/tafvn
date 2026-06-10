@@ -419,6 +419,17 @@ function ThanhLapDNPage() {
         </div>
       </Section>
 
+      {/* Trust strip — emblems */}
+      <Section className="pt-0 pb-10">
+        <div className="rule-gold mb-10" />
+        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
+          <Reveal delay={0}><Emblem icon={Zap} label="3–5 ngày làm việc" sublabel="Hoàn thành thủ tục" /></Reveal>
+          <Reveal delay={60}><Emblem icon={BadgeCheck} label="Luật DN 2020" sublabel="NĐ 01/2021/NĐ-CP" /></Reveal>
+          <Reveal delay={120}><Emblem icon={ShieldCheck} label="Cam kết hoàn tiền" sublabel="Nếu hồ sơ sai sót" /></Reveal>
+          <Reveal delay={180}><Emblem icon={TrendingUp} label="1.200+ doanh nghiệp" sublabel="Đã đồng hành cùng TAF" /></Reveal>
+        </div>
+      </Section>
+
       {/* Mục lục */}
       <Section className="pt-0 pb-6">
         <nav
