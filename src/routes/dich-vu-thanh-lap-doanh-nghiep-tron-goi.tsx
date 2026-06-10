@@ -507,25 +507,37 @@ function ThanhLapDNPage() {
         <h2 className="font-display text-3xl md:text-[2.25rem] leading-tight text-foreground max-w-2xl">
           Các loại hình doanh nghiệp phổ biến
         </h2>
-        <div className="mt-10 grid md:grid-cols-2 gap-x-10 gap-y-8">
-          {LOAI_HINH.map((lh, i) => (
-            <Reveal key={lh.t} delay={i * 60}>
-              <div className="border-t border-border pt-6">
-                <div className="flex items-baseline gap-3 mb-2">
-                  <span className="font-display italic text-accent-foreground tabular-nums text-2xl">
-                    {String(i + 1).padStart(2, "0")}
+        <div className="mt-10 grid md:grid-cols-2 gap-5">
+          {LOAI_HINH.map((lh, i) => {
+            const Icon = lh.icon;
+            return (
+              <Reveal key={lh.t} delay={i * 60}>
+                <article className="group relative h-full border border-border bg-card rounded-[2px] p-6 md:p-7 transition-all duration-300 hover:border-accent hover:shadow-[var(--shadow-card)] hover:-translate-y-0.5 overflow-hidden">
+                  <span aria-hidden className="absolute top-0 left-0 h-px w-16 bg-brand-red" />
+                  <span aria-hidden className="absolute top-0 left-0 w-px h-16 bg-accent" />
+                  <span aria-hidden className="absolute -bottom-20 -right-20 w-44 h-44 rounded-full bg-[radial-gradient(circle,color-mix(in_oklab,var(--color-accent)_18%,transparent),transparent_70%)] opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                  <div className="flex items-start gap-4 mb-3 relative">
+                    <span className="flex items-center justify-center w-11 h-11 rounded-full border border-accent/40 bg-background shrink-0 group-hover:border-brand-red/50 transition-colors">
+                      <Icon size={20} className="text-brand-red" strokeWidth={1.5} />
+                    </span>
+                    <div className="flex-1 min-w-0">
+                      <span className="font-display italic text-accent-foreground tabular-nums text-sm tracking-wider">
+                        {String(i + 1).padStart(2, "0")}
+                      </span>
+                      <h3 className="font-display text-xl text-foreground leading-snug">{lh.t}</h3>
+                    </div>
+                  </div>
+                  <p className="text-sm md:text-base text-muted-foreground font-serif leading-relaxed relative">
+                    {lh.d}
+                  </p>
+                  <span className="mt-4 inline-flex items-center gap-1.5 text-xs text-accent-foreground border border-accent/40 rounded-[2px] px-2.5 py-1 font-mono relative">
+                    <Sparkles size={11} className="text-brand-red" />
+                    {lh.note}
                   </span>
-                  <h3 className="font-display text-xl text-foreground">{lh.t}</h3>
-                </div>
-                <p className="text-sm md:text-base text-muted-foreground font-serif leading-relaxed">
-                  {lh.d}
-                </p>
-                <span className="mt-3 inline-block text-xs text-accent-foreground border border-accent/40 rounded-[2px] px-2 py-0.5 font-mono">
-                  {lh.note}
-                </span>
-              </div>
-            </Reveal>
-          ))}
+                </article>
+              </Reveal>
+            );
+          })}
         </div>
       </Section>
 
