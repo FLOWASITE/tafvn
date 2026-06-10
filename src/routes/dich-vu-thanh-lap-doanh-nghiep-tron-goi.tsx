@@ -11,11 +11,18 @@ import {
   Zap,
   ShieldCheck,
   FileText,
+  Users,
+  Briefcase,
+  Store,
+  Sparkles,
+  BadgeCheck,
+  TrendingUp,
 } from "lucide-react";
 import { Breadcrumb } from "@/components/site/Breadcrumb";
 import { Section, Eyebrow } from "@/components/site/Section";
 import { Reveal } from "@/components/site/Reveal";
 import { TafSeal } from "@/components/site/TafSeal";
+import { Emblem } from "@/components/site/Emblem";
 import {
   Accordion,
   AccordionContent,
