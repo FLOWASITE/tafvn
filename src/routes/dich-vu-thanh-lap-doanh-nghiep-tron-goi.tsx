@@ -17,6 +17,11 @@ import {
   Sparkles,
   BadgeCheck,
   TrendingUp,
+  ClipboardList,
+  FileEdit,
+  Send,
+  Award,
+  Landmark,
 } from "lucide-react";
 import { Breadcrumb } from "@/components/site/Breadcrumb";
 import { Section, Eyebrow } from "@/components/site/Section";
@@ -119,26 +124,31 @@ const TAF_SERVICES = [
   { label: "Thông báo phát hành hóa đơn điện tử lần đầu" },
 ];
 
-const PROCESS = [
+const PROCESS: { t: string; d: string; icon: React.ElementType }[] = [
   {
     t: "Tư vấn loại hình",
     d: "Phân tích nhu cầu kinh doanh, mục tiêu dài hạn và cơ cấu sở hữu để tư vấn loại hình doanh nghiệp phù hợp nhất.",
+    icon: ClipboardList,
   },
   {
     t: "Soạn và kiểm tra hồ sơ",
     d: "Soạn thảo điều lệ công ty, danh sách thành viên/cổ đông; kiểm tra tên, ngành nghề và trụ sở trước khi nộp.",
+    icon: FileEdit,
   },
   {
     t: "Nộp đăng ký kinh doanh",
     d: "Nộp hồ sơ tại Sở Kế hoạch và Đầu tư hoặc qua Cổng dịch vụ công quốc gia. Theo dõi và xử lý bổ sung nếu cần.",
+    icon: Send,
   },
   {
     t: "Nhận GCNĐKDN + khắc dấu",
     d: "Nhận Giấy chứng nhận đăng ký doanh nghiệp, tiến hành khắc dấu tròn và đăng ký mẫu dấu theo quy định.",
+    icon: Award,
   },
   {
     t: "Khai thuế + mở tài khoản",
     d: "Đăng ký khai thuế ban đầu, mở tài khoản ngân hàng, đăng ký chữ ký số và thông báo phát hành hóa đơn điện tử.",
+    icon: Landmark,
   },
 ];
 
@@ -575,30 +585,42 @@ function ThanhLapDNPage() {
           Quy trình thành lập doanh nghiệp
         </h2>
         <ol className="mt-12 relative grid md:grid-cols-5 gap-8 md:gap-4">
+          {/* Horizontal hairline (desktop) */}
           <span
             aria-hidden
-            className="hidden md:block absolute left-0 right-0 top-3 h-px bg-gradient-to-r from-transparent via-accent/60 to-transparent"
+            className="hidden md:block absolute left-0 right-0 top-6 h-px bg-gradient-to-r from-transparent via-accent/60 to-transparent"
           />
-          <span aria-hidden className="md:hidden absolute left-[11px] top-0 bottom-0 w-px bg-accent/40" />
-          {PROCESS.map((s, i) => (
-            <li key={s.t} className="relative pl-10 md:pl-0">
-              <span
-                aria-hidden
-                className="absolute md:relative left-0 md:left-auto top-0 flex items-center justify-center w-6 h-6 rounded-full bg-background border border-accent/70 shadow-[0_0_0_3px_color-mix(in_oklab,var(--color-brand-red)_12%,transparent)]"
-              >
-                <span className="block w-1.5 h-1.5 rounded-full bg-brand-red" />
-              </span>
-              <div className="md:mt-5">
-                <span className="font-display italic text-accent-foreground tabular-nums text-2xl leading-none block mb-2">
-                  {String(i + 1).padStart(2, "0")}
+          {/* Vertical hairline (mobile) */}
+          <span
+            aria-hidden
+            className="md:hidden absolute left-[11px] top-0 bottom-0 w-px bg-accent/40"
+          />
+          {PROCESS.map((s, i) => {
+            const Icon = s.icon;
+            return (
+              <li key={s.t} className="relative pl-10 md:pl-0">
+                {/* Node — double ring seal */}
+                <span
+                  aria-hidden
+                  className="absolute md:relative left-0 md:left-auto top-1 md:top-auto flex items-center justify-center w-7 h-7 rounded-full bg-background border border-accent/70 shadow-[0_0_0_3px_color-mix(in_oklab,var(--color-brand-red)_12%,transparent)]"
+                >
+                  <span className="block w-2 h-2 rounded-full bg-brand-red" />
                 </span>
-                <h3 className="font-display text-base text-foreground">{s.t}</h3>
-                <p className="mt-1.5 text-sm text-muted-foreground font-serif leading-relaxed">
-                  {s.d}
-                </p>
-              </div>
-            </li>
-          ))}
+                <div className="md:mt-5">
+                  <div className="flex items-baseline gap-2 mb-2">
+                    <span className="font-display italic text-accent-foreground tabular-nums text-2xl leading-none">
+                      {String(i + 1).padStart(2, "0")}
+                    </span>
+                    <Icon size={16} className="text-accent-foreground/60" strokeWidth={1.5} />
+                  </div>
+                  <h3 className="font-display text-base text-foreground leading-snug">{s.t}</h3>
+                  <p className="mt-1.5 text-sm text-muted-foreground font-serif leading-relaxed">
+                    {s.d}
+                  </p>
+                </div>
+              </li>
+            );
+          })}
         </ol>
       </Section>
 
@@ -685,6 +707,53 @@ function ThanhLapDNPage() {
             <span className="font-mono text-accent-foreground">0924 580 580</span>
           </a>
         </div>
+      </Section>
+
+      {/* Quy trình 5 bước — timeline visual sau bảng giá */}
+      <Section className="pt-0 border-t border-border">
+        <div className="rule-gold mb-12" />
+        <Eyebrow>Quy trình</Eyebrow>
+        <h2 className="font-display text-3xl md:text-[2.25rem] leading-tight text-foreground max-w-3xl">
+          5 bước thành lập doanh nghiệp cùng TAF
+        </h2>
+        <ol className="mt-12 relative grid md:grid-cols-5 gap-8 md:gap-4">
+          {/* Horizontal hairline (desktop) */}
+          <span
+            aria-hidden
+            className="hidden md:block absolute left-0 right-0 top-6 h-px bg-gradient-to-r from-transparent via-accent/60 to-transparent"
+          />
+          {/* Vertical hairline (mobile) */}
+          <span
+            aria-hidden
+            className="md:hidden absolute left-[11px] top-0 bottom-0 w-px bg-accent/40"
+          />
+          {PROCESS.map((s, i) => {
+            const Icon = s.icon;
+            return (
+              <li key={`post-price-${s.t}`} className="relative pl-10 md:pl-0">
+                {/* Node — double ring seal */}
+                <span
+                  aria-hidden
+                  className="absolute md:relative left-0 md:left-auto top-1 md:top-auto flex items-center justify-center w-7 h-7 rounded-full bg-background border border-accent/70 shadow-[0_0_0_3px_color-mix(in_oklab,var(--color-brand-red)_12%,transparent)]"
+                >
+                  <span className="block w-2 h-2 rounded-full bg-brand-red" />
+                </span>
+                <div className="md:mt-5">
+                  <div className="flex items-baseline gap-2 mb-2">
+                    <span className="font-display italic text-accent-foreground tabular-nums text-2xl leading-none">
+                      {String(i + 1).padStart(2, "0")}
+                    </span>
+                    <Icon size={16} className="text-accent-foreground/60" strokeWidth={1.5} />
+                  </div>
+                  <h3 className="font-display text-base text-foreground leading-snug">{s.t}</h3>
+                  <p className="mt-1.5 text-sm text-muted-foreground font-serif leading-relaxed">
+                    {s.d}
+                  </p>
+                </div>
+              </li>
+            );
+          })}
+        </ol>
       </Section>
 
       {/* Hồ sơ */}
