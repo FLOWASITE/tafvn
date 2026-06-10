@@ -81,26 +81,30 @@ const TOC: { id: string; label: string; desc: string }[] = [
   },
 ];
 
-const LOAI_HINH = [
+const LOAI_HINH: { t: string; d: string; note: string; icon: React.ElementType }[] = [
   {
     t: "Công ty TNHH 1 thành viên",
     d: "Phù hợp chủ doanh nghiệp muốn toàn quyền quản lý. Chịu trách nhiệm hữu hạn trong phạm vi vốn điều lệ. Số lượng thành viên: 1.",
     note: "Phổ biến nhất với doanh nghiệp nhỏ và startup",
+    icon: Building2,
   },
   {
     t: "Công ty TNHH 2+ thành viên",
     d: "Có từ 2 đến 50 thành viên góp vốn. Quyền lợi và trách nhiệm phân chia theo tỷ lệ vốn góp. Không phát hành cổ phiếu.",
     note: "Thích hợp cho liên doanh, hợp tác kinh doanh",
+    icon: Users,
   },
   {
     t: "Công ty cổ phần",
     d: "Vốn điều lệ chia thành cổ phần. Tối thiểu 3 cổ đông, không giới hạn tối đa. Có thể huy động vốn qua phát hành cổ phiếu.",
     note: "Lý tưởng cho doanh nghiệp định hướng niêm yết hoặc gọi đầu tư",
+    icon: Briefcase,
   },
   {
     t: "Doanh nghiệp tư nhân / Hộ kinh doanh",
     d: "Cá nhân kinh doanh chịu trách nhiệm vô hạn bằng toàn bộ tài sản. Thủ tục đơn giản, phù hợp kinh doanh quy mô nhỏ.",
     note: "Thủ tục nhanh, chi phí thấp nhất",
+    icon: Store,
   },
 ];
 
