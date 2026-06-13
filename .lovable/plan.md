@@ -1,14 +1,23 @@
-Gộp Section "Báo giá dịch vụ kiểm toán" (`id="phi-kiem-toan"`) và CTA section độc lập phía sau thành một section duy nhất.
+# Thay Chatbot bằng nút Chat Zalo
+
+## Mục tiêu
+Loại bỏ Chatbot UI placeholder (chưa nối LLM) và thay bằng nút floating "Chat Zalo" mở `https://zalo.me/0838226363` trong tab mới.
 
 ## Thay đổi
 
-1. **Giữ `<Section id="phi-kiem-toan">`** làm vỏ ngoài.
-2. **Bên trong section gộp:**
-   - **Phần nội dung (trên):** Giữ nguyên layout grid 12 cột với Eyebrow `08`, tiêu đề, và 3 đoạn văn hiện tại.
-   - **Phần CTA (dưới):** Chuyển 2 nút "Yêu cầu báo giá" và "Hotline / Zalo" từ CTA section độc lập xuống dưới nội dung, trong cùng section. Style CTA bằng card có border + background nhạt (`bg-cream/60 border border-border`) thay vì full dark banner, để đồng nhất với các section khác trên trang.
-3. **Xóa** CTA section độc lập (`bg-foreground text-background`) hiện tại.
-4. **TOC:** Không thay đổi — vẫn giữ 1 mục `phi-kiem-toan` duy nhất.
+### 1. `src/components/site/Chatbot.tsx` — viết lại thành `ZaloChat`
+- Bỏ state `open`, bỏ popup, bỏ form input.
+- Giữ vị trí floating (`fixed bottom-5 right-5 z-50`) và style nút tương đồng (rounded-full, shadow, bo viền) nhưng:
+  - Đổi sang thẻ `<a>` với `href="https://zalo.me/0838226363"`, `target="_blank"`, `rel="noopener noreferrer"`.
+  - Background dùng tone Zalo brand (xanh `#0068FF`) với text trắng — phù hợp nhận diện Zalo nhưng vẫn là nút tùy chỉnh TAF (không phải widget Zalo mặc định).
+  - Icon: SVG inline logo Zalo đơn giản (chữ "Z" trong khung bo tròn) hoặc dùng `MessageCircle` từ lucide với label.
+  - Label: "Chat Zalo" (ẩn trên mobile, hiện từ `sm:` trở lên — giữ pattern cũ).
+  - `aria-label="Chat với TAF qua Zalo"`.
+- Export tên có thể giữ `Chatbot` để không phải sửa import ở `__root.tsx`, hoặc đổi tên + cập nhật import. Ưu tiên giữ tên `Chatbot` cho gọn (1 file edit).
 
-## Kết quả mong đợi
-- Chỉ còn 1 section duy nhất cho "Báo giá dịch vụ kiểm toán", bao gồm cả nội dung lẫn nút kêu gọi hành động.
-- CTA không còn là section riêng biệt, tránh trùng lặp chủ đề "báo giá" trên trang.
+### 2. Không thay đổi khác
+- `__root.tsx` giữ nguyên `<Chatbot />`.
+- Không động đến các trang dịch vụ (link "Hotline / Zalo" trong dich-vu-kiem-toan.tsx / dich-vu-ke-toan.tsx là chỗ khác, ngoài scope).
+
+## Lưu ý
+- `zalo.me/0838226363` là link Zalo cá nhân — sẽ mở app Zalo (mobile) hoặc trang web Zalo (desktop) tới profile đó. Khi nào TAF có Zalo OA chính thức, chỉ cần đổi href.
