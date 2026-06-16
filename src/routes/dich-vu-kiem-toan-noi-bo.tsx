@@ -243,7 +243,7 @@ function InternalAuditService() {
         <div className="grid lg:grid-cols-12 gap-10">
           <div className="lg:col-span-5">
             <Eyebrow>Đối tượng</Eyebrow>
-            <h2 className="font-display text-3xl text-foreground leading-[1.15]">
+            <h2 className="font-display text-3xl md:text-4xl text-foreground leading-[1.15] font-normal tracking-tight">
               Ai bắt buộc phải kiểm toán nội bộ?
             </h2>
             <p className="mt-4 text-base text-muted-foreground font-serif leading-[1.75]">
@@ -308,7 +308,7 @@ function InternalAuditService() {
         <div className="grid lg:grid-cols-12 gap-10">
           <div className="lg:col-span-5">
             <Eyebrow>Quyền hạn</Eyebrow>
-            <h2 className="font-display text-3xl text-foreground leading-[1.15]">
+            <h2 className="font-display text-3xl md:text-4xl text-foreground leading-[1.15] font-normal tracking-tight">
               Quyền hạn của kiểm toán nội bộ
             </h2>
             <p className="mt-4 text-base text-muted-foreground font-serif leading-[1.75]">
@@ -392,7 +392,7 @@ function InternalAuditService() {
           </div>
           <div className="lg:pl-4">
             <Eyebrow>Về TAF</Eyebrow>
-            <h2 className="font-display text-3xl text-foreground leading-[1.15]">
+            <h2 className="font-display text-3xl md:text-4xl text-foreground leading-[1.15] font-normal tracking-tight">
               Đôi nét về dịch vụ kiểm toán nội bộ TAF
             </h2>
             <ul className="mt-7 space-y-5 font-serif text-foreground/85 text-base">
