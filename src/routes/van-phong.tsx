@@ -4,6 +4,8 @@ import { Phone, Mail, MapPin, Clock } from "lucide-react";
 import { Breadcrumb } from "@/components/site/Breadcrumb";
 import { Section, SectionHeading } from "@/components/site/Section";
 import { listOffices } from "@/lib/offices.functions";
+import { useT } from "@/lib/i18n/context";
+
 
 const officesQO = queryOptions({
   queryKey: ["offices"],
