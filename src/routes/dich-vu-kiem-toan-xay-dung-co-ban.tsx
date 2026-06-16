@@ -156,7 +156,7 @@ function ConstructionAuditService() {
             Kiểm toán <span className="italic text-accent-foreground">xây dựng cơ bản</span>{" "}
             (quyết toán dự án).
           </h1>
-          <p className="mt-6 text-lg text-muted-foreground font-serif leading-relaxed">
+          <p className="t-lead mt-6 text-muted-foreground">
             Dịch vụ kiểm toán quyết toán vốn đầu tư dự án hoàn thành của TAF giúp doanh nghiệp hạn
             chế rủi ro, cập nhật quy định pháp lý – tài chính và đưa ra ý kiến độc lập về báo cáo
             quyết toán dự án.
@@ -185,10 +185,10 @@ function ConstructionAuditService() {
         <div className="max-w-3xl">
           <Eyebrow>Khái niệm</Eyebrow>
           <blockquote className="mt-2 border-l-2 border-brand-red pl-6">
-            <p className="font-display text-2xl md:text-3xl text-foreground leading-snug">
+            <p className="t-h2 text-foreground">
               Kiểm toán quyết toán dự án là gì?
             </p>
-            <p className="mt-4 text-lg text-muted-foreground font-serif leading-relaxed">
+            <p className="t-lead mt-4 text-muted-foreground">
               Là dịch vụ giúp doanh nghiệp hạn chế rủi ro, cập nhật thông tin về luật định, tài
               chính, kinh tế liên quan đến tình hình hoạt động của đơn vị — thông qua việc kiểm
               toán công tác quyết toán vốn đầu tư của dự án xây dựng cơ bản.
@@ -202,7 +202,7 @@ function ConstructionAuditService() {
         <div className="grid lg:grid-cols-2 gap-10">
           <div>
             <Eyebrow>Mục đích</Eyebrow>
-            <h2 className="font-display text-2xl text-foreground leading-tight">
+            <h2 className="t-h2 text-foreground">
               Mục đích của kiểm toán quyết toán dự án
             </h2>
             <ul className="mt-5 space-y-4 font-serif text-foreground/85">
@@ -216,7 +216,7 @@ function ConstructionAuditService() {
           </div>
           <div className="lg:border-l lg:border-border lg:pl-10">
             <Eyebrow>Nội dung</Eyebrow>
-            <h2 className="font-display text-2xl text-foreground leading-tight">
+            <h2 className="t-h2 text-foreground">
               Nội dung thực hiện trong cuộc kiểm toán
             </h2>
             <ul className="mt-5 space-y-4 font-serif text-foreground/85">
@@ -244,7 +244,7 @@ function ConstructionAuditService() {
               <span className="font-mono text-xs text-accent-foreground tabular-nums shrink-0 mt-0.5">
                 {String(i + 1).padStart(2, "0")}
               </span>
-              <span className="text-sm text-foreground/85 font-serif leading-relaxed">{s}</span>
+              <span className="t-body-sm text-foreground/85">{s}</span>
             </div>
           ))}
         </div>
@@ -255,10 +255,10 @@ function ConstructionAuditService() {
         <div className="grid lg:grid-cols-12 gap-10">
           <div className="lg:col-span-5">
             <Eyebrow>Đối tượng</Eyebrow>
-            <h2 className="font-display text-3xl text-foreground leading-tight">
+            <h2 className="t-h2 text-foreground">
               Ai sử dụng dịch vụ này?
             </h2>
-            <p className="mt-4 text-base text-muted-foreground font-serif leading-relaxed">
+            <p className="t-body mt-4 text-muted-foreground">
               Dịch vụ phục vụ các cơ quan phê duyệt quyết toán, chủ đầu tư và ban quản lý dự án.
             </p>
           </div>
@@ -267,7 +267,7 @@ function ConstructionAuditService() {
               {TARGETS.map((t) => (
                 <li key={t} className="bg-background p-5 flex gap-3">
                   <Building2 size={20} className="shrink-0 text-accent-foreground mt-0.5" strokeWidth={1.7} />
-                  <span className="text-sm text-foreground/85 font-serif leading-relaxed">{t}</span>
+                  <span className="t-body-sm text-foreground/85">{t}</span>
                 </li>
               ))}
             </ul>
@@ -286,7 +286,7 @@ function ConstructionAuditService() {
           {BENEFITS.map((b) => (
             <div key={b} className="bg-background p-6 flex gap-3">
               <Gauge size={20} className="shrink-0 text-brand-red mt-0.5" strokeWidth={1.7} />
-              <p className="text-sm text-foreground/85 font-serif leading-relaxed">{b}</p>
+              <p className="t-body-sm text-foreground/85">{b}</p>
             </div>
           ))}
         </div>
@@ -321,7 +321,7 @@ function ConstructionAuditService() {
                 {String(i + 1).padStart(2, "0")}
               </span>
               <h3 className="mt-3 font-display text-lg text-foreground leading-snug">{s.title}</h3>
-              <p className="mt-2 text-sm text-muted-foreground font-serif leading-relaxed">
+              <p className="t-body-sm mt-2 text-muted-foreground">
                 {s.desc}
               </p>
             </div>
@@ -335,10 +335,10 @@ function ConstructionAuditService() {
         <div className="grid lg:grid-cols-12 gap-10">
           <div className="lg:col-span-4">
             <Eyebrow>Vì sao TAF</Eyebrow>
-            <h2 className="font-display text-3xl text-foreground leading-tight">
+            <h2 className="t-h2 text-foreground">
               Vì sao chọn TAF?
             </h2>
-            <p className="mt-4 text-sm text-muted-foreground font-serif leading-relaxed">
+            <p className="t-body-sm mt-4 text-muted-foreground">
               Kinh nghiệm thực tế, đội ngũ chuyên môn cao và quy trình làm việc chuyên nghiệp khắp
               cả nước.
             </p>
@@ -348,7 +348,7 @@ function ConstructionAuditService() {
               {WHY_TAF.map((w) => (
                 <li key={w} className="bg-background p-5 flex gap-3">
                   <CheckCircle2 size={18} className="shrink-0 text-brand-red mt-0.5" strokeWidth={1.7} />
-                  <span className="text-sm text-foreground/85 font-serif leading-relaxed">{w}</span>
+                  <span className="t-body-sm text-foreground/85">{w}</span>
                 </li>
               ))}
             </ul>
@@ -368,7 +368,7 @@ function ConstructionAuditService() {
                   {String(i + 1).padStart(2, "0")}
                 </span>
               </div>
-              <p className="mt-3 text-sm text-foreground/85 font-serif leading-relaxed">{c}</p>
+              <p className="t-body-sm mt-3 text-foreground/85">{c}</p>
             </div>
           ))}
         </div>
@@ -389,7 +389,7 @@ function ConstructionAuditService() {
                 <ScrollText size={16} className="text-accent-foreground shrink-0" />
                 <span className="font-display text-sm text-foreground">{l.code}</span>
               </div>
-              <p className="text-sm text-muted-foreground font-serif leading-relaxed flex-1">
+              <p className="t-body-sm text-muted-foreground flex-1">
                 {l.desc}{" "}
                 <span className="text-foreground/70">(hiệu lực {l.date})</span>
               </p>
@@ -403,16 +403,16 @@ function ConstructionAuditService() {
         <div className="rounded-[2px] border border-border bg-cream/60 p-6 md:p-10">
           <div className="grid lg:grid-cols-12 gap-8 items-center">
             <div className="lg:col-span-7">
-              <p className="text-[0.7rem] uppercase tracking-[0.22em] text-accent-foreground mb-3 flex items-center gap-2.5">
+              <p className="t-cta text-accent-foreground mb-3 flex items-center gap-2.5">
                 <span className="inline-block w-1.5 h-1.5 rounded-full bg-brand-red" />
                 <span className="inline-block w-6 h-px bg-accent/60" />
                 Nhận tư vấn ngay
               </p>
-              <h2 className="font-display text-2xl md:text-[1.85rem] leading-tight text-foreground">
+              <h2 className="t-h2 md:text-[1.85rem] text-foreground">
                 Quyết toán dự án{" "}
                 <span className="italic text-accent-foreground">minh bạch, đúng quy định.</span>
               </h2>
-              <p className="mt-3 text-muted-foreground font-serif text-base leading-relaxed">
+              <p className="t-body mt-3 text-muted-foreground">
                 Liên hệ TAF để được khảo sát và báo giá dịch vụ kiểm toán quyết toán dự án phù hợp
                 với quy mô công trình của bạn.
               </p>

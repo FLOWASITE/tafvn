@@ -126,15 +126,15 @@ function InternalAuditService() {
       <Section className="!pb-10 relative overflow-hidden">
         <div className="absolute inset-0 hero-grid-bg pointer-events-none opacity-60" aria-hidden />
         <div className="relative max-w-3xl">
-          <p className="font-mono text-[0.7rem] uppercase tracking-[0.28em] text-muted-foreground/70 mb-6">
+          <p className="t-eyebrow text-muted-foreground/70 mb-6">
             TAF · Auditing &amp; Advisory · Est. 2010
           </p>
           <Eyebrow>Dịch vụ kiểm toán</Eyebrow>
-          <h1 className="font-display text-5xl md:text-6xl lg:text-7xl leading-[1.05] text-foreground font-normal tracking-tight">
+          <h1 className="t-h1 text-foreground">
             Dịch vụ{" "}
             <span className="italic text-brand-red-ink italic-mark">kiểm toán nội bộ.</span>
           </h1>
-          <p className="mt-8 text-lg md:text-xl text-muted-foreground font-serif leading-[1.75]">
+          <p className="t-lead mt-8 text-muted-foreground">
             Kiểm toán nội bộ là hoạt động tư vấn và đảm bảo khách quan nhằm tăng cường quản trị
             rủi ro, đánh giá hệ thống kiểm soát và nâng cao hiệu quả quản trị doanh nghiệp. TAF
             cung cấp dịch vụ độc lập, chuyên nghiệp, tuân thủ nghiêm ngặt các chuẩn mực.
@@ -144,7 +144,7 @@ function InternalAuditService() {
               to="/lien-he"
               className="group inline-flex items-center justify-between gap-3 bg-brand-red text-white px-7 py-4 text-sm font-medium rounded-[2px] hover:bg-brand-red-ink transition-all min-w-[260px]"
             >
-              <span className="flex items-center gap-2.5 uppercase tracking-[0.22em]">
+              <span className="t-cta flex items-center gap-2.5">
                 <span className="inline-block w-1.5 h-1.5 rounded-full bg-accent animate-pulse" />
                 Yêu cầu tư vấn
               </span>
@@ -172,7 +172,7 @@ function InternalAuditService() {
                 <dt className="font-display text-3xl md:text-4xl text-foreground tabular-nums leading-none">
                   {s.num}
                 </dt>
-                <dd className="mt-2 text-[0.7rem] uppercase tracking-[0.22em] text-muted-foreground/80 font-medium">
+                <dd className="t-cta mt-2 text-muted-foreground/80">
                   {s.label}
                 </dd>
               </div>
@@ -193,10 +193,10 @@ function InternalAuditService() {
           </span>
           <Eyebrow>Khái niệm</Eyebrow>
           <blockquote className="mt-2 border-l-2 border-brand-red pl-6 relative">
-            <p className="font-display italic text-3xl md:text-4xl text-foreground leading-snug">
+            <p className="t-h2 italic text-foreground">
               Kiểm toán nội bộ là gì?
             </p>
-            <p className="mt-5 text-lg text-muted-foreground font-serif leading-[1.75]">
+            <p className="t-lead mt-5 text-muted-foreground">
               Kiểm toán nội bộ là bộ phận bắt buộc trong nhiều doanh nghiệp, thực hiện các hoạt
               động tư vấn và đảm bảo khách quan nhằm gia tăng giá trị và giải quyết hiệu quả các
               hoạt động cho đơn vị.
@@ -226,9 +226,9 @@ function InternalAuditService() {
                 <div className="w-14 h-14 rounded-full flex items-center justify-center bg-background border border-accent/40 text-accent-foreground transition-colors group-hover:border-accent">
                   <Icon size={22} strokeWidth={1.4} />
                 </div>
-                <h3 className="mt-7 font-display text-xl text-foreground">{r.title}</h3>
+                <h3 className="t-h3 mt-7 text-foreground">{r.title}</h3>
                 <span className="block mt-3 h-px w-8 bg-brand-red/70" />
-                <p className="mt-4 text-sm text-foreground/75 font-serif leading-[1.75]">
+                <p className="t-body-sm mt-4 text-foreground/75">
                   {r.body}
                 </p>
               </div>
@@ -243,10 +243,10 @@ function InternalAuditService() {
         <div className="grid lg:grid-cols-12 gap-10">
           <div className="lg:col-span-5">
             <Eyebrow>Đối tượng</Eyebrow>
-            <h2 className="font-display text-3xl md:text-4xl text-foreground leading-[1.15] font-normal tracking-tight">
+            <h2 className="t-h2 text-foreground">
               Ai bắt buộc phải kiểm toán nội bộ?
             </h2>
-            <p className="mt-4 text-base text-muted-foreground font-serif leading-[1.75]">
+            <p className="t-body mt-4 text-muted-foreground">
               Theo Điều 10 Nghị định 05/2019/NĐ-CP, các doanh nghiệp sau đây là đối tượng bắt buộc
               thực hiện kiểm toán nội bộ.
             </p>
@@ -261,7 +261,7 @@ function InternalAuditService() {
                   <span className="shrink-0 font-display italic text-4xl text-accent-foreground/35 tabular-nums leading-none w-12">
                     {String(i + 1).padStart(2, "0")}
                   </span>
-                  <span className="text-base text-foreground/85 font-serif leading-[1.75] pt-1">
+                  <span className="t-body text-foreground/85 pt-1">
                     {t}
                   </span>
                 </li>
@@ -286,15 +286,15 @@ function InternalAuditService() {
           {STEPS.map((s, i) => (
             <div key={s.title} className="group relative">
               <div className="relative flex items-center gap-4">
-                <span className="relative z-10 w-14 h-14 shrink-0 rounded-full bg-background border border-accent/40 flex items-center justify-center font-display italic text-xl text-brand-red-ink tabular-nums transition-colors group-hover:border-brand-red">
+                <span className="t-h3 relative z-10 w-14 h-14 shrink-0 rounded-full bg-background border border-accent/40 flex items-center justify-center italic text-brand-red-ink tabular-nums transition-colors group-hover:border-brand-red">
                   {String(i + 1).padStart(2, "0")}
                 </span>
               </div>
-              <h3 className="mt-6 font-display text-xl text-foreground leading-snug">
+              <h3 className="t-h3 mt-6 text-foreground">
                 {s.title}
                 <span className="block mt-2 h-[2px] w-8 bg-brand-red transition-all duration-300 group-hover:w-16" />
               </h3>
-              <p className="mt-4 text-sm text-muted-foreground font-serif leading-[1.75]">
+              <p className="t-body-sm mt-4 text-muted-foreground">
                 {s.desc}
               </p>
             </div>
@@ -308,10 +308,10 @@ function InternalAuditService() {
         <div className="grid lg:grid-cols-12 gap-10">
           <div className="lg:col-span-5">
             <Eyebrow>Quyền hạn</Eyebrow>
-            <h2 className="font-display text-3xl md:text-4xl text-foreground leading-[1.15] font-normal tracking-tight">
+            <h2 className="t-h2 text-foreground">
               Quyền hạn của kiểm toán nội bộ
             </h2>
-            <p className="mt-4 text-base text-muted-foreground font-serif leading-[1.75]">
+            <p className="t-body mt-4 text-muted-foreground">
               Để hoàn thành tốt mục tiêu, bộ phận kiểm toán nội bộ được trao những quyền hạn cụ
               thể trong tổ chức.
             </p>
@@ -323,7 +323,7 @@ function InternalAuditService() {
                   <span className="shrink-0 w-9 h-9 rounded-full border border-accent/40 flex items-center justify-center text-accent-foreground">
                     <KeyRound size={15} strokeWidth={1.7} />
                   </span>
-                  <span className="text-sm text-foreground/85 font-serif leading-[1.75] pt-1.5">{p}</span>
+                  <span className="t-body-sm text-foreground/85 pt-1.5">{p}</span>
                 </li>
               ))}
             </ul>
@@ -335,11 +335,11 @@ function InternalAuditService() {
       <Section className="!pt-0">
         <div className="max-w-3xl">
           <Eyebrow>Thực trạng</Eyebrow>
-          <h2 className="font-display text-3xl md:text-4xl text-foreground leading-[1.15] font-normal tracking-tight">
+          <h2 className="t-h2 text-foreground">
             Kiểm toán nội bộ ở <span className="italic">Việt Nam.</span>
           </h2>
           <div className="rule-gold mt-6 max-w-[120px] !bg-brand-red" />
-          <div className="mt-8 space-y-5 text-lg text-foreground/75 font-serif leading-[1.75]">
+          <div className="t-lead mt-8 space-y-5 text-foreground/75">
             <p className="drop-cap">
               Dù đã có nhiều quy định pháp lý liên quan, kiểm toán nội bộ vẫn là khái niệm khá mới
               mẻ với nhiều đơn vị quản lý — bên cạnh đó cũng có nhiều đơn vị đã nắm bắt được tầm
@@ -377,7 +377,7 @@ function InternalAuditService() {
             </span>
             <div className="relative">
               <Eyebrow>Cam kết</Eyebrow>
-              <h2 className="font-display italic text-3xl md:text-4xl text-foreground leading-[1.15] font-normal tracking-tight">
+              <h2 className="t-h2 italic text-foreground">
                 Lựa chọn TAF, doanh nghiệp được gì?
               </h2>
               <ul className="mt-8 space-y-5 font-serif text-foreground/85 text-base">
@@ -392,7 +392,7 @@ function InternalAuditService() {
           </div>
           <div className="lg:pl-4">
             <Eyebrow>Về TAF</Eyebrow>
-            <h2 className="font-display text-3xl md:text-4xl text-foreground leading-[1.15] font-normal tracking-tight">
+            <h2 className="t-h2 text-foreground">
               Đôi nét về dịch vụ kiểm toán nội bộ TAF
             </h2>
             <ul className="mt-7 space-y-5 font-serif text-foreground/85 text-base">
@@ -437,15 +437,15 @@ function InternalAuditService() {
               to={s.to}
               className="group relative bg-background border border-accent/20 p-7 flex flex-col hover:-translate-y-1 hover:border-accent/60 hover:shadow-[0_18px_40px_-20px_rgba(0,0,0,0.12)] transition-all duration-300"
             >
-              <p className="font-mono text-[0.7rem] uppercase tracking-[0.28em] text-accent-foreground/60 mb-4">
+              <p className="t-eyebrow text-accent-foreground/60 mb-4">
                 Dịch vụ · {String(i + 1).padStart(2, "0")}
               </p>
-              <h3 className="font-display text-xl text-foreground leading-snug">{s.title}</h3>
+              <h3 className="t-h3 text-foreground">{s.title}</h3>
               <span className="block mt-3 h-px w-10 bg-brand-red/70 transition-all duration-300 group-hover:w-20" />
-              <p className="mt-4 text-sm text-muted-foreground font-serif leading-[1.75] flex-1">
+              <p className="t-body-sm mt-4 text-muted-foreground flex-1">
                 {s.desc}
               </p>
-              <span className="mt-7 inline-flex items-center gap-2 text-xs uppercase tracking-[0.22em] text-brand-red font-medium">
+              <span className="t-cta mt-7 inline-flex items-center gap-2 text-brand-red">
                 Xem chi tiết
                 <ArrowRight size={14} className="group-hover:translate-x-2 transition-transform" />
               </span>
@@ -460,10 +460,10 @@ function InternalAuditService() {
         <div className="grid lg:grid-cols-12 gap-12">
           <div className="lg:col-span-4">
             <Eyebrow>FAQ</Eyebrow>
-            <h2 className="font-display text-3xl md:text-4xl text-foreground leading-[1.15] font-normal tracking-tight">
+            <h2 className="t-h2 text-foreground">
               Thắc mắc <span className="italic">thường gặp.</span>
             </h2>
-            <p className="mt-5 text-base text-muted-foreground font-serif leading-[1.75]">
+            <p className="t-body mt-5 text-muted-foreground">
               Giải đáp về tính bắt buộc, thời gian thực hiện, chuẩn mực quốc tế và chứng chỉ hành
               nghề kiểm toán nội bộ.
             </p>
@@ -495,7 +495,7 @@ function InternalAuditService() {
                       <span className="absolute inset-y-0 left-1/2 -translate-x-1/2 w-px bg-current" />
                     </span>
                   </AccordionTrigger>
-                  <AccordionContent className="text-base text-foreground/80 font-serif leading-[1.75] pl-11 pr-2 pb-6">
+                  <AccordionContent className="t-body text-foreground/80 pl-11 pr-2 pb-6">
                     {f.a}
                   </AccordionContent>
                 </AccordionItem>
@@ -519,15 +519,15 @@ function InternalAuditService() {
           </span>
           <div className="relative grid lg:grid-cols-12 gap-10 items-center">
             <div className="lg:col-span-7">
-              <p className="text-[0.7rem] uppercase tracking-[0.28em] text-accent mb-6 flex items-center gap-3 font-medium">
+              <p className="t-cta text-accent mb-6 flex items-center gap-3">
                 <span className="inline-block w-8 h-px bg-accent" />
                 Nhận tư vấn ngay
               </p>
-              <h2 className="font-display text-3xl md:text-4xl lg:text-5xl text-background leading-[1.15] font-normal tracking-tight">
+              <h2 className="t-h2 text-background">
                 Tăng cường quản trị rủi ro{" "}
                 <span className="italic text-accent">cùng TAF.</span>
               </h2>
-              <p className="mt-6 text-background/70 font-serif text-base md:text-lg leading-[1.75] max-w-xl">
+              <p className="t-body mt-6 text-background/70 max-w-xl">
                 Liên hệ để được khảo sát và trao đổi cụ thể về phạm vi, tiến độ và nguồn lực cho
                 cuộc kiểm toán nội bộ của doanh nghiệp bạn.
               </p>
@@ -537,7 +537,7 @@ function InternalAuditService() {
                 to="/lien-he"
                 className="group inline-flex items-center justify-between gap-2 bg-brand-red text-white px-7 py-4 text-sm font-medium rounded-[2px] hover:bg-brand-red-ink transition-all"
               >
-                <span className="flex items-center gap-2.5 uppercase tracking-[0.22em]">
+                <span className="t-cta flex items-center gap-2.5">
                   <span className="inline-block w-1.5 h-1.5 rounded-full bg-accent animate-pulse" />
                   Yêu cầu tư vấn
                 </span>

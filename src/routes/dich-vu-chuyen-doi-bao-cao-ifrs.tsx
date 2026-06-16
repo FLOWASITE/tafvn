@@ -52,7 +52,7 @@ function H2({ children, id }: { children: ReactNode; id?: string }) {
   return (
     <h2
       id={id}
-      className="font-display text-2xl md:text-[1.9rem] leading-tight text-foreground mt-12 mb-4 scroll-mt-24"
+      className="t-h2 md:text-[1.9rem] text-foreground mt-12 mb-4 scroll-mt-24"
     >
       {children}
     </h2>
@@ -95,7 +95,7 @@ function IfrsConversionService() {
             Dịch vụ{" "}
             <span className="italic text-accent-foreground">chuyển đổi báo cáo IFRS</span>.
           </h1>
-          <p className="mt-6 text-lg text-muted-foreground font-serif leading-relaxed">
+          <p className="t-lead mt-6 text-muted-foreground">
             Hỗ trợ doanh nghiệp rà soát khác biệt giữa VAS và IFRS, điều chỉnh ghi nhận – đo lường
             và lập báo cáo tài chính theo chuẩn mực báo cáo tài chính quốc tế — minh bạch hơn khi
             gọi vốn, vay vốn và làm việc với đối tác, nhà đầu tư nước ngoài.
@@ -339,16 +339,16 @@ function IfrsConversionService() {
         <div className="rounded-[2px] border border-border bg-cream/60 p-6 md:p-10">
           <div className="grid lg:grid-cols-12 gap-8 items-center">
             <div className="lg:col-span-7">
-              <p className="text-[0.7rem] uppercase tracking-[0.22em] text-accent-foreground mb-3 flex items-center gap-2.5">
+              <p className="t-cta text-accent-foreground mb-3 flex items-center gap-2.5">
                 <span className="inline-block w-1.5 h-1.5 rounded-full bg-brand-red" />
                 <span className="inline-block w-6 h-px bg-accent/60" />
                 Nhận tư vấn ngay
               </p>
-              <h2 className="font-display text-2xl md:text-[1.85rem] leading-tight text-foreground">
+              <h2 className="t-h2 md:text-[1.85rem] text-foreground">
                 Chủ động với{" "}
                 <span className="italic text-accent-foreground">lộ trình IFRS.</span>
               </h2>
-              <p className="mt-3 text-muted-foreground font-serif text-base leading-relaxed">
+              <p className="t-body mt-3 text-muted-foreground">
                 Liên hệ TAF để được đánh giá hiện trạng VAS – IFRS và tư vấn giải pháp chuyển đổi
                 báo cáo phù hợp với doanh nghiệp.
               </p>

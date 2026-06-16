@@ -162,7 +162,7 @@ function TaxAdvisoryService() {
           <h1 className="font-display text-4xl md:text-5xl leading-[1.1] text-foreground">
             Dịch vụ <span className="italic text-accent-foreground">tư vấn thuế</span> toàn quốc.
           </h1>
-          <p className="mt-6 text-lg text-muted-foreground font-serif leading-relaxed">
+          <p className="t-lead mt-6 text-muted-foreground">
             Tư vấn thuế là dịch vụ pháp lý quan trọng giúp doanh nghiệp xác định chính xác các
             loại thuế và mức nộp. TAF hỗ trợ cập nhật chính sách, tuân thủ đúng luật và giảm thiểu
             rủi ro thuế cho cá nhân, hộ kinh doanh và doanh nghiệp.
@@ -191,10 +191,10 @@ function TaxAdvisoryService() {
         <div className="max-w-3xl">
           <Eyebrow>Khái niệm</Eyebrow>
           <blockquote className="mt-2 border-l-2 border-brand-red pl-6">
-            <p className="font-display text-2xl md:text-3xl text-foreground leading-snug">
+            <p className="t-h2 text-foreground">
               Tư vấn thuế là gì?
             </p>
-            <p className="mt-4 text-lg text-muted-foreground font-serif leading-relaxed">
+            <p className="t-lead mt-4 text-muted-foreground">
               Là một trong những dịch vụ pháp lý quan trọng với doanh nghiệp. Ngành tư vấn thuế hỗ
               trợ doanh nghiệp biết chính xác mức thuế, các loại thuế phải nộp và tỷ lệ nộp tương
               ứng.
@@ -210,7 +210,7 @@ function TaxAdvisoryService() {
           {ROLES.map((r) => (
             <div key={r} className="bg-background p-5 flex gap-3">
               <CheckCircle2 size={18} className="shrink-0 text-brand-red mt-0.5" strokeWidth={1.7} />
-              <p className="text-sm text-foreground/85 font-serif leading-relaxed">{r}</p>
+              <p className="t-body-sm text-foreground/85">{r}</p>
             </div>
           ))}
         </div>
@@ -222,10 +222,10 @@ function TaxAdvisoryService() {
         <div className="grid lg:grid-cols-12 gap-10">
           <div className="lg:col-span-4">
             <Eyebrow>Dịch vụ</Eyebrow>
-            <h2 className="font-display text-3xl text-foreground leading-tight">
+            <h2 className="t-h2 text-foreground">
               Các dịch vụ tư vấn thuế của TAF
             </h2>
-            <p className="mt-4 text-sm text-muted-foreground font-serif leading-relaxed">
+            <p className="t-body-sm mt-4 text-muted-foreground">
               Tư vấn toàn diện các sắc thuế và thủ tục liên quan cho doanh nghiệp.
             </p>
           </div>
@@ -234,7 +234,7 @@ function TaxAdvisoryService() {
               {TAF_SERVICES.map((s) => (
                 <li key={s} className="bg-background p-5 flex gap-3">
                   <CheckCircle2 size={18} className="shrink-0 text-accent-foreground mt-0.5" strokeWidth={1.7} />
-                  <span className="text-sm text-foreground/85 font-serif leading-relaxed">{s}</span>
+                  <span className="t-body-sm text-foreground/85">{s}</span>
                 </li>
               ))}
             </ul>
@@ -256,7 +256,7 @@ function TaxAdvisoryService() {
               <div key={c.title} className="bg-background p-7">
                 <Icon className="text-brand-red" size={24} strokeWidth={1.6} />
                 <h3 className="mt-4 font-display text-lg text-foreground leading-snug">{c.title}</h3>
-                <p className="mt-2 text-sm text-muted-foreground font-serif leading-relaxed">
+                <p className="t-body-sm mt-2 text-muted-foreground">
                   {c.desc}
                 </p>
               </div>
@@ -313,14 +313,14 @@ function TaxAdvisoryService() {
         />
         <div className="mt-10 space-y-10">
           <div>
-            <h3 className="font-display text-xl text-foreground mb-4">
+            <h3 className="t-h3 text-foreground mb-4">
               Kế toán thuế cho doanh nghiệp mới thành lập
             </h3>
             <ul className="space-y-px bg-border border border-border">
               {NEW_BIZ.map((n) => (
                 <li key={n} className="bg-background p-5 flex gap-3">
                   <CheckCircle2 size={18} className="shrink-0 text-brand-red mt-0.5" strokeWidth={1.7} />
-                  <span className="text-sm text-foreground/85 font-serif leading-relaxed">{n}</span>
+                  <span className="t-body-sm text-foreground/85">{n}</span>
                 </li>
               ))}
             </ul>
@@ -363,7 +363,7 @@ function TaxAdvisoryService() {
           {WHY_TAF.map((w) => (
             <div key={w} className="bg-background p-5 flex gap-3">
               <CheckCircle2 size={18} className="shrink-0 text-brand-red mt-0.5" strokeWidth={1.7} />
-              <p className="text-sm text-foreground/85 font-serif leading-relaxed">{w}</p>
+              <p className="t-body-sm text-foreground/85">{w}</p>
             </div>
           ))}
         </div>
@@ -378,7 +378,7 @@ function TaxAdvisoryService() {
             <div key={c.title} className="bg-background p-7">
               <ShieldCheck className="text-brand-red" size={24} strokeWidth={1.6} />
               <h3 className="mt-4 font-display text-lg text-foreground">{c.title}</h3>
-              <p className="mt-2 text-sm text-muted-foreground font-serif leading-relaxed">
+              <p className="t-body-sm mt-2 text-muted-foreground">
                 {c.desc}
               </p>
             </div>
@@ -391,16 +391,16 @@ function TaxAdvisoryService() {
         <div className="rounded-[2px] border border-border bg-cream/60 p-6 md:p-10">
           <div className="grid lg:grid-cols-12 gap-8 items-center">
             <div className="lg:col-span-7">
-              <p className="text-[0.7rem] uppercase tracking-[0.22em] text-accent-foreground mb-3 flex items-center gap-2.5">
+              <p className="t-cta text-accent-foreground mb-3 flex items-center gap-2.5">
                 <span className="inline-block w-1.5 h-1.5 rounded-full bg-brand-red" />
                 <span className="inline-block w-6 h-px bg-accent/60" />
                 Nhận tư vấn ngay
               </p>
-              <h2 className="font-display text-2xl md:text-[1.85rem] leading-tight text-foreground">
+              <h2 className="t-h2 md:text-[1.85rem] text-foreground">
                 Chủ động với thuế,{" "}
                 <span className="italic text-accent-foreground">an tâm kinh doanh.</span>
               </h2>
-              <p className="mt-3 text-muted-foreground font-serif text-base leading-relaxed">
+              <p className="t-body mt-3 text-muted-foreground">
                 Liên hệ TAF để được tư vấn gói dịch vụ thuế phù hợp với quy mô và ngành nghề của
                 doanh nghiệp bạn.
               </p>

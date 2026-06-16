@@ -180,7 +180,7 @@ function SubServiceRow({ item }: { item: SubService }) {
         <h3 className="font-display text-lg md:text-xl text-foreground leading-snug">
           <span className="draw-underline">{item.title}</span>
         </h3>
-        <p className="mt-1.5 text-sm text-muted-foreground font-serif leading-relaxed">
+        <p className="t-body-sm mt-1.5 text-muted-foreground">
           {item.desc}
         </p>
         {!item.href && (
@@ -224,7 +224,7 @@ function ServicesIndex() {
             <span className="italic text-accent-foreground">kiểm toán, kế toán</span> và tư vấn
             doanh nghiệp.
           </h1>
-          <p className="mt-6 text-lg text-muted-foreground font-serif leading-relaxed">
+          <p className="t-lead mt-6 text-muted-foreground">
             Từ lúc khai sinh doanh nghiệp đến mỗi kỳ quyết toán, TAF đồng hành bằng đội ngũ kiểm
             toán viên có chứng chỉ hành nghề. Chọn một dịch vụ để xem phạm vi công việc và quy
             trình triển khai.
@@ -250,10 +250,10 @@ function ServicesIndex() {
                     {cat.no}
                   </span>
                 </div>
-                <h2 className="mt-5 font-display text-3xl text-foreground leading-tight">
+                <h2 className="t-h2 mt-5 text-foreground">
                   {cat.title}
                 </h2>
-                <p className="mt-3 text-sm text-muted-foreground font-serif leading-relaxed">
+                <p className="t-body-sm mt-3 text-muted-foreground">
                   {cat.blurb}
                 </p>
                 {cat.detailPath ? (
@@ -305,8 +305,8 @@ function ServicesIndex() {
             return (
               <div key={c.title} className="bg-background p-8">
                 <Icon className="text-brand-red" size={26} strokeWidth={1.5} />
-                <h3 className="mt-4 font-display text-xl text-foreground">{c.title}</h3>
-                <p className="mt-2 text-sm text-foreground/75 font-serif leading-relaxed">
+                <h3 className="t-h3 mt-4 text-foreground">{c.title}</h3>
+                <p className="t-body-sm mt-2 text-foreground/75">
                   {c.body}
                 </p>
               </div>
@@ -320,10 +320,10 @@ function ServicesIndex() {
         <div className="grid lg:grid-cols-12 gap-10">
           <div className="lg:col-span-4">
             <Eyebrow>FAQ</Eyebrow>
-            <h2 className="font-display text-3xl md:text-[2.25rem] leading-tight text-foreground">
+            <h2 className="t-h2 md:text-[2.25rem] text-foreground">
               Câu hỏi thường gặp
             </h2>
-            <p className="mt-4 text-sm text-muted-foreground font-serif leading-relaxed">
+            <p className="t-body-sm mt-4 text-muted-foreground">
               Giải đáp nhanh về đối tượng bắt buộc kiểm toán, giá trị pháp lý của báo cáo, chi phí
               và thời gian thực hiện.
             </p>
@@ -340,7 +340,7 @@ function ServicesIndex() {
                       {f.q}
                     </span>
                   </AccordionTrigger>
-                  <AccordionContent className="text-base text-foreground/80 font-serif leading-relaxed pl-10 pr-2">
+                  <AccordionContent className="t-body text-foreground/80 pl-10 pr-2">
                     {f.a}
                   </AccordionContent>
                 </AccordionItem>
@@ -355,16 +355,16 @@ function ServicesIndex() {
         <div className="rounded-[2px] border border-border bg-cream/60 p-6 md:p-10">
           <div className="grid lg:grid-cols-12 gap-8 items-center">
             <div className="lg:col-span-7">
-              <p className="text-[0.7rem] uppercase tracking-[0.22em] text-accent-foreground mb-3 flex items-center gap-2.5">
+              <p className="t-cta text-accent-foreground mb-3 flex items-center gap-2.5">
                 <span className="inline-block w-1.5 h-1.5 rounded-full bg-brand-red" />
                 <span className="inline-block w-6 h-px bg-accent/60" />
                 Yêu cầu báo giá
               </p>
-              <h2 className="font-display text-2xl md:text-[1.85rem] leading-tight text-foreground">
+              <h2 className="t-h2 md:text-[1.85rem] text-foreground">
                 Chưa chắc dịch vụ nào phù hợp?{" "}
                 <span className="italic text-accent-foreground">TAF tư vấn miễn phí.</span>
               </h2>
-              <p className="mt-3 text-muted-foreground font-serif text-base leading-relaxed">
+              <p className="t-body mt-3 text-muted-foreground">
                 Gửi yêu cầu hoặc gọi trực tiếp — chúng tôi khảo sát sơ bộ và đề xuất phương án kèm
                 báo giá cụ thể trong vòng 3 ngày làm việc.
               </p>

@@ -72,14 +72,14 @@ function ServicePage() {
       <Section>
         <div className="grid lg:grid-cols-12 gap-10">
           <header className="lg:col-span-8">
-            <p className="text-[0.7rem] uppercase tracking-[0.22em] text-accent-foreground/80 mb-3">
+            <p className="t-cta text-accent-foreground/80 mb-3">
               Dịch vụ
             </p>
             <h1 className="font-display text-4xl md:text-5xl leading-tight text-foreground">
               {title}
             </h1>
             {summary ? (
-              <p className="mt-5 text-lg text-muted-foreground font-serif leading-relaxed">
+              <p className="t-lead mt-5 text-muted-foreground">
                 {summary}
               </p>
             ) : null}

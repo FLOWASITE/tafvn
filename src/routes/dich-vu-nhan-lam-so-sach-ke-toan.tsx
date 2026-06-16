@@ -193,9 +193,9 @@ function BookkeepingService() {
           </h1>
           <div className="mt-5 inline-flex items-center gap-2 rounded-[2px] border border-brand-red/30 bg-brand-red-soft px-4 py-2">
             <span className="text-sm text-muted-foreground">Chi phí chỉ từ</span>
-            <span className="font-display text-xl text-brand-red-ink">2.500.000đ</span>
+            <span className="t-h3 text-brand-red-ink">2.500.000đ</span>
           </div>
-          <p className="mt-6 text-lg text-muted-foreground font-serif leading-relaxed">
+          <p className="t-lead mt-6 text-muted-foreground">
             TAF giúp doanh nghiệp hoàn thiện toàn bộ sổ sách cuối năm: kiểm tra – điều chỉnh số
             liệu – chuẩn hóa chứng từ và lập sổ sách kế toán đầy đủ, chính xác, tuân thủ quy định
             pháp luật. Bàn giao trọn bộ file mềm và bản in.
@@ -230,7 +230,7 @@ function BookkeepingService() {
           {TARGETS.map((t) => (
             <div key={t} className="bg-background p-6 flex gap-3">
               <CheckCircle2 size={20} className="shrink-0 text-brand-red mt-0.5" strokeWidth={1.7} />
-              <p className="text-sm text-foreground/85 font-serif leading-relaxed">{t}</p>
+              <p className="t-body-sm text-foreground/85">{t}</p>
             </div>
           ))}
         </div>
@@ -241,10 +241,10 @@ function BookkeepingService() {
         <div className="grid lg:grid-cols-12 gap-10">
           <div className="lg:col-span-5">
             <Eyebrow>Khái niệm</Eyebrow>
-            <h2 className="font-display text-3xl text-foreground leading-tight">
+            <h2 className="t-h2 text-foreground">
               Sổ sách kế toán gồm những gì?
             </h2>
-            <p className="mt-4 text-base text-muted-foreground font-serif leading-relaxed">
+            <p className="t-body mt-4 text-muted-foreground">
               Sổ sách kế toán là hệ thống biểu mẫu ghi chép toàn bộ nghiệp vụ kinh tế – tài chính
               phát sinh theo trình tự thời gian và nội dung nghiệp vụ. Đây là căn cứ để lập báo
               cáo tài chính, giải trình với cơ quan thuế và phản ánh trung thực tình hình tài
@@ -279,7 +279,7 @@ function BookkeepingService() {
         {/* Nhóm tư vấn dịch vụ */}
         <div className="mt-10 space-y-12">
           <div>
-            <h3 className="font-display text-xl text-foreground mb-4">
+            <h3 className="t-h3 text-foreground mb-4">
               Nhóm ngành tư vấn – dịch vụ
             </h3>
             <div className="border border-border rounded-[2px] overflow-hidden">
@@ -306,7 +306,7 @@ function BookkeepingService() {
 
           {/* Nhóm thương mại */}
           <div>
-            <h3 className="font-display text-xl text-foreground mb-4">Nhóm ngành thương mại</h3>
+            <h3 className="t-h3 text-foreground mb-4">Nhóm ngành thương mại</h3>
             <div className="border border-border rounded-[2px] overflow-hidden">
               <Table>
                 <TableHeader>
@@ -339,7 +339,7 @@ function BookkeepingService() {
 
           {/* Nhóm xây dựng – sản xuất */}
           <div>
-            <h3 className="font-display text-xl text-foreground mb-4">
+            <h3 className="t-h3 text-foreground mb-4">
               Nhóm thi công xây dựng – nội thất – sản xuất – gia công – nhà hàng – lắp đặt
             </h3>
             <div className="border border-border rounded-[2px] overflow-hidden">
@@ -372,16 +372,16 @@ function BookkeepingService() {
         <div className="mt-10 grid md:grid-cols-2 gap-px bg-border border border-border">
           <div className="bg-background p-8">
             <Clock className="text-brand-red" size={26} strokeWidth={1.5} />
-            <h3 className="mt-4 font-display text-xl text-foreground">Ít chứng từ</h3>
-            <p className="mt-2 text-sm text-foreground/80 font-serif leading-relaxed">
+            <h3 className="t-h3 mt-4 text-foreground">Ít chứng từ</h3>
+            <p className="t-body-sm mt-2 text-foreground/80">
               Với doanh nghiệp phát sinh ít chứng từ, hóa đơn, TAF có thể hoàn tất toàn bộ sổ sách
               chỉ trong khoảng <strong className="text-foreground">2–7 ngày làm việc</strong>.
             </p>
           </div>
           <div className="bg-background p-8">
             <Clock className="text-brand-red" size={26} strokeWidth={1.5} />
-            <h3 className="mt-4 font-display text-xl text-foreground">Khối lượng lớn</h3>
-            <p className="mt-2 text-sm text-foreground/80 font-serif leading-relaxed">
+            <h3 className="t-h3 mt-4 text-foreground">Khối lượng lớn</h3>
+            <p className="t-body-sm mt-2 text-foreground/80">
               Trường hợp chứng từ nhiều, phát sinh liên tục, thời gian xử lý kéo dài hơn, ước tính{" "}
               <strong className="text-foreground">1–3 tháng</strong> tùy mức độ phức tạp và tình
               trạng dữ liệu.
@@ -404,7 +404,7 @@ function BookkeepingService() {
               <span className="font-mono text-sm text-accent-foreground tabular-nums shrink-0">
                 {String(i + 1).padStart(2, "0")}
               </span>
-              <p className="text-base text-foreground/85 font-serif leading-relaxed">{s}</p>
+              <p className="t-body text-foreground/85">{s}</p>
             </li>
           ))}
         </ol>
@@ -415,10 +415,10 @@ function BookkeepingService() {
         <div className="grid lg:grid-cols-12 gap-10">
           <div className="lg:col-span-4">
             <Eyebrow>Hồ sơ</Eyebrow>
-            <h2 className="font-display text-3xl text-foreground leading-tight">
+            <h2 className="t-h2 text-foreground">
               Thông tin bạn cần cung cấp
             </h2>
-            <p className="mt-4 text-sm text-muted-foreground font-serif leading-relaxed">
+            <p className="t-body-sm mt-4 text-muted-foreground">
               7 loại giấy tờ, tài liệu cần bàn giao cho TAF khi sử dụng dịch vụ làm sổ sách kế
               toán.
             </p>
@@ -428,7 +428,7 @@ function BookkeepingService() {
               {DOCS.map((d) => (
                 <li key={d} className="bg-background p-5 flex gap-3">
                   <FileText size={18} className="shrink-0 text-accent-foreground mt-0.5" />
-                  <span className="text-sm text-foreground/85 font-serif leading-relaxed">{d}</span>
+                  <span className="t-body-sm text-foreground/85">{d}</span>
                 </li>
               ))}
             </ul>
@@ -453,7 +453,7 @@ function BookkeepingService() {
                   {String(i + 1).padStart(2, "0")}
                 </span>
               </div>
-              <p className="mt-3 text-sm text-foreground/85 font-serif leading-relaxed">{b}</p>
+              <p className="t-body-sm mt-3 text-foreground/85">{b}</p>
             </div>
           ))}
         </div>
@@ -464,10 +464,10 @@ function BookkeepingService() {
         <div className="grid lg:grid-cols-12 gap-10">
           <div className="lg:col-span-4">
             <Eyebrow>FAQ</Eyebrow>
-            <h2 className="font-display text-3xl md:text-[2.25rem] leading-tight text-foreground">
+            <h2 className="t-h2 md:text-[2.25rem] text-foreground">
               Câu hỏi thường gặp
             </h2>
-            <p className="mt-4 text-sm text-muted-foreground font-serif leading-relaxed">
+            <p className="t-body-sm mt-4 text-muted-foreground">
               Giải đáp về chi phí, thời gian, thành phần sổ sách và trách nhiệm khi cơ quan thuế
               kiểm tra.
             </p>
@@ -484,7 +484,7 @@ function BookkeepingService() {
                       {f.q}
                     </span>
                   </AccordionTrigger>
-                  <AccordionContent className="text-base text-foreground/80 font-serif leading-relaxed pl-10 pr-2">
+                  <AccordionContent className="t-body text-foreground/80 pl-10 pr-2">
                     {f.a}
                   </AccordionContent>
                 </AccordionItem>
@@ -499,16 +499,16 @@ function BookkeepingService() {
         <div className="rounded-[2px] border border-border bg-cream/60 p-6 md:p-10">
           <div className="grid lg:grid-cols-12 gap-8 items-center">
             <div className="lg:col-span-7">
-              <p className="text-[0.7rem] uppercase tracking-[0.22em] text-accent-foreground mb-3 flex items-center gap-2.5">
+              <p className="t-cta text-accent-foreground mb-3 flex items-center gap-2.5">
                 <span className="inline-block w-1.5 h-1.5 rounded-full bg-brand-red" />
                 <span className="inline-block w-6 h-px bg-accent/60" />
                 Nhận tư vấn ngay
               </p>
-              <h2 className="font-display text-2xl md:text-[1.85rem] leading-tight text-foreground">
+              <h2 className="t-h2 md:text-[1.85rem] text-foreground">
                 Hoàn thiện sổ sách{" "}
                 <span className="italic text-accent-foreground">đúng luật, đúng hạn.</span>
               </h2>
-              <p className="mt-3 text-muted-foreground font-serif text-base leading-relaxed">
+              <p className="t-body mt-3 text-muted-foreground">
                 Gửi yêu cầu hoặc gọi trực tiếp — TAF khảo sát hồ sơ và báo giá chính xác theo tình
                 trạng thực tế.{" "}
                 <ShieldCheck className="inline -mt-0.5 text-brand-red" size={16} /> Bảo mật tuyệt
