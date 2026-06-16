@@ -56,7 +56,9 @@ export const Route = createFileRoute("/")({
 });
 
 function HomePage() {
+  const t = useT();
   const years = new Date().getFullYear() - SITE.established;
+
   return (
     <>
       {/* HERO */}
