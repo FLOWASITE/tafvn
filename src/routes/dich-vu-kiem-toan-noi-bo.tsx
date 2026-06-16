@@ -214,10 +214,15 @@ function InternalAuditService() {
             </p>
           </div>
           <div className="lg:col-span-7">
-            <ul className="space-y-px bg-border border border-border">
-              {TARGETS.map((t) => (
-                <li key={t} className="bg-background p-5 flex gap-3">
-                  <Building2 size={20} className="shrink-0 text-accent-foreground mt-0.5" strokeWidth={1.7} />
+            <ul className="space-y-3">
+              {TARGETS.map((t, i) => (
+                <li
+                  key={t}
+                  className="bg-background border-l-2 border-accent p-5 flex gap-5 shadow-[0_2px_8px_-4px_rgba(0,0,0,0.04)]"
+                >
+                  <span className="shrink-0 font-display text-base text-brand-red-ink tabular-nums tracking-wider pt-0.5">
+                    {String(i + 1).padStart(2, "0")}
+                  </span>
                   <span className="text-sm text-foreground/85 font-serif leading-relaxed">{t}</span>
                 </li>
               ))}
