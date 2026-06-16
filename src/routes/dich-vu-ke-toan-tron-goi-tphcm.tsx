@@ -1473,32 +1473,35 @@ function AccountingServicePage() {
       <Section id="niem-tin" className="pt-0">
         <div className="rule-gold mb-12" />
         <div className="grid lg:grid-cols-12 gap-10 lg:gap-16">
+          {/* Cột trái — Header + Trust badges (dark tone) */}
           <div className="lg:col-span-4">
-            <Eyebrow>13 · Niềm tin</Eyebrow>
+            <Eyebrow>§ 13 — Tiếng nói khách hàng</Eyebrow>
             <h2 className="t-h2 md:text-[2.5rem] text-foreground">
-              Khách hàng nói gì <em className="not-italic italic text-brand-red">về TAF</em>
+              Khách hàng nói gì{" "}
+              <em className="italic text-accent-foreground">về TAF</em>
             </h2>
+            <span aria-hidden className="mt-5 block h-px w-10 bg-accent" />
             <p className="t-body mt-5 text-muted-foreground">
-              Hơn một thập kỷ đồng hành cùng doanh nghiệp trong nước và FDI — sau đây là vài tiếng nói
-              tiêu biểu từ các đối tác đang sử dụng dịch vụ kế toán trọn gói của TAF.
+              Hơn một thập kỷ đồng hành cùng doanh nghiệp trong nước và FDI — sau đây là vài
+              tiếng nói tiêu biểu từ các đối tác đang sử dụng dịch vụ kế toán trọn gói của TAF.
             </p>
 
-            <ul className="mt-10 space-y-4">
+            <ul className="mt-10 space-y-3">
               {TRUST_BADGES.map((b) => {
                 const Icon = b.icon;
                 return (
                   <li
                     key={b.label}
-                    className="relative flex items-start gap-4 px-5 py-4 border border-accent/40 bg-cream/40 rounded-[2px]"
+                    className="relative flex items-start gap-4 px-5 py-4 border border-accent/30 bg-foreground/95 rounded-[2px]"
                   >
-                    <span aria-hidden className="absolute inset-x-2 top-1 h-px bg-accent/30" />
-                    <span aria-hidden className="absolute inset-x-2 bottom-1 h-px bg-accent/30" />
-                    <Icon size={22} strokeWidth={1.5} className="text-brand-red shrink-0 mt-0.5" />
+                    <span aria-hidden className="absolute inset-x-2 top-1 h-px bg-accent/40" />
+                    <span aria-hidden className="absolute inset-x-2 bottom-1 h-px bg-accent/20" />
+                    <Icon size={22} strokeWidth={1.5} className="text-accent shrink-0 mt-0.5" />
                     <div className="min-w-0">
-                      <div className="font-display text-sm md:text-[0.95rem] text-foreground leading-tight">
+                      <div className="font-display text-sm md:text-[0.95rem] text-background leading-tight">
                         {b.label}
                       </div>
-                      <div className="t-cta text-muted-foreground mt-1">
+                      <div className="t-cta text-background/55 mt-1">
                         {b.sublabel}
                       </div>
                     </div>
@@ -1508,97 +1511,145 @@ function AccountingServicePage() {
             </ul>
           </div>
 
-          <div className="lg:col-span-8">
-            <div className="grid md:grid-cols-2 gap-5">
-              {TESTIMONIALS.map((t, i) => (
-                <Reveal
-                  key={t.initials}
-                  delay={i * 80}
-                  className={cn(
-                    "relative bg-card border border-border p-7 md:p-9 rounded-[3px] flex flex-col overflow-hidden",
-                    i === 0 && "md:col-span-2 bg-foreground text-background border-foreground",
-                  )}
+          {/* Cột phải — Editorial magazine layout */}
+          <div className="lg:col-span-8 space-y-5">
+            {/* Featured testimonial (hàng 1) — Dark Premium */}
+            {TESTIMONIALS.slice(0, 1).map((t) => (
+              <Reveal
+                key={t.initials}
+                className="relative bg-foreground text-background p-8 md:p-14 rounded-[2px] overflow-hidden"
+              >
+                <span aria-hidden className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-accent/70 to-transparent" />
+                <span aria-hidden className="absolute inset-0 paper-grain opacity-[0.05] pointer-events-none mix-blend-screen" />
+                {/* Glyph Playfair khổng lồ góc trên phải */}
+                <span
+                  aria-hidden
+                  className="pointer-events-none select-none absolute -top-10 -right-2 md:-top-14 md:right-4 font-display leading-none text-[12rem] md:text-[16rem] text-accent/[0.10] tracking-tight"
                 >
-                  <span
-                    aria-hidden
-                    className={cn(
-                      "absolute top-0 left-0 right-0 h-px",
-                      i === 0 ? "bg-accent/60" : "bg-gradient-to-r from-transparent via-accent/40 to-transparent",
-                    )}
-                  />
-                  {/* Giant Playfair quote glyph */}
-                  <span
-                    aria-hidden
-                    className={cn(
-                      "pointer-events-none select-none absolute -top-6 right-4 font-display leading-none text-[10rem] md:text-[12rem]",
-                      i === 0 ? "text-accent/15" : "text-accent-foreground/12",
-                    )}
-                  >
-                    “
-                  </span>
-                  <Quote
-                    size={22}
-                    strokeWidth={1.25}
-                    className={cn(
-                      "shrink-0 mb-4 relative z-10",
-                      i === 0 ? "text-accent" : "text-brand-red/70",
-                    )}
-                  />
-                  <blockquote
-                    className={cn(
-                      "relative z-10 font-display leading-[1.4]",
-                      i === 0
-                        ? "text-xl md:text-2xl text-background"
-                        : "text-base md:text-lg text-foreground",
-                    )}
-                  >
-                    “{t.quote}”
-                  </blockquote>
-                  <figcaption
-                    className={cn(
-                      "relative z-10 mt-6 pt-5 border-t flex items-center gap-3",
-                      i === 0 ? "border-background/15" : "border-border",
-                    )}
-                  >
+                  “
+                </span>
+
+                <div className="relative z-10 t-eyebrow text-accent/80 mb-8">
+                  § — Câu chuyện nổi bật
+                </div>
+
+                <div className="relative z-10 grid md:grid-cols-[auto_1fr] gap-8 md:gap-12 items-start">
+                  {/* Chân dung lớn editorial */}
+                  <figure className="shrink-0">
                     <img
                       src={t.avatar}
                       alt={`${t.name} — ${t.role}, ${t.org}`}
                       loading="lazy"
-                      width={88}
-                      height={88}
-                      className={cn(
-                        "w-12 h-12 rounded-full object-cover shrink-0 ring-1 ring-offset-2",
-                        i === 0
-                          ? "ring-accent/50 ring-offset-foreground"
-                          : "ring-accent/40 ring-offset-card",
-                      )}
+                      width={224}
+                      height={224}
+                      className="w-28 h-28 md:w-[112px] md:h-[112px] object-cover rounded-[2px] ring-1 ring-accent/60 ring-offset-4 ring-offset-foreground"
                     />
-                    <div className="min-w-0">
-                      <div
-                        className={cn(
-                          "font-display text-sm",
-                          i === 0 ? "text-background" : "text-foreground",
-                        )}
-                      >
-                        {t.name} — <span className="text-muted-foreground">{t.role}</span>
+                    <figcaption className="mt-4 font-display tabular-nums text-accent text-base tracking-[0.3em]">
+                      ★★★★★
+                    </figcaption>
+                  </figure>
+
+                  {/* Quote + Attribution */}
+                  <div className="min-w-0">
+                    <blockquote className="font-display leading-[1.4] text-xl md:text-[1.75rem] text-background">
+                      “{t.quote}”
+                    </blockquote>
+
+                    <span aria-hidden className="mt-7 block h-px w-16 bg-accent/50" />
+
+                    <div className="mt-5">
+                      <div className="font-display text-[1.05rem] text-background">
+                        {t.name}
                       </div>
-                      <div
-                        className={cn(
-                          "text-xs mt-0.5 font-serif",
-                          i === 0 ? "text-background/60" : "text-muted-foreground",
-                        )}
-                      >
+                      <div className="t-cta text-accent/80 mt-1">
+                        {t.role}
+                      </div>
+                      <div className="font-serif italic text-sm text-background/60 mt-1.5">
                         {t.org}
                       </div>
                     </div>
-                  </figcaption>
-                </Reveal>
+                  </div>
+                </div>
+              </Reveal>
+            ))}
+
+            {/* Hai testimonial phụ (hàng 2) — Cream sang */}
+            <div className="grid md:grid-cols-2 gap-5">
+              {TESTIMONIALS.slice(1).map((t, idx) => {
+                const i = idx + 1;
+                return (
+                  <Reveal
+                    key={t.initials}
+                    delay={idx * 80}
+                    className="group relative bg-cream/50 border border-accent/25 p-7 md:p-8 rounded-[2px] overflow-hidden flex flex-col"
+                  >
+                    <span aria-hidden className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-accent/50 to-transparent" />
+                    {/* Mã số bài góc trên phải */}
+                    <span
+                      aria-hidden
+                      className="absolute top-5 right-6 font-display italic tabular-nums text-accent-foreground/40 text-2xl leading-none"
+                    >
+                      {String(i + 1).padStart(2, "0")}
+                    </span>
+                    {/* Glyph " Playfair lớn */}
+                    <span
+                      aria-hidden
+                      className="pointer-events-none select-none absolute -bottom-12 -right-4 font-display leading-none text-[10rem] text-accent-foreground/[0.08]"
+                    >
+                      ”
+                    </span>
+
+                    {/* Chân dung phía trên */}
+                    <img
+                      src={t.avatar}
+                      alt={`${t.name} — ${t.role}, ${t.org}`}
+                      loading="lazy"
+                      width={160}
+                      height={160}
+                      className="w-20 h-20 object-cover rounded-[2px] ring-1 ring-accent/40 ring-offset-2 ring-offset-cream relative z-10"
+                    />
+
+                    <blockquote className="relative z-10 mt-6 font-display text-base md:text-[1.05rem] leading-[1.55] text-foreground/90">
+                      “{t.quote}”
+                    </blockquote>
+
+                    <span aria-hidden className="mt-6 block h-px w-12 bg-accent/50" />
+
+                    <figcaption className="relative z-10 mt-4">
+                      <div className="font-display text-[0.95rem] text-foreground">
+                        {t.name}
+                      </div>
+                      <div className="t-cta text-accent-foreground/75 mt-0.5">
+                        {t.role}
+                      </div>
+                      <div className="font-serif italic text-xs text-muted-foreground mt-1">
+                        {t.org}
+                      </div>
+                    </figcaption>
+                  </Reveal>
+                );
+              })}
+            </div>
+
+            {/* Stat strip — Tin cậy */}
+            <div className="mt-2 border-y border-accent/25 py-5 grid grid-cols-3 divide-x divide-accent/20">
+              {[
+                { n: "1.500+", l: "Doanh nghiệp đồng hành" },
+                { n: "13+", l: "Năm chuyên môn ngành" },
+                { n: "99%", l: "Khách hàng tái ký dịch vụ" },
+              ].map((s) => (
+                <div key={s.l} className="px-4 first:pl-0 last:pr-0 text-center md:text-left">
+                  <div className="font-display tabular-nums text-2xl md:text-[1.75rem] text-foreground leading-none">
+                    {s.n}
+                  </div>
+                  <div className="t-cta text-muted-foreground mt-2">{s.l}</div>
+                </div>
               ))}
             </div>
 
-            <div className="t-cta mt-6 flex flex-wrap items-center gap-x-6 gap-y-2 text-muted-foreground">
+            <div className="t-cta mt-4 flex flex-wrap items-center gap-x-6 gap-y-2 text-muted-foreground">
               <span className="inline-flex items-center gap-2">
-                <span className="w-1.5 h-1.5 rounded-full bg-brand-red" />
+                <span className="w-1.5 h-1.5 rounded-full bg-accent" />
                 Tên và đơn vị đã ẩn theo cam kết bảo mật
               </span>
               <span className="hidden md:inline-block w-5 h-px bg-accent" />
