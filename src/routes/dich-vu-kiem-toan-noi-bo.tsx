@@ -335,7 +335,7 @@ function InternalAuditService() {
       <Section className="!pt-0">
         <div className="max-w-3xl">
           <Eyebrow>Thực trạng</Eyebrow>
-          <h2 className="font-display text-3xl md:text-4xl text-foreground leading-[1.15]">
+          <h2 className="font-display text-3xl md:text-4xl text-foreground leading-[1.15] font-normal tracking-tight">
             Kiểm toán nội bộ ở <span className="italic">Việt Nam.</span>
           </h2>
           <div className="rule-gold mt-6 max-w-[120px] !bg-brand-red" />
@@ -377,7 +377,7 @@ function InternalAuditService() {
             </span>
             <div className="relative">
               <Eyebrow>Cam kết</Eyebrow>
-              <h2 className="font-display italic text-3xl md:text-[2rem] text-foreground leading-[1.15]">
+              <h2 className="font-display italic text-3xl md:text-4xl text-foreground leading-[1.15] font-normal tracking-tight">
                 Lựa chọn TAF, doanh nghiệp được gì?
               </h2>
               <ul className="mt-8 space-y-5 font-serif text-foreground/85 text-base">
@@ -460,7 +460,7 @@ function InternalAuditService() {
         <div className="grid lg:grid-cols-12 gap-12">
           <div className="lg:col-span-4">
             <Eyebrow>FAQ</Eyebrow>
-            <h2 className="font-display text-3xl md:text-4xl leading-[1.15] text-foreground">
+            <h2 className="font-display text-3xl md:text-4xl text-foreground leading-[1.15] font-normal tracking-tight">
               Thắc mắc <span className="italic">thường gặp.</span>
             </h2>
             <p className="mt-5 text-base text-muted-foreground font-serif leading-[1.75]">
@@ -523,7 +523,7 @@ function InternalAuditService() {
                 <span className="inline-block w-8 h-px bg-accent" />
                 Nhận tư vấn ngay
               </p>
-              <h2 className="font-display text-3xl md:text-4xl lg:text-5xl leading-[1.15] text-background">
+              <h2 className="font-display text-3xl md:text-4xl lg:text-5xl text-background leading-[1.15] font-normal tracking-tight">
                 Tăng cường quản trị rủi ro{" "}
                 <span className="italic text-accent">cùng TAF.</span>
               </h2>
