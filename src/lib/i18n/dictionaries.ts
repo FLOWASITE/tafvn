@@ -97,7 +97,7 @@ const en: Dict = {
     "TAF does not share your data with third parties.",
 
   // About page
-  "Về TAF": "About TAF",
+
   "Hơn hai thập kỷ giữ nghề kiểm toán đúng chuẩn mực.":
     "Over two decades upholding audit standards.",
   "thành lập năm": "was established in",
