@@ -349,7 +349,7 @@ function InternalAuditService() {
           title="Khám phá thêm các dịch vụ của TAF"
           lead="Bên cạnh kiểm toán nội bộ, TAF cung cấp đa dạng dịch vụ kiểm toán, tư vấn thuế và soát xét đặc biệt — đồng hành cùng doanh nghiệp ở mọi giai đoạn phát triển."
         />
-        <div className="mt-10 grid md:grid-cols-3 gap-px bg-border border border-border">
+        <div className="mt-12 grid md:grid-cols-3 gap-5">
           {[
             {
               title: "Kiểm toán báo cáo tài chính",
@@ -370,15 +370,15 @@ function InternalAuditService() {
             <Link
               key={s.to}
               to={s.to}
-              className="group bg-background p-7 flex flex-col hover:bg-cream/40 transition-colors"
+              className="group bg-background border border-accent/20 p-7 flex flex-col hover:border-accent/60 hover:shadow-[0_8px_30px_-12px_rgba(0,0,0,0.08)] transition-all"
             >
               <h3 className="font-display text-lg text-foreground leading-snug">{s.title}</h3>
-              <p className="mt-2 text-sm text-muted-foreground font-serif leading-relaxed flex-1">
+              <p className="mt-3 text-sm text-muted-foreground font-serif leading-relaxed flex-1">
                 {s.desc}
               </p>
-              <span className="mt-5 inline-flex items-center gap-2 text-xs uppercase tracking-[0.18em] text-brand-red">
+              <span className="mt-6 inline-flex items-center gap-2 text-xs uppercase tracking-[0.2em] text-brand-red font-medium">
                 Xem chi tiết
-                <ArrowRight size={14} className="group-hover:translate-x-0.5 transition-transform" />
+                <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />
               </span>
             </Link>
           ))}
