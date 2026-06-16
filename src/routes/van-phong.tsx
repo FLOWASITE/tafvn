@@ -63,16 +63,18 @@ export const Route = createFileRoute("/van-phong")({
 });
 
 function OfficesPage() {
+  const t = useT();
   const { data: offices } = useSuspenseQuery(officesQO);
   return (
     <>
-      <Breadcrumb items={[{ label: "Văn phòng" }]} />
+      <Breadcrumb items={[{ label: t("Văn phòng") }]} />
       <Section>
         <SectionHeading
-          eyebrow="Văn phòng"
-          title="Đến gặp TAF trực tiếp"
-          lead="Khách hàng có thể tới văn phòng để trao đổi trực tiếp với KTV phụ trách hoặc đề nghị KTV đến trụ sở doanh nghiệp."
+          eyebrow={t("Văn phòng")}
+          title={t("Đến gặp TAF trực tiếp")}
+          lead={t("Khách hàng có thể tới văn phòng để trao đổi trực tiếp với KTV phụ trách hoặc đề nghị KTV đến trụ sở doanh nghiệp.")}
         />
+
         <div className="mt-12 grid md:grid-cols-2 gap-px bg-border border border-border">
           {offices.map((o) => (
             <article key={o.id} className="bg-background p-7">
