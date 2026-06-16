@@ -57,6 +57,7 @@ export const Route = createFileRoute("/dich-vu/$slug")({
 });
 
 function ServicePage() {
+  const t = useT();
   const { cms, fallback } = Route.useLoaderData();
   const { slug } = Route.useParams();
   const title = cms?.title ?? fallback?.title ?? "Dịch vụ";
@@ -65,7 +66,8 @@ function ServicePage() {
 
   return (
     <>
-      <Breadcrumb items={[{ label: "Dịch vụ", to: "/dich-vu" }, { label: title }]} />
+      <Breadcrumb items={[{ label: t("Dịch vụ"), to: "/dich-vu" }, { label: t(title) }]} />
+
 
       <Section>
         <div className="grid lg:grid-cols-12 gap-10">
