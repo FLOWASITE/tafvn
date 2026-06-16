@@ -798,26 +798,34 @@ function AccountingServicePage() {
             </div>
 
             {/* Trust strip — editorial stats */}
-            <dl className="mt-10 grid grid-cols-2 md:grid-cols-4 border-t border-accent/30 pt-6">
-              {HERO_STATS.map((s, i) => (
-                <div
-                  key={s.k}
-                  className={cn(
-                    "group py-3 px-5 first:pl-0 transition-colors",
-                    i !== 0 && "border-l border-accent/25",
-                  )}
-                >
-                  <dt className="font-display text-3xl md:text-[2.25rem] text-foreground leading-none tabular-nums inline-flex items-start transition-transform duration-500 group-hover:scale-[1.04] origin-left">
-                    {s.k}
-                    <span className="inline-block w-1 h-1 rounded-full bg-brand-red ml-1 mt-1.5 group-hover:scale-150 transition-transform" />
-                  </dt>
-                  <dd className="t-cta mt-3 text-muted-foreground">
-                    {s.v}
-                  </dd>
-                  <span aria-hidden className="block h-px w-0 bg-accent mt-2 transition-all duration-500 group-hover:w-8" />
-                </div>
-              ))}
-            </dl>
+            <div className="mt-10 pt-6 border-t border-accent/30">
+              <div className="t-eyebrow text-muted-foreground/80 flex items-center gap-2.5 mb-5">
+                <span className="inline-block w-6 h-px bg-accent" />
+                § — Năng lực ngành
+              </div>
+              <dl className="grid grid-cols-2 md:grid-cols-4">
+                {HERO_STATS.map((s, i) => (
+                  <div
+                    key={s.k}
+                    className={cn(
+                      "group py-3 px-5 first:pl-0 transition-colors",
+                      i !== 0 && "border-l border-accent/25",
+                    )}
+                  >
+                    <dt className="font-display text-3xl md:text-[2.25rem] text-foreground leading-none tabular-nums inline-flex items-start transition-transform duration-500 group-hover:scale-[1.04] origin-left">
+                      {s.k}
+                      <span className="inline-block w-1 h-1 rounded-full bg-brand-red ml-1 mt-1.5 group-hover:scale-150 transition-transform" />
+                    </dt>
+                    <dd className="t-cta mt-3 text-muted-foreground inline-block">
+                      <span className="bg-gradient-to-r from-accent to-accent bg-[length:0%_1px] bg-no-repeat bg-left-bottom transition-[background-size] duration-500 group-hover:bg-[length:100%_1px] pb-0.5">
+                        {s.v}
+                      </span>
+                    </dd>
+                    <span aria-hidden className="block h-px w-0 bg-accent mt-2 transition-all duration-500 group-hover:w-full" />
+                  </div>
+                ))}
+              </dl>
+            </div>
           </header>
           <aside className="lg:col-span-4">
             <div className="relative bg-cream/50 border border-accent/40 rounded-[2px] p-6 md:p-7 shadow-[0_24px_60px_-40px_rgba(0,0,0,0.18)]">
