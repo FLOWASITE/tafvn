@@ -275,7 +275,7 @@ function KnowledgeHub() {
       {rest.length > 0 && (
         <Section className="!pt-0">
           <div id="ds-bai-viet" className="scroll-mt-24">
-            <SectionHeading eyebrow="Bài viết" title="Bài viết nghiệp vụ" />
+            <SectionHeading eyebrow={t("Bài viết")} title={t("Bài viết nghiệp vụ")} />
           </div>
           <div className="mt-8 grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
             {pageItems.map((a) => (
