@@ -3,8 +3,7 @@ import type {} from "@tanstack/react-start";
 import { listAllPublishedSlugs } from "@/lib/pages.functions";
 import { SERVICES, PROVINCES } from "@/lib/site";
 
-// TODO: thay bằng URL chính thức khi đổi domain (vd. https://taf.vn).
-const BASE_URL = "";
+const BASE_URL = "https://tafvn.lovable.app";
 
 const STATIC_PATHS: string[] = [
   "/",
