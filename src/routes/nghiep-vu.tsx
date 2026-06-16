@@ -208,6 +208,7 @@ function ArticleCard({ a }: { a: Article }) {
 }
 
 function KnowledgeHub() {
+  const t = useT();
   const [featured, ...rest] = ARTICLES;
   const [page, setPage] = useState(1);
 
@@ -221,7 +222,8 @@ function KnowledgeHub() {
 
   return (
     <>
-      <Breadcrumb items={[{ label: "Nghiệp vụ" }]} />
+      <Breadcrumb items={[{ label: t("Nghiệp vụ") }]} />
+
 
       {/* Hero */}
       <Section className="!pb-8">
