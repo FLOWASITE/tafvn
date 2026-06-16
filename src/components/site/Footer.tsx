@@ -64,7 +64,7 @@ export function Footer({ offices }: { offices: Office[] }) {
 
         {/* Services */}
         <div className="md:col-span-3 space-y-6">
-          <h4 className="text-xs font-bold uppercase tracking-widest text-accent">Dịch vụ</h4>
+          <h4 className="text-xs font-bold uppercase tracking-widest text-accent">{t("Dịch vụ")}</h4>
           <ul className="space-y-3 text-sm">
             {SERVICES.slice(0, 5).map((s) => (
               <li key={s.slug}>
@@ -73,7 +73,7 @@ export function Footer({ offices }: { offices: Office[] }) {
                     href={s.path}
                     className="text-primary-foreground/75 hover:text-primary-foreground transition-colors"
                   >
-                    {s.title}
+                    {t(s.title)}
                   </a>
                 ) : (
                   <Link
@@ -81,12 +81,13 @@ export function Footer({ offices }: { offices: Office[] }) {
                     params={{ slug: s.slug }}
                     className="text-primary-foreground/75 hover:text-primary-foreground transition-colors"
                   >
-                    {s.title}
+                    {t(s.title)}
                   </Link>
                 )}
               </li>
             ))}
           </ul>
+
         </div>
 
         {/* Contact */}
