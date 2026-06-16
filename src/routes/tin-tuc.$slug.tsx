@@ -61,11 +61,13 @@ export const Route = createFileRoute("/tin-tuc/$slug")({
 });
 
 function ArticlePage() {
+  const t = useT();
   const { cms } = Route.useLoaderData();
 
   return (
     <>
-      <Breadcrumb items={[{ label: "Tin tức", to: "/tin-tuc" }, { label: cms.title }]} />
+      <Breadcrumb items={[{ label: t("Tin tức"), to: "/tin-tuc" }, { label: cms.title }]} />
+
       <Section>
         <article className="max-w-3xl mx-auto">
           <header>
