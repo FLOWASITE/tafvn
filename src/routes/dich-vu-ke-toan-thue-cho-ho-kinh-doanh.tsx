@@ -11,6 +11,7 @@ import {
 } from "lucide-react";
 import { Breadcrumb } from "@/components/site/Breadcrumb";
 import { Section, Eyebrow, SectionHeading } from "@/components/site/Section";
+import { ArticleRating } from "@/components/site/article-rating";
 import {
   Accordion,
   AccordionContent,
@@ -18,7 +19,6 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 import {
-import { ArticleRating } from "@/components/site/article-rating";
   Table,
   TableBody,
   TableCell,
