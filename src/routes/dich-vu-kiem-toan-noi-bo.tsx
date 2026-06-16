@@ -310,13 +310,13 @@ function InternalAuditService() {
       {/* Cam kết / Vì sao TAF */}
       <Section className="!pt-0">
         <div className="rule-gold mb-14" />
-        <div className="grid lg:grid-cols-2 gap-10">
-          <div>
+        <div className="grid lg:grid-cols-2 gap-12">
+          <div className="bg-cream/60 border-l-4 border-brand-red p-8 md:p-10">
             <Eyebrow>Cam kết</Eyebrow>
-            <h2 className="font-display text-3xl text-foreground leading-tight">
+            <h2 className="font-display italic text-3xl text-foreground leading-tight">
               Lựa chọn TAF, doanh nghiệp được gì?
             </h2>
-            <ul className="mt-6 space-y-4 font-serif text-foreground/85">
+            <ul className="mt-7 space-y-5 font-serif text-foreground/85 text-base">
               {COMMITMENTS.map((c) => (
                 <li key={c} className="flex gap-3">
                   <CheckCircle2 size={20} className="shrink-0 text-brand-red mt-0.5" strokeWidth={1.7} />
@@ -325,14 +325,14 @@ function InternalAuditService() {
               ))}
             </ul>
           </div>
-          <div className="lg:border-l lg:border-border lg:pl-10">
+          <div className="lg:pl-4">
             <Eyebrow>Về TAF</Eyebrow>
             <h2 className="font-display text-3xl text-foreground leading-tight">
               Đôi nét về dịch vụ kiểm toán nội bộ TAF
             </h2>
-            <ul className="mt-6 space-y-4 font-serif text-foreground/85">
+            <ul className="mt-7 space-y-5 font-serif text-foreground/85 text-base">
               {ABOUT.map((a) => (
-                <li key={a} className="border-l-2 border-accent pl-4 leading-relaxed">
+                <li key={a} className="border-l-2 border-accent pl-5 leading-relaxed">
                   {a}
                 </li>
               ))}
