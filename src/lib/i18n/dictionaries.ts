@@ -324,7 +324,25 @@ const ja: Dict = {
   "Địa bàn TAF phục vụ": "TAFのサービス対応地域",
   "TAF có KTV sẵn sàng đến trụ sở khách hàng tại các tỉnh và thành phố sau. Mỗi địa bàn có trang riêng mô tả ngành nghề trọng điểm và đặc thù pháp lý.":
     "TAFは以下の省・市のお客様事務所への訪問が可能な監査人を擁しています。各地域には主要業種と法的特性を説明する専用ページがあります。",
+
+  // Section headings (other static pages)
+  "Câu hỏi thường gặp": "よくある質問",
+  "Trả lời nhanh cho những thắc mắc phổ biến.": "よくある質問への簡潔な回答。",
+  "Vị trí đang tuyển": "募集中のポジション",
+  "Các vị trí TAF đang tìm người.": "TAFが現在募集しているポジション。",
+  "Nếu bạn thấy mình phù hợp với một trong các vị trí dưới đây, hãy gửi CV cho chúng tôi. TAF phản hồi mọi hồ sơ trong vòng 5 ngày làm việc.":
+    "下記のポジションにご興味のある方はCVをお送りください。TAFは5営業日以内にすべての応募に回答します。",
+  "Đến gặp TAF trực tiếp": "TAFを直接訪問",
+  "Khách hàng có thể tới văn phòng để trao đổi trực tiếp với KTV phụ trách hoặc đề nghị KTV đến trụ sở doanh nghiệp.":
+    "お客様はオフィスにて担当監査人と直接お打ち合わせいただけます。また、監査人による貴社訪問も承ります。",
+  "Bài viết": "記事",
+  "Bài viết nghiệp vụ": "専門知識記事",
+  "Chủ đề": "トピック",
+  "Chủ đề chuyên môn": "専門トピック",
+  "Tìm hiểu nhanh theo từng lĩnh vực và liên kết tới các dịch vụ tương ứng của TAF.":
+    "分野別の概要と、対応するTAFサービスへのリンク。",
 };
+
 
 const ko: Dict = {
   "Giờ làm việc: T2 – T7, 8:00 – 17:30": "근무 시간: 월~토, 8:00~17:30",
