@@ -1,7 +1,9 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { Breadcrumb } from "@/components/site/Breadcrumb";
-import { Section, SectionHeading } from "@/components/site/Section";
+import { Section } from "@/components/site/Section";
 import { SITE } from "@/lib/site";
+import { useT } from "@/lib/i18n/context";
+
 
 export const Route = createFileRoute("/gioi-thieu")({
   head: () => ({
