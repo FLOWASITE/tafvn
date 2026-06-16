@@ -319,4 +319,20 @@ function NewsIndex() {
                     <Calendar size={12} className="text-accent-foreground" /> 2026
                   </span>
                 </div>
-                <h3 className="mt
+                <h3 className="mt-4 font-display text-lg leading-snug text-foreground group-hover:text-brand-red-ink transition-colors">
+                  {a.title}
+                </h3>
+                <p className="mt-3 text-sm text-muted-foreground font-serif leading-relaxed flex-1">
+                  {a.excerpt}
+                </p>
+                <div className="mt-5">
+                  <ReadMore />
+                </div>
+              </div>
+            </ExternalCard>
+          ))}
+        </div>
+      </Section>
+    </>
+  );
+}
