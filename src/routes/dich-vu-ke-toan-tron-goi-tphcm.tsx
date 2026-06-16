@@ -23,6 +23,9 @@ import {
   Quote,
 } from "lucide-react";
 import { Breadcrumb } from "@/components/site/Breadcrumb";
+import testimonialLan from "@/assets/testimonial-lan.jpg";
+import testimonialHung from "@/assets/testimonial-hung.jpg";
+import testimonialPhuong from "@/assets/testimonial-phuong.jpg";
 import { Section, Eyebrow } from "@/components/site/Section";
 import { Reveal } from "@/components/site/Reveal";
 import { TafSeal } from "@/components/site/TafSeal";
