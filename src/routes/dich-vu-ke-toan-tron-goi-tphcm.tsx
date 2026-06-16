@@ -1509,7 +1509,7 @@ function AccountingServicePage() {
                   key={t.initials}
                   delay={i * 80}
                   className={cn(
-                    "relative bg-card border border-border p-7 md:p-8 rounded-[3px] flex flex-col",
+                    "relative bg-card border border-border p-7 md:p-9 rounded-[3px] flex flex-col overflow-hidden",
                     i === 0 && "md:col-span-2 bg-foreground text-background border-foreground",
                   )}
                 >
@@ -1520,17 +1520,27 @@ function AccountingServicePage() {
                       i === 0 ? "bg-accent/60" : "bg-gradient-to-r from-transparent via-accent/40 to-transparent",
                     )}
                   />
+                  {/* Giant Playfair quote glyph */}
+                  <span
+                    aria-hidden
+                    className={cn(
+                      "pointer-events-none select-none absolute -top-6 right-4 font-display leading-none text-[10rem] md:text-[12rem]",
+                      i === 0 ? "text-accent/15" : "text-accent-foreground/12",
+                    )}
+                  >
+                    “
+                  </span>
                   <Quote
-                    size={28}
+                    size={22}
                     strokeWidth={1.25}
                     className={cn(
-                      "shrink-0 mb-4",
+                      "shrink-0 mb-4 relative z-10",
                       i === 0 ? "text-accent" : "text-brand-red/70",
                     )}
                   />
                   <blockquote
                     className={cn(
-                      "font-display leading-[1.4]",
+                      "relative z-10 font-display leading-[1.4]",
                       i === 0
                         ? "text-xl md:text-2xl text-background"
                         : "text-base md:text-lg text-foreground",
@@ -1540,16 +1550,16 @@ function AccountingServicePage() {
                   </blockquote>
                   <figcaption
                     className={cn(
-                      "mt-6 pt-5 border-t flex items-center gap-3",
+                      "relative z-10 mt-6 pt-5 border-t flex items-center gap-3",
                       i === 0 ? "border-background/15" : "border-border",
                     )}
                   >
                     <span
                       className={cn(
-                        "inline-flex items-center justify-center w-10 h-10 rounded-full border font-display italic text-sm tabular-nums shrink-0",
+                        "inline-flex items-center justify-center w-11 h-11 rounded-full border font-display italic text-sm tabular-nums shrink-0 ring-1 ring-offset-2",
                         i === 0
-                          ? "border-accent/70 text-accent"
-                          : "border-brand-red/40 text-brand-red",
+                          ? "border-accent/70 text-accent ring-accent/40 ring-offset-foreground"
+                          : "border-brand-red/40 text-brand-red ring-accent/30 ring-offset-card",
                       )}
                     >
                       {t.initials}
