@@ -1025,18 +1025,26 @@ function AccountingServicePage() {
           />
         </div>
 
-        <blockquote className="relative mt-10 border-l-2 border-brand-red pl-6 md:pl-7 max-w-3xl">
+        <blockquote
+          className="relative mt-10 border-l-2 border-brand-red pl-6 md:pl-7 max-w-3xl"
+          cite="https://thuvienphapluat.vn/van-ban/Ke-toan-Kiem-toan/Luat-ke-toan-2015-298369.aspx"
+        >
           <span aria-hidden className="absolute -top-6 -left-2 font-display text-[5rem] leading-none text-accent/30 select-none pointer-events-none">
             “
           </span>
           <div className="t-eyebrow text-brand-red-ink/80 mb-2">
-            Lưu ý · Disclaimer
+            Lưu ý về báo giá · Disclaimer
           </div>
           <p className="t-body md:text-[1.0625rem] text-foreground/80">
-            Phí trên chưa gồm thuế, VAT và các lệ phí phải nộp Nhà nước; có thể thay đổi
-            với doanh nghiệp xuất nhập khẩu hoặc có vốn nước ngoài. Nội thành TP.HCM miễn
-            phí giao nhận chứng từ tận nơi; các khu vực khác theo thỏa thuận.
+            Mức phí tham khảo nêu trên <strong>chưa bao gồm thuế GTGT</strong> và các khoản
+            lệ phí nộp ngân sách Nhà nước; có thể điều chỉnh đối với doanh nghiệp
+            <strong> xuất nhập khẩu</strong> hoặc <strong>có vốn đầu tư nước ngoài (FDI)</strong>.
+            Nội thành TP.HCM được <strong>miễn phí giao nhận chứng từ tận nơi</strong>;
+            các khu vực khác theo thỏa thuận trong hợp đồng dịch vụ kế toán.
           </p>
+          <footer className="t-eyebrow mt-3 text-muted-foreground/80 not-italic">
+            Căn cứ: Luật Kế toán số 88/2015/QH13 · Thông tư 296/2016/TT-BTC · Cập nhật 2026
+          </footer>
         </blockquote>
 
         <div className="mt-8 flex flex-wrap gap-3">
