@@ -335,11 +335,12 @@ function InternalAuditService() {
       <Section className="!pt-0">
         <div className="max-w-3xl">
           <Eyebrow>Thực trạng</Eyebrow>
-          <h2 className="font-display text-3xl text-foreground leading-tight">
-            Kiểm toán nội bộ ở Việt Nam
+          <h2 className="font-display text-3xl md:text-4xl text-foreground leading-tight">
+            Kiểm toán nội bộ ở <span className="italic">Việt Nam.</span>
           </h2>
-          <div className="mt-5 space-y-4 text-base text-muted-foreground font-serif leading-relaxed">
-            <p>
+          <div className="rule-gold mt-6 max-w-[120px] !bg-brand-red" />
+          <div className="mt-8 space-y-5 text-lg text-foreground/75 font-serif leading-[1.85]">
+            <p className="drop-cap">
               Dù đã có nhiều quy định pháp lý liên quan, kiểm toán nội bộ vẫn là khái niệm khá mới
               mẻ với nhiều đơn vị quản lý — bên cạnh đó cũng có nhiều đơn vị đã nắm bắt được tầm
               quan trọng và vai trò của nó.
