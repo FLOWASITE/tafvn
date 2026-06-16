@@ -58,17 +58,19 @@ export function ArticleRating({ title, slug }: ArticleRatingProps) {
 
   const activeStars = hover ?? userValue ?? 5;
 
+  const ratingValueNum = baseValueTenths / 10;
   const jsonLd = {
     "@context": "https://schema.org",
-    "@type": "AggregateRating",
-    itemReviewed: {
-      "@type": "CreativeWork",
-      name: title,
+    "@type": "CreativeWorkSeries",
+    name: title,
+    aggregateRating: {
+      "@type": "AggregateRating",
+      ratingValue: ratingValueNum.toFixed(1),
+      bestRating: "5",
+      worstRating: "1",
+      ratingCount: String(baseCount),
+      reviewCount: String(baseCount),
     },
-    ratingValue: (baseValueTenths / 10).toFixed(1),
-    bestRating: "5",
-    worstRating: "1",
-    ratingCount: String(baseCount),
   };
 
   return (
