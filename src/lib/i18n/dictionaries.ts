@@ -158,7 +158,25 @@ const en: Dict = {
   "Địa bàn TAF phục vụ": "Locations TAF serves",
   "TAF có KTV sẵn sàng đến trụ sở khách hàng tại các tỉnh và thành phố sau. Mỗi địa bàn có trang riêng mô tả ngành nghề trọng điểm và đặc thù pháp lý.":
     "TAF has auditors ready to visit client offices in the following provinces and cities. Each location has its own page describing key industries and legal specifics.",
+
+  // Section headings (other static pages)
+  "Câu hỏi thường gặp": "Frequently asked questions",
+  "Trả lời nhanh cho những thắc mắc phổ biến.": "Quick answers to common questions.",
+  "Vị trí đang tuyển": "Open positions",
+  "Các vị trí TAF đang tìm người.": "Positions TAF is currently hiring for.",
+  "Nếu bạn thấy mình phù hợp với một trong các vị trí dưới đây, hãy gửi CV cho chúng tôi. TAF phản hồi mọi hồ sơ trong vòng 5 ngày làm việc.":
+    "If you fit one of the positions below, send us your CV. TAF responds to every application within 5 business days.",
+  "Đến gặp TAF trực tiếp": "Visit TAF in person",
+  "Khách hàng có thể tới văn phòng để trao đổi trực tiếp với KTV phụ trách hoặc đề nghị KTV đến trụ sở doanh nghiệp.":
+    "Clients may visit our office to meet the assigned auditor or request the auditor to come on-site.",
+  "Bài viết": "Articles",
+  "Bài viết nghiệp vụ": "Expertise articles",
+  "Chủ đề": "Topics",
+  "Chủ đề chuyên môn": "Specialist topics",
+  "Tìm hiểu nhanh theo từng lĩnh vực và liên kết tới các dịch vụ tương ứng của TAF.":
+    "Quick overview by area, with links to the matching TAF services.",
 };
+
 
 const ja: Dict = {
   "Giờ làm việc: T2 – T7, 8:00 – 17:30": "営業時間: 月〜土、8:00〜17:30",
