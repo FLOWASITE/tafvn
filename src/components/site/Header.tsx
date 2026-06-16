@@ -19,6 +19,7 @@ import {
   Users,
 } from "lucide-react";
 import { Logo } from "./Logo";
+import { LanguageSwitcher } from "./LanguageSwitcher";
 import { MAIN_MENU, type MenuItem } from "@/lib/site";
 
 const HOTLINE_DISPLAY = "0924 580 580";
@@ -137,6 +138,7 @@ export function Header() {
           </nav>
 
           <div className="hidden lg:flex items-center gap-3 shrink-0">
+            <LanguageSwitcher />
             <Link
               to="/lien-he"
               className="group relative inline-flex items-center gap-2 overflow-hidden rounded-[3px] bg-gradient-to-r from-brand-red to-brand-red-ink px-5 py-2.5 text-sm font-medium text-white ring-1 ring-inset ring-white/15 transition-all duration-300 hover:shadow-[0_10px_28px_-10px_color-mix(in_oklab,var(--color-brand-red)_70%,transparent)]"
@@ -156,15 +158,18 @@ export function Header() {
             </Link>
           </div>
 
-          <button
-            type="button"
-            className="lg:hidden p-2 -mr-2 text-foreground"
-            onClick={() => setOpen((v) => !v)}
-            aria-label="Mở menu"
-            aria-expanded={open}
-          >
-            {open ? <X size={22} /> : <Menu size={22} />}
-          </button>
+          <div className="lg:hidden flex items-center gap-2">
+            <LanguageSwitcher compact />
+            <button
+              type="button"
+              className="p-2 -mr-2 text-foreground"
+              onClick={() => setOpen((v) => !v)}
+              aria-label="Mở menu"
+              aria-expanded={open}
+            >
+              {open ? <X size={22} /> : <Menu size={22} />}
+            </button>
+          </div>
         </div>
 
         {/* Mobile nav */}
