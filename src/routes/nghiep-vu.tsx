@@ -14,6 +14,8 @@ import {
 import { Breadcrumb } from "@/components/site/Breadcrumb";
 import { Section, SectionHeading, Eyebrow } from "@/components/site/Section";
 import { Pagination } from "@/components/site/Pagination";
+import { useT } from "@/lib/i18n/context";
+
 
 const PAGE_SIZE = 6;
 
