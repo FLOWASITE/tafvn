@@ -1,5 +1,5 @@
 import { Link } from "@tanstack/react-router";
-import { useState, type ElementType } from "react";
+import { useEffect, useState, type ElementType } from "react";
 import {
   Menu,
   X,
@@ -43,9 +43,36 @@ const LINK_META: Record<string, { icon: ElementType; desc: string }> = {
   "/lien-he": { icon: Mail, desc: "Gửi yêu cầu tư vấn" },
 };
 
+// Nội dung panel quảng bá cho dropdown dạng megamenu (Tài nguyên, Về chúng tôi).
+const DROPDOWN_PROMO: Record<
+  string,
+  { eyebrow: string; title: string; desc: string; icon: ElementType }
+> = {
+  "Tài nguyên": {
+    eyebrow: "Tài nguyên",
+    title: "Tin tức & nghiệp vụ",
+    desc: "Kiến thức và cập nhật pháp lý về kế toán – thuế – kiểm toán.",
+    icon: BookOpen,
+  },
+  "Về chúng tôi": {
+    eyebrow: "Về TAF",
+    title: "Hãng kiểm toán độc lập",
+    desc: "Đội ngũ, năng lực và mạng lưới phục vụ của TAF.",
+    icon: Building2,
+  },
+};
+
 export function Header() {
   const [open, setOpen] = useState(false);
   const [expanded, setExpanded] = useState<string | null>(null);
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 8);
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
 
   return (
     <>
@@ -77,26 +104,55 @@ export function Header() {
       </div>
 
       {/* Main header */}
-      <header className="sticky top-0 z-40 border-b border-border bg-background/90 backdrop-blur supports-[backdrop-filter]:bg-background/80">
-        <div className="mx-auto max-w-6xl px-5 md:px-8 h-16 md:h-20 flex items-center justify-between">
+      <header
+        className={`sticky top-0 z-40 border-b backdrop-blur transition-all duration-300 supports-[backdrop-filter]:bg-background/80 ${
+          scrolled
+            ? "border-border bg-background/95 shadow-[0_6px_24px_-16px_rgba(0,0,0,0.35)]"
+            : "border-border/70 bg-background/85"
+        }`}
+      >
+        {/* Chỉ vàng gradient mép trên */}
+        <div
+          aria-hidden
+          className="h-px w-full bg-gradient-to-r from-transparent via-accent/70 to-transparent"
+        />
+        <div
+          className={`mx-auto max-w-6xl px-5 md:px-8 flex items-center justify-between transition-all duration-300 ${
+            scrolled ? "h-14 md:h-16" : "h-16 md:h-20"
+          }`}
+        >
           <Link to="/" className="flex items-center shrink-0" aria-label="TAF — Trang chủ">
             <Logo />
           </Link>
 
           {/* Desktop nav */}
           <nav className="hidden lg:flex items-stretch h-full" aria-label="Điều hướng chính">
-            {MAIN_MENU.map((item) => (
-              <DesktopMenuItem key={item.label} item={item} />
+            {MAIN_MENU.map((item, i) => (
+              <DesktopMenuItem
+                key={item.label}
+                item={item}
+                alignRight={i >= MAIN_MENU.length - 1}
+              />
             ))}
           </nav>
 
           <div className="hidden lg:flex items-center gap-3 shrink-0">
             <Link
               to="/lien-he"
-              className="group inline-flex items-center gap-2 bg-brand-red text-white px-5 py-2.5 text-sm font-medium rounded-[2px] hover:bg-brand-red-ink transition-colors shadow-[0_8px_24px_-12px_color-mix(in_oklab,var(--color-brand-red)_60%,transparent)]"
+              className="group relative inline-flex items-center gap-2 overflow-hidden rounded-[3px] bg-gradient-to-r from-brand-red to-brand-red-ink px-5 py-2.5 text-sm font-medium text-white ring-1 ring-inset ring-white/15 transition-all duration-300 hover:shadow-[0_10px_28px_-10px_color-mix(in_oklab,var(--color-brand-red)_70%,transparent)]"
             >
-              <span className="uppercase tracking-[0.12em] text-[0.78rem]">Yêu cầu báo giá</span>
-              <ChevronRight size={15} className="group-hover:translate-x-0.5 transition-transform" />
+              {/* Vệt sáng quét */}
+              <span
+                aria-hidden
+                className="pointer-events-none absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/30 to-transparent transition-transform duration-700 ease-out group-hover:translate-x-full"
+              />
+              <span className="relative uppercase tracking-[0.12em] text-[0.78rem]">
+                Yêu cầu báo giá
+              </span>
+              <ChevronRight
+                size={15}
+                className="relative transition-transform group-hover:translate-x-0.5"
+              />
             </Link>
           </div>
 
@@ -163,7 +219,7 @@ function Underline() {
   );
 }
 
-function DesktopMenuItem({ item }: { item: MenuItem }) {
+function DesktopMenuItem({ item, alignRight }: { item: MenuItem; alignRight?: boolean }) {
   const hasDropdown = !!(item.columns || item.links);
 
   if (!hasDropdown && item.to) {
@@ -183,8 +239,9 @@ function DesktopMenuItem({ item }: { item: MenuItem }) {
         <Link to={item.to} className={triggerCls} activeProps={activeProps}>
           {item.label}
           <ChevronDown
-            size={14}
-            className="text-muted-foreground transition-transform duration-300 group-hover:rotate-180"
+            size={11}
+            strokeWidth={1.25}
+            className="ml-0.5 text-muted-foreground/45 transition-all duration-300 group-hover:translate-y-px group-hover:text-foreground/70"
           />
           <Underline />
         </Link>
@@ -192,33 +249,86 @@ function DesktopMenuItem({ item }: { item: MenuItem }) {
         <button type="button" className={triggerCls} aria-haspopup="true">
           {item.label}
           <ChevronDown
-            size={14}
-            className="text-muted-foreground transition-transform duration-300 group-hover:rotate-180"
+            size={11}
+            strokeWidth={1.25}
+            className="ml-0.5 text-muted-foreground/45 transition-all duration-300 group-hover:translate-y-px group-hover:text-foreground/70"
           />
           <Underline />
         </button>
       )}
 
-      <div className="absolute left-0 top-full pt-3 invisible translate-y-1 opacity-0 transition-all duration-200 group-hover:visible group-hover:translate-y-0 group-hover:opacity-100 focus-within:visible focus-within:translate-y-0 focus-within:opacity-100">
+      <div
+        className={`absolute ${alignRight ? "right-0" : "left-0"} top-full pt-3 invisible translate-y-1 opacity-0 transition-all duration-200 group-hover:visible group-hover:translate-y-0 group-hover:opacity-100 focus-within:visible focus-within:translate-y-0 focus-within:opacity-100`}
+      >
         {item.columns ? (
-          <div className="flex w-[720px] overflow-hidden rounded-[4px] border border-border bg-background shadow-[var(--shadow-elegant)]">
-            {/* Promo panel */}
-            <div className="w-56 shrink-0 bg-primary text-primary-foreground p-6 flex flex-col">
-              <p className="text-[0.62rem] uppercase tracking-[0.2em] text-accent mb-2">Dịch vụ TAF</p>
-              <p className="font-display text-lg leading-snug">
-                Kiểm toán, kế toán & tư vấn thuế
-              </p>
-              <p className="mt-2 text-xs text-primary-foreground/65 font-serif leading-relaxed">
-                Giải pháp toàn diện cho doanh nghiệp Việt Nam và FDI.
-              </p>
-              {item.viewAll && (
-                <Link
-                  to={item.viewAll.to}
-                  className="mt-auto inline-flex items-center gap-1.5 text-[0.7rem] font-medium uppercase tracking-[0.14em] text-accent hover:gap-2.5 transition-all"
-                >
-                  {item.viewAll.label} →
-                </Link>
-              )}
+          <div className="flex w-[720px] overflow-hidden rounded-[6px] border border-border bg-background shadow-[var(--shadow-elegant)]">
+            {/* Promo panel — có hoa văn lưới + vầng sáng vàng */}
+            <div className="relative w-56 shrink-0 overflow-hidden bg-primary text-primary-foreground p-6 flex flex-col">
+              {/* Lưới sổ cái */}
+              <div
+                aria-hidden
+                className="pointer-events-none absolute inset-0 opacity-[0.07]"
+                style={{
+                  backgroundImage:
+                    "linear-gradient(var(--color-primary-foreground) 1px, transparent 1px), linear-gradient(90deg, var(--color-primary-foreground) 1px, transparent 1px)",
+                  backgroundSize: "26px 26px",
+                }}
+              />
+              {/* Vầng sáng vàng */}
+              <div
+                aria-hidden
+                className="pointer-events-none absolute -top-10 -right-10 h-32 w-32 rounded-full"
+                style={{
+                  background:
+                    "radial-gradient(circle, color-mix(in oklab, var(--color-accent) 40%, transparent), transparent 70%)",
+                }}
+              />
+              {/* Watermark chữ */}
+              <span
+                aria-hidden
+                className="pointer-events-none absolute -bottom-5 -right-2 font-display text-[5rem] leading-none text-primary-foreground/[0.06] select-none"
+              >
+                TAF
+              </span>
+
+              <div className="relative flex flex-col h-full">
+                <span className="inline-flex h-10 w-10 items-center justify-center rounded-[4px] border border-accent/30 bg-white/5 text-accent">
+                  <Layers size={19} strokeWidth={1.7} />
+                </span>
+                <p className="mt-4 text-[0.62rem] uppercase tracking-[0.2em] text-accent">Dịch vụ TAF</p>
+                <p className="mt-1.5 font-display text-lg leading-snug">
+                  Kiểm toán, kế toán &amp; tư vấn thuế
+                </p>
+                <span aria-hidden className="mt-3 block h-px w-10 bg-accent/60" />
+                <p className="mt-3 text-xs text-primary-foreground/65 font-serif leading-relaxed">
+                  Giải pháp toàn diện cho doanh nghiệp Việt Nam và FDI.
+                </p>
+
+                <div className="mt-auto pt-5">
+                  <a
+                    href={`tel:${HOTLINE_TEL}`}
+                    className="group/tel inline-flex items-center gap-2 text-primary-foreground/85 hover:text-accent transition-colors"
+                  >
+                    <span className="inline-flex h-7 w-7 items-center justify-center rounded-full border border-accent/30 text-accent group-hover/tel:bg-accent group-hover/tel:text-primary transition-colors">
+                      <Phone size={13} />
+                    </span>
+                    <span className="text-[0.78rem]">
+                      <span className="block text-[0.58rem] uppercase tracking-[0.16em] text-primary-foreground/50">
+                        Hotline / Zalo
+                      </span>
+                      <span className="font-medium tracking-wide">{HOTLINE_DISPLAY}</span>
+                    </span>
+                  </a>
+                  {item.viewAll && (
+                    <Link
+                      to={item.viewAll.to}
+                      className="mt-4 inline-flex items-center gap-1.5 text-[0.7rem] font-medium uppercase tracking-[0.14em] text-accent hover:gap-2.5 transition-all"
+                    >
+                      {item.viewAll.label} →
+                    </Link>
+                  )}
+                </div>
+              </div>
             </div>
             {/* Categories */}
             <div className="flex-1 p-6 grid grid-cols-2 gap-x-7 gap-y-5">
@@ -235,9 +345,17 @@ function DesktopMenuItem({ item }: { item: MenuItem }) {
                         <li key={l.to}>
                           <Link
                             to={l.to}
-                            className="block rounded-[2px] -mx-2 px-2 py-1.5 text-[0.88rem] text-foreground/75 hover:bg-cream hover:text-brand-red-ink transition-colors"
+                            className="group/sl relative flex items-center justify-between gap-2 rounded-[2px] -mx-2 pl-3 pr-2 py-1.5 text-[0.88rem] text-foreground/75 hover:bg-cream hover:text-brand-red-ink transition-colors"
                           >
-                            {l.label}
+                            <span
+                              aria-hidden
+                              className="absolute left-0 top-1/2 h-0 w-[2px] -translate-y-1/2 bg-brand-red transition-all duration-200 group-hover/sl:h-4"
+                            />
+                            <span>{l.label}</span>
+                            <ChevronRight
+                              size={13}
+                              className="shrink-0 text-brand-red opacity-0 -translate-x-1 transition-all duration-200 group-hover/sl:opacity-100 group-hover/sl:translate-x-0"
+                            />
                           </Link>
                         </li>
                       ))}
@@ -248,33 +366,114 @@ function DesktopMenuItem({ item }: { item: MenuItem }) {
             </div>
           </div>
         ) : (
-          <div className="w-72 rounded-[4px] border border-border bg-background shadow-[var(--shadow-elegant)] p-2">
-            <ul>
+          <div className="flex w-[600px] overflow-hidden rounded-[6px] border border-border bg-background shadow-[var(--shadow-elegant)]">
+            {/* Promo panel — có hoa văn lưới + vầng sáng vàng */}
+            <div className="relative w-56 shrink-0 overflow-hidden bg-primary text-primary-foreground p-6 flex flex-col">
+              {/* Lưới sổ cái */}
+              <div
+                aria-hidden
+                className="pointer-events-none absolute inset-0 opacity-[0.07]"
+                style={{
+                  backgroundImage:
+                    "linear-gradient(var(--color-primary-foreground) 1px, transparent 1px), linear-gradient(90deg, var(--color-primary-foreground) 1px, transparent 1px)",
+                  backgroundSize: "26px 26px",
+                }}
+              />
+              {/* Vầng sáng vàng */}
+              <div
+                aria-hidden
+                className="pointer-events-none absolute -top-10 -right-10 h-32 w-32 rounded-full"
+                style={{
+                  background:
+                    "radial-gradient(circle, color-mix(in oklab, var(--color-accent) 40%, transparent), transparent 70%)",
+                }}
+              />
+              {/* Watermark chữ */}
+              <span
+                aria-hidden
+                className="pointer-events-none absolute -bottom-5 -right-2 font-display text-[5rem] leading-none text-primary-foreground/[0.06] select-none"
+              >
+                TAF
+              </span>
+
+              <div className="relative flex flex-col h-full">
+                {(() => {
+                  const PromoIcon = DROPDOWN_PROMO[item.label]?.icon ?? Layers;
+                  return (
+                    <span className="inline-flex h-10 w-10 items-center justify-center rounded-[4px] border border-accent/30 bg-white/5 text-accent">
+                      <PromoIcon size={19} strokeWidth={1.7} />
+                    </span>
+                  );
+                })()}
+                <p className="mt-4 text-[0.62rem] uppercase tracking-[0.2em] text-accent">
+                  {DROPDOWN_PROMO[item.label]?.eyebrow ?? item.label}
+                </p>
+                <p className="mt-1.5 font-display text-lg leading-snug">
+                  {DROPDOWN_PROMO[item.label]?.title ?? item.label}
+                </p>
+                <span aria-hidden className="mt-3 block h-px w-10 bg-accent/60" />
+                {DROPDOWN_PROMO[item.label]?.desc && (
+                  <p className="mt-3 text-xs text-primary-foreground/65 font-serif leading-relaxed">
+                    {DROPDOWN_PROMO[item.label]?.desc}
+                  </p>
+                )}
+                {/* Hotline chip */}
+                <a
+                  href={`tel:${HOTLINE_TEL}`}
+                  className="group/tel mt-auto inline-flex items-center gap-2 pt-5 text-primary-foreground/85 hover:text-accent transition-colors"
+                >
+                  <span className="inline-flex h-7 w-7 items-center justify-center rounded-full border border-accent/30 text-accent group-hover/tel:bg-accent group-hover/tel:text-primary transition-colors">
+                    <Phone size={13} />
+                  </span>
+                  <span className="text-[0.78rem]">
+                    <span className="block text-[0.58rem] uppercase tracking-[0.16em] text-primary-foreground/50">
+                      Hotline / Zalo
+                    </span>
+                    <span className="font-medium tracking-wide">{HOTLINE_DISPLAY}</span>
+                  </span>
+                </a>
+              </div>
+            </div>
+
+            {/* Links dạng thẻ — thanh nhấn đỏ + nhấc nhẹ khi hover */}
+            <div className="flex-1 p-4 grid grid-cols-2 gap-2.5">
               {item.links!.map((l) => {
                 const meta = LINK_META[l.to];
                 const Icon = meta?.icon ?? ChevronRight;
                 return (
-                  <li key={l.to}>
-                    <Link
-                      to={l.to}
-                      className="group/li flex items-start gap-3 rounded-[2px] px-3 py-2.5 hover:bg-cream transition-colors"
-                    >
-                      <span className="mt-0.5 inline-flex h-8 w-8 shrink-0 items-center justify-center rounded-[2px] border border-border bg-secondary text-accent-foreground group-hover/li:border-brand-red group-hover/li:text-brand-red transition-colors">
-                        <Icon size={15} />
+                  <Link
+                    key={l.to}
+                    to={l.to}
+                    className="group/li relative flex flex-col gap-2.5 overflow-hidden rounded-[4px] border border-border/70 bg-card p-3.5 transition-all duration-200 hover:-translate-y-0.5 hover:border-accent hover:shadow-[var(--shadow-card)]"
+                  >
+                    {/* Thanh nhấn đỏ bên trái */}
+                    <span
+                      aria-hidden
+                      className="absolute left-0 top-0 h-full w-[3px] origin-top scale-y-0 bg-brand-red transition-transform duration-300 group-hover/li:scale-y-100"
+                    />
+                    <div className="flex items-center justify-between">
+                      <span className="inline-flex h-9 w-9 items-center justify-center rounded-[4px] border border-border bg-gradient-to-br from-secondary to-cream text-accent-foreground transition-colors duration-200 group-hover/li:border-brand-red group-hover/li:from-brand-red group-hover/li:to-brand-red group-hover/li:text-white">
+                        <Icon size={16} strokeWidth={1.7} />
                       </span>
-                      <span>
-                        <span className="block text-sm text-foreground group-hover/li:text-brand-red-ink transition-colors">
-                          {l.label}
+                      <ChevronRight
+                        size={15}
+                        className="text-brand-red opacity-0 -translate-x-1 transition-all duration-200 group-hover/li:opacity-100 group-hover/li:translate-x-0"
+                      />
+                    </div>
+                    <span>
+                      <span className="block text-[0.9rem] font-medium text-foreground group-hover/li:text-brand-red-ink transition-colors">
+                        {l.label}
+                      </span>
+                      {meta?.desc && (
+                        <span className="mt-0.5 block text-xs text-muted-foreground leading-snug">
+                          {meta.desc}
                         </span>
-                        {meta?.desc && (
-                          <span className="block text-xs text-muted-foreground">{meta.desc}</span>
-                        )}
-                      </span>
-                    </Link>
-                  </li>
+                      )}
+                    </span>
+                  </Link>
                 );
               })}
-            </ul>
+            </div>
           </div>
         )}
       </div>

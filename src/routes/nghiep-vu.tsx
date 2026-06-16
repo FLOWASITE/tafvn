@@ -336,4 +336,19 @@ function KnowledgeHub() {
             <div>
               <h2 className="font-display text-xl text-foreground">Tin tức & cập nhật pháp lý</h2>
               <p className="mt-1 text-sm text-muted-foreground font-serif">
-                Theo dõi các cập nhật mới nhất về kế toán, thuế và kiểm toá
+                Theo dõi các cập nhật mới nhất về kế toán, thuế và kiểm toán.
+              </p>
+            </div>
+          </div>
+          <Link
+            to="/tin-tuc"
+            className="group shrink-0 inline-flex items-center justify-center gap-2 border border-brand-red text-brand-red hover:bg-brand-red hover:text-white px-5 py-3 text-sm font-medium rounded-[2px] transition-colors"
+          >
+            <span className="uppercase tracking-[0.15em]">Xem tin tức</span>
+            <ArrowRight size={16} className="group-hover:translate-x-0.5 transition-transform" />
+          </Link>
+        </div>
+      </Section>
+    </>
+  );
+}
