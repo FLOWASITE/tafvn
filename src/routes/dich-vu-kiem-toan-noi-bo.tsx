@@ -178,14 +178,19 @@ function InternalAuditService() {
           title="Vai trò của kiểm toán nội bộ trong doanh nghiệp"
           lead="Kiểm toán nội bộ hỗ trợ tối đa cho quản lý rủi ro, đảm bảo hiệu quả kiểm soát, đồng thời đánh giá và khuyến nghị để nâng cao hiệu quả quản trị."
         />
-        <div className="mt-10 grid md:grid-cols-3 gap-px bg-border border border-border">
+        <div className="mt-10 grid md:grid-cols-3 gap-5">
           {ROLES.map((r) => {
             const Icon = r.icon;
             return (
-              <div key={r.title} className="bg-background p-8">
-                <Icon className="text-brand-red" size={26} strokeWidth={1.5} />
-                <h3 className="mt-4 font-display text-xl text-foreground">{r.title}</h3>
-                <p className="mt-2 text-sm text-foreground/80 font-serif leading-relaxed">
+              <div
+                key={r.title}
+                className="group bg-cream/50 border border-accent/20 p-8 transition-all hover:border-accent/50 hover:shadow-[0_8px_30px_-12px_rgba(0,0,0,0.08)]"
+              >
+                <div className="w-10 h-10 flex items-center justify-center bg-background border border-accent/30 text-accent-foreground">
+                  <Icon size={20} strokeWidth={1.5} />
+                </div>
+                <h3 className="mt-6 font-display text-xl text-foreground">{r.title}</h3>
+                <p className="mt-3 text-sm text-foreground/75 font-serif leading-relaxed">
                   {r.body}
                 </p>
               </div>
