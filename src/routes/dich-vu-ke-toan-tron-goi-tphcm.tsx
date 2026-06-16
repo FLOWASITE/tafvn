@@ -1222,25 +1222,30 @@ function AccountingServicePage() {
         <h2 className="t-h2 md:text-[2.25rem] text-foreground max-w-3xl">
           Phạm vi công việc kế toán trọn gói
         </h2>
-        <div className="mt-10 grid md:grid-cols-2 gap-4">
+        <div className="relative mt-12 grid md:grid-cols-2 gap-5">
+          <span
+            aria-hidden
+            className="hidden md:block absolute -top-6 left-8 right-8 h-px bg-gradient-to-r from-transparent via-accent/60 to-transparent"
+          />
           {SCOPE.map((g, i) => (
             <div
               key={g.t}
-              className="bg-card border border-border rounded-[2px] p-6 hover:border-accent transition-colors"
+              className="group relative bg-background border border-accent/25 rounded-[2px] p-7 md:p-8 transition-all duration-300 hover:-translate-y-1 hover:border-accent/60 hover:shadow-[0_18px_40px_-20px_rgba(0,0,0,0.12)]"
             >
-              <div className="flex items-baseline gap-3 mb-4">
-                <span className="font-mono text-xs text-muted-foreground tabular-nums">
-                  {String(i + 1).padStart(2, "0")}
-                </span>
-                <h3 className="font-display text-lg text-foreground">{g.t}</h3>
-              </div>
-              <ul className="space-y-2">
+              <span className="font-display italic tabular-nums text-4xl text-accent-foreground/30 leading-none">
+                {String(i + 1).padStart(2, "0")}
+              </span>
+              <h3 className="mt-3 font-display text-xl text-foreground leading-snug">
+                {g.t}
+                <span className="block mt-2 h-[2px] w-8 bg-brand-red transition-all duration-300 group-hover:w-16" />
+              </h3>
+              <ul className="mt-5 space-y-2.5">
                 {g.items.map((it) => (
                   <li
                     key={it}
-                    className="t-body-sm flex items-start gap-3 md:text-base text-foreground/85"
+                    className="t-body-sm flex items-start gap-3 md:text-base text-foreground/80"
                   >
-                    <CheckCircle2 size={16} className="text-brand-red shrink-0 mt-1" />
+                    <span aria-hidden className="mt-2.5 h-1 w-1 rounded-full bg-accent-foreground/60 shrink-0" />
                     <span>{it}</span>
                   </li>
                 ))}
