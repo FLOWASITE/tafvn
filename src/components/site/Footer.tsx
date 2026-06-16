@@ -133,15 +133,16 @@ export function Footer({ offices }: { offices: Office[] }) {
       {/* Bottom bar */}
       <div className="mx-auto max-w-6xl px-5 md:px-8 pb-8">
         <div className="pt-8 border-t border-primary-foreground/10 flex flex-col md:flex-row justify-between items-center gap-4 text-[11px] uppercase tracking-wider text-primary-foreground/50">
-          <p>© {new Date().getFullYear()} {SITE.legalName}. Đã đăng ký hành nghề kiểm toán.</p>
+          <p>© {new Date().getFullYear()} {SITE.legalName}. {t("Đã đăng ký hành nghề kiểm toán.")}</p>
           <div className="flex space-x-6">
             <Link to="/chinh-sach-bao-mat" className="hover:text-primary-foreground transition-colors underline decoration-primary-foreground/10 underline-offset-4">
-              Chính sách bảo mật
+              {t("Chính sách bảo mật")}
             </Link>
             <Link to="/van-phong" className="hover:text-primary-foreground transition-colors underline decoration-primary-foreground/10 underline-offset-4">
-              Văn phòng
+              {t("Văn phòng")}
             </Link>
           </div>
+
         </div>
       </div>
     </footer>
