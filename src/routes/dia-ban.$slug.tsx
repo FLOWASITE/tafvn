@@ -3,6 +3,8 @@ import { Breadcrumb } from "@/components/site/Breadcrumb";
 import { Section } from "@/components/site/Section";
 import { PROVINCES, SITE } from "@/lib/site";
 import { getPage } from "@/lib/pages.functions";
+import { useT } from "@/lib/i18n/context";
+
 
 export const Route = createFileRoute("/dia-ban/$slug")({
   loader: async ({ params }) => {
