@@ -366,6 +366,94 @@ const ko: Dict = {
   "Tư vấn thuế": "세무 자문",
   "Chuyển đổi báo cáo IFRS": "IFRS 보고서 전환",
   "Rà soát đặc biệt M&A (Due Diligence)": "M&A 특별 검토 (실사)",
+  "Dịch vụ kế toán trọn gói": "회계 종합 서비스",
+  "Soát xét tuân thủ & nội bộ": "컴플라이언스 및 내부 검토",
+  "Chuyển đổi báo cáo IFRS / VAS": "IFRS / VAS 보고서 전환",
+  "Kiểm toán quyết toán dự án hoàn thành": "완료 프로젝트 결산 감사",
+
+  // Footer
+  "Điều hướng": "내비게이션",
+  "Chính sách bảo mật": "개인정보 처리방침",
+  "Văn phòng": "사무소",
+  "ĐT:": "전화:",
+  "Email:": "이메일:",
+  "— hãng kiểm toán độc lập đăng ký hành nghề với Bộ Tài chính, phục vụ doanh nghiệp Việt Nam và FDI từ năm":
+    "— 재무부에 등록된 독립 감사법인, 베트남 및 FDI 기업에 다음 연도부터 서비스 제공:",
+  "Đã đăng ký hành nghề kiểm toán.": "감사업 등록 완료.",
+
+  // Contact page
+  "Trao đổi với KTV phụ trách dịch vụ phù hợp với bạn.":
+    "귀하에게 적합한 서비스 담당 감사인과 상담하세요.",
+  "Mô tả ngắn về doanh nghiệp, loại hình, thời điểm cần báo cáo — KTV phụ trách sẽ liên hệ lại trong vòng 1 ngày làm việc với khảo sát sơ bộ và đề xuất phí cụ thể trong 3 ngày.":
+    "기업, 유형, 보고 시기를 간단히 설명해 주세요. 담당 감사인이 1영업일 이내에 연락드리고 3일 내 예비 조사 및 구체적인 견적을 제시합니다.",
+  "Khảo sát miễn phí.": "무료 사전 조사.",
+  "Không ràng buộc cho đến khi ký hợp đồng dịch vụ.":
+    "서비스 계약 체결까지 의무 없음.",
+  "Bảo mật thông tin.": "정보 보안.",
+  "TAF không chia sẻ dữ liệu của bạn với bên thứ ba.":
+    "TAF는 귀하의 데이터를 제3자와 공유하지 않습니다.",
+
+  // About page
+  "Hơn hai thập kỷ giữ nghề kiểm toán đúng chuẩn mực.":
+    "20년 이상 감사 기준을 준수.",
+  "thành lập năm": "설립 연도:",
+  "đăng ký hành nghề với Bộ Tài chính và phục vụ khách hàng trong cả ba khối: doanh nghiệp nội địa, doanh nghiệp FDI và dự án đầu tư công.":
+    "재무부에 등록되어 국내 기업, FDI 기업, 공공 투자 프로젝트의 세 부문에 서비스를 제공합니다.",
+  "Cam kết nghề nghiệp": "전문가로서의 약속",
+  "Độc lập.": "독립성.",
+  "Báo cáo kiểm toán của TAF không chịu ảnh hưởng bởi quan hệ kinh doanh hoặc lợi ích tài chính.":
+    "TAF의 감사 보고서는 거래 관계나 재무적 이익의 영향을 받지 않습니다.",
+  "Đúng chuẩn mực.": "기준 준수.",
+  "Quy trình áp dụng Chuẩn mực Kiểm toán Việt Nam (VSA) và tham chiếu IFRS khi cần.":
+    "베트남 감사 기준(VSA)을 적용하고 필요 시 IFRS를 참조합니다.",
+  "Đúng thời hạn.": "기한 준수.",
+  "Kế hoạch kiểm toán bám sát hạn nộp BCTC theo Luật Kế toán, không để khách hàng bị phạt chậm nộp.":
+    "감사 계획은 회계법에 따른 재무제표 제출 기한을 준수하여 지연 벌금을 피합니다.",
+  "Khách hàng tin cậy TAF": "TAF를 신뢰하는 고객",
+  "Trong hơn 20 năm hành nghề, TAF đã phục vụ hơn 500 khách hàng doanh nghiệp ở các ngành sản xuất, thương mại, xây dựng, bất động sản, công nghệ và dịch vụ tài chính. Một phần lớn khách hàng FDI có công ty mẹ ở Nhật Bản, Hàn Quốc, Đài Loan và châu Âu, yêu cầu báo cáo kiểm toán song ngữ và phối hợp với kiểm toán nhóm ở nước ngoài.":
+    "20년 이상의 업무 경험을 통해 TAF는 제조, 무역, 건설, 부동산, 기술, 금융 서비스 분야의 500개 이상 기업 고객에게 서비스를 제공해 왔습니다. FDI 고객 상당수는 일본, 한국, 대만, 유럽에 모회사를 두고 있어 이중 언어 감사 보고서와 해외 그룹 감사인과의 협력이 필요합니다.",
+
+  // Privacy
+  "TAF cam kết bảo mật mọi thông tin khách hàng cung cấp khi liên hệ qua website và trong quá trình thực hiện dịch vụ. Tài liệu này mô tả các loại dữ liệu chúng tôi thu thập, mục đích sử dụng và quyền của bạn.":
+    "TAF는 웹사이트 및 서비스 제공 과정에서 고객이 제공하는 모든 정보의 보안을 약속합니다. 본 문서는 수집하는 데이터 유형, 사용 목적 및 귀하의 권리를 설명합니다.",
+  "Dữ liệu thu thập qua website": "웹사이트에서 수집하는 데이터",
+  "Khi bạn gửi form liên hệ, chúng tôi lưu các trường: họ tên, email, số điện thoại, công ty, dịch vụ quan tâm và mô tả nhu cầu. Chúng tôi không sử dụng cookies theo dõi hành vi của bên thứ ba ngoài các cookie kỹ thuật cần thiết để website hoạt động.":
+    "문의 양식 제출 시 이름, 이메일, 전화, 회사, 관심 서비스, 필요 사항을 저장합니다. 사이트 운영에 필요한 기술 쿠키 외에 제3자 행동 추적 쿠키는 사용하지 않습니다.",
+  "Mục đích sử dụng": "사용 목적",
+  "Thông tin được sử dụng để KTV phụ trách liên hệ lại, gửi đề xuất phí và trao đổi chi tiết dịch vụ. TAF không chia sẻ dữ liệu của bạn với bên thứ ba ngoài các đối tác kỹ thuật phục vụ vận hành website (lưu trữ, gửi email).":
+    "정보는 담당 감사인의 연락, 견적 발송 및 서비스 세부 논의에 사용됩니다. 사이트 운영을 위한 기술 파트너(호스팅, 이메일) 외 제3자와 공유하지 않습니다.",
+  "Bảo mật trong quá trình kiểm toán": "감사 업무 중 기밀 유지",
+  "Toàn bộ nhân sự của TAF tuân thủ Quy tắc đạo đức nghề nghiệp kế toán, kiểm toán theo Thông tư 70/2015/TT-BTC. Hồ sơ kiểm toán được lưu trữ tối thiểu 10 năm theo quy định.":
+    "TAF의 모든 직원은 통보 70/2015/TT-BTC에 따른 회계·감사 직업 윤리 규정을 준수합니다. 감사 조서는 규정에 따라 최소 10년간 보관됩니다.",
+  "Quyền của bạn": "귀하의 권리",
+  "Bạn có quyền yêu cầu truy cập, sửa đổi hoặc xóa dữ liệu cá nhân do TAF nắm giữ bằng cách gửi email tới văn phòng. Chúng tôi phản hồi trong vòng 30 ngày làm việc.":
+    "사무소로 이메일을 보내 TAF가 보유한 개인 데이터에 대한 액세스, 수정 또는 삭제를 요청할 수 있습니다. 30영업일 이내에 응답합니다.",
+
+  // Team page
+  "Những người trực tiếp ký báo cáo kiểm toán.": "감사 보고서에 직접 서명하는 사람들.",
+  "Mỗi báo cáo TAF phát hành đều có chữ ký của KTV hành nghề được Bộ Tài chính cấp chứng chỉ. Dưới đây là một số thành viên dẫn dắt các tuyến dịch vụ.":
+    "TAF가 발행하는 모든 보고서에는 재무부가 인증한 등록 감사인의 서명이 있습니다. 아래는 각 서비스 라인을 이끄는 일부 구성원입니다.",
+  "Thông tin chi tiết của từng KTV (tên, số chứng chỉ hành nghề, ảnh chân dung) sẽ được cập nhật khi hoàn tất xác nhận nội bộ.":
+    "각 감사인의 세부 정보(이름, 등록 번호, 사진)는 내부 확인 완료 후 업데이트됩니다.",
+  "Đang cập nhật": "업데이트 예정",
+  "Phó Tổng Giám đốc phụ trách Kiểm toán": "감사 담당 부사장",
+  "Giám đốc Tư vấn Thuế": "세무 자문 디렉터",
+  "Trưởng phòng Kiểm toán Xây dựng cơ bản": "건설 감사 매니저",
+  "KTV hành nghề — Bộ Tài chính": "등록 감사인 — 재무부",
+  "KTV hành nghề · Đại lý thuế": "등록 감사인 · 세무 대리인",
+  "KTV hành nghề": "등록 감사인",
+  "Hơn 18 năm kinh nghiệm kiểm toán doanh nghiệp FDI và niêm yết, chuyên ngành sản xuất.":
+    "FDI 및 상장 기업 감사 경력 18년 이상, 제조업 전문.",
+  "Chuyên thanh tra thuế, ưu đãi thuế cho dự án đầu tư mới, thuế nhà thầu nước ngoài.":
+    "세무 조사, 신규 투자 프로젝트 세제 혜택, 외국 계약자 세금 전문.",
+  "Phụ trách kiểm toán quyết toán dự án vốn ngân sách và ODA tại miền Nam.":
+    "남부 지역 국가 예산 및 ODA 프로젝트 결산 감사 담당.",
+
+  // Provinces index
+  "Phạm vi hoạt động": "서비스 범위",
+  "Địa bàn TAF phục vụ": "TAF 서비스 지역",
+  "TAF có KTV sẵn sàng đến trụ sở khách hàng tại các tỉnh và thành phố sau. Mỗi địa bàn có trang riêng mô tả ngành nghề trọng điểm và đặc thù pháp lý.":
+    "TAF는 아래 성 및 시의 고객사 방문이 가능한 감사인을 보유하고 있습니다. 각 지역에는 주요 산업과 법적 특성을 설명하는 전용 페이지가 있습니다.",
 };
 
 export const DICTIONARIES: Record<Exclude<Locale, "vi">, Dict> = { en, ja, ko };
