@@ -4,7 +4,6 @@ import {
   ArrowUpRight,
   Play,
   Phone,
-  List,
   Wallet,
   Zap,
   ShieldCheck,
@@ -798,26 +797,34 @@ function AccountingServicePage() {
             </div>
 
             {/* Trust strip — editorial stats */}
-            <dl className="mt-10 grid grid-cols-2 md:grid-cols-4 border-t border-accent/30 pt-6">
-              {HERO_STATS.map((s, i) => (
-                <div
-                  key={s.k}
-                  className={cn(
-                    "group py-3 px-5 first:pl-0 transition-colors",
-                    i !== 0 && "border-l border-accent/25",
-                  )}
-                >
-                  <dt className="font-display text-3xl md:text-[2.25rem] text-foreground leading-none tabular-nums inline-flex items-start transition-transform duration-500 group-hover:scale-[1.04] origin-left">
-                    {s.k}
-                    <span className="inline-block w-1 h-1 rounded-full bg-brand-red ml-1 mt-1.5 group-hover:scale-150 transition-transform" />
-                  </dt>
-                  <dd className="t-cta mt-3 text-muted-foreground">
-                    {s.v}
-                  </dd>
-                  <span aria-hidden className="block h-px w-0 bg-accent mt-2 transition-all duration-500 group-hover:w-8" />
-                </div>
-              ))}
-            </dl>
+            <div className="mt-10 pt-6 border-t border-accent/30">
+              <div className="t-eyebrow text-muted-foreground/80 flex items-center gap-2.5 mb-5">
+                <span className="inline-block w-6 h-px bg-accent" />
+                § — Năng lực ngành
+              </div>
+              <dl className="grid grid-cols-2 md:grid-cols-4">
+                {HERO_STATS.map((s, i) => (
+                  <div
+                    key={s.k}
+                    className={cn(
+                      "group py-3 px-5 first:pl-0 transition-colors",
+                      i !== 0 && "border-l border-accent/25",
+                    )}
+                  >
+                    <dt className="font-display text-3xl md:text-[2.25rem] text-foreground leading-none tabular-nums inline-flex items-start transition-transform duration-500 group-hover:scale-[1.04] origin-left">
+                      {s.k}
+                      <span className="inline-block w-1 h-1 rounded-full bg-brand-red ml-1 mt-1.5 group-hover:scale-150 transition-transform" />
+                    </dt>
+                    <dd className="t-cta mt-3 text-muted-foreground inline-block">
+                      <span className="bg-gradient-to-r from-accent to-accent bg-[length:0%_1px] bg-no-repeat bg-left-bottom transition-[background-size] duration-500 group-hover:bg-[length:100%_1px] pb-0.5">
+                        {s.v}
+                      </span>
+                    </dd>
+                    <span aria-hidden className="block h-px w-0 bg-accent mt-2 transition-all duration-500 group-hover:w-full" />
+                  </div>
+                ))}
+              </dl>
+            </div>
           </header>
           <aside className="lg:col-span-4">
             <div className="relative bg-cream/50 border border-accent/40 rounded-[2px] p-6 md:p-7 shadow-[0_24px_60px_-40px_rgba(0,0,0,0.18)]">
@@ -866,30 +873,46 @@ function AccountingServicePage() {
       <Section className="pt-0 pb-6">
         <nav
           aria-label="Mục lục: Dịch vụ kế toán trọn gói tại TAF"
-          className="border border-border bg-cream/60 rounded-[2px] p-6 md:p-8"
+          className="relative border border-accent/30 bg-cream/40 rounded-[2px] p-6 md:p-9 paper-grain overflow-hidden"
         >
-          <div className="t-cta flex items-center gap-2.5 text-accent-foreground/90 mb-3">
-            <List size={14} className="text-brand-red" />
-            Mục lục bài viết
+          <span aria-hidden className="absolute top-0 left-8 right-8 h-px bg-gradient-to-r from-transparent via-accent to-transparent" />
+          <div className="flex items-baseline justify-between mb-5">
+            <div className="t-eyebrow text-muted-foreground/80 flex items-center gap-2.5">
+              <span className="inline-block w-6 h-px bg-accent" />
+              § 00 — Mục lục
+            </div>
+            <span className="t-eyebrow text-accent-foreground/60 hidden md:inline">
+              13 mục · Service Brief No. 02
+            </span>
           </div>
-          <p className="t-body-sm md:text-base text-muted-foreground mb-6 max-w-3xl">
+          <p className="t-body-sm md:text-base text-muted-foreground mb-7 max-w-3xl">
             Trang tổng quan về <strong className="text-foreground font-medium">dịch vụ kế toán trọn gói</strong> của TAF: khái niệm, điều kiện hành nghề, danh mục dịch vụ, bảng báo giá tham khảo, quy trình triển khai và câu hỏi thường gặp.
           </p>
-          <ol className="grid sm:grid-cols-2 gap-x-8 gap-y-3 font-serif text-foreground/85">
+          <ol className="grid sm:grid-cols-2 gap-x-10">
             {TOC.map((item, i) => (
-              <li key={item.id} className="flex gap-3 leading-snug">
-                <span className="font-mono text-xs text-muted-foreground tabular-nums mt-1 shrink-0 w-6">
-                  {String(i + 1).padStart(2, "0")}
-                </span>
-                <a href={`#${item.id}`} className="group flex-1 text-foreground/85 underline-offset-4 transition-colors">
-                  <span className="block text-foreground/90 group-hover:text-brand-red-ink underline decoration-transparent group-hover:decoration-brand-red/50">
-                    {item.label}
+              <li
+                key={item.id}
+                className="group border-b border-accent/15 last:border-0 sm:[&:nth-last-child(2)]:border-0"
+              >
+                <a href={`#${item.id}`} className="flex gap-5 py-3.5 items-start">
+                  <span className="font-display italic tabular-nums text-2xl text-accent-foreground/35 leading-none w-9 shrink-0 mt-1 group-hover:text-brand-red transition-colors">
+                    {String(i + 1).padStart(2, "0")}
                   </span>
-                  <span className="block text-xs text-muted-foreground mt-0.5">{item.desc}</span>
+                  <span className="flex-1 min-w-0">
+                    <span className="block font-display text-[0.95rem] md:text-base text-foreground/90 group-hover:text-brand-red-ink leading-snug transition-colors">
+                      {item.label}
+                    </span>
+                    <span className="block t-body-sm text-muted-foreground mt-0.5">{item.desc}</span>
+                  </span>
+                  <ArrowUpRight
+                    size={14}
+                    className="text-accent-foreground/0 group-hover:text-accent-foreground mt-2 transition-all duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 shrink-0"
+                  />
                 </a>
               </li>
             ))}
           </ol>
+          <span aria-hidden className="absolute bottom-0 left-8 right-8 h-px bg-gradient-to-r from-transparent via-accent/60 to-transparent" />
         </nav>
       </Section>
 
@@ -904,7 +927,7 @@ function AccountingServicePage() {
                 Dịch vụ kế toán trọn gói là gì?
               </h2>
             </div>
-            <p className="t-body lg:col-span-8 text-foreground/85">
+            <p className="t-body lg:col-span-8 text-foreground/85 first-letter:font-display first-letter:text-[4.5rem] first-letter:leading-[0.85] first-letter:float-left first-letter:mr-3 first-letter:mt-1 first-letter:text-accent-foreground first-letter:italic">
               Kế toán là bộ phận quan trọng, quản lý thu – chi, xử lý thuế, lập báo cáo
               tài chính và các thủ tục pháp lý liên quan. Doanh nghiệp lớn thường có
               phòng kế toán riêng, nhưng với công ty mới thành lập hoặc quy mô nhỏ, ít
@@ -1194,42 +1217,57 @@ function AccountingServicePage() {
 
       {/* 08 — Quy trình */}
       <Section id="quy-trinh" className="bg-cream border-y border-border">
-        <Eyebrow>08</Eyebrow>
-        <h2 className="t-h2 md:text-[2.25rem] text-foreground max-w-3xl">
-          Quy trình làm việc tại TAF
-        </h2>
-        <ol className="mt-12 relative grid md:grid-cols-5 gap-8 md:gap-6">
-          <span
-            aria-hidden
-            className="hidden md:block absolute left-0 right-0 top-3 h-px bg-gradient-to-r from-transparent via-accent/60 to-transparent"
-          />
-          <span aria-hidden className="md:hidden absolute left-[11px] top-0 bottom-0 w-px bg-accent/40" />
-          {PROCESS.map((s, i) => {
-            const Icon = s.icon;
-            return (
-              <li key={s.t} className="relative pl-10 md:pl-0">
-                <span
-                  aria-hidden
-                  className="absolute md:relative left-0 md:left-auto top-0 flex items-center justify-center w-7 h-7 rounded-full bg-background border border-accent/70 shadow-[0_0_0_3px_color-mix(in_oklab,var(--color-brand-red)_12%,transparent)]"
+        <div className="grid lg:grid-cols-12 gap-10">
+          <div className="lg:col-span-4">
+            <Eyebrow>§ 08 — Quy trình</Eyebrow>
+            <h2 className="t-h2 md:text-[2.25rem] text-foreground">
+              Quy trình làm việc <em className="not-italic italic text-accent-foreground">tại TAF</em>
+            </h2>
+            <p className="t-body mt-4 text-muted-foreground max-w-sm">
+              Năm bước chuẩn hóa — từ tiếp nhận hồ sơ đến lưu trữ chứng từ — đảm bảo
+              minh bạch, đúng tiến độ và đầy đủ pháp lý.
+            </p>
+          </div>
+          <ol className="lg:col-span-8 relative">
+            <span
+              aria-hidden
+              className="absolute left-[1.4rem] md:left-[1.6rem] top-2 bottom-2 w-px bg-gradient-to-b from-transparent via-accent/50 to-transparent"
+            />
+            {PROCESS.map((s, i) => {
+              const Icon = s.icon;
+              return (
+                <li
+                  key={s.t}
+                  className="group relative grid grid-cols-[3rem_1fr] md:grid-cols-[3.5rem_1fr] gap-5 md:gap-7 items-start py-6 first:pt-0 last:pb-0 border-b border-accent/15 last:border-0 hover:bg-background/40 transition-colors -mx-3 px-3 rounded-[2px]"
                 >
-                  <span className="block w-2 h-2 rounded-full bg-brand-red" />
-                </span>
-                <div className="md:mt-5">
-                  <div className="flex items-baseline gap-2 mb-2">
-                    <span className="font-display italic text-accent-foreground tabular-nums text-2xl leading-none">
-                      {String(i + 1).padStart(2, "0")}
+                  <div className="relative flex items-start justify-center pt-1">
+                    <span className="absolute inset-0 flex items-start justify-center pt-1 pointer-events-none">
+                      <span className="font-display italic tabular-nums text-[3.25rem] md:text-[3.75rem] leading-none text-accent-foreground/20 group-hover:text-accent-foreground/45 transition-all duration-500 group-hover:scale-105">
+                        {String(i + 1).padStart(2, "0")}
+                      </span>
                     </span>
-                    <Icon size={16} className="text-accent-foreground/60" strokeWidth={1.5} aria-hidden="true" />
+                    <span
+                      aria-hidden
+                      className="relative z-10 mt-2 flex items-center justify-center w-3 h-3 rounded-full bg-background border border-accent shadow-[0_0_0_4px_color-mix(in_oklab,var(--color-cream)_60%,transparent)]"
+                    >
+                      <span className="block w-1 h-1 rounded-full bg-brand-red" />
+                    </span>
                   </div>
-                  <h3 className="font-display text-lg text-foreground">{s.t}</h3>
-                  <p className="t-body-sm mt-1.5 text-muted-foreground">
-                    {s.d}
-                  </p>
-                </div>
-              </li>
-            );
-          })}
-        </ol>
+                  <div>
+                    <div className="t-eyebrow text-muted-foreground/80 flex items-center gap-2 mb-2">
+                      <Icon size={14} strokeWidth={1.5} className="text-brand-red" aria-hidden="true" />
+                      Bước {String(i + 1).padStart(2, "0")}
+                    </div>
+                    <h3 className="font-display text-lg md:text-xl text-foreground leading-snug">{s.t}</h3>
+                    <p className="t-body-sm md:text-[0.975rem] mt-2 text-muted-foreground leading-relaxed">
+                      {s.d}
+                    </p>
+                  </div>
+                </li>
+              );
+            })}
+          </ol>
+        </div>
       </Section>
 
       {/* 09 — Phạm vi công việc */}
@@ -1302,35 +1340,84 @@ function AccountingServicePage() {
 
       {/* 11 — Phân biệt */}
       <Section id="phan-biet">
-        <Eyebrow>11</Eyebrow>
+        <Eyebrow>§ 11 — So sánh</Eyebrow>
         <h2 className="t-h2 md:text-[2.25rem] text-foreground max-w-3xl">
-          Phân biệt dịch vụ kế toán & dịch vụ báo cáo thuế
+          Phân biệt <span className="italic text-accent-foreground">dịch vụ kế toán</span> &amp; dịch vụ báo cáo thuế
         </h2>
-        <div className="mt-8 border border-border rounded-[2px] bg-background overflow-hidden">
-          <Table>
-            <TableHeader>
-              <TableRow>
-                <TableHead className="w-44">Nội dung</TableHead>
-                <TableHead>Dịch vụ kế toán (trọn gói)</TableHead>
-                <TableHead>Dịch vụ báo cáo thuế</TableHead>
-              </TableRow>
-            </TableHeader>
-            <TableBody>
-              {COMPARE.map((c) => (
-                <TableRow key={c.label} className="font-serif">
-                  <TableCell className="font-display text-foreground align-top">
-                    {c.label}
-                  </TableCell>
-                  <TableCell className="text-foreground/85 leading-relaxed align-top">
-                    {c.accounting}
-                  </TableCell>
-                  <TableCell className="text-foreground/85 leading-relaxed align-top">
-                    {c.tax}
-                  </TableCell>
-                </TableRow>
+
+        <div className="relative mt-10 grid md:grid-cols-2 gap-0 border border-accent/25 rounded-[2px] overflow-hidden">
+          <span
+            aria-hidden
+            className="hidden md:block absolute left-1/2 top-8 bottom-8 w-px bg-gradient-to-b from-transparent via-accent/45 to-transparent"
+          />
+
+          {/* Cột trái — Kế toán trọn gói (TAF cung cấp) */}
+          <div className="relative bg-foreground text-background p-7 md:p-9">
+            <span aria-hidden className="absolute top-0 left-8 right-8 h-px bg-gradient-to-r from-transparent via-accent to-transparent" />
+            <div className="flex items-center justify-between mb-6">
+              <div className="t-eyebrow text-accent/85 flex items-center gap-2.5">
+                <span className="inline-block w-6 h-px bg-accent" />
+                Dịch vụ kế toán
+              </div>
+              <span className="font-mono text-[0.65rem] uppercase tracking-[0.22em] text-background/60 border border-accent/40 rounded-[2px] px-2 py-1">
+                TAF cung cấp
+              </span>
+            </div>
+            <h3 className="font-display text-2xl md:text-3xl text-background leading-tight mb-7">
+              Kế toán <em className="italic text-accent">trọn gói</em>
+            </h3>
+            <dl className="space-y-5">
+              {COMPARE.map((c, i) => (
+                <div key={c.label} className="grid grid-cols-[auto_1fr] gap-4 pb-5 border-b border-background/10 last:border-0 last:pb-0">
+                  <dt className="font-display italic tabular-nums text-2xl text-accent/50 leading-none w-7">
+                    {String(i + 1).padStart(2, "0")}
+                  </dt>
+                  <dd>
+                    <div className="font-mono text-[0.65rem] uppercase tracking-[0.22em] text-background/55 mb-1.5">
+                      {c.label}
+                    </div>
+                    <div className="font-serif text-[0.95rem] md:text-base text-background/95 leading-relaxed">
+                      {c.accounting}
+                    </div>
+                  </dd>
+                </div>
               ))}
-            </TableBody>
-          </Table>
+            </dl>
+          </div>
+
+          {/* Cột phải — Báo cáo thuế (đối chiếu) */}
+          <div className="relative bg-cream/50 p-7 md:p-9">
+            <span aria-hidden className="absolute top-0 left-8 right-8 h-px bg-gradient-to-r from-transparent via-accent/50 to-transparent" />
+            <div className="flex items-center justify-between mb-6">
+              <div className="t-eyebrow text-muted-foreground/80 flex items-center gap-2.5">
+                <span className="inline-block w-6 h-px bg-accent/60" />
+                Báo cáo thuế
+              </div>
+              <span className="font-mono text-[0.65rem] uppercase tracking-[0.22em] text-muted-foreground/70 border border-accent/30 rounded-[2px] px-2 py-1">
+                Đối chiếu
+              </span>
+            </div>
+            <h3 className="font-display text-2xl md:text-3xl text-foreground leading-tight mb-7">
+              Báo cáo <em className="italic text-accent-foreground">thuế đơn lẻ</em>
+            </h3>
+            <dl className="space-y-5">
+              {COMPARE.map((c, i) => (
+                <div key={c.label} className="grid grid-cols-[auto_1fr] gap-4 pb-5 border-b border-accent/20 last:border-0 last:pb-0">
+                  <dt className="font-display italic tabular-nums text-2xl text-accent-foreground/30 leading-none w-7">
+                    {String(i + 1).padStart(2, "0")}
+                  </dt>
+                  <dd>
+                    <div className="font-mono text-[0.65rem] uppercase tracking-[0.22em] text-muted-foreground/80 mb-1.5">
+                      {c.label}
+                    </div>
+                    <div className="font-serif text-[0.95rem] md:text-base text-foreground/80 leading-relaxed">
+                      {c.tax}
+                    </div>
+                  </dd>
+                </div>
+              ))}
+            </dl>
+          </div>
         </div>
       </Section>
 
@@ -1349,18 +1436,23 @@ function AccountingServicePage() {
             </p>
           </div>
           <div className="lg:col-span-8">
-            <Accordion type="single" collapsible className="border-t border-border">
+            <Accordion type="single" collapsible className="border-t border-accent/25">
               {FAQS.map((f, i) => (
-                <AccordionItem key={f.q} value={`item-${i}`}>
-                  <AccordionTrigger className="font-display text-base md:text-lg text-foreground py-5">
-                    <span className="flex items-baseline gap-4">
-                      <span className="font-mono text-xs text-accent-foreground tabular-nums">
-                        {String(i + 1).padStart(2, "0")}
+                <AccordionItem
+                  key={f.q}
+                  value={`item-${i}`}
+                  className="group border-b border-accent/20 data-[state=open]:bg-cream/45 transition-colors px-3 -mx-3 rounded-[2px]"
+                >
+                  <AccordionTrigger className="font-display text-base md:text-lg text-foreground py-5 hover:no-underline [&[data-state=open]>span>svg]:rotate-45">
+                    <span className="flex items-start gap-5 text-left">
+                      <span className="font-display italic tabular-nums text-3xl text-accent-foreground/35 leading-none w-12 shrink-0 group-data-[state=open]:text-brand-red transition-colors">
+                        Q.{String(i + 1).padStart(2, "0")}
                       </span>
-                      {f.q}
+                      <span className="flex-1 leading-snug">{f.q}</span>
                     </span>
                   </AccordionTrigger>
-                  <AccordionContent className="t-body text-foreground/80 pl-10 pr-2">
+                  <AccordionContent className="t-body text-foreground/80 pl-[4.25rem] pr-2 pb-6">
+                    <span aria-hidden className="block w-8 h-px bg-accent/50 mb-3" />
                     {f.a}
                   </AccordionContent>
                 </AccordionItem>
@@ -1416,7 +1508,7 @@ function AccountingServicePage() {
                   key={t.initials}
                   delay={i * 80}
                   className={cn(
-                    "relative bg-card border border-border p-7 md:p-8 rounded-[3px] flex flex-col",
+                    "relative bg-card border border-border p-7 md:p-9 rounded-[3px] flex flex-col overflow-hidden",
                     i === 0 && "md:col-span-2 bg-foreground text-background border-foreground",
                   )}
                 >
@@ -1427,17 +1519,27 @@ function AccountingServicePage() {
                       i === 0 ? "bg-accent/60" : "bg-gradient-to-r from-transparent via-accent/40 to-transparent",
                     )}
                   />
+                  {/* Giant Playfair quote glyph */}
+                  <span
+                    aria-hidden
+                    className={cn(
+                      "pointer-events-none select-none absolute -top-6 right-4 font-display leading-none text-[10rem] md:text-[12rem]",
+                      i === 0 ? "text-accent/15" : "text-accent-foreground/12",
+                    )}
+                  >
+                    “
+                  </span>
                   <Quote
-                    size={28}
+                    size={22}
                     strokeWidth={1.25}
                     className={cn(
-                      "shrink-0 mb-4",
+                      "shrink-0 mb-4 relative z-10",
                       i === 0 ? "text-accent" : "text-brand-red/70",
                     )}
                   />
                   <blockquote
                     className={cn(
-                      "font-display leading-[1.4]",
+                      "relative z-10 font-display leading-[1.4]",
                       i === 0
                         ? "text-xl md:text-2xl text-background"
                         : "text-base md:text-lg text-foreground",
@@ -1447,16 +1549,16 @@ function AccountingServicePage() {
                   </blockquote>
                   <figcaption
                     className={cn(
-                      "mt-6 pt-5 border-t flex items-center gap-3",
+                      "relative z-10 mt-6 pt-5 border-t flex items-center gap-3",
                       i === 0 ? "border-background/15" : "border-border",
                     )}
                   >
                     <span
                       className={cn(
-                        "inline-flex items-center justify-center w-10 h-10 rounded-full border font-display italic text-sm tabular-nums shrink-0",
+                        "inline-flex items-center justify-center w-11 h-11 rounded-full border font-display italic text-sm tabular-nums shrink-0 ring-1 ring-offset-2",
                         i === 0
-                          ? "border-accent/70 text-accent"
-                          : "border-brand-red/40 text-brand-red",
+                          ? "border-accent/70 text-accent ring-accent/40 ring-offset-foreground"
+                          : "border-brand-red/40 text-brand-red ring-accent/30 ring-offset-card",
                       )}
                     >
                       {t.initials}
