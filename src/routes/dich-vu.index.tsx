@@ -209,9 +209,11 @@ function SubServiceRow({ item }: { item: SubService }) {
 }
 
 function ServicesIndex() {
+  const t = useT();
   return (
     <>
-      <Breadcrumb items={[{ label: "Dịch vụ" }]} />
+      <Breadcrumb items={[{ label: t("Dịch vụ") }]} />
+
 
       {/* Hero */}
       <Section className="!pb-10">
