@@ -143,6 +143,30 @@ export type Database = {
         }
         Relationships: []
       }
+      page_ratings: {
+        Row: {
+          created_at: string
+          id: string
+          slug: string
+          value: number
+          voter_hash: string
+        }
+        Insert: {
+          created_at?: string
+          id?: string
+          slug: string
+          value: number
+          voter_hash: string
+        }
+        Update: {
+          created_at?: string
+          id?: string
+          slug?: string
+          value?: number
+          voter_hash?: string
+        }
+        Relationships: []
+      }
       pages: {
         Row: {
           author_id: string | null
@@ -255,7 +279,14 @@ export type Database = {
       [_ in never]: never
     }
     Functions: {
-      [_ in never]: never
+      get_page_rating: {
+        Args: { _slug: string }
+        Returns: {
+          rating_avg: number
+          rating_count: number
+          rating_sum: number
+        }[]
+      }
     }
     Enums: {
       page_type: "service" | "province" | "article" | "static"
