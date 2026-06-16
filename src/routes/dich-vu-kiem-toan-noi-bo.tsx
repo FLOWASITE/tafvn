@@ -126,31 +126,32 @@ function InternalAuditService() {
       <Section className="!pb-10">
         <div className="max-w-3xl">
           <Eyebrow>Dịch vụ kiểm toán</Eyebrow>
-          <h1 className="font-display text-4xl md:text-5xl leading-[1.1] text-foreground">
-            Dịch vụ <span className="italic text-accent-foreground">kiểm toán nội bộ</span>.
+          <h1 className="font-display text-5xl md:text-6xl lg:text-7xl leading-[1.05] text-foreground font-normal tracking-tight">
+            Dịch vụ{" "}
+            <span className="italic text-brand-red-ink">kiểm toán nội bộ.</span>
           </h1>
-          <p className="mt-6 text-lg text-muted-foreground font-serif leading-relaxed">
+          <p className="mt-8 text-lg md:text-xl text-muted-foreground font-serif leading-relaxed">
             Kiểm toán nội bộ là hoạt động tư vấn và đảm bảo khách quan nhằm tăng cường quản trị
             rủi ro, đánh giá hệ thống kiểm soát và nâng cao hiệu quả quản trị doanh nghiệp. TAF
             cung cấp dịch vụ độc lập, chuyên nghiệp, tuân thủ nghiêm ngặt các chuẩn mực.
           </p>
-          <div className="mt-8 flex flex-col sm:flex-row gap-3">
+          <div className="mt-10 flex flex-col sm:flex-row gap-3">
             <Link
               to="/lien-he"
-              className="group inline-flex items-center justify-center gap-2 bg-brand-red text-white px-6 py-3.5 text-sm font-medium rounded-[2px] hover:bg-brand-red-ink transition-all"
+              className="group inline-flex items-center justify-between gap-3 bg-brand-red text-white px-7 py-4 text-sm font-medium rounded-[2px] hover:bg-brand-red-ink transition-all min-w-[260px]"
             >
-              <span className="uppercase tracking-[0.15em]">Yêu cầu tư vấn</span>
-              <ArrowRight size={18} className="group-hover:translate-x-0.5 transition-transform" />
+              <span className="uppercase tracking-[0.18em]">Yêu cầu tư vấn</span>
+              <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
             </Link>
             <a
               href={`tel:${HOTLINE_TEL}`}
-              className="inline-flex items-center justify-center gap-2 border border-border text-foreground px-6 py-3.5 text-sm font-medium rounded-[2px] hover:border-accent transition"
+              className="inline-flex items-center justify-center gap-2 border border-border text-muted-foreground px-7 py-4 text-sm font-medium rounded-[2px] hover:border-accent hover:text-foreground transition"
             >
-              <Phone size={16} /> Hotline / Zalo · {HOTLINE_DISPLAY}
+              <Phone size={16} className="text-accent-foreground" /> Hotline / Zalo · {HOTLINE_DISPLAY}
             </a>
           </div>
         </div>
-        <div className="rule-gold mt-12" />
+        <div className="rule-gold mt-16" />
       </Section>
 
       {/* Khái niệm */}
