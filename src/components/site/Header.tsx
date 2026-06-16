@@ -21,6 +21,7 @@ import {
 import { Logo } from "./Logo";
 import { LanguageSwitcher } from "./LanguageSwitcher";
 import { MAIN_MENU, type MenuItem } from "@/lib/site";
+import { useT } from "@/lib/i18n/context";
 
 const HOTLINE_DISPLAY = "0924 580 580";
 const HOTLINE_TEL = "+84924580580";
@@ -67,6 +68,7 @@ export function Header() {
   const [open, setOpen] = useState(false);
   const [expanded, setExpanded] = useState<string | null>(null);
   const [scrolled, setScrolled] = useState(false);
+  const t = useT();
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 8);
@@ -82,7 +84,7 @@ export function Header() {
         <div className="mx-auto max-w-6xl px-5 md:px-8 h-9 flex items-center justify-between text-xs">
           <p className="flex items-center gap-2 text-primary-foreground/70">
             <Clock size={13} className="text-accent" />
-            Giờ làm việc: T2 – T7, 8:00 – 17:30
+            {t("Giờ làm việc: T2 – T7, 8:00 – 17:30")}
           </p>
           <div className="flex items-center gap-5">
             <a
@@ -122,12 +124,12 @@ export function Header() {
             scrolled ? "h-14 md:h-16" : "h-16 md:h-20"
           }`}
         >
-          <Link to="/" className="flex items-center shrink-0" aria-label="TAF — Trang chủ">
+          <Link to="/" className="flex items-center shrink-0" aria-label={t("TAF — Trang chủ")}>
             <Logo />
           </Link>
 
           {/* Desktop nav */}
-          <nav className="hidden lg:flex items-stretch h-full" aria-label="Điều hướng chính">
+          <nav className="hidden lg:flex items-stretch h-full" aria-label={t("Điều hướng chính")}>
             {MAIN_MENU.map((item, i) => (
               <DesktopMenuItem
                 key={item.label}
@@ -149,7 +151,7 @@ export function Header() {
                 className="pointer-events-none absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/30 to-transparent transition-transform duration-700 ease-out group-hover:translate-x-full"
               />
               <span className="relative uppercase tracking-[0.12em] text-[0.78rem]">
-                Yêu cầu báo giá
+                {t("Yêu cầu báo giá")}
               </span>
               <ChevronRight
                 size={15}
@@ -164,7 +166,7 @@ export function Header() {
               type="button"
               className="p-2 -mr-2 text-foreground"
               onClick={() => setOpen((v) => !v)}
-              aria-label="Mở menu"
+              aria-label={t("Mở menu")}
               aria-expanded={open}
             >
               {open ? <X size={22} /> : <Menu size={22} />}
@@ -175,7 +177,7 @@ export function Header() {
         {/* Mobile nav */}
         {open && (
           <div className="lg:hidden border-t border-border bg-background max-h-[calc(100vh-4rem)] overflow-y-auto">
-            <nav className="mx-auto max-w-6xl px-5 py-3 flex flex-col" aria-label="Điều hướng mobile">
+            <nav className="mx-auto max-w-6xl px-5 py-3 flex flex-col" aria-label={t("Điều hướng mobile")}>
               {MAIN_MENU.map((item) => (
                 <MobileMenuItem
                   key={item.label}
@@ -192,14 +194,14 @@ export function Header() {
                   href={`tel:${HOTLINE_TEL}`}
                   className="inline-flex items-center justify-center gap-2 border border-border text-foreground px-4 py-3 text-sm rounded-[2px]"
                 >
-                  <Phone size={15} className="text-brand-red" /> Gọi ngay
+                  <Phone size={15} className="text-brand-red" /> {t("Gọi ngay")}
                 </a>
                 <Link
                   to="/lien-he"
                   onClick={() => setOpen(false)}
                   className="inline-flex items-center justify-center px-4 py-3 text-sm font-medium bg-brand-red text-white rounded-[2px]"
                 >
-                  Yêu cầu báo giá
+                  {t("Yêu cầu báo giá")}
                 </Link>
               </div>
             </nav>
