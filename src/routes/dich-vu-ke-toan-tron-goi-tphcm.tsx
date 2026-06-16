@@ -804,23 +804,45 @@ function AccountingServicePage() {
               ))}
             </dl>
           </header>
-          <aside className="lg:col-span-4 lg:border-l lg:border-border lg:pl-8 flex flex-col gap-4 text-sm">
-            {[
-              { k: "Pháp lý", v: "Luật Kế toán 2015 & TT 296/2016" },
-              { k: "Đội ngũ", v: "Kế toán viên có chứng chỉ hành nghề" },
-              { k: "Báo giá", v: "Theo số chứng từ, minh bạch" },
-              { k: "Phạm vi", v: "Toàn quốc, hỗ trợ online" },
-            ].map((i) => (
-              <div key={i.k} className="border-b border-border pb-3 last:border-0 group">
-                <div className="t-cta text-muted-foreground flex items-center gap-2">
-                  <span className="inline-block w-1 h-1 rounded-full bg-brand-red" />
-                  {i.k}
-                </div>
-                <div className="font-display text-base text-foreground mt-1.5 group-hover:text-accent-foreground transition-colors">
-                  {i.v}
-                </div>
+          <aside className="lg:col-span-4">
+            <div className="relative bg-cream/50 border border-accent/40 rounded-[2px] p-6 md:p-7 shadow-[0_24px_60px_-40px_rgba(0,0,0,0.18)]">
+              <span aria-hidden className="absolute -top-px left-6 right-6 h-px bg-gradient-to-r from-transparent via-accent to-transparent" />
+              <div className="t-eyebrow text-muted-foreground/70 flex items-center gap-2.5">
+                <span className="inline-block w-6 h-px bg-accent" />
+                TAF · Service Brief No. 02
               </div>
-            ))}
+              <ul className="mt-5 divide-y divide-accent/20">
+                {[
+                  { k: "Pháp lý", v: "Luật Kế toán 2015 & TT 296/2016" },
+                  { k: "Đội ngũ", v: "Kế toán viên có chứng chỉ hành nghề" },
+                  { k: "Báo giá", v: "Theo số chứng từ, minh bạch" },
+                  { k: "Phạm vi", v: "Toàn quốc, hỗ trợ online" },
+                ].map((i, idx) => (
+                  <li key={i.k} className="group flex gap-4 py-4 first:pt-0 last:pb-0">
+                    <span className="font-display italic tabular-nums text-2xl text-accent-foreground/35 leading-none w-8 shrink-0">
+                      {String(idx + 1).padStart(2, "0")}
+                    </span>
+                    <div className="min-w-0 flex-1">
+                      <div className="t-eyebrow text-muted-foreground">
+                        {i.k}
+                      </div>
+                      <div className="font-display text-[0.95rem] md:text-base text-foreground mt-1 leading-snug group-hover:text-accent-foreground transition-colors">
+                        {i.v}
+                      </div>
+                    </div>
+                  </li>
+                ))}
+              </ul>
+              <div className="mt-5 pt-4 border-t border-accent/20 flex items-center justify-between">
+                <span className="font-mono text-[0.65rem] uppercase tracking-[0.22em] text-muted-foreground/70">
+                  Cập nhật · 2026
+                </span>
+                <span className="font-mono text-[0.65rem] uppercase tracking-[0.22em] text-accent-foreground/70">
+                  Rev. III
+                </span>
+              </div>
+              <span aria-hidden className="absolute -bottom-px left-6 right-6 h-px bg-gradient-to-r from-transparent via-accent/60 to-transparent" />
+            </div>
           </aside>
         </div>
       </Section>
