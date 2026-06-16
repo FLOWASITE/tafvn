@@ -123,12 +123,16 @@ function InternalAuditService() {
       />
 
       {/* Hero */}
-      <Section className="!pb-10">
-        <div className="max-w-3xl">
+      <Section className="!pb-10 relative overflow-hidden">
+        <div className="absolute inset-0 hero-grid-bg pointer-events-none opacity-60" aria-hidden />
+        <div className="relative max-w-3xl">
+          <p className="font-mono text-[0.7rem] uppercase tracking-[0.32em] text-muted-foreground/70 mb-6">
+            TAF · Auditing &amp; Advisory · Est. 2010
+          </p>
           <Eyebrow>Dịch vụ kiểm toán</Eyebrow>
           <h1 className="font-display text-5xl md:text-6xl lg:text-7xl leading-[1.05] text-foreground font-normal tracking-tight">
             Dịch vụ{" "}
-            <span className="italic text-brand-red-ink">kiểm toán nội bộ.</span>
+            <span className="italic text-brand-red-ink italic-mark">kiểm toán nội bộ.</span>
           </h1>
           <p className="mt-8 text-lg md:text-xl text-muted-foreground font-serif leading-relaxed">
             Kiểm toán nội bộ là hoạt động tư vấn và đảm bảo khách quan nhằm tăng cường quản trị
@@ -140,7 +144,10 @@ function InternalAuditService() {
               to="/lien-he"
               className="group inline-flex items-center justify-between gap-3 bg-brand-red text-white px-7 py-4 text-sm font-medium rounded-[2px] hover:bg-brand-red-ink transition-all min-w-[260px]"
             >
-              <span className="uppercase tracking-[0.18em]">Yêu cầu tư vấn</span>
+              <span className="flex items-center gap-2.5 uppercase tracking-[0.18em]">
+                <span className="inline-block w-1.5 h-1.5 rounded-full bg-accent animate-pulse" />
+                Yêu cầu tư vấn
+              </span>
               <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
             </Link>
             <a
@@ -150,8 +157,29 @@ function InternalAuditService() {
               <Phone size={16} className="text-accent-foreground" /> Hotline / Zalo · {HOTLINE_DISPLAY}
             </a>
           </div>
+
+          {/* Stat strip */}
+          <dl className="relative mt-14 grid grid-cols-3 gap-6 max-w-2xl">
+            {[
+              { num: "15+", label: "Năm kinh nghiệm" },
+              { num: "300+", label: "Doanh nghiệp đồng hành" },
+              { num: "9", label: "Tỉnh thành hiện diện" },
+            ].map((s, i) => (
+              <div
+                key={s.label}
+                className={`pl-5 ${i > 0 ? "border-l border-accent/30" : ""}`}
+              >
+                <dt className="font-display text-3xl md:text-4xl text-foreground tabular-nums leading-none">
+                  {s.num}
+                </dt>
+                <dd className="mt-2 text-[0.7rem] uppercase tracking-[0.18em] text-muted-foreground/80 font-medium">
+                  {s.label}
+                </dd>
+              </div>
+            ))}
+          </dl>
         </div>
-        <div className="rule-gold mt-16" />
+        <div className="rule-gold mt-16 relative" />
       </Section>
 
       {/* Khái niệm */}
