@@ -278,15 +278,23 @@ function InternalAuditService() {
           title="Quy trình kiểm toán nội bộ tại TAF"
           lead="Bốn bước chuẩn hóa giúp cuộc kiểm toán nội bộ minh bạch, hiệu quả và bám sát mục tiêu của doanh nghiệp."
         />
-        <div className="mt-12 grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="relative mt-14 grid sm:grid-cols-2 lg:grid-cols-4 gap-10">
+          <span
+            aria-hidden
+            className="hidden lg:block absolute top-7 left-12 right-12 h-px bg-gradient-to-r from-transparent via-accent/40 to-transparent"
+          />
           {STEPS.map((s, i) => (
-            <div key={s.title} className="relative pt-6 border-t border-accent/30">
-              <span className="absolute -top-[1px] left-0 h-[2px] w-12 bg-brand-red" />
-              <span className="font-display italic text-4xl text-accent-foreground/40 tabular-nums leading-none block">
-                {String(i + 1).padStart(2, "0")}
-              </span>
-              <h3 className="mt-5 font-display text-xl text-foreground leading-snug">{s.title}</h3>
-              <p className="mt-3 text-sm text-muted-foreground font-serif leading-relaxed">
+            <div key={s.title} className="group relative">
+              <div className="relative flex items-center gap-4">
+                <span className="relative z-10 w-14 h-14 shrink-0 rounded-full bg-background border border-accent/40 flex items-center justify-center font-display italic text-xl text-brand-red-ink tabular-nums transition-colors group-hover:border-brand-red">
+                  {String(i + 1).padStart(2, "0")}
+                </span>
+              </div>
+              <h3 className="mt-6 font-display text-xl text-foreground leading-snug">
+                {s.title}
+                <span className="block mt-2 h-[2px] w-8 bg-brand-red transition-all duration-300 group-hover:w-16" />
+              </h3>
+              <p className="mt-4 text-sm text-muted-foreground font-serif leading-relaxed">
                 {s.desc}
               </p>
             </div>
