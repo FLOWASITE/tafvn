@@ -7,7 +7,7 @@ import {
   Scale,
   KeyRound,
   CheckCircle2,
-  Building2,
+  
 } from "lucide-react";
 import { Breadcrumb } from "@/components/site/Breadcrumb";
 import { Section, Eyebrow, SectionHeading } from "@/components/site/Section";
