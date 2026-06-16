@@ -21,6 +21,8 @@ import {
   AccordionContent,
 } from "@/components/ui/accordion";
 import { FAQ_GENERAL } from "@/lib/site";
+import { useT } from "@/lib/i18n/context";
+
 
 export const Route = createFileRoute("/dich-vu/")({
   head: () => ({
