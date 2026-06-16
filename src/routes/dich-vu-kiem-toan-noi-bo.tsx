@@ -422,19 +422,19 @@ function InternalAuditService() {
 
       {/* CTA */}
       <Section className="!pt-0">
-        <div className="rounded-[2px] border border-border bg-cream/60 p-6 md:p-10">
-          <div className="grid lg:grid-cols-12 gap-8 items-center">
+        <div className="relative bg-foreground text-background p-8 md:p-14 overflow-hidden">
+          <span className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-accent to-transparent" />
+          <div className="grid lg:grid-cols-12 gap-10 items-center">
             <div className="lg:col-span-7">
-              <p className="text-[0.7rem] uppercase tracking-[0.22em] text-accent-foreground mb-3 flex items-center gap-2.5">
-                <span className="inline-block w-1.5 h-1.5 rounded-full bg-brand-red" />
-                <span className="inline-block w-6 h-px bg-accent/60" />
+              <p className="text-[0.7rem] uppercase tracking-[0.28em] text-accent mb-5 flex items-center gap-3 font-medium">
+                <span className="inline-block w-8 h-px bg-accent" />
                 Nhận tư vấn ngay
               </p>
-              <h2 className="font-display text-2xl md:text-[1.85rem] leading-tight text-foreground">
+              <h2 className="font-display text-3xl md:text-4xl lg:text-[2.5rem] leading-[1.15] text-background">
                 Tăng cường quản trị rủi ro{" "}
-                <span className="italic text-accent-foreground">cùng TAF.</span>
+                <span className="italic text-accent">cùng TAF.</span>
               </h2>
-              <p className="mt-3 text-muted-foreground font-serif text-base leading-relaxed">
+              <p className="mt-5 text-background/70 font-serif text-base md:text-lg leading-relaxed max-w-xl">
                 Liên hệ để được khảo sát và trao đổi cụ thể về phạm vi, tiến độ và nguồn lực cho
                 cuộc kiểm toán nội bộ của doanh nghiệp bạn.
               </p>
@@ -442,21 +442,21 @@ function InternalAuditService() {
             <div className="lg:col-span-5 flex flex-col gap-3">
               <Link
                 to="/lien-he"
-                className="group inline-flex items-center justify-between gap-2 bg-brand-red text-white px-6 py-4 text-sm font-medium rounded-[2px] hover:bg-brand-red-ink transition-all"
+                className="group inline-flex items-center justify-between gap-2 bg-brand-red text-white px-7 py-4 text-sm font-medium rounded-[2px] hover:bg-brand-red-ink transition-all"
               >
-                <span className="uppercase tracking-[0.15em]">Yêu cầu tư vấn</span>
-                <ArrowRight size={18} className="group-hover:translate-x-0.5 transition-transform" />
+                <span className="uppercase tracking-[0.18em]">Yêu cầu tư vấn</span>
+                <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
               </Link>
               <a
                 href={`tel:${HOTLINE_TEL}`}
-                className="inline-flex items-center justify-between gap-2 border border-border text-foreground px-6 py-4 text-sm font-medium rounded-[2px] hover:bg-background hover:border-accent transition"
+                className="inline-flex items-center justify-between gap-2 border border-accent/40 text-background px-7 py-4 text-sm font-medium rounded-[2px] hover:border-accent hover:bg-accent/10 transition"
               >
-                <span className="flex items-center gap-2 text-muted-foreground">
-                  <Phone size={16} /> Hotline / Zalo
+                <span className="flex items-center gap-2 text-background/70">
+                  <Phone size={16} className="text-accent" /> Hotline / Zalo
                 </span>
-                <span className="font-mono text-accent-foreground">{HOTLINE_DISPLAY}</span>
+                <span className="font-mono text-accent">{HOTLINE_DISPLAY}</span>
               </a>
-              <p className="text-xs text-muted-foreground text-center font-serif">
+              <p className="text-xs text-background/50 text-center font-serif mt-2">
                 Email: info@taf.vn · 62A Phạm Ngọc Thạch, Q.3, TP.HCM
               </p>
             </div>
