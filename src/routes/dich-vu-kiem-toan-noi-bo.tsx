@@ -431,19 +431,23 @@ function InternalAuditService() {
               desc: "Đánh giá toàn diện tài chính, thuế và pháp lý phục vụ giao dịch mua bán, sáp nhập và tái cấu trúc.",
               to: "/dich-vu-ra-soat-dac-biet-m-a-due-diligence",
             },
-          ].map((s) => (
+          ].map((s, i) => (
             <Link
               key={s.to}
               to={s.to}
-              className="group bg-background border border-accent/20 p-7 flex flex-col hover:border-accent/60 hover:shadow-[0_8px_30px_-12px_rgba(0,0,0,0.08)] transition-all"
+              className="group relative bg-background border border-accent/20 p-7 flex flex-col hover:-translate-y-1 hover:border-accent/60 hover:shadow-[0_18px_40px_-20px_rgba(0,0,0,0.12)] transition-all duration-300"
             >
-              <h3 className="font-display text-lg text-foreground leading-snug">{s.title}</h3>
-              <p className="mt-3 text-sm text-muted-foreground font-serif leading-relaxed flex-1">
+              <p className="font-mono text-[0.65rem] uppercase tracking-[0.28em] text-accent-foreground/60 mb-4">
+                Dịch vụ · {String(i + 1).padStart(2, "0")}
+              </p>
+              <h3 className="font-display text-xl text-foreground leading-snug">{s.title}</h3>
+              <span className="block mt-3 h-px w-10 bg-brand-red/70 transition-all duration-300 group-hover:w-20" />
+              <p className="mt-4 text-sm text-muted-foreground font-serif leading-relaxed flex-1">
                 {s.desc}
               </p>
-              <span className="mt-6 inline-flex items-center gap-2 text-xs uppercase tracking-[0.2em] text-brand-red font-medium">
+              <span className="mt-7 inline-flex items-center gap-2 text-xs uppercase tracking-[0.22em] text-brand-red font-medium">
                 Xem chi tiết
-                <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />
+                <ArrowRight size={14} className="group-hover:translate-x-2 transition-transform" />
               </span>
             </Link>
           ))}
