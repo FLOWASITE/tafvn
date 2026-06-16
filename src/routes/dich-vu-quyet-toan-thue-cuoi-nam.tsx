@@ -76,9 +76,10 @@ const NOTES = [
 ];
 
 const LEGAL = [
-  { code: "Điều 21 Thông tư 92/2015/TT-BTC", desc: "Hướng dẫn thực hiện thuế GTGT và TNCN đối với cá nhân cư trú có hoạt động kinh doanh." },
-  { code: "Luật thuế số 71/2014/QH13 & Nghị định 12/2015/NĐ-CP", desc: "Quy định chi tiết thi hành Luật sửa đổi, bổ sung một số nội dung về thuế TNCN (ngày 12/02/2015)." },
-  { code: "Công văn 5749/CT-TNCN", desc: "Cục thuế TP Hà Nội hướng dẫn quyết toán thuế TNCN và cấp mã số thuế người phụ thuộc." },
+  { code: "Luật Quản lý thuế số 38/2019/QH14", desc: "Quy định khai, quyết toán và thời hạn nộp hồ sơ thuế (Điều 43, 44); hiệu lực từ 01/07/2020." },
+  { code: "Nghị định 126/2020/NĐ-CP & Nghị định 91/2022/NĐ-CP", desc: "Hướng dẫn Luật Quản lý thuế: khai bổ sung, tạm nộp thuế TNDN quý và xử lý chênh lệch khi quyết toán." },
+  { code: "Thông tư 80/2021/TT-BTC", desc: "Hướng dẫn quản lý thuế; ban hành các mẫu tờ khai quyết toán hiện hành (03/TNDN, 02/QTT-TNCN, 05/QTT-TNCN)." },
+  { code: "Thông tư 111/2013/TT-BTC (sửa đổi bởi TT 92/2015 & TT 79/2022)", desc: "Quy định tính thuế TNCN, giảm trừ gia cảnh và quyết toán đối với cá nhân cư trú." },
 ];
 
 const WHO = [
