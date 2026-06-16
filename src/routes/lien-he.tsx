@@ -2,6 +2,8 @@ import { createFileRoute } from "@tanstack/react-router";
 import { Breadcrumb } from "@/components/site/Breadcrumb";
 import { Section } from "@/components/site/Section";
 import { ContactForm } from "@/components/site/ContactForm";
+import { useT } from "@/lib/i18n/context";
+
 
 export const Route = createFileRoute("/lien-he")({
   head: () => ({
