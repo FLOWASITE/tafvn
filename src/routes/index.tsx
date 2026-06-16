@@ -410,9 +410,10 @@ function HomePage() {
         <div className="grid lg:grid-cols-12 gap-10">
           <div className="lg:col-span-4">
             <SectionHeading
-              eyebrow="Câu hỏi thường gặp"
-              title="Trả lời nhanh cho những thắc mắc phổ biến."
+              eyebrow={t("Câu hỏi thường gặp")}
+              title={t("Trả lời nhanh cho những thắc mắc phổ biến.")}
             />
+
           </div>
           <div className="lg:col-span-8">
             <Accordion type="single" collapsible className="border-y border-border">
