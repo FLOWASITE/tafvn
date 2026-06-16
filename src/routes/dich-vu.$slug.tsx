@@ -4,6 +4,8 @@ import { Breadcrumb } from "@/components/site/Breadcrumb";
 import { Section } from "@/components/site/Section";
 import { SERVICES, SITE } from "@/lib/site";
 import { getPage } from "@/lib/pages.functions";
+import { useT } from "@/lib/i18n/context";
+
 
 export const Route = createFileRoute("/dich-vu/$slug")({
   loader: async ({ params }) => {
