@@ -196,7 +196,7 @@ function ArticleCard({ a }: { a: Article }) {
         <h3 className="mt-2.5 font-display text-lg leading-snug text-foreground group-hover:text-brand-red-ink transition-colors">
           {a.title}
         </h3>
-        <p className="mt-2.5 text-sm text-muted-foreground font-serif leading-relaxed flex-1">
+        <p className="t-body-sm mt-2.5 text-muted-foreground flex-1">
           {a.excerpt}
         </p>
         <div className="mt-4">
@@ -233,7 +233,7 @@ function KnowledgeHub() {
             Kiến thức nghiệp vụ{" "}
             <span className="italic text-accent-foreground">kế toán, thuế &amp; kiểm toán</span>.
           </h1>
-          <p className="mt-5 text-lg text-muted-foreground font-serif leading-relaxed">
+          <p className="t-lead mt-5 text-muted-foreground">
             Tổng hợp kiến thức nghiệp vụ theo từng chủ đề, biên soạn bởi đội ngũ TAF — ưu tiên nội
             dung áp dụng được ngay vào công việc của kế toán trưởng, CFO và chủ doanh nghiệp.
           </p>
@@ -257,10 +257,10 @@ function KnowledgeHub() {
             </div>
             <div className="flex flex-col justify-center p-7 md:p-10">
               <TagChip>{featured.tag}</TagChip>
-              <h2 className="mt-3 font-display text-2xl md:text-[2rem] leading-snug text-foreground group-hover:text-brand-red-ink transition-colors">
+              <h2 className="t-h2 mt-3 text-foreground group-hover:text-brand-red-ink transition-colors">
                 {featured.title}
               </h2>
-              <p className="mt-4 text-base text-muted-foreground font-serif leading-relaxed">
+              <p className="t-body mt-4 text-muted-foreground">
                 {featured.excerpt}
               </p>
               <div className="mt-6">
@@ -312,10 +312,10 @@ function KnowledgeHub() {
                     {String(i + 1).padStart(2, "0")}
                   </span>
                 </div>
-                <h2 className="font-display text-xl text-foreground leading-snug">
+                <h2 className="t-h3 text-foreground">
                   <span className="draw-underline">{t.title}</span>
                 </h2>
-                <p className="mt-3 text-sm text-muted-foreground font-serif leading-relaxed flex-1">
+                <p className="t-body-sm mt-3 text-muted-foreground flex-1">
                   {t.desc}
                 </p>
                 <span className="mt-6 inline-flex items-center gap-1.5 text-[0.7rem] font-medium uppercase tracking-[0.15em] text-brand-red-ink">
@@ -339,7 +339,7 @@ function KnowledgeHub() {
               <Newspaper size={20} strokeWidth={1.6} />
             </span>
             <div>
-              <h2 className="font-display text-xl text-foreground">Tin tức & cập nhật pháp lý</h2>
+              <h2 className="t-h3 text-foreground">Tin tức & cập nhật pháp lý</h2>
               <p className="mt-1 text-sm text-muted-foreground font-serif">
                 Theo dõi các cập nhật mới nhất về kế toán, thuế và kiểm toán.
               </p>

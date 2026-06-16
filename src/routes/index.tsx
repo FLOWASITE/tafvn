@@ -104,7 +104,7 @@ function HomePage() {
                 thời hạn.
               </span>
             </h1>
-            <p className="mt-6 max-w-2xl text-lg text-muted-foreground font-serif leading-relaxed">
+            <p className="t-lead mt-6 max-w-2xl text-muted-foreground">
               {SITE.legalName} là hãng kiểm toán độc lập tại Việt Nam, đăng ký hành nghề với Bộ
               Tài chính. Hơn {years} năm phục vụ doanh nghiệp trong nước, FDI và các dự án đầu tư
               công.
@@ -112,7 +112,7 @@ function HomePage() {
             <div className="mt-8 flex flex-wrap gap-3">
               <Link
                 to="/lien-he"
-                className="group inline-flex items-center gap-2 bg-brand-red text-white px-6 py-3.5 text-xs font-semibold tracking-[0.18em] uppercase rounded-[2px] hover:bg-brand-red-ink transition shadow-[0_8px_24px_-12px_var(--color-brand-red)]"
+                className="t-cta group inline-flex items-center gap-2 bg-brand-red text-white px-6 py-3.5 rounded-[2px] hover:bg-brand-red-ink transition shadow-[0_8px_24px_-12px_var(--color-brand-red)]"
               >
                 Yêu cầu báo giá
                 <ArrowUpRight
@@ -122,7 +122,7 @@ function HomePage() {
               </Link>
               <Link
                 to="/dich-vu"
-                className="inline-flex items-center gap-2 border border-input text-foreground px-6 py-3.5 text-xs font-semibold tracking-[0.18em] uppercase rounded-[2px] hover:bg-muted transition"
+                className="t-cta inline-flex items-center gap-2 border border-input text-foreground px-6 py-3.5 rounded-[2px] hover:bg-muted transition"
               >
                 Khám phá dịch vụ
               </Link>
@@ -212,10 +212,10 @@ function HomePage() {
                   size={20}
                   className={i % 2 === 1 ? "text-brand-red" : "text-accent-foreground"}
                 />
-                <h3 className="mt-4 font-display text-xl text-foreground leading-snug">
+                <h3 className="t-h3 mt-4 text-foreground">
                   {u.title}
                 </h3>
-                <p className="mt-2 text-sm md:text-[0.95rem] text-muted-foreground font-serif leading-relaxed">
+                <p className="t-body-sm mt-2 md:text-[0.95rem] text-muted-foreground">
                   {u.body}
                 </p>
               </div>
@@ -244,7 +244,7 @@ function HomePage() {
           <div className="lg:col-span-7 order-1 lg:order-2">
             <div className="rule-gold w-24 mb-6 opacity-70" />
             <Eyebrow>Mạng lưới phục vụ</Eyebrow>
-            <h2 className="font-display text-3xl md:text-4xl lg:text-[2.5rem] leading-[1.1] text-foreground">
+            <h2 className="t-h2 lg:text-[2.5rem] text-foreground">
               60 tỉnh thành.
               <span className="block italic text-accent-foreground">Một chuẩn mực.</span>
             </h2>
@@ -281,12 +281,12 @@ function HomePage() {
         />
         <div className="mx-auto max-w-6xl px-5 md:px-8 py-20 md:py-28 grid lg:grid-cols-12 gap-12 relative">
           <div className="lg:col-span-4">
-            <p className="text-[0.7rem] uppercase tracking-[0.28em] text-accent mb-4 font-medium flex items-center gap-2.5">
+            <p className="t-cta text-accent mb-4 flex items-center gap-2.5">
               <span className="inline-block w-1.5 h-1.5 rounded-full bg-brand-red" />
               <span className="inline-block w-5 h-px bg-accent" />
               Dịch vụ chính
             </p>
-            <h2 className="font-display text-3xl md:text-4xl lg:text-[2.75rem] leading-[1.1]">
+            <h2 className="t-h2 lg:text-[2.75rem]">
               Sáu nhóm dịch vụ
               <span className="block italic opacity-80">chuyên sâu.</span>
             </h2>
@@ -315,7 +315,7 @@ function HomePage() {
                     <h3 className="font-display text-lg md:text-xl leading-[1.75] md:leading-[1.6] tracking-tight transition-colors group-hover/row:text-accent">
                       <span className="draw-underline">{s.title}</span>
                     </h3>
-                    <p className="mt-1.5 text-sm text-primary-foreground/55 font-serif leading-relaxed line-clamp-2">
+                    <p className="t-body-sm mt-1.5 text-primary-foreground/55 line-clamp-2">
                       {s.summary}
                     </p>
                   </div>
@@ -336,7 +336,7 @@ function HomePage() {
         <div className="grid lg:grid-cols-12 gap-12 items-start">
           <div className="lg:col-span-5">
             <Eyebrow>Quy trình kiểm toán</Eyebrow>
-            <h2 className="font-display text-3xl md:text-4xl leading-[1.1] text-foreground">
+            <h2 className="t-h2 text-foreground">
               Năm bước,
               <span className="block italic text-accent-foreground">một chuẩn mực.</span>
             </h2>
@@ -394,7 +394,7 @@ function HomePage() {
               </span>
             </Reveal>
             <div className="lg:col-span-10">
-              <p className="text-[0.7rem] uppercase tracking-[0.22em] text-accent mb-6 flex items-center gap-2.5">
+              <p className="t-cta text-accent mb-6 flex items-center gap-2.5">
                 <span className="inline-block w-1.5 h-1.5 rounded-full bg-brand-red" />
                 <span className="inline-block w-5 h-px bg-accent" />
                 Khách hàng nói về TAF
@@ -430,7 +430,7 @@ function HomePage() {
                       </span>
                     </span>
                   </AccordionTrigger>
-                  <AccordionContent className="pl-10 text-muted-foreground font-serif leading-relaxed text-base">
+                  <AccordionContent className="t-body pl-10 text-muted-foreground">
                     {f.a}
                   </AccordionContent>
                 </AccordionItem>
@@ -447,7 +447,7 @@ function HomePage() {
         </div>
         <div className="grid md:grid-cols-12 gap-8 items-center relative">
           <div className="md:col-span-8">
-            <h2 className="font-display text-3xl md:text-4xl text-foreground leading-tight">
+            <h2 className="t-h2 text-foreground">
               Cần một hãng kiểm toán
               <span className="block italic text-accent-foreground">bạn có thể tin cậy?</span>
             </h2>
@@ -459,7 +459,7 @@ function HomePage() {
           <div className="md:col-span-4 md:text-right">
             <Link
               to="/lien-he"
-              className="group inline-flex items-center gap-2 bg-brand-red text-white px-6 py-3.5 text-xs font-semibold tracking-[0.18em] uppercase rounded-[2px] hover:bg-brand-red-ink transition shadow-[0_8px_24px_-12px_var(--color-brand-red)]"
+              className="t-cta group inline-flex items-center gap-2 bg-brand-red text-white px-6 py-3.5 rounded-[2px] hover:bg-brand-red-ink transition shadow-[0_8px_24px_-12px_var(--color-brand-red)]"
             >
               Yêu cầu báo giá
               <ArrowUpRight
@@ -506,7 +506,7 @@ function Stat({ value, suffix = "", label }: { value: number; suffix?: string; l
         {suffix}
       </div>
       <span className="stat-rule mx-auto md:mx-0" aria-hidden />
-      <div className="mt-2 text-[0.7rem] uppercase tracking-[0.18em] text-muted-foreground">
+      <div className="t-cta mt-2 text-muted-foreground">
         {label}
       </div>
     </div>
@@ -517,10 +517,10 @@ function CityStat({ city, count, note }: { city: string; count: number; note: st
   const { ref, value } = useCountUp(count);
   return (
     <div className="border-t border-accent/40 pt-3">
-      <dt className="font-display italic text-accent-foreground text-xl tabular-nums">
+      <dt className="t-h3 italic text-accent-foreground tabular-nums">
         <span ref={ref}>{value}</span>+
       </dt>
-      <dd className="mt-1 text-[0.7rem] uppercase tracking-[0.18em] text-muted-foreground">
+      <dd className="t-cta mt-1 text-muted-foreground">
         {city}
       </dd>
       <dd className="text-xs text-muted-foreground/80 font-serif italic mt-1">{note}</dd>

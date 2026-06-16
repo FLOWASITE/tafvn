@@ -34,7 +34,7 @@ export function RelatedArticles({ currentHref }: { currentHref: string }) {
               <h3 className="mt-2.5 font-display text-base leading-snug text-foreground group-hover:text-brand-red-ink transition-colors">
                 {a.title}
               </h3>
-              <p className="mt-2 text-sm text-muted-foreground font-serif leading-relaxed flex-1">
+              <p className="t-body-sm mt-2 text-muted-foreground flex-1">
                 {a.excerpt}
               </p>
               <span className="mt-4 inline-flex items-center gap-1.5 text-[0.7rem] font-medium uppercase tracking-[0.15em] text-brand-red-ink">

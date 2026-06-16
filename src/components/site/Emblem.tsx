@@ -16,7 +16,7 @@ export function Emblem({
       <Icon size={22} className="text-brand-red shrink-0" strokeWidth={1.5} />
       <div className="min-w-0">
         <div className="font-display text-sm md:text-base text-foreground leading-tight">{label}</div>
-        <div className="text-[0.65rem] md:text-[0.7rem] uppercase tracking-[0.2em] text-muted-foreground mt-0.5">
+        <div className="t-cta md:text-[0.7rem] text-muted-foreground mt-0.5">
           {sublabel}
         </div>
       </div>

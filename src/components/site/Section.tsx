@@ -18,7 +18,7 @@ export function Section({
 
 export function Eyebrow({ children }: { children: ReactNode }) {
   return (
-    <p className="text-[0.7rem] uppercase tracking-[0.22em] text-accent-foreground/80 mb-3 font-medium flex items-center gap-2.5">
+    <p className="t-cta text-accent-foreground/80 mb-3 flex items-center gap-2.5">
       <span className="inline-block w-1.5 h-1.5 rounded-full bg-brand-red" />
       <span className="inline-block w-5 h-px bg-accent" />
       {children}
@@ -40,11 +40,11 @@ export function SectionHeading({
   return (
     <div className={`max-w-3xl ${align === "center" ? "mx-auto text-center" : ""}`}>
       {eyebrow ? <Eyebrow>{eyebrow}</Eyebrow> : null}
-      <h2 className="font-display text-3xl md:text-4xl lg:text-[2.75rem] leading-[1.1] text-foreground">
+      <h2 className="t-h2 lg:text-[2.75rem] text-foreground">
         {title}
       </h2>
       {lead ? (
-        <p className="mt-4 text-base md:text-lg text-muted-foreground font-serif leading-relaxed">
+        <p className="t-body mt-4 text-muted-foreground">
           {lead}
         </p>
       ) : null}

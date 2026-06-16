@@ -56,12 +56,12 @@ function ProvincePage() {
 
       <Section>
         <header className="max-w-3xl">
-          <p className="text-[0.7rem] uppercase tracking-[0.22em] text-accent-foreground/80 mb-3">
+          <p className="t-cta text-accent-foreground/80 mb-3">
             {fallback?.region ?? "Địa bàn"}
           </p>
           <h1 className="font-display text-4xl md:text-5xl leading-tight text-foreground">{title}</h1>
           {(cms?.excerpt ?? fallback) && (
-            <p className="mt-5 text-lg text-muted-foreground font-serif leading-relaxed">
+            <p className="t-lead mt-5 text-muted-foreground">
               {cms?.excerpt ??
                 `TAF phục vụ doanh nghiệp tại ${fallback?.name} từ doanh nghiệp FDI trong các khu công nghiệp đến công ty nội địa. KTV phụ trách am hiểu đặc thù ngành và quy định địa phương, sẵn sàng tới trụ sở khách hàng làm việc trực tiếp.`}
             </p>

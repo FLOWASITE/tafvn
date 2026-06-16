@@ -41,7 +41,7 @@ export function ContactForm() {
   if (status === "ok") {
     return (
       <div className="border border-accent bg-accent/10 p-6 rounded-[2px]">
-        <h3 className="font-display text-xl text-foreground">Đã nhận yêu cầu của bạn</h3>
+        <h3 className="t-h3 text-foreground">Đã nhận yêu cầu của bạn</h3>
         <p className="mt-2 text-sm text-muted-foreground font-serif">
           KTV phụ trách của TAF sẽ liên hệ lại trong vòng 1 ngày làm việc. Cảm ơn bạn đã quan tâm.
         </p>
@@ -85,7 +85,7 @@ export function ContactForm() {
           rows={5}
           maxLength={5000}
           placeholder="Quy mô doanh nghiệp, loại hình, thời điểm cần báo cáo…"
-          className="w-full px-3 py-2.5 border border-input bg-background text-sm rounded-[2px] font-serif leading-relaxed focus:outline-none focus:ring-2 focus:ring-accent"
+          className="t-body-sm w-full px-3 py-2.5 border border-input bg-background rounded-[2px] focus:outline-none focus:ring-2 focus:ring-accent"
         />
       </div>
       {status === "error" && (

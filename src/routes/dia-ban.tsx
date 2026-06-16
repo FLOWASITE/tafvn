@@ -42,7 +42,7 @@ function ProvincesIndex() {
         <div className="mt-12 space-y-12">
           {Object.entries(byRegion).map(([region, items]) => (
             <div key={region}>
-              <h2 className="font-display text-xl text-foreground mb-4">{t(region)}</h2>
+              <h2 className="t-h3 text-foreground mb-4">{t(region)}</h2>
               <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-3">
                 {items.map((p) => (
                   <Link

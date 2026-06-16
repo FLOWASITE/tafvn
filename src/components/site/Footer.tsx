@@ -15,7 +15,7 @@ export function Footer({ offices }: { offices: Office[] }) {
         {/* Identity */}
         <div className="md:col-span-4 space-y-6">
           <Logo variant="light" />
-          <p className="text-sm leading-relaxed text-primary-foreground/60 font-serif max-w-sm">
+          <p className="t-body-sm text-primary-foreground/60 max-w-sm">
             {SITE.legalName} {t("— hãng kiểm toán độc lập đăng ký hành nghề với Bộ Tài chính, phục vụ doanh nghiệp Việt Nam và FDI từ năm")} {SITE.established}.
           </p>
 

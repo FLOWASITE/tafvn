@@ -38,7 +38,7 @@ export function ProcessTimeline() {
               <s.icon size={16} className="text-accent-foreground/60" strokeWidth={1.5} />
             </div>
             <h3 className="font-display text-lg text-foreground leading-snug">{s.title}</h3>
-            <p className="mt-1.5 text-sm text-muted-foreground font-serif leading-relaxed">{s.body}</p>
+            <p className="t-body-sm mt-1.5 text-muted-foreground">{s.body}</p>
           </div>
         </li>
       ))}

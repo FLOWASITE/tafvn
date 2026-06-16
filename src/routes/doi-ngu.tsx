@@ -62,12 +62,12 @@ function TeamPage() {
                   {p.name.charAt(0)}
                 </span>
               </div>
-              <h3 className="font-display text-xl text-foreground">{t(p.name)}</h3>
+              <h3 className="t-h3 text-foreground">{t(p.name)}</h3>
               <div className="text-sm text-accent-foreground mt-1">{t(p.title)}</div>
               <div className="text-xs text-muted-foreground mt-1 uppercase tracking-wider">
                 {t(p.credentials)}
               </div>
-              <p className="mt-4 text-sm text-foreground/80 font-serif leading-relaxed">{t(p.bio)}</p>
+              <p className="t-body-sm mt-4 text-foreground/80">{t(p.bio)}</p>
             </article>
           ))}
         </div>

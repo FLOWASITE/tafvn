@@ -133,14 +133,14 @@ function H2({ children, id }: { children: ReactNode; id?: string }) {
   return (
     <h2
       id={id}
-      className="font-display text-2xl md:text-[1.9rem] leading-tight text-foreground mt-12 mb-4 scroll-mt-24"
+      className="t-h2 md:text-[1.9rem] text-foreground mt-12 mb-4 scroll-mt-24"
     >
       {children}
     </h2>
   );
 }
 function H3({ children }: { children: ReactNode }) {
-  return <h3 className="font-display text-xl leading-snug text-foreground mt-7 mb-2.5">{children}</h3>;
+  return <h3 className="t-h3 text-foreground mt-7 mb-2.5">{children}</h3>;
 }
 function P({ children }: { children: ReactNode }) {
   return (
@@ -195,7 +195,7 @@ function ArticlePage() {
       <Section className="!pb-8">
         <div className="max-w-3xl">
           <Eyebrow>Resources · TAF</Eyebrow>
-          <h1 className="font-display text-3xl md:text-[2.6rem] leading-[1.12] text-foreground">
+          <h1 className="t-h2 md:text-[2.6rem] text-foreground">
             Professional, reputable, low-cost, full-package tax accounting service
           </h1>
           <div className="mt-5 flex flex-wrap items-center gap-4 text-sm text-muted-foreground">
@@ -238,7 +238,7 @@ function ArticlePage() {
 
           {/* Mục lục */}
           <nav aria-label="Table of contents" className="my-8 rounded-[3px] border border-border bg-cream/50 p-5">
-            <p className="flex items-center gap-2 text-[0.7rem] font-bold uppercase tracking-[0.18em] text-accent-foreground mb-3">
+            <p className="t-cta flex items-center gap-2 font-bold text-accent-foreground mb-3">
               <ListTree size={15} className="text-brand-red" /> Table of contents
             </p>
             <ol className="space-y-1.5">
@@ -396,7 +396,7 @@ function ArticlePage() {
                     {f.q}
                   </span>
                 </AccordionTrigger>
-                <AccordionContent className="text-base text-foreground/80 font-serif leading-relaxed pl-10 pr-2">
+                <AccordionContent className="t-body text-foreground/80 pl-10 pr-2">
                   {f.a}
                 </AccordionContent>
               </AccordionItem>
@@ -404,7 +404,7 @@ function ArticlePage() {
           </Accordion>
 
           {/* Slogan */}
-          <p className="my-10 text-center font-display text-xl md:text-2xl text-accent-foreground italic">
+          <p className="t-h3 my-10 text-center md:text-2xl text-accent-foreground italic">
             TAF – Trao giá trị, nhận niềm tin.
           </p>
 
