@@ -317,11 +317,13 @@ function InternalAuditService() {
             </p>
           </div>
           <div className="lg:col-span-7">
-            <ul className="divide-y divide-accent/20 border-t border-b border-accent/20">
+            <ul className="border-t border-accent/30 lg:columns-1 xl:columns-1">
               {POWERS.map((p) => (
-                <li key={p} className="py-5 flex gap-4">
-                  <KeyRound size={18} className="shrink-0 text-accent-foreground mt-1" strokeWidth={1.7} />
-                  <span className="text-sm text-foreground/85 font-serif leading-relaxed">{p}</span>
+                <li key={p} className="py-5 flex gap-4 border-b border-accent/20 break-inside-avoid">
+                  <span className="shrink-0 w-9 h-9 rounded-full border border-accent/40 flex items-center justify-center text-accent-foreground">
+                    <KeyRound size={15} strokeWidth={1.7} />
+                  </span>
+                  <span className="text-sm text-foreground/85 font-serif leading-relaxed pt-1.5">{p}</span>
                 </li>
               ))}
             </ul>
