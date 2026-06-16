@@ -47,9 +47,9 @@ import { cn } from "@/lib/utils";
 import { SITE } from "@/lib/site";
 
 const SITE_ORIGIN = "https://tafvn.lovable.app";
-const TITLE = "Dịch vụ kế toán trọn gói cho doanh nghiệp | TAF";
+const TITLE = "Dịch vụ kế toán trọn gói TP.HCM trọn năm | TAF";
 const DESCRIPTION =
-  "Dịch vụ kế toán trọn gói của TAF: kế toán thuế, lập BCTC, kê khai thuế và BHXH cho doanh nghiệp vừa và nhỏ. Minh bạch, đúng luật, đội ngũ KTV giàu kinh nghiệm.";
+  "Dịch vụ kế toán trọn gói TP.HCM: kế toán thuế, BCTC, BHXH cho SMEs. Báo giá minh bạch, đội ngũ KTV & CPA hành nghề, tuân thủ Luật Kế toán 2015.";
 const PATH = "/dich-vu-ke-toan-tron-goi-tphcm";
 const CANONICAL = `${SITE_ORIGIN}${PATH}`;
 
@@ -749,7 +749,7 @@ function AccountingServicePage() {
           <header className="lg:col-span-8">
             <Eyebrow>Kế toán trọn gói</Eyebrow>
             <h1 className="font-display text-4xl md:text-5xl lg:text-[3.5rem] leading-[1.02] text-foreground">
-              Dịch vụ <span className="italic text-accent-foreground italic-mark">kế toán trọn gói</span>
+              Dịch vụ <span className="italic text-accent-foreground italic-mark">kế toán trọn gói</span> tại TP.HCM
               <span className="block text-foreground/55 text-2xl md:text-3xl lg:text-4xl font-display italic mt-2">
                 cho doanh nghiệp vừa và nhỏ
               </span>
@@ -1025,18 +1025,26 @@ function AccountingServicePage() {
           />
         </div>
 
-        <blockquote className="relative mt-10 border-l-2 border-brand-red pl-6 md:pl-7 max-w-3xl">
+        <blockquote
+          className="relative mt-10 border-l-2 border-brand-red pl-6 md:pl-7 max-w-3xl"
+          cite="https://thuvienphapluat.vn/van-ban/Ke-toan-Kiem-toan/Luat-ke-toan-2015-298369.aspx"
+        >
           <span aria-hidden className="absolute -top-6 -left-2 font-display text-[5rem] leading-none text-accent/30 select-none pointer-events-none">
             “
           </span>
           <div className="t-eyebrow text-brand-red-ink/80 mb-2">
-            Lưu ý · Disclaimer
+            Lưu ý về báo giá · Disclaimer
           </div>
           <p className="t-body md:text-[1.0625rem] text-foreground/80">
-            Phí trên chưa gồm thuế, VAT và các lệ phí phải nộp Nhà nước; có thể thay đổi
-            với doanh nghiệp xuất nhập khẩu hoặc có vốn nước ngoài. Nội thành TP.HCM miễn
-            phí giao nhận chứng từ tận nơi; các khu vực khác theo thỏa thuận.
+            Mức phí tham khảo nêu trên <strong>chưa bao gồm thuế GTGT</strong> và các khoản
+            lệ phí nộp ngân sách Nhà nước; có thể điều chỉnh đối với doanh nghiệp
+            <strong> xuất nhập khẩu</strong> hoặc <strong>có vốn đầu tư nước ngoài (FDI)</strong>.
+            Nội thành TP.HCM được <strong>miễn phí giao nhận chứng từ tận nơi</strong>;
+            các khu vực khác theo thỏa thuận trong hợp đồng dịch vụ kế toán.
           </p>
+          <footer className="t-eyebrow mt-3 text-muted-foreground/80 not-italic">
+            Căn cứ: Luật Kế toán số 88/2015/QH13 · Thông tư 296/2016/TT-BTC · Cập nhật 2026
+          </footer>
         </blockquote>
 
         <div className="mt-8 flex flex-wrap gap-3">
