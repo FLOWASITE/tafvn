@@ -184,13 +184,19 @@ function InternalAuditService() {
 
       {/* Khái niệm */}
       <Section className="!pt-0">
-        <div className="max-w-3xl">
+        <div className="max-w-3xl relative">
+          <span
+            aria-hidden
+            className="absolute -top-8 -left-2 md:-left-10 font-display text-[8rem] md:text-[10rem] leading-none text-accent/25 select-none brace-glow pointer-events-none"
+          >
+            “
+          </span>
           <Eyebrow>Khái niệm</Eyebrow>
-          <blockquote className="mt-2 border-l-2 border-brand-red pl-6">
-            <p className="font-display text-2xl md:text-3xl text-foreground leading-snug">
-              “Kiểm toán nội bộ là gì?”
+          <blockquote className="mt-2 border-l-2 border-brand-red pl-6 relative">
+            <p className="font-display italic text-3xl md:text-4xl text-foreground leading-snug">
+              Kiểm toán nội bộ là gì?
             </p>
-            <p className="mt-4 text-lg text-muted-foreground font-serif leading-relaxed">
+            <p className="mt-5 text-lg text-muted-foreground font-serif leading-relaxed">
               Kiểm toán nội bộ là bộ phận bắt buộc trong nhiều doanh nghiệp, thực hiện các hoạt
               động tư vấn và đảm bảo khách quan nhằm gia tăng giá trị và giải quyết hiệu quả các
               hoạt động cho đơn vị.
