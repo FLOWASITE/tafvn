@@ -172,7 +172,7 @@ export function LocaleProvider({ children }: { children: ReactNode }) {
         for (let i = 0; i < allTexts.length; i += BATCH) {
           const slice = allTexts.slice(i, i + BATCH);
           // eslint-disable-next-line no-await-in-loop
-          const res = await translateBatch({ data: { texts: slice, lang } });
+          const res = await translateBatch({ data: { texts: slice, lang: locale } });
           out.push(...res.translations);
           if (cancelled) return;
         }
