@@ -212,19 +212,23 @@ function InternalAuditService() {
           title="Vai trò của kiểm toán nội bộ trong doanh nghiệp"
           lead="Kiểm toán nội bộ hỗ trợ tối đa cho quản lý rủi ro, đảm bảo hiệu quả kiểm soát, đồng thời đánh giá và khuyến nghị để nâng cao hiệu quả quản trị."
         />
-        <div className="mt-10 grid md:grid-cols-3 gap-5">
-          {ROLES.map((r) => {
+        <div className="mt-12 grid md:grid-cols-3 gap-5">
+          {ROLES.map((r, i) => {
             const Icon = r.icon;
             return (
               <div
                 key={r.title}
-                className="group bg-cream/50 border border-accent/20 p-8 transition-all hover:border-accent/50 hover:shadow-[0_8px_30px_-12px_rgba(0,0,0,0.08)]"
+                className="group relative bg-cream/50 border border-accent/20 p-8 transition-all duration-300 hover:-translate-y-1 hover:border-accent/60 hover:shadow-[0_18px_40px_-20px_rgba(0,0,0,0.12)]"
               >
-                <div className="w-10 h-10 flex items-center justify-center bg-background border border-accent/30 text-accent-foreground">
-                  <Icon size={20} strokeWidth={1.5} />
+                <span className="absolute top-5 right-6 font-display italic text-sm text-accent-foreground/40 tabular-nums">
+                  {String(i + 1).padStart(2, "0")}.
+                </span>
+                <div className="w-14 h-14 rounded-full flex items-center justify-center bg-background border border-accent/40 text-accent-foreground transition-colors group-hover:border-accent">
+                  <Icon size={22} strokeWidth={1.4} />
                 </div>
-                <h3 className="mt-6 font-display text-xl text-foreground">{r.title}</h3>
-                <p className="mt-3 text-sm text-foreground/75 font-serif leading-relaxed">
+                <h3 className="mt-7 font-display text-xl text-foreground">{r.title}</h3>
+                <span className="block mt-3 h-px w-8 bg-brand-red/70" />
+                <p className="mt-4 text-sm text-foreground/75 font-serif leading-relaxed">
                   {r.body}
                 </p>
               </div>
