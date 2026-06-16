@@ -928,7 +928,7 @@ function AccountingServicePage() {
                 Dịch vụ kế toán trọn gói là gì?
               </h2>
             </div>
-            <p className="t-body lg:col-span-8 text-foreground/85">
+            <p className="t-body lg:col-span-8 text-foreground/85 first-letter:font-display first-letter:text-[4.5rem] first-letter:leading-[0.85] first-letter:float-left first-letter:mr-3 first-letter:mt-1 first-letter:text-accent-foreground first-letter:italic">
               Kế toán là bộ phận quan trọng, quản lý thu – chi, xử lý thuế, lập báo cáo
               tài chính và các thủ tục pháp lý liên quan. Doanh nghiệp lớn thường có
               phòng kế toán riêng, nhưng với công ty mới thành lập hoặc quy mô nhỏ, ít
