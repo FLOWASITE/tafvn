@@ -14,6 +14,7 @@ import { reportLovableError } from "../lib/lovable-error-reporting";
 import { Header } from "@/components/site/Header";
 import { Footer } from "@/components/site/Footer";
 import { Chatbot } from "@/components/site/Chatbot";
+import { LocaleProvider } from "@/lib/i18n/context";
 import { listOffices } from "@/lib/offices.functions";
 import { SITE } from "@/lib/site";
 
@@ -192,14 +193,16 @@ function RootComponent() {
 
   return (
     <QueryClientProvider client={queryClient}>
-      <div className="flex min-h-screen flex-col">
-        <Header />
-        <main className="flex-1">
-          <Outlet />
-        </main>
-        <Footer offices={offices} />
-      </div>
-      <Chatbot />
+      <LocaleProvider>
+        <div className="flex min-h-screen flex-col">
+          <Header />
+          <main className="flex-1">
+            <Outlet />
+          </main>
+          <Footer offices={offices} />
+        </div>
+        <Chatbot />
+      </LocaleProvider>
     </QueryClientProvider>
   );
 }
