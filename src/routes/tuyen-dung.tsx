@@ -139,10 +139,11 @@ function CareersPage() {
       {/* Open positions */}
       <Section className="!pt-0">
         <SectionHeading
-          eyebrow="Vị trí đang tuyển"
-          title="Các vị trí TAF đang tìm người."
-          lead="Nếu bạn thấy mình phù hợp với một trong các vị trí dưới đây, hãy gửi CV cho chúng tôi. TAF phản hồi mọi hồ sơ trong vòng 5 ngày làm việc."
+          eyebrow={t("Vị trí đang tuyển")}
+          title={t("Các vị trí TAF đang tìm người.")}
+          lead={t("Nếu bạn thấy mình phù hợp với một trong các vị trí dưới đây, hãy gửi CV cho chúng tôi. TAF phản hồi mọi hồ sơ trong vòng 5 ngày làm việc.")}
         />
+
         <div className="mt-12 space-y-px bg-border border border-border">
           {POSITIONS.map((p) => (
             <article key={p.title} className="bg-background p-7 md:p-8">
