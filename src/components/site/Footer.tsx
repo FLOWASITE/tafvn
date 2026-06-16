@@ -49,16 +49,17 @@ export function Footer({ offices }: { offices: Office[] }) {
 
         {/* Navigation */}
         <div className="md:col-span-2 space-y-6">
-          <h4 className="text-xs font-bold uppercase tracking-widest text-accent">Điều hướng</h4>
+          <h4 className="text-xs font-bold uppercase tracking-widest text-accent">{t("Điều hướng")}</h4>
           <ul className="space-y-3 text-sm">
             {NAV.map((n) => (
               <li key={n.to}>
                 <Link to={n.to} className="text-primary-foreground/75 hover:text-primary-foreground transition-colors">
-                  {n.label}
+                  {t(n.label)}
                 </Link>
               </li>
             ))}
           </ul>
+
         </div>
 
         {/* Services */}
