@@ -3,6 +3,8 @@ import { Mail, Phone, MapPin, GraduationCap, TrendingUp, Users, ShieldCheck } fr
 import { Breadcrumb } from "@/components/site/Breadcrumb";
 import { Section, SectionHeading, Eyebrow } from "@/components/site/Section";
 import { SITE } from "@/lib/site";
+import { useT } from "@/lib/i18n/context";
+
 
 export const Route = createFileRoute("/tuyen-dung")({
   head: () => ({
@@ -94,10 +96,12 @@ const POSITIONS: {
 ];
 
 function CareersPage() {
+  const t = useT();
   const subject = encodeURIComponent("Ứng tuyển tại TAF");
   return (
     <>
-      <Breadcrumb items={[{ label: "Tuyển dụng" }]} />
+      <Breadcrumb items={[{ label: t("Tuyển dụng") }]} />
+
 
       {/* Hero */}
       <Section className="!pb-10">
@@ -135,10 +139,11 @@ function CareersPage() {
       {/* Open positions */}
       <Section className="!pt-0">
         <SectionHeading
-          eyebrow="Vị trí đang tuyển"
-          title="Các vị trí TAF đang tìm người."
-          lead="Nếu bạn thấy mình phù hợp với một trong các vị trí dưới đây, hãy gửi CV cho chúng tôi. TAF phản hồi mọi hồ sơ trong vòng 5 ngày làm việc."
+          eyebrow={t("Vị trí đang tuyển")}
+          title={t("Các vị trí TAF đang tìm người.")}
+          lead={t("Nếu bạn thấy mình phù hợp với một trong các vị trí dưới đây, hãy gửi CV cho chúng tôi. TAF phản hồi mọi hồ sơ trong vòng 5 ngày làm việc.")}
         />
+
         <div className="mt-12 space-y-px bg-border border border-border">
           {POSITIONS.map((p) => (
             <article key={p.title} className="bg-background p-7 md:p-8">

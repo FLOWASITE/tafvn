@@ -26,6 +26,8 @@ import { TestimonialCarousel } from "@/components/site/TestimonialCarousel";
 import { Reveal } from "@/components/site/Reveal";
 import { useCountUp } from "@/hooks/use-count-up";
 import { SERVICES, SITE, FAQ_GENERAL } from "@/lib/site";
+import { useT } from "@/lib/i18n/context";
+
 import portraitImg from "@/assets/taf-portrait.png";
 import reportSealImg from "@/assets/taf-report-seal.png";
 import meetingImg from "@/assets/taf-meeting.png";
@@ -54,7 +56,9 @@ export const Route = createFileRoute("/")({
 });
 
 function HomePage() {
+  const t = useT();
   const years = new Date().getFullYear() - SITE.established;
+
   return (
     <>
       {/* HERO */}
@@ -406,9 +410,10 @@ function HomePage() {
         <div className="grid lg:grid-cols-12 gap-10">
           <div className="lg:col-span-4">
             <SectionHeading
-              eyebrow="Câu hỏi thường gặp"
-              title="Trả lời nhanh cho những thắc mắc phổ biến."
+              eyebrow={t("Câu hỏi thường gặp")}
+              title={t("Trả lời nhanh cho những thắc mắc phổ biến.")}
             />
+
           </div>
           <div className="lg:col-span-8">
             <Accordion type="single" collapsible className="border-y border-border">

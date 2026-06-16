@@ -3,6 +3,8 @@ import { Breadcrumb } from "@/components/site/Breadcrumb";
 import { Section } from "@/components/site/Section";
 import { PROVINCES, SITE } from "@/lib/site";
 import { getPage } from "@/lib/pages.functions";
+import { useT } from "@/lib/i18n/context";
+
 
 export const Route = createFileRoute("/dia-ban/$slug")({
   loader: async ({ params }) => {
@@ -39,6 +41,7 @@ export const Route = createFileRoute("/dia-ban/$slug")({
 });
 
 function ProvincePage() {
+  const t = useT();
   const { cms, fallback } = Route.useLoaderData();
   const title = cms?.title ?? (fallback ? `Dịch vụ kiểm toán tại ${fallback.name}` : "Địa bàn");
 
@@ -46,10 +49,11 @@ function ProvincePage() {
     <>
       <Breadcrumb
         items={[
-          { label: "Địa bàn", to: "/dia-ban" },
-          { label: fallback?.name ?? title },
+          { label: t("Địa bàn"), to: "/dia-ban" },
+          { label: t(fallback?.name ?? title) },
         ]}
       />
+
       <Section>
         <header className="max-w-3xl">
           <p className="text-[0.7rem] uppercase tracking-[0.22em] text-accent-foreground/80 mb-3">

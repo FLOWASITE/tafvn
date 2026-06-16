@@ -158,7 +158,25 @@ const en: Dict = {
   "Địa bàn TAF phục vụ": "Locations TAF serves",
   "TAF có KTV sẵn sàng đến trụ sở khách hàng tại các tỉnh và thành phố sau. Mỗi địa bàn có trang riêng mô tả ngành nghề trọng điểm và đặc thù pháp lý.":
     "TAF has auditors ready to visit client offices in the following provinces and cities. Each location has its own page describing key industries and legal specifics.",
+
+  // Section headings (other static pages)
+  "Câu hỏi thường gặp": "Frequently asked questions",
+  "Trả lời nhanh cho những thắc mắc phổ biến.": "Quick answers to common questions.",
+  "Vị trí đang tuyển": "Open positions",
+  "Các vị trí TAF đang tìm người.": "Positions TAF is currently hiring for.",
+  "Nếu bạn thấy mình phù hợp với một trong các vị trí dưới đây, hãy gửi CV cho chúng tôi. TAF phản hồi mọi hồ sơ trong vòng 5 ngày làm việc.":
+    "If you fit one of the positions below, send us your CV. TAF responds to every application within 5 business days.",
+  "Đến gặp TAF trực tiếp": "Visit TAF in person",
+  "Khách hàng có thể tới văn phòng để trao đổi trực tiếp với KTV phụ trách hoặc đề nghị KTV đến trụ sở doanh nghiệp.":
+    "Clients may visit our office to meet the assigned auditor or request the auditor to come on-site.",
+  "Bài viết": "Articles",
+  "Bài viết nghiệp vụ": "Expertise articles",
+  "Chủ đề": "Topics",
+  "Chủ đề chuyên môn": "Specialist topics",
+  "Tìm hiểu nhanh theo từng lĩnh vực và liên kết tới các dịch vụ tương ứng của TAF.":
+    "Quick overview by area, with links to the matching TAF services.",
 };
+
 
 const ja: Dict = {
   "Giờ làm việc: T2 – T7, 8:00 – 17:30": "営業時間: 月〜土、8:00〜17:30",
@@ -306,7 +324,25 @@ const ja: Dict = {
   "Địa bàn TAF phục vụ": "TAFのサービス対応地域",
   "TAF có KTV sẵn sàng đến trụ sở khách hàng tại các tỉnh và thành phố sau. Mỗi địa bàn có trang riêng mô tả ngành nghề trọng điểm và đặc thù pháp lý.":
     "TAFは以下の省・市のお客様事務所への訪問が可能な監査人を擁しています。各地域には主要業種と法的特性を説明する専用ページがあります。",
+
+  // Section headings (other static pages)
+  "Câu hỏi thường gặp": "よくある質問",
+  "Trả lời nhanh cho những thắc mắc phổ biến.": "よくある質問への簡潔な回答。",
+  "Vị trí đang tuyển": "募集中のポジション",
+  "Các vị trí TAF đang tìm người.": "TAFが現在募集しているポジション。",
+  "Nếu bạn thấy mình phù hợp với một trong các vị trí dưới đây, hãy gửi CV cho chúng tôi. TAF phản hồi mọi hồ sơ trong vòng 5 ngày làm việc.":
+    "下記のポジションにご興味のある方はCVをお送りください。TAFは5営業日以内にすべての応募に回答します。",
+  "Đến gặp TAF trực tiếp": "TAFを直接訪問",
+  "Khách hàng có thể tới văn phòng để trao đổi trực tiếp với KTV phụ trách hoặc đề nghị KTV đến trụ sở doanh nghiệp.":
+    "お客様はオフィスにて担当監査人と直接お打ち合わせいただけます。また、監査人による貴社訪問も承ります。",
+  "Bài viết": "記事",
+  "Bài viết nghiệp vụ": "専門知識記事",
+  "Chủ đề": "トピック",
+  "Chủ đề chuyên môn": "専門トピック",
+  "Tìm hiểu nhanh theo từng lĩnh vực và liên kết tới các dịch vụ tương ứng của TAF.":
+    "分野別の概要と、対応するTAFサービスへのリンク。",
 };
+
 
 const ko: Dict = {
   "Giờ làm việc: T2 – T7, 8:00 – 17:30": "근무 시간: 월~토, 8:00~17:30",
@@ -454,7 +490,25 @@ const ko: Dict = {
   "Địa bàn TAF phục vụ": "TAF 서비스 지역",
   "TAF có KTV sẵn sàng đến trụ sở khách hàng tại các tỉnh và thành phố sau. Mỗi địa bàn có trang riêng mô tả ngành nghề trọng điểm và đặc thù pháp lý.":
     "TAF는 아래 성 및 시의 고객사 방문이 가능한 감사인을 보유하고 있습니다. 각 지역에는 주요 산업과 법적 특성을 설명하는 전용 페이지가 있습니다.",
+
+  // Section headings (other static pages)
+  "Câu hỏi thường gặp": "자주 묻는 질문",
+  "Trả lời nhanh cho những thắc mắc phổ biến.": "자주 묻는 질문에 대한 빠른 답변.",
+  "Vị trí đang tuyển": "채용 중인 포지션",
+  "Các vị trí TAF đang tìm người.": "TAF가 현재 채용 중인 포지션.",
+  "Nếu bạn thấy mình phù hợp với một trong các vị trí dưới đây, hãy gửi CV cho chúng tôi. TAF phản hồi mọi hồ sơ trong vòng 5 ngày làm việc.":
+    "아래 포지션 중 적합하다고 생각되시면 CV를 보내주세요. TAF는 모든 지원서에 5영업일 이내에 응답합니다.",
+  "Đến gặp TAF trực tiếp": "TAF 사무소 방문",
+  "Khách hàng có thể tới văn phòng để trao đổi trực tiếp với KTV phụ trách hoặc đề nghị KTV đến trụ sở doanh nghiệp.":
+    "고객님은 사무소에 방문하여 담당 감사인과 직접 상담하시거나 감사인의 회사 방문을 요청하실 수 있습니다.",
+  "Bài viết": "기사",
+  "Bài viết nghiệp vụ": "전문 지식 기사",
+  "Chủ đề": "주제",
+  "Chủ đề chuyên môn": "전문 주제",
+  "Tìm hiểu nhanh theo từng lĩnh vực và liên kết tới các dịch vụ tương ứng của TAF.":
+    "분야별 빠른 개요와 관련 TAF 서비스 링크.",
 };
+
 
 export const DICTIONARIES: Record<Exclude<Locale, "vi">, Dict> = { en, ja, ko };
 

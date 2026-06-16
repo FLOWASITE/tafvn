@@ -3,6 +3,8 @@ import { Breadcrumb } from "@/components/site/Breadcrumb";
 import { Section } from "@/components/site/Section";
 import { SITE } from "@/lib/site";
 import { getPage } from "@/lib/pages.functions";
+import { useT } from "@/lib/i18n/context";
+
 
 export const Route = createFileRoute("/tin-tuc/$slug")({
   loader: async ({ params }) => {
@@ -59,11 +61,13 @@ export const Route = createFileRoute("/tin-tuc/$slug")({
 });
 
 function ArticlePage() {
+  const t = useT();
   const { cms } = Route.useLoaderData();
 
   return (
     <>
-      <Breadcrumb items={[{ label: "Tin tức", to: "/tin-tuc" }, { label: cms.title }]} />
+      <Breadcrumb items={[{ label: t("Tin tức"), to: "/tin-tuc" }, { label: cms.title }]} />
+
       <Section>
         <article className="max-w-3xl mx-auto">
           <header>

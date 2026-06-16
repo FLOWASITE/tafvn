@@ -21,6 +21,8 @@ import {
   AccordionContent,
 } from "@/components/ui/accordion";
 import { FAQ_GENERAL } from "@/lib/site";
+import { useT } from "@/lib/i18n/context";
+
 
 export const Route = createFileRoute("/dich-vu/")({
   head: () => ({
@@ -207,9 +209,11 @@ function SubServiceRow({ item }: { item: SubService }) {
 }
 
 function ServicesIndex() {
+  const t = useT();
   return (
     <>
-      <Breadcrumb items={[{ label: "Dịch vụ" }]} />
+      <Breadcrumb items={[{ label: t("Dịch vụ") }]} />
+
 
       {/* Hero */}
       <Section className="!pb-10">
