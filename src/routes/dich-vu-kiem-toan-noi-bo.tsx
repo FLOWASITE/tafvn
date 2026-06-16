@@ -508,19 +508,26 @@ function InternalAuditService() {
 
       {/* CTA */}
       <Section className="!pt-0">
-        <div className="relative bg-foreground text-background p-8 md:p-14 overflow-hidden">
+        <div className="relative bg-foreground text-background p-8 md:p-16 overflow-hidden">
           <span className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-accent to-transparent" />
-          <div className="grid lg:grid-cols-12 gap-10 items-center">
+          <span className="absolute inset-0 paper-grain opacity-[0.06] pointer-events-none mix-blend-screen" aria-hidden />
+          <span
+            aria-hidden
+            className="absolute -right-6 -bottom-10 md:-right-4 md:-bottom-16 font-display italic text-[10rem] md:text-[16rem] leading-none text-accent/[0.06] select-none pointer-events-none tracking-tight"
+          >
+            TAF.
+          </span>
+          <div className="relative grid lg:grid-cols-12 gap-10 items-center">
             <div className="lg:col-span-7">
-              <p className="text-[0.7rem] uppercase tracking-[0.28em] text-accent mb-5 flex items-center gap-3 font-medium">
+              <p className="text-[0.7rem] uppercase tracking-[0.32em] text-accent mb-6 flex items-center gap-3 font-medium">
                 <span className="inline-block w-8 h-px bg-accent" />
                 Nhận tư vấn ngay
               </p>
-              <h2 className="font-display text-3xl md:text-4xl lg:text-[2.5rem] leading-[1.15] text-background">
+              <h2 className="font-display text-3xl md:text-4xl lg:text-5xl leading-[1.12] text-background">
                 Tăng cường quản trị rủi ro{" "}
                 <span className="italic text-accent">cùng TAF.</span>
               </h2>
-              <p className="mt-5 text-background/70 font-serif text-base md:text-lg leading-relaxed max-w-xl">
+              <p className="mt-6 text-background/70 font-serif text-base md:text-lg leading-relaxed max-w-xl">
                 Liên hệ để được khảo sát và trao đổi cụ thể về phạm vi, tiến độ và nguồn lực cho
                 cuộc kiểm toán nội bộ của doanh nghiệp bạn.
               </p>
@@ -530,7 +537,10 @@ function InternalAuditService() {
                 to="/lien-he"
                 className="group inline-flex items-center justify-between gap-2 bg-brand-red text-white px-7 py-4 text-sm font-medium rounded-[2px] hover:bg-brand-red-ink transition-all"
               >
-                <span className="uppercase tracking-[0.18em]">Yêu cầu tư vấn</span>
+                <span className="flex items-center gap-2.5 uppercase tracking-[0.18em]">
+                  <span className="inline-block w-1.5 h-1.5 rounded-full bg-accent animate-pulse" />
+                  Yêu cầu tư vấn
+                </span>
                 <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
               </Link>
               <a
