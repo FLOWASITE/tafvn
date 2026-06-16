@@ -3,6 +3,8 @@ import { Mail, Phone, MapPin, GraduationCap, TrendingUp, Users, ShieldCheck } fr
 import { Breadcrumb } from "@/components/site/Breadcrumb";
 import { Section, SectionHeading, Eyebrow } from "@/components/site/Section";
 import { SITE } from "@/lib/site";
+import { useT } from "@/lib/i18n/context";
+
 
 export const Route = createFileRoute("/tuyen-dung")({
   head: () => ({
