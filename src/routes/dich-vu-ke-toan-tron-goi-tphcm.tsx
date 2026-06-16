@@ -731,9 +731,10 @@ function AccountingServicePage() {
 
       {/* Hero */}
       <Section className="pb-10 md:pb-14 relative overflow-hidden">
+        <div className="absolute inset-0 hero-grid-bg pointer-events-none opacity-50" aria-hidden />
         <div
           aria-hidden
-          className="pointer-events-none absolute -top-10 -right-16 md:right-0 opacity-[0.04] hidden md:block"
+          className="pointer-events-none absolute -top-10 -right-16 md:right-0 opacity-[0.025] hidden md:block"
         >
           <TafSeal size={420} spin />
         </div>
