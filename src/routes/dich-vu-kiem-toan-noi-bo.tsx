@@ -7,7 +7,7 @@ import {
   Scale,
   KeyRound,
   CheckCircle2,
-  Building2,
+  
 } from "lucide-react";
 import { Breadcrumb } from "@/components/site/Breadcrumb";
 import { Section, Eyebrow, SectionHeading } from "@/components/site/Section";
@@ -126,31 +126,32 @@ function InternalAuditService() {
       <Section className="!pb-10">
         <div className="max-w-3xl">
           <Eyebrow>Dịch vụ kiểm toán</Eyebrow>
-          <h1 className="font-display text-4xl md:text-5xl leading-[1.1] text-foreground">
-            Dịch vụ <span className="italic text-accent-foreground">kiểm toán nội bộ</span>.
+          <h1 className="font-display text-5xl md:text-6xl lg:text-7xl leading-[1.05] text-foreground font-normal tracking-tight">
+            Dịch vụ{" "}
+            <span className="italic text-brand-red-ink">kiểm toán nội bộ.</span>
           </h1>
-          <p className="mt-6 text-lg text-muted-foreground font-serif leading-relaxed">
+          <p className="mt-8 text-lg md:text-xl text-muted-foreground font-serif leading-relaxed">
             Kiểm toán nội bộ là hoạt động tư vấn và đảm bảo khách quan nhằm tăng cường quản trị
             rủi ro, đánh giá hệ thống kiểm soát và nâng cao hiệu quả quản trị doanh nghiệp. TAF
             cung cấp dịch vụ độc lập, chuyên nghiệp, tuân thủ nghiêm ngặt các chuẩn mực.
           </p>
-          <div className="mt-8 flex flex-col sm:flex-row gap-3">
+          <div className="mt-10 flex flex-col sm:flex-row gap-3">
             <Link
               to="/lien-he"
-              className="group inline-flex items-center justify-center gap-2 bg-brand-red text-white px-6 py-3.5 text-sm font-medium rounded-[2px] hover:bg-brand-red-ink transition-all"
+              className="group inline-flex items-center justify-between gap-3 bg-brand-red text-white px-7 py-4 text-sm font-medium rounded-[2px] hover:bg-brand-red-ink transition-all min-w-[260px]"
             >
-              <span className="uppercase tracking-[0.15em]">Yêu cầu tư vấn</span>
-              <ArrowRight size={18} className="group-hover:translate-x-0.5 transition-transform" />
+              <span className="uppercase tracking-[0.18em]">Yêu cầu tư vấn</span>
+              <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
             </Link>
             <a
               href={`tel:${HOTLINE_TEL}`}
-              className="inline-flex items-center justify-center gap-2 border border-border text-foreground px-6 py-3.5 text-sm font-medium rounded-[2px] hover:border-accent transition"
+              className="inline-flex items-center justify-center gap-2 border border-border text-muted-foreground px-7 py-4 text-sm font-medium rounded-[2px] hover:border-accent hover:text-foreground transition"
             >
-              <Phone size={16} /> Hotline / Zalo · {HOTLINE_DISPLAY}
+              <Phone size={16} className="text-accent-foreground" /> Hotline / Zalo · {HOTLINE_DISPLAY}
             </a>
           </div>
         </div>
-        <div className="rule-gold mt-12" />
+        <div className="rule-gold mt-16" />
       </Section>
 
       {/* Khái niệm */}
@@ -177,14 +178,19 @@ function InternalAuditService() {
           title="Vai trò của kiểm toán nội bộ trong doanh nghiệp"
           lead="Kiểm toán nội bộ hỗ trợ tối đa cho quản lý rủi ro, đảm bảo hiệu quả kiểm soát, đồng thời đánh giá và khuyến nghị để nâng cao hiệu quả quản trị."
         />
-        <div className="mt-10 grid md:grid-cols-3 gap-px bg-border border border-border">
+        <div className="mt-10 grid md:grid-cols-3 gap-5">
           {ROLES.map((r) => {
             const Icon = r.icon;
             return (
-              <div key={r.title} className="bg-background p-8">
-                <Icon className="text-brand-red" size={26} strokeWidth={1.5} />
-                <h3 className="mt-4 font-display text-xl text-foreground">{r.title}</h3>
-                <p className="mt-2 text-sm text-foreground/80 font-serif leading-relaxed">
+              <div
+                key={r.title}
+                className="group bg-cream/50 border border-accent/20 p-8 transition-all hover:border-accent/50 hover:shadow-[0_8px_30px_-12px_rgba(0,0,0,0.08)]"
+              >
+                <div className="w-10 h-10 flex items-center justify-center bg-background border border-accent/30 text-accent-foreground">
+                  <Icon size={20} strokeWidth={1.5} />
+                </div>
+                <h3 className="mt-6 font-display text-xl text-foreground">{r.title}</h3>
+                <p className="mt-3 text-sm text-foreground/75 font-serif leading-relaxed">
                   {r.body}
                 </p>
               </div>
@@ -208,10 +214,15 @@ function InternalAuditService() {
             </p>
           </div>
           <div className="lg:col-span-7">
-            <ul className="space-y-px bg-border border border-border">
-              {TARGETS.map((t) => (
-                <li key={t} className="bg-background p-5 flex gap-3">
-                  <Building2 size={20} className="shrink-0 text-accent-foreground mt-0.5" strokeWidth={1.7} />
+            <ul className="space-y-3">
+              {TARGETS.map((t, i) => (
+                <li
+                  key={t}
+                  className="bg-background border-l-2 border-accent p-5 flex gap-5 shadow-[0_2px_8px_-4px_rgba(0,0,0,0.04)]"
+                >
+                  <span className="shrink-0 font-display text-base text-brand-red-ink tabular-nums tracking-wider pt-0.5">
+                    {String(i + 1).padStart(2, "0")}
+                  </span>
                   <span className="text-sm text-foreground/85 font-serif leading-relaxed">{t}</span>
                 </li>
               ))}
@@ -227,14 +238,15 @@ function InternalAuditService() {
           title="Quy trình kiểm toán nội bộ tại TAF"
           lead="Bốn bước chuẩn hóa giúp cuộc kiểm toán nội bộ minh bạch, hiệu quả và bám sát mục tiêu của doanh nghiệp."
         />
-        <div className="mt-10 grid sm:grid-cols-2 lg:grid-cols-4 gap-px bg-border border border-border">
+        <div className="mt-12 grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
           {STEPS.map((s, i) => (
-            <div key={s.title} className="bg-background p-6">
-              <span className="font-mono text-2xl text-brand-red-ink tabular-nums">
+            <div key={s.title} className="relative pt-6 border-t border-accent/30">
+              <span className="absolute -top-[1px] left-0 h-[2px] w-12 bg-brand-red" />
+              <span className="font-display italic text-4xl text-accent-foreground/40 tabular-nums leading-none block">
                 {String(i + 1).padStart(2, "0")}
               </span>
-              <h3 className="mt-3 font-display text-lg text-foreground leading-snug">{s.title}</h3>
-              <p className="mt-2 text-sm text-muted-foreground font-serif leading-relaxed">
+              <h3 className="mt-5 font-display text-xl text-foreground leading-snug">{s.title}</h3>
+              <p className="mt-3 text-sm text-muted-foreground font-serif leading-relaxed">
                 {s.desc}
               </p>
             </div>
@@ -257,10 +269,10 @@ function InternalAuditService() {
             </p>
           </div>
           <div className="lg:col-span-7">
-            <ul className="space-y-px bg-border border border-border">
+            <ul className="divide-y divide-accent/20 border-t border-b border-accent/20">
               {POWERS.map((p) => (
-                <li key={p} className="bg-background p-5 flex gap-3">
-                  <KeyRound size={18} className="shrink-0 text-accent-foreground mt-0.5" />
+                <li key={p} className="py-5 flex gap-4">
+                  <KeyRound size={18} className="shrink-0 text-accent-foreground mt-1" strokeWidth={1.7} />
                   <span className="text-sm text-foreground/85 font-serif leading-relaxed">{p}</span>
                 </li>
               ))}
@@ -298,13 +310,13 @@ function InternalAuditService() {
       {/* Cam kết / Vì sao TAF */}
       <Section className="!pt-0">
         <div className="rule-gold mb-14" />
-        <div className="grid lg:grid-cols-2 gap-10">
-          <div>
+        <div className="grid lg:grid-cols-2 gap-12">
+          <div className="bg-cream/60 border-l-4 border-brand-red p-8 md:p-10">
             <Eyebrow>Cam kết</Eyebrow>
-            <h2 className="font-display text-3xl text-foreground leading-tight">
+            <h2 className="font-display italic text-3xl text-foreground leading-tight">
               Lựa chọn TAF, doanh nghiệp được gì?
             </h2>
-            <ul className="mt-6 space-y-4 font-serif text-foreground/85">
+            <ul className="mt-7 space-y-5 font-serif text-foreground/85 text-base">
               {COMMITMENTS.map((c) => (
                 <li key={c} className="flex gap-3">
                   <CheckCircle2 size={20} className="shrink-0 text-brand-red mt-0.5" strokeWidth={1.7} />
@@ -313,14 +325,14 @@ function InternalAuditService() {
               ))}
             </ul>
           </div>
-          <div className="lg:border-l lg:border-border lg:pl-10">
+          <div className="lg:pl-4">
             <Eyebrow>Về TAF</Eyebrow>
             <h2 className="font-display text-3xl text-foreground leading-tight">
               Đôi nét về dịch vụ kiểm toán nội bộ TAF
             </h2>
-            <ul className="mt-6 space-y-4 font-serif text-foreground/85">
+            <ul className="mt-7 space-y-5 font-serif text-foreground/85 text-base">
               {ABOUT.map((a) => (
-                <li key={a} className="border-l-2 border-accent pl-4 leading-relaxed">
+                <li key={a} className="border-l-2 border-accent pl-5 leading-relaxed">
                   {a}
                 </li>
               ))}
@@ -337,7 +349,7 @@ function InternalAuditService() {
           title="Khám phá thêm các dịch vụ của TAF"
           lead="Bên cạnh kiểm toán nội bộ, TAF cung cấp đa dạng dịch vụ kiểm toán, tư vấn thuế và soát xét đặc biệt — đồng hành cùng doanh nghiệp ở mọi giai đoạn phát triển."
         />
-        <div className="mt-10 grid md:grid-cols-3 gap-px bg-border border border-border">
+        <div className="mt-12 grid md:grid-cols-3 gap-5">
           {[
             {
               title: "Kiểm toán báo cáo tài chính",
@@ -358,15 +370,15 @@ function InternalAuditService() {
             <Link
               key={s.to}
               to={s.to}
-              className="group bg-background p-7 flex flex-col hover:bg-cream/40 transition-colors"
+              className="group bg-background border border-accent/20 p-7 flex flex-col hover:border-accent/60 hover:shadow-[0_8px_30px_-12px_rgba(0,0,0,0.08)] transition-all"
             >
               <h3 className="font-display text-lg text-foreground leading-snug">{s.title}</h3>
-              <p className="mt-2 text-sm text-muted-foreground font-serif leading-relaxed flex-1">
+              <p className="mt-3 text-sm text-muted-foreground font-serif leading-relaxed flex-1">
                 {s.desc}
               </p>
-              <span className="mt-5 inline-flex items-center gap-2 text-xs uppercase tracking-[0.18em] text-brand-red">
+              <span className="mt-6 inline-flex items-center gap-2 text-xs uppercase tracking-[0.2em] text-brand-red font-medium">
                 Xem chi tiết
-                <ArrowRight size={14} className="group-hover:translate-x-0.5 transition-transform" />
+                <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />
               </span>
             </Link>
           ))}
@@ -410,19 +422,19 @@ function InternalAuditService() {
 
       {/* CTA */}
       <Section className="!pt-0">
-        <div className="rounded-[2px] border border-border bg-cream/60 p-6 md:p-10">
-          <div className="grid lg:grid-cols-12 gap-8 items-center">
+        <div className="relative bg-foreground text-background p-8 md:p-14 overflow-hidden">
+          <span className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-accent to-transparent" />
+          <div className="grid lg:grid-cols-12 gap-10 items-center">
             <div className="lg:col-span-7">
-              <p className="text-[0.7rem] uppercase tracking-[0.22em] text-accent-foreground mb-3 flex items-center gap-2.5">
-                <span className="inline-block w-1.5 h-1.5 rounded-full bg-brand-red" />
-                <span className="inline-block w-6 h-px bg-accent/60" />
+              <p className="text-[0.7rem] uppercase tracking-[0.28em] text-accent mb-5 flex items-center gap-3 font-medium">
+                <span className="inline-block w-8 h-px bg-accent" />
                 Nhận tư vấn ngay
               </p>
-              <h2 className="font-display text-2xl md:text-[1.85rem] leading-tight text-foreground">
+              <h2 className="font-display text-3xl md:text-4xl lg:text-[2.5rem] leading-[1.15] text-background">
                 Tăng cường quản trị rủi ro{" "}
-                <span className="italic text-accent-foreground">cùng TAF.</span>
+                <span className="italic text-accent">cùng TAF.</span>
               </h2>
-              <p className="mt-3 text-muted-foreground font-serif text-base leading-relaxed">
+              <p className="mt-5 text-background/70 font-serif text-base md:text-lg leading-relaxed max-w-xl">
                 Liên hệ để được khảo sát và trao đổi cụ thể về phạm vi, tiến độ và nguồn lực cho
                 cuộc kiểm toán nội bộ của doanh nghiệp bạn.
               </p>
@@ -430,21 +442,21 @@ function InternalAuditService() {
             <div className="lg:col-span-5 flex flex-col gap-3">
               <Link
                 to="/lien-he"
-                className="group inline-flex items-center justify-between gap-2 bg-brand-red text-white px-6 py-4 text-sm font-medium rounded-[2px] hover:bg-brand-red-ink transition-all"
+                className="group inline-flex items-center justify-between gap-2 bg-brand-red text-white px-7 py-4 text-sm font-medium rounded-[2px] hover:bg-brand-red-ink transition-all"
               >
-                <span className="uppercase tracking-[0.15em]">Yêu cầu tư vấn</span>
-                <ArrowRight size={18} className="group-hover:translate-x-0.5 transition-transform" />
+                <span className="uppercase tracking-[0.18em]">Yêu cầu tư vấn</span>
+                <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
               </Link>
               <a
                 href={`tel:${HOTLINE_TEL}`}
-                className="inline-flex items-center justify-between gap-2 border border-border text-foreground px-6 py-4 text-sm font-medium rounded-[2px] hover:bg-background hover:border-accent transition"
+                className="inline-flex items-center justify-between gap-2 border border-accent/40 text-background px-7 py-4 text-sm font-medium rounded-[2px] hover:border-accent hover:bg-accent/10 transition"
               >
-                <span className="flex items-center gap-2 text-muted-foreground">
-                  <Phone size={16} /> Hotline / Zalo
+                <span className="flex items-center gap-2 text-background/70">
+                  <Phone size={16} className="text-accent" /> Hotline / Zalo
                 </span>
-                <span className="font-mono text-accent-foreground">{HOTLINE_DISPLAY}</span>
+                <span className="font-mono text-accent">{HOTLINE_DISPLAY}</span>
               </a>
-              <p className="text-xs text-muted-foreground text-center font-serif">
+              <p className="text-xs text-background/50 text-center font-serif mt-2">
                 Email: info@taf.vn · 62A Phạm Ngọc Thạch, Q.3, TP.HCM
               </p>
             </div>
