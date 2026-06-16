@@ -1,61 +1,42 @@
-
 ## Mục tiêu
-Hỗ trợ 4 ngôn ngữ (Việt mặc định, Anh, Nhật, Hàn) cho **giao diện + nội dung tĩnh** (menu, label, các trang dịch vụ/giới thiệu/đội ngũ…). Bài blog trong DB (`pages`) **giữ tiếng Việt** ở giai đoạn này. URL theo prefix `/en/...`, `/ja/...`, `/ko/...`; tiếng Việt không có prefix.
 
-## Cách hoạt động
-1. **Locale từ URL**: middleware đọc segment đầu tiên (`en|ja|ko`); nếu có, gắn `locale` vào router context và rewrite path nội bộ về route gốc. Không có prefix → `vi`.
-2. **Dịch tự động bằng AI**: gọi Lovable AI Gateway (`google/gemini-3-flash-preview`) qua `createServerFn`. Mỗi đoạn text được hash (sha256) và cache trong bảng `translations` để chỉ dịch một lần.
-3. **Hai cấp dịch**:
-   - **UI strings** (menu, button, label trong `site.ts`, header/footer, form): đóng gói trong `src/lib/i18n/strings.ts`. Lần build/khởi động đầu tiên, một server fn sẽ pre-translate cả 3 ngôn ngữ và lưu DB; client load qua loader `__root` rồi inject vào React Context `<LocaleProvider>`.
-   - **Nội dung trang tĩnh** (JSX/markup trong các route `gioi-thieu`, `dich-vu-*`, v.v.): bọc bằng component `<T>{"..."}</T>`. Khi `locale !== "vi"`, `<T>` đọc bản dịch từ context (đã được loader nạp sẵn theo route). Bản dịch thiếu sẽ được dịch on-demand qua server fn, lưu DB, trả về.
-4. **Language switcher**: nút trong Header chuyển prefix URL (`navigate({ to, params })`), giữ nguyên path còn lại; lưu lựa chọn vào cookie `locale` để landing đúng ngôn ngữ.
-5. **SEO**: mỗi route emit `<link rel="alternate" hreflang="vi|en|ja|ko|x-default">` trỏ qua các prefix; `<html lang>` trong `__root` đổi theo locale; `head()` dịch `title`/`description` cùng cơ chế cache.
+Hoàn thiện trang **/dich-vu-kiem-toan-noi-bo** bằng cách bổ sung khối CTA cuối trang và liên kết chéo sang các dịch vụ liên quan. Giữ nội dung 100% tiếng Việt (không đưa vào dictionary i18n).
 
-## Thay đổi kỹ thuật
+## Phạm vi thay đổi
 
-**DB (migration mới)**
-```sql
-CREATE TABLE public.translations (
-  source_hash text NOT NULL,
-  lang text NOT NULL CHECK (lang IN ('en','ja','ko')),
-  source text NOT NULL,
-  translated text NOT NULL,
-  created_at timestamptz DEFAULT now(),
-  PRIMARY KEY (source_hash, lang)
-);
-GRANT SELECT ON public.translations TO anon, authenticated;
-GRANT ALL ON public.translations TO service_role;
-ALTER TABLE public.translations ENABLE ROW LEVEL SECURITY;
-CREATE POLICY "public read" ON public.translations FOR SELECT TO anon, authenticated USING (true);
-```
+Chỉ chỉnh sửa 1 file: `src/routes/dich-vu-kiem-toan-noi-bo.tsx`.
 
-**File mới**
-- `src/lib/i18n/locales.ts` — `LOCALES = ['vi','en','ja','ko']`, names, RTL=false.
-- `src/lib/i18n/context.tsx` — `<LocaleProvider>` + `useLocale()` + `<T>` component.
-- `src/lib/i18n/translate.functions.ts` — `translateBatch({texts, lang})` server fn: tra cache → gọi AI Gateway cho phần thiếu → upsert DB → trả map.
-- `src/lib/i18n/strings.ts` — danh sách string UI chung (menu, CTA, form, footer).
-- `src/components/site/LanguageSwitcher.tsx`.
+## Chi tiết triển khai
 
-**File sửa**
-- `src/router.tsx` / `__root.tsx`:
-  - Loader đọc cookie + URL để xác định `locale`, nạp bundle UI strings từ DB, đặt `<html lang>` động.
-  - Thêm hreflang vào `head()`.
-- `src/routes/$lang/...` **KHÔNG** tạo (tránh nhân đôi 40 route). Thay vào đó dùng **splat layout** `_locale.tsx` đặt trước root: chặn URL bắt đầu bằng `/en|/ja|/ko` qua một `beforeLoad` ở root route → set `context.locale` và `redirect` nội bộ (không đổi URL hiển thị) bằng cách dùng `useRouterState().location.pathname.replace(/^\/(en|ja|ko)/,'')` để match route gốc — phương án thực hiện cụ thể: **đăng ký các route prefix `en.tsx`, `ja.tsx`, `ko.tsx` như layout routes có `<Outlet />`** và child là re-export của các trang gốc. Để tránh duplicate code, dùng một route catch-all `$lang.$.tsx` render lại bằng router lookup nội bộ.
-- `src/components/site/Header.tsx` — thêm `<LanguageSwitcher />`.
-- `src/lib/site.ts` — tách các string sang `strings.ts` để dịch.
-- Các route trang tĩnh (gioi-thieu, doi-ngu, tuyen-dung, lien-he, dich-vu.tsx, dich-vu.index.tsx, 7 trang `dich-vu-*`): bọc text bằng `<T>`.
+### 1. Thêm khối "Dịch vụ liên quan" (cross-links)
+Chèn ngay trước section FAQ. Lưới 3 cột (1 cột trên mobile) gồm các thẻ liên kết sang dịch vụ TAF cùng nhóm:
 
-**Ngân sách AI**: lần dịch đầu cho 3 ngôn ngữ × ~vài trăm chuỗi. Sau đó hầu hết hit cache (0 token).
+- **Kiểm toán báo cáo tài chính** → `/dich-vu-kiem-toan`
+- **Tư vấn thuế & kế toán** → `/dich-vu` (hoặc service slug tương ứng có sẵn)
+- **Soát xét & tư vấn quản trị rủi ro** → trang dịch vụ phù hợp đang có
 
-## Phạm vi giai đoạn này
-- ✅ Menu, header/footer, form liên hệ, các trang tĩnh đã liệt kê.
-- ✅ Language switcher + URL prefix + hreflang.
-- ❌ Bài blog/tin tức trong bảng `pages` (giữ tiếng Việt — sẽ làm sau nếu cần).
-- ❌ Dịch input người dùng / SEO meta của từng bài blog.
+Trước khi viết, mở `src/lib/site.ts` (`SERVICES`) và `src/routes/dich-vu.index.tsx` để chọn đúng 3 slug đang tồn tại, tránh link gãy.
 
-## Rủi ro & lưu ý
-- Lần đầu mỗi trang ở ngôn ngữ mới sẽ có delay 1–2s do gọi AI; có spinner.
-- Chất lượng dịch AI cho thuật ngữ kiểm toán có thể cần chỉnh tay sau → sẽ bổ sung trang admin chỉnh bản dịch ở giai đoạn 2 nếu bạn yêu cầu.
-- Cookie-based locale + URL prefix có thể gây mismatch khi share link; ưu tiên URL.
+Mỗi thẻ: tiêu đề (font-display), 1 dòng mô tả ngắn (font-serif, muted), icon nhỏ + mũi tên `ArrowRight` hover dịch chuyển, viền `border-border`, hover đổi `border-accent` — đồng bộ phong cách hiện có của trang.
 
-Sau khi bạn duyệt plan, mình sẽ triển khai theo thứ tự: migration → i18n infra → switcher + header → bọc `<T>` cho các trang tĩnh → hreflang/SEO.
+### 2. Thêm khối CTA cuối trang
+Chèn sau FAQ (trước thẻ đóng `</>`), kiểu "band" nổi bật phù hợp design system hiện tại:
+
+- Nền `bg-foreground` (hoặc `bg-brand-red-ink`) chữ sáng — đồng bộ với các trang dịch vụ khác nếu đã có pattern; nếu chưa có pattern dùng nền `bg-secondary` viền `rule-gold` để tránh lệch tông.
+- Tiêu đề: "Sẵn sàng triển khai kiểm toán nội bộ cho doanh nghiệp?"
+- Mô tả ngắn 1–2 câu về việc TAF tư vấn miễn phí phạm vi, lộ trình và báo giá.
+- 2 nút: **"Yêu cầu tư vấn"** → `/lien-he` (primary, `bg-brand-red`) và **"Hotline · 0924 580 580"** → `tel:+84924580580` (secondary, viền).
+- Sử dụng các hằng số `HOTLINE_DISPLAY` / `HOTLINE_TEL` đã khai báo ở đầu file.
+
+### 3. Không thay đổi
+- Không sửa `head()` / metadata.
+- Không thêm dictionary key.
+- Không đụng các section hiện có (Hero, Khái niệm, Vai trò, Đối tượng, Quy trình, Quyền hạn, Thực trạng, Cam kết, FAQ).
+- Không sửa file khác (trừ trường hợp cần xác minh slug trong `site.ts`/`dich-vu.index.tsx` — chỉ đọc, không sửa).
+
+## Kiểm tra sau khi build
+
+- Trang vẫn render đầy đủ các section cũ theo đúng thứ tự.
+- 3 liên kết "Dịch vụ liên quan" trỏ tới route đang tồn tại (không 404).
+- Khối CTA hiển thị nổi bật, 2 nút hoạt động (link nội bộ + `tel:`).
+- Responsive: lưới 3 cột co về 1 cột trên mobile; CTA căn giữa đẹp ở mọi breakpoint.
