@@ -1,6 +1,5 @@
 import { createServerFn } from "@tanstack/react-start";
 import { z } from "zod";
-import { createHash } from "crypto";
 
 const InputSchema = z.object({
   texts: z.array(z.string().min(1).max(4000)).min(1).max(80),
@@ -9,13 +8,12 @@ const InputSchema = z.object({
 
 const LANG_NAMES = { en: "English", ja: "Japanese", ko: "Korean" } as const;
 
-function hashText(s: string) {
-  return createHash("sha256").update(s).digest("hex");
-}
 
 export const translateBatch = createServerFn({ method: "POST" })
   .inputValidator((d: unknown) => InputSchema.parse(d))
   .handler(async ({ data }) => {
+    const { createHash } = await import("crypto");
+    const hashText = (s: string) => createHash("sha256").update(s).digest("hex");
     const { texts, lang } = data;
     // Dedupe đầu vào
     const uniq = Array.from(new Set(texts));
