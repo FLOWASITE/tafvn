@@ -68,12 +68,12 @@ const CATEGORIES: Category[] = [
     detailPath: "/dich-vu-kiem-toan",
     items: [
       {
-        title: "Kiểm toán báo cáo tài chính",
+        title: "Dịch vụ kiểm toán",
         desc: "Kiểm toán BCTC năm cho doanh nghiệp FDI, công ty đại chúng và doanh nghiệp có vốn nhà nước; báo cáo phát hành đúng hạn nộp.",
         href: "/dich-vu-kiem-toan",
       },
       {
-        title: "Kiểm toán nội bộ",
+        title: "Dịch vụ kiểm toán nội bộ",
         desc: "Đánh giá hệ thống kiểm soát nội bộ, nhận diện rủi ro và đưa ra khuyến nghị cải tiến quy trình.",
         href: "/dich-vu-kiem-toan-noi-bo",
       },
@@ -93,7 +93,7 @@ const CATEGORIES: Category[] = [
     detailPath: "/dich-vu-ke-toan-tron-goi-tphcm",
     items: [
       {
-        title: "Kế toán trọn gói",
+        title: "dịch vụ kế toán trọn gói",
         desc: "Ghi sổ, lập BCTC và kê khai thuế định kỳ cho doanh nghiệp vừa và nhỏ, văn phòng đại diện nước ngoài.",
         href: "/dich-vu-ke-toan-tron-goi-tphcm",
       },

@@ -41,15 +41,15 @@ export const MAIN_MENU: MenuItem[] = [
       {
         heading: "Kiểm toán",
         links: [
-          { label: "Kiểm toán báo cáo tài chính", to: "/dich-vu-kiem-toan" },
-          { label: "Kiểm toán nội bộ", to: "/dich-vu-kiem-toan-noi-bo" },
+          { label: "Dịch vụ kiểm toán", to: "/dich-vu-kiem-toan" },
+          { label: "Dịch vụ kiểm toán nội bộ", to: "/dich-vu-kiem-toan-noi-bo" },
           { label: "Kiểm toán xây dựng cơ bản", to: "/dich-vu-kiem-toan-xay-dung-co-ban" },
         ],
       },
       {
         heading: "Kế toán",
         links: [
-          { label: "Kế toán trọn gói", to: "/dich-vu-ke-toan-tron-goi-tphcm" },
+          { label: "dịch vụ kế toán trọn gói", to: "/dich-vu-ke-toan-tron-goi-tphcm" },
           { label: "Kế toán cho hộ kinh doanh", to: "/dich-vu-ke-toan-thue-cho-ho-kinh-doanh" },
           { label: "Làm sổ sách kế toán", to: "/dich-vu-nhan-lam-so-sach-ke-toan" },
           { label: "Quyết toán thuế cuối năm", to: "/dich-vu-quyet-toan-thue-cuoi-nam" },
@@ -116,7 +116,7 @@ export const SERVICES: {
   },
   {
     slug: "kiem-toan-bao-cao-tai-chinh",
-    title: "Kiểm toán báo cáo tài chính",
+    title: "Dịch vụ kiểm toán",
     summary:
       "Kiểm toán độc lập BCTC năm theo Chuẩn mực Kiểm toán Việt Nam (VSA), phục vụ công bố thông tin, vay vốn và yêu cầu của cơ quan quản lý.",
     points: [
