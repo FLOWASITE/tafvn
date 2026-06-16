@@ -2,6 +2,8 @@ import { Link } from "@tanstack/react-router";
 import { Logo } from "./Logo";
 import { NAV, SITE, SERVICES } from "@/lib/site";
 import type { Office } from "@/lib/offices.functions";
+import { useT } from "@/lib/i18n/context";
+
 
 export function Footer({ offices }: { offices: Office[] }) {
   const primary = offices.find((o) => o.is_primary) ?? offices[0];
