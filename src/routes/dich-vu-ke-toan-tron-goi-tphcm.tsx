@@ -1341,35 +1341,84 @@ function AccountingServicePage() {
 
       {/* 11 — Phân biệt */}
       <Section id="phan-biet">
-        <Eyebrow>11</Eyebrow>
+        <Eyebrow>§ 11 — So sánh</Eyebrow>
         <h2 className="t-h2 md:text-[2.25rem] text-foreground max-w-3xl">
-          Phân biệt dịch vụ kế toán & dịch vụ báo cáo thuế
+          Phân biệt <span className="italic text-accent-foreground">dịch vụ kế toán</span> &amp; dịch vụ báo cáo thuế
         </h2>
-        <div className="mt-8 border border-border rounded-[2px] bg-background overflow-hidden">
-          <Table>
-            <TableHeader>
-              <TableRow>
-                <TableHead className="w-44">Nội dung</TableHead>
-                <TableHead>Dịch vụ kế toán (trọn gói)</TableHead>
-                <TableHead>Dịch vụ báo cáo thuế</TableHead>
-              </TableRow>
-            </TableHeader>
-            <TableBody>
-              {COMPARE.map((c) => (
-                <TableRow key={c.label} className="font-serif">
-                  <TableCell className="font-display text-foreground align-top">
-                    {c.label}
-                  </TableCell>
-                  <TableCell className="text-foreground/85 leading-relaxed align-top">
-                    {c.accounting}
-                  </TableCell>
-                  <TableCell className="text-foreground/85 leading-relaxed align-top">
-                    {c.tax}
-                  </TableCell>
-                </TableRow>
+
+        <div className="relative mt-10 grid md:grid-cols-2 gap-0 border border-accent/25 rounded-[2px] overflow-hidden">
+          <span
+            aria-hidden
+            className="hidden md:block absolute left-1/2 top-8 bottom-8 w-px bg-gradient-to-b from-transparent via-accent/45 to-transparent"
+          />
+
+          {/* Cột trái — Kế toán trọn gói (TAF cung cấp) */}
+          <div className="relative bg-foreground text-background p-7 md:p-9">
+            <span aria-hidden className="absolute top-0 left-8 right-8 h-px bg-gradient-to-r from-transparent via-accent to-transparent" />
+            <div className="flex items-center justify-between mb-6">
+              <div className="t-eyebrow text-accent/85 flex items-center gap-2.5">
+                <span className="inline-block w-6 h-px bg-accent" />
+                Dịch vụ kế toán
+              </div>
+              <span className="font-mono text-[0.65rem] uppercase tracking-[0.22em] text-background/60 border border-accent/40 rounded-[2px] px-2 py-1">
+                TAF cung cấp
+              </span>
+            </div>
+            <h3 className="font-display text-2xl md:text-3xl text-background leading-tight mb-7">
+              Kế toán <em className="italic text-accent">trọn gói</em>
+            </h3>
+            <dl className="space-y-5">
+              {COMPARE.map((c, i) => (
+                <div key={c.label} className="grid grid-cols-[auto_1fr] gap-4 pb-5 border-b border-background/10 last:border-0 last:pb-0">
+                  <dt className="font-display italic tabular-nums text-2xl text-accent/50 leading-none w-7">
+                    {String(i + 1).padStart(2, "0")}
+                  </dt>
+                  <dd>
+                    <div className="font-mono text-[0.65rem] uppercase tracking-[0.22em] text-background/55 mb-1.5">
+                      {c.label}
+                    </div>
+                    <div className="font-serif text-[0.95rem] md:text-base text-background/95 leading-relaxed">
+                      {c.accounting}
+                    </div>
+                  </dd>
+                </div>
               ))}
-            </TableBody>
-          </Table>
+            </dl>
+          </div>
+
+          {/* Cột phải — Báo cáo thuế (đối chiếu) */}
+          <div className="relative bg-cream/50 p-7 md:p-9">
+            <span aria-hidden className="absolute top-0 left-8 right-8 h-px bg-gradient-to-r from-transparent via-accent/50 to-transparent" />
+            <div className="flex items-center justify-between mb-6">
+              <div className="t-eyebrow text-muted-foreground/80 flex items-center gap-2.5">
+                <span className="inline-block w-6 h-px bg-accent/60" />
+                Báo cáo thuế
+              </div>
+              <span className="font-mono text-[0.65rem] uppercase tracking-[0.22em] text-muted-foreground/70 border border-accent/30 rounded-[2px] px-2 py-1">
+                Đối chiếu
+              </span>
+            </div>
+            <h3 className="font-display text-2xl md:text-3xl text-foreground leading-tight mb-7">
+              Báo cáo <em className="italic text-accent-foreground">thuế đơn lẻ</em>
+            </h3>
+            <dl className="space-y-5">
+              {COMPARE.map((c, i) => (
+                <div key={c.label} className="grid grid-cols-[auto_1fr] gap-4 pb-5 border-b border-accent/20 last:border-0 last:pb-0">
+                  <dt className="font-display italic tabular-nums text-2xl text-accent-foreground/30 leading-none w-7">
+                    {String(i + 1).padStart(2, "0")}
+                  </dt>
+                  <dd>
+                    <div className="font-mono text-[0.65rem] uppercase tracking-[0.22em] text-muted-foreground/80 mb-1.5">
+                      {c.label}
+                    </div>
+                    <div className="font-serif text-[0.95rem] md:text-base text-foreground/80 leading-relaxed">
+                      {c.tax}
+                    </div>
+                  </dd>
+                </div>
+              ))}
+            </dl>
+          </div>
         </div>
       </Section>
 
