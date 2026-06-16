@@ -293,9 +293,9 @@ function HouseholdAccountingService() {
           </h1>
           <div className="mt-5 inline-flex items-center gap-2 rounded-[2px] border border-brand-red/30 bg-brand-red-soft px-4 py-2">
             <span className="text-sm text-muted-foreground">Chi phí chỉ từ</span>
-            <span className="font-display text-xl text-brand-red-ink">400.000đ/tháng</span>
+            <span className="t-h3 text-brand-red-ink">400.000đ/tháng</span>
           </div>
-          <p className="mt-6 text-lg text-muted-foreground font-serif leading-relaxed">
+          <p className="t-lead mt-6 text-muted-foreground">
             TAF hỗ trợ hộ kinh doanh thực hiện đầy đủ nghĩa vụ thuế theo quy định, hạn chế tối đa
             rủi ro với cơ quan thuế. Linh hoạt theo nhóm ngành, đội ngũ chuyên môn cao, quy trình
             minh bạch.
@@ -333,7 +333,7 @@ function HouseholdAccountingService() {
               {ND70_TARGETS.map((t) => (
                 <li key={t} className="bg-background p-4 flex gap-3">
                   <CheckCircle2 size={18} className="shrink-0 text-brand-red mt-0.5" strokeWidth={1.7} />
-                  <span className="text-sm text-foreground/85 font-serif leading-relaxed">{t}</span>
+                  <span className="t-body-sm text-foreground/85">{t}</span>
                 </li>
               ))}
             </ul>
@@ -347,7 +347,7 @@ function HouseholdAccountingService() {
                     <span className="font-display text-sm text-foreground">{r.phase}</span>
                     <span className="font-mono text-xs text-accent-foreground">{r.time}</span>
                   </div>
-                  <p className="mt-1 text-sm text-muted-foreground font-serif leading-relaxed">
+                  <p className="t-body-sm mt-1 text-muted-foreground">
                     {r.desc}
                   </p>
                 </div>
@@ -394,7 +394,7 @@ function HouseholdAccountingService() {
           {WHY.map((w) => (
             <div key={w} className="bg-background p-5 flex gap-3">
               <CheckCircle2 size={18} className="shrink-0 text-brand-red mt-0.5" strokeWidth={1.7} />
-              <p className="text-sm text-foreground/85 font-serif leading-relaxed">{w}</p>
+              <p className="t-body-sm text-foreground/85">{w}</p>
             </div>
           ))}
         </div>
@@ -408,7 +408,7 @@ function HouseholdAccountingService() {
           {SERVICES.map((s) => (
             <div key={s.title} className="bg-background p-6">
               <h3 className="font-display text-lg text-foreground leading-snug">{s.title}</h3>
-              <p className="mt-2 text-sm text-muted-foreground font-serif leading-relaxed">
+              <p className="t-body-sm mt-2 text-muted-foreground">
                 {s.desc}
               </p>
             </div>
@@ -421,10 +421,10 @@ function HouseholdAccountingService() {
         <div className="grid lg:grid-cols-12 gap-10">
           <div className="lg:col-span-4">
             <Eyebrow>Hồ sơ</Eyebrow>
-            <h2 className="font-display text-3xl text-foreground leading-tight">
+            <h2 className="t-h2 text-foreground">
               Hộ kinh doanh cần cung cấp gì?
             </h2>
-            <p className="mt-4 text-sm text-muted-foreground font-serif leading-relaxed">
+            <p className="t-body-sm mt-4 text-muted-foreground">
               Hồ sơ, chứng từ rất đơn giản — giúp quá trình triển khai nhanh chóng, chính xác.
             </p>
           </div>
@@ -433,7 +433,7 @@ function HouseholdAccountingService() {
               {DOCS.map((d) => (
                 <li key={d} className="bg-background p-5 flex gap-3">
                   <FileText size={18} className="shrink-0 text-accent-foreground mt-0.5" />
-                  <span className="text-sm text-foreground/85 font-serif leading-relaxed">{d}</span>
+                  <span className="t-body-sm text-foreground/85">{d}</span>
                 </li>
               ))}
             </ul>
@@ -451,15 +451,15 @@ function HouseholdAccountingService() {
         />
         <div className="mt-10 space-y-12">
           <div>
-            <h3 className="font-display text-xl text-foreground mb-4">Nhóm ngành thương mại</h3>
+            <h3 className="t-h3 text-foreground mb-4">Nhóm ngành thương mại</h3>
             <Price2ColTable rows={PRICE_TRADE} col1="Không xuất nhập khẩu" col2="Có xuất nhập khẩu" />
           </div>
           <div>
-            <h3 className="font-display text-xl text-foreground mb-4">Nhóm ngành tư vấn – dịch vụ</h3>
+            <h3 className="t-h3 text-foreground mb-4">Nhóm ngành tư vấn – dịch vụ</h3>
             <Price2ColTable rows={PRICE_SERVICE} col1="Spa · Giáo dục · Tư vấn · DV khác" col2="Khách sạn · Logistics" />
           </div>
           <div>
-            <h3 className="font-display text-xl text-foreground mb-4">
+            <h3 className="t-h3 text-foreground mb-4">
               Nhóm thi công xây dựng – trang trí nội thất
             </h3>
             <Price2ColTable rows={PRICE_BUILD} col1="Thi công xây dựng" col2="Nội thất · Lắp đặt · SX · Gia công" />
@@ -474,7 +474,7 @@ function HouseholdAccountingService() {
           {COMMITMENTS.map((c) => (
             <div key={c} className="bg-background p-5 flex gap-3">
               <ShieldCheck size={18} className="shrink-0 text-brand-red mt-0.5" strokeWidth={1.7} />
-              <p className="text-sm text-foreground/85 font-serif leading-relaxed">{c}</p>
+              <p className="t-body-sm text-foreground/85">{c}</p>
             </div>
           ))}
         </div>
@@ -486,10 +486,10 @@ function HouseholdAccountingService() {
         <div className="grid lg:grid-cols-12 gap-10">
           <div className="lg:col-span-5">
             <Eyebrow>Chế độ kế toán</Eyebrow>
-            <h2 className="font-display text-3xl text-foreground leading-tight">
+            <h2 className="t-h2 text-foreground">
               Theo Thông tư 88 & Thông tư 40
             </h2>
-            <p className="mt-4 text-base text-muted-foreground font-serif leading-relaxed">
+            <p className="t-body mt-4 text-muted-foreground">
               TT 88/2021/TT-BTC (hiệu lực 01/01/2022) cho phép hộ kinh doanh áp dụng chế độ kế
               toán đơn giản; TT 40/2021/TT-BTC quy định chính sách thuế (khoán, kê khai, hoặc kết
               hợp). Hộ doanh thu từ 100 triệu/năm trở lên phải kê khai TNCN, GTGT (nếu có) và lệ
@@ -519,7 +519,7 @@ function HouseholdAccountingService() {
           {WHO.map((w) => (
             <div key={w} className="bg-background p-5 flex gap-3">
               <Store size={18} className="shrink-0 text-accent-foreground mt-0.5" />
-              <p className="text-sm text-foreground/85 font-serif leading-relaxed">{w}</p>
+              <p className="t-body-sm text-foreground/85">{w}</p>
             </div>
           ))}
         </div>
@@ -536,7 +536,7 @@ function HouseholdAccountingService() {
           {RISKS.map((r) => (
             <div key={r} className="bg-background p-6 flex gap-3">
               <AlertTriangle size={18} className="shrink-0 text-brand-red mt-0.5" strokeWidth={1.7} />
-              <p className="text-sm text-foreground/85 font-serif leading-relaxed">{r}</p>
+              <p className="t-body-sm text-foreground/85">{r}</p>
             </div>
           ))}
         </div>
@@ -576,10 +576,10 @@ function HouseholdAccountingService() {
         <div className="grid lg:grid-cols-12 gap-10">
           <div className="lg:col-span-4">
             <Eyebrow>FAQ</Eyebrow>
-            <h2 className="font-display text-3xl md:text-[2.25rem] leading-tight text-foreground">
+            <h2 className="t-h2 md:text-[2.25rem] text-foreground">
               Câu hỏi thường gặp
             </h2>
-            <p className="mt-4 text-sm text-muted-foreground font-serif leading-relaxed">
+            <p className="t-body-sm mt-4 text-muted-foreground">
               Giải đáp về chi phí, nghĩa vụ thuế, hóa đơn, thời hạn kê khai và kiểm tra thuế.
             </p>
           </div>
@@ -595,7 +595,7 @@ function HouseholdAccountingService() {
                       {f.q}
                     </span>
                   </AccordionTrigger>
-                  <AccordionContent className="text-base text-foreground/80 font-serif leading-relaxed pl-10 pr-2">
+                  <AccordionContent className="t-body text-foreground/80 pl-10 pr-2">
                     {f.a}
                   </AccordionContent>
                 </AccordionItem>
@@ -610,16 +610,16 @@ function HouseholdAccountingService() {
         <div className="rounded-[2px] border border-border bg-cream/60 p-6 md:p-10">
           <div className="grid lg:grid-cols-12 gap-8 items-center">
             <div className="lg:col-span-7">
-              <p className="text-[0.7rem] uppercase tracking-[0.22em] text-accent-foreground mb-3 flex items-center gap-2.5">
+              <p className="t-cta text-accent-foreground mb-3 flex items-center gap-2.5">
                 <span className="inline-block w-1.5 h-1.5 rounded-full bg-brand-red" />
                 <span className="inline-block w-6 h-px bg-accent/60" />
                 Nhận tư vấn ngay
               </p>
-              <h2 className="font-display text-2xl md:text-[1.85rem] leading-tight text-foreground">
+              <h2 className="t-h2 md:text-[1.85rem] text-foreground">
                 Hộ kinh doanh an tâm{" "}
                 <span className="italic text-accent-foreground">tuân thủ thuế.</span>
               </h2>
-              <p className="mt-3 text-muted-foreground font-serif text-base leading-relaxed">
+              <p className="t-body mt-3 text-muted-foreground">
                 Gọi hoặc gửi yêu cầu — TAF tư vấn gói phù hợp ngành nghề và quy mô của bạn.{" "}
                 <Receipt className="inline -mt-0.5 text-brand-red" size={16} /> Chỉ từ 400.000đ/tháng.
               </p>

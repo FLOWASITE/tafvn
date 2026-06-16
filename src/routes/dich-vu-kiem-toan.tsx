@@ -446,7 +446,7 @@ function AuditServicePage() {
               className="w-full h-auto block aspect-[16/9] object-cover"
             />
           </div>
-          <figcaption className="mt-4 flex items-start gap-3 text-sm font-serif italic text-muted-foreground leading-relaxed">
+          <figcaption className="t-body-sm mt-4 flex items-start gap-3 italic text-muted-foreground">
             <span aria-hidden className="rule-gold mt-2 w-8 shrink-0" />
             <span>
               TAF — hãng kiểm toán độc lập được Bộ Tài chính cấp phép, phục vụ doanh nghiệp FDI và trong nước trên toàn quốc từ năm {SITE.established}.
@@ -472,17 +472,17 @@ function AuditServicePage() {
                 độc lập tại Việt Nam
               </span>
             </h1>
-            <p className="mt-5 text-xs uppercase tracking-[0.2em] text-muted-foreground">
+            <p className="t-cta mt-5 text-muted-foreground">
               Phụ trách chuyên môn:{" "}
               <span className="text-foreground/90">Huỳnh Thế Tho — Giám đốc kiểm toán</span>
             </p>
             <div className="mt-6 flex items-center gap-4">
               <span className="block h-px w-12 bg-brand-red" />
-              <span className="text-[0.7rem] uppercase tracking-[0.22em] text-brand-red-ink font-medium">
+              <span className="t-cta text-brand-red-ink">
                 Đăng ký số · Bộ Tài chính
               </span>
             </div>
-            <p className="mt-6 text-lg md:text-xl text-muted-foreground font-serif leading-relaxed">
+            <p className="t-lead mt-6 text-muted-foreground">
               Dịch vụ kiểm toán giúp doanh nghiệp chứng minh tính minh bạch, trung thực của
               báo cáo tài chính: đối chiếu số liệu, xác thực và đưa ra ý kiến độc lập về độ
               tin cậy của thông tin tài chính. Chỉ các tổ chức đủ điều kiện và được cấp
@@ -496,7 +496,7 @@ function AuditServicePage() {
               { k: "Báo giá", v: "Minh bạch sau khảo sát sơ bộ" },
             ].map((i) => (
               <div key={i.k} className="border-b border-border pb-3 last:border-0 group">
-                <div className="text-[0.7rem] uppercase tracking-[0.2em] text-muted-foreground flex items-center gap-2">
+                <div className="t-cta text-muted-foreground flex items-center gap-2">
                   <span className="inline-block w-1 h-1 rounded-full bg-brand-red" />
                   {i.k}
                 </div>
@@ -515,11 +515,11 @@ function AuditServicePage() {
           aria-label="Mục lục: Dịch vụ kiểm toán độc lập tại TAF"
           className="border border-border bg-cream/60 rounded-[2px] p-6 md:p-8"
         >
-          <div className="flex items-center gap-2.5 text-[0.7rem] uppercase tracking-[0.22em] text-accent-foreground/90 mb-3 font-medium">
+          <div className="t-cta flex items-center gap-2.5 text-accent-foreground/90 mb-3">
             <List size={14} className="text-brand-red" />
             Mục lục bài viết
           </div>
-          <p className="font-serif text-sm md:text-base text-muted-foreground leading-relaxed mb-6 max-w-3xl">
+          <p className="t-body-sm md:text-base text-muted-foreground mb-6 max-w-3xl">
             Trang tổng quan về <strong className="text-foreground font-medium">dịch vụ kiểm toán độc lập</strong> của
             TAF: khái niệm, căn cứ pháp lý mới nhất, đối tượng kiểm toán bắt buộc, danh mục
             dịch vụ kiểm toán TAF cung cấp, quy trình triển khai và câu hỏi thường gặp.
@@ -555,11 +555,11 @@ function AuditServicePage() {
           <div className="grid lg:grid-cols-12 gap-10">
             <div className="lg:col-span-4">
               <Eyebrow>01</Eyebrow>
-              <h2 className="font-display text-3xl md:text-[2.25rem] leading-tight text-foreground">
+              <h2 className="t-h2 md:text-[2.25rem] text-foreground">
                 Dịch vụ kiểm toán là gì?
               </h2>
             </div>
-            <p className="lg:col-span-8 text-base md:text-lg text-foreground/85 font-serif leading-relaxed">
+            <p className="t-body lg:col-span-8 text-foreground/85">
               Dịch vụ kiểm toán là quá trình kiểm tra, xem xét, thẩm định, đánh giá và xác
               nhận tính đầy đủ, trung thực, hợp lý của số liệu, tài liệu kế toán và{" "}
               <Link to="/dich-vu/$slug" params={{ slug: "kiem-toan-bao-cao-tai-chinh" }} className="underline decoration-brand-red/40 underline-offset-4 hover:decoration-brand-red text-foreground">
@@ -578,7 +578,7 @@ function AuditServicePage() {
       <Section id="vi-sao-thue" className="pt-0">
         <div className="rule-gold mb-12" />
         <Eyebrow>02</Eyebrow>
-        <h2 className="font-display text-3xl md:text-[2.25rem] leading-tight text-foreground max-w-2xl">
+        <h2 className="t-h2 md:text-[2.25rem] text-foreground max-w-2xl">
           Vì sao doanh nghiệp nên thuê dịch vụ kiểm toán?
         </h2>
         <div className="mt-10 grid md:grid-cols-2 gap-x-10 gap-y-8">
@@ -589,9 +589,9 @@ function AuditServicePage() {
                   <span className="font-display italic text-accent-foreground tabular-nums text-2xl">
                     {String(i + 1).padStart(2, "0")}
                   </span>
-                  <h3 className="font-display text-xl text-foreground">{r.t}</h3>
+                  <h3 className="t-h3 text-foreground">{r.t}</h3>
                 </div>
-                <p className="text-sm md:text-base text-muted-foreground font-serif leading-relaxed">
+                <p className="t-body-sm md:text-base text-muted-foreground">
                   {r.d}
                 </p>
               </div>
@@ -605,10 +605,10 @@ function AuditServicePage() {
         <div className="grid lg:grid-cols-12 gap-10">
           <div className="lg:col-span-5">
             <Eyebrow>03</Eyebrow>
-            <h2 className="font-display text-3xl md:text-[2.25rem] leading-tight text-foreground">
+            <h2 className="t-h2 md:text-[2.25rem] text-foreground">
               Quy định pháp luật về <span className="italic text-accent-foreground">kiểm toán bắt buộc</span>
             </h2>
-            <div className="mt-8 hidden lg:flex items-center gap-3 text-xs uppercase tracking-[0.2em] text-muted-foreground">
+            <div className="t-cta mt-8 hidden lg:flex items-center gap-3 text-muted-foreground">
               <ScrollText size={14} className="text-brand-red" />
               Trích dẫn pháp lý
             </div>
@@ -638,14 +638,14 @@ function AuditServicePage() {
                 aria-hidden
                 className="absolute left-0 top-0 bottom-0 w-1 bg-brand-red"
               />
-              <div className="text-[0.7rem] uppercase tracking-[0.22em] text-brand-red-ink mb-2 font-medium">
+              <div className="t-cta text-brand-red-ink mb-2">
                 Mức phạt theo Điều 53 NĐ 41/2018
               </div>
               <div className="flex items-baseline gap-3 mb-3">
                 <span className="font-display text-4xl md:text-5xl text-foreground tabular-nums leading-none">
                   40–50
                 </span>
-                <span className="text-sm uppercase tracking-[0.18em] text-muted-foreground">
+                <span className="t-cta text-muted-foreground">
                   triệu đồng
                 </span>
               </div>
@@ -662,7 +662,7 @@ function AuditServicePage() {
       {/* Đối tượng */}
       <Section id="doi-tuong-bat-buoc">
         <Eyebrow>04</Eyebrow>
-        <h2 className="font-display text-3xl md:text-[2.25rem] leading-tight text-foreground max-w-3xl">
+        <h2 className="t-h2 md:text-[2.25rem] text-foreground max-w-3xl">
           Các đối tượng bắt buộc phải kiểm toán
         </h2>
         <ol className="mt-10 grid md:grid-cols-2 gap-x-10 gap-y-0">
@@ -695,7 +695,7 @@ function AuditServicePage() {
       <Section id="dich-vu-taf" className="pt-0">
         <div className="rule-gold mb-12" />
         <Eyebrow>05</Eyebrow>
-        <h2 className="font-display text-3xl md:text-[2.25rem] leading-tight text-foreground max-w-3xl">
+        <h2 className="t-h2 md:text-[2.25rem] text-foreground max-w-3xl">
           Các dịch vụ kiểm toán TAF cung cấp
         </h2>
         <div className="mt-10 grid sm:grid-cols-2 lg:grid-cols-3 gap-3">
@@ -734,7 +734,7 @@ function AuditServicePage() {
       {/* Quy trình */}
       <Section id="quy-trinh" className="bg-cream border-y border-border">
         <Eyebrow>06</Eyebrow>
-        <h2 className="font-display text-3xl md:text-[2.25rem] leading-tight text-foreground max-w-3xl">
+        <h2 className="t-h2 md:text-[2.25rem] text-foreground max-w-3xl">
           Quy trình kiểm toán tại TAF
         </h2>
         <ol className="mt-12 relative grid md:grid-cols-4 gap-8 md:gap-6">
@@ -756,7 +756,7 @@ function AuditServicePage() {
                   {String(i + 1).padStart(2, "0")}
                 </span>
                 <h3 className="font-display text-lg text-foreground">{s.t}</h3>
-                <p className="mt-1.5 text-sm text-muted-foreground font-serif leading-relaxed">
+                <p className="t-body-sm mt-1.5 text-muted-foreground">
                   {s.d}
                 </p>
               </div>
@@ -778,12 +778,12 @@ function AuditServicePage() {
           <div className="lg:col-span-5">
             <div className="lg:sticky lg:top-28">
               <Eyebrow>07</Eyebrow>
-              <h2 className="font-display text-3xl md:text-[2.5rem] leading-[1.1] text-foreground">
+              <h2 className="t-h2 md:text-[2.5rem] text-foreground">
                 Vì sao chọn dịch vụ{" "}
                 <span className="italic text-accent-foreground">kiểm toán</span> của TAF
               </h2>
               <div className="rule-gold mt-6 mb-6" />
-              <p className="font-serif text-base md:text-lg text-foreground/80 leading-relaxed max-w-md">
+              <p className="t-body text-foreground/80 max-w-md">
                 Năng lực hành nghề được Bộ Tài chính cấp phép, quy trình minh bạch và
                 công nghệ giám sát trực tuyến — ba cam kết định hình chất lượng dịch vụ
                 kiểm toán tại TAF.
@@ -814,11 +814,11 @@ function AuditServicePage() {
                     title="Giới thiệu dịch vụ kiểm toán độc lập TAF — Kiểm toán viên được Bộ Tài chính cấp phép hành nghề"
                   />
                 </div>
-                <figcaption className="mt-3 text-[0.7rem] uppercase tracking-[0.22em] text-muted-foreground flex items-center gap-2.5">
+                <figcaption className="t-cta mt-3 text-muted-foreground flex items-center gap-2.5">
                   <span className="inline-block w-6 h-px bg-accent/60" />
                   Video giới thiệu dịch vụ kiểm toán độc lập — Kiểm toán viên được Bộ Tài chính cấp phép hành nghề
                 </figcaption>
-                <p className="mt-4 text-sm text-muted-foreground/80 font-serif leading-relaxed max-w-2xl">
+                <p className="t-body-sm mt-4 text-muted-foreground/80 max-w-2xl">
                   Đoạn phim ngắn giúp quý khách hàng hình dung quy trình kiểm toán minh bạch tại TAF: từ lập kế hoạch, thực hiện thủ tục kiểm toán đến phát hành báo cáo tài chính đã soát xét. Mọi công việc đều do kiểm toán viên độc lập được Nhà nước cấp chứng chỉ đảm nhiệm, đảm bảo tính khách quan và tuân thủ chuẩn mực kiểm toán Việt Nam.
                 </p>
               </figure>
@@ -862,11 +862,11 @@ function AuditServicePage() {
         <div className="grid lg:grid-cols-12 gap-10">
           <div className="lg:col-span-4">
             <Eyebrow>08</Eyebrow>
-            <h2 className="font-display text-3xl md:text-[2.25rem] leading-tight text-foreground">
+            <h2 className="t-h2 md:text-[2.25rem] text-foreground">
               Báo giá dịch vụ <span className="italic text-accent-foreground">kiểm toán</span>
             </h2>
           </div>
-          <div className="lg:col-span-8 font-serif text-base md:text-lg text-foreground/85 leading-relaxed space-y-5">
+          <div className="t-body lg:col-span-8 text-foreground/85 space-y-5">
             <p>
               Để đảm bảo chất lượng công việc kiểm toán, chính xác thì các bạn nên tìm
               đến các công ty dịch vụ kiểm toán uy tín.
@@ -889,16 +889,16 @@ function AuditServicePage() {
         <div className="mt-12 bg-cream/60 border border-border rounded-[2px] p-6 md:p-8">
           <div className="grid lg:grid-cols-12 gap-8 items-center">
             <div className="lg:col-span-7">
-              <p className="text-[0.7rem] uppercase tracking-[0.22em] text-accent-foreground mb-3 flex items-center gap-2.5">
+              <p className="t-cta text-accent-foreground mb-3 flex items-center gap-2.5">
                 <span className="inline-block w-1.5 h-1.5 rounded-full bg-brand-red" />
                 <span className="inline-block w-6 h-px bg-accent/60" />
                 Yêu cầu báo giá
               </p>
-              <h3 className="font-display text-2xl md:text-[1.75rem] leading-tight text-foreground">
+              <h3 className="t-h2 md:text-[1.75rem] text-foreground">
                 Phí kiểm toán <span className="italic text-accent-foreground">minh bạch</span>,
                 tương xứng phạm vi công việc
               </h3>
-              <p className="mt-3 text-muted-foreground font-serif text-base leading-relaxed">
+              <p className="t-body mt-3 text-muted-foreground">
                 TAF báo giá sau khảo sát sơ bộ. Chất lượng dịch vụ được khách hàng theo dõi
                 trực tiếp qua tài khoản trực tuyến.
               </p>
@@ -933,10 +933,10 @@ function AuditServicePage() {
         <div className="grid lg:grid-cols-12 gap-10">
           <div className="lg:col-span-4">
             <Eyebrow>FAQ</Eyebrow>
-            <h2 className="font-display text-3xl md:text-[2.25rem] leading-tight text-foreground">
+            <h2 className="t-h2 md:text-[2.25rem] text-foreground">
               Câu hỏi thường gặp về dịch vụ kiểm toán
             </h2>
-            <p className="mt-4 text-sm text-muted-foreground font-serif leading-relaxed">
+            <p className="t-body-sm mt-4 text-muted-foreground">
               Giải đáp về chi phí, thời gian, hồ sơ và phạm vi dịch vụ kiểm toán độc lập
               tại TAF.
             </p>
@@ -953,7 +953,7 @@ function AuditServicePage() {
                       {f.q}
                     </span>
                   </AccordionTrigger>
-                  <AccordionContent className="text-base text-foreground/80 font-serif leading-relaxed pl-10 pr-2">
+                  <AccordionContent className="t-body text-foreground/80 pl-10 pr-2">
                     {f.a}
                   </AccordionContent>
                 </AccordionItem>

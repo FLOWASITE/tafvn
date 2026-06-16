@@ -676,7 +676,7 @@ function PriceTable({ rows, caption }: { rows: typeof PRICE_TABLE_1; caption: st
       <div className="px-5 md:px-6 py-4 border-b border-border bg-gradient-to-r from-cream/80 via-cream/40 to-transparent flex items-center gap-3">
         <span aria-hidden className="inline-block w-1.5 h-1.5 rounded-full bg-brand-red" />
         <span aria-hidden className="inline-block w-5 h-px bg-accent" />
-        <div className="text-[0.7rem] uppercase tracking-[0.22em] text-accent-foreground/90 font-medium">
+        <div className="t-cta text-accent-foreground/90">
           {caption}
         </div>
       </div>
@@ -746,17 +746,17 @@ function AccountingServicePage() {
                 cho doanh nghiệp vừa và nhỏ
               </span>
             </h1>
-            <p className="mt-5 text-xs uppercase tracking-[0.2em] text-muted-foreground">
+            <p className="t-cta mt-5 text-muted-foreground">
               Phụ trách chuyên môn:{" "}
               <span className="text-foreground/90">{AUTHOR.name} — {AUTHOR.jobTitle}</span>
             </p>
             <div className="mt-6 flex items-center gap-4">
               <span className="block h-px w-12 bg-brand-red" />
-              <span className="text-[0.7rem] uppercase tracking-[0.22em] text-brand-red-ink font-medium">
+              <span className="t-cta text-brand-red-ink">
                 Tuân thủ Luật Kế toán 2015
               </span>
             </div>
-            <p className="mt-6 text-lg md:text-xl text-muted-foreground font-serif leading-relaxed">
+            <p className="t-lead mt-6 text-muted-foreground">
               Giải pháp giúp doanh nghiệp tối ưu chi phí mà vẫn đảm bảo đầy đủ sổ sách, hồ
               sơ, báo cáo đúng quy định pháp luật. Với kinh nghiệm phục vụ hàng nghìn
               doanh nghiệp lớn nhỏ, TAF cung cấp dịch vụ kế toán chuyên nghiệp, minh bạch.
@@ -798,7 +798,7 @@ function AccountingServicePage() {
                     {s.k}
                     <span className="inline-block align-top w-1 h-1 rounded-full bg-brand-red ml-1 mt-1.5 group-hover:scale-150 transition-transform" />
                   </dt>
-                  <dd className="mt-2 text-[0.7rem] uppercase tracking-[0.18em] text-muted-foreground">
+                  <dd className="t-cta mt-2 text-muted-foreground">
                     {s.v}
                   </dd>
                 </div>
@@ -813,7 +813,7 @@ function AccountingServicePage() {
               { k: "Phạm vi", v: "Toàn quốc, hỗ trợ online" },
             ].map((i) => (
               <div key={i.k} className="border-b border-border pb-3 last:border-0 group">
-                <div className="text-[0.7rem] uppercase tracking-[0.2em] text-muted-foreground flex items-center gap-2">
+                <div className="t-cta text-muted-foreground flex items-center gap-2">
                   <span className="inline-block w-1 h-1 rounded-full bg-brand-red" />
                   {i.k}
                 </div>
@@ -832,11 +832,11 @@ function AccountingServicePage() {
           aria-label="Mục lục: Dịch vụ kế toán trọn gói tại TAF"
           className="border border-border bg-cream/60 rounded-[2px] p-6 md:p-8"
         >
-          <div className="flex items-center gap-2.5 text-[0.7rem] uppercase tracking-[0.22em] text-accent-foreground/90 mb-3 font-medium">
+          <div className="t-cta flex items-center gap-2.5 text-accent-foreground/90 mb-3">
             <List size={14} className="text-brand-red" />
             Mục lục bài viết
           </div>
-          <p className="font-serif text-sm md:text-base text-muted-foreground leading-relaxed mb-6 max-w-3xl">
+          <p className="t-body-sm md:text-base text-muted-foreground mb-6 max-w-3xl">
             Trang tổng quan về <strong className="text-foreground font-medium">dịch vụ kế toán trọn gói</strong> của TAF: khái niệm, điều kiện hành nghề, danh mục dịch vụ, bảng báo giá tham khảo, quy trình triển khai và câu hỏi thường gặp.
           </p>
           <ol className="grid sm:grid-cols-2 gap-x-8 gap-y-3 font-serif text-foreground/85">
@@ -864,11 +864,11 @@ function AccountingServicePage() {
           <div className="grid lg:grid-cols-12 gap-10">
             <div className="lg:col-span-4">
               <Eyebrow>01</Eyebrow>
-              <h2 className="font-display text-3xl md:text-[2.25rem] leading-tight text-foreground">
+              <h2 className="t-h2 md:text-[2.25rem] text-foreground">
                 Dịch vụ kế toán trọn gói là gì?
               </h2>
             </div>
-            <p className="lg:col-span-8 text-base md:text-lg text-foreground/85 font-serif leading-relaxed">
+            <p className="t-body lg:col-span-8 text-foreground/85">
               Kế toán là bộ phận quan trọng, quản lý thu – chi, xử lý thuế, lập báo cáo
               tài chính và các thủ tục pháp lý liên quan. Doanh nghiệp lớn thường có
               phòng kế toán riêng, nhưng với công ty mới thành lập hoặc quy mô nhỏ, ít
@@ -885,11 +885,11 @@ function AccountingServicePage() {
         <div className="grid lg:grid-cols-12 gap-10">
           <div className="lg:col-span-5">
             <Eyebrow>02</Eyebrow>
-            <h2 className="font-display text-3xl md:text-[2.25rem] leading-tight text-foreground">
+            <h2 className="t-h2 md:text-[2.25rem] text-foreground">
               Điều kiện hành nghề{" "}
               <span className="italic text-accent-foreground">dịch vụ kế toán</span>
             </h2>
-            <p className="mt-4 font-serif text-base text-muted-foreground leading-relaxed">
+            <p className="t-body mt-4 text-muted-foreground">
               Theo Luật Kế toán 2015 và Thông tư 296/2016/TT-BTC (hiệu lực 01/01/2017),
               người hành nghề dịch vụ kế toán phải đáp ứng đủ các điều kiện sau:
             </p>
@@ -918,7 +918,7 @@ function AccountingServicePage() {
       {/* 03 — Dịch vụ TAF cung cấp */}
       <Section id="dich-vu">
         <Eyebrow>03</Eyebrow>
-        <h2 className="font-display text-3xl md:text-[2.25rem] leading-tight text-foreground max-w-3xl">
+        <h2 className="t-h2 md:text-[2.25rem] text-foreground max-w-3xl">
           Các dịch vụ kế toán TAF cung cấp
         </h2>
         <div className="mt-10 grid md:grid-cols-2 gap-6">
@@ -937,10 +937,10 @@ function AccountingServicePage() {
                   </span>
                   <span aria-hidden className="block h-px flex-1 ml-4 bg-gradient-to-r from-accent/60 to-transparent" />
                 </div>
-                <h3 className="font-display text-xl md:text-2xl text-foreground mb-3 group-hover:text-accent-foreground transition-colors">
+                <h3 className="t-h3 md:text-2xl text-foreground mb-3 group-hover:text-accent-foreground transition-colors">
                   {s.label}
                 </h3>
-                <p className="font-serif text-sm md:text-base text-muted-foreground leading-relaxed">
+                <p className="t-body-sm md:text-base text-muted-foreground">
                   {s.detail}
                 </p>
               </div>
@@ -949,7 +949,7 @@ function AccountingServicePage() {
         </div>
 
         <div className="mt-10">
-          <div className="text-[0.7rem] uppercase tracking-[0.22em] text-accent-foreground/90 mb-4 font-medium flex items-center gap-2.5">
+          <div className="t-cta text-accent-foreground/90 mb-4 flex items-center gap-2.5">
             <span className="inline-block w-1.5 h-1.5 rounded-full bg-brand-red" />
             <span className="inline-block w-6 h-px bg-accent/60" />
             Các mảng chuyên sâu
@@ -974,12 +974,12 @@ function AccountingServicePage() {
         <div className="grid lg:grid-cols-12 gap-10 mb-10">
           <div className="lg:col-span-5">
             <Eyebrow>04</Eyebrow>
-            <h2 className="font-display text-3xl md:text-[2.25rem] leading-tight text-foreground">
+            <h2 className="t-h2 md:text-[2.25rem] text-foreground">
               Bảng báo giá dịch vụ{" "}
               <span className="italic text-accent-foreground">kế toán trọn gói</span>
             </h2>
           </div>
-          <p className="lg:col-span-7 font-serif text-base md:text-lg text-foreground/85 leading-relaxed">
+          <p className="t-body lg:col-span-7 text-foreground/85">
             Đơn vị: đồng/tháng. Bảng giá <strong className="text-foreground font-medium">mang tính tham khảo</strong>;
             báo giá chính thức được lập sau khảo sát thực tế tình hình chứng từ và đặc thù
             ngành nghề của doanh nghiệp.
@@ -997,7 +997,7 @@ function AccountingServicePage() {
           />
         </div>
 
-        <div className="mt-8 bg-cream/60 border border-border rounded-[2px] p-5 md:p-6 font-serif text-sm md:text-base text-muted-foreground leading-relaxed">
+        <div className="t-body-sm mt-8 bg-cream/60 border border-border rounded-[2px] p-5 md:p-6 md:text-base text-muted-foreground">
           <strong className="text-foreground font-medium">Lưu ý chi phí:</strong> phí trên
           chưa gồm thuế, VAT và các lệ phí phải nộp Nhà nước; có thể thay đổi với doanh
           nghiệp xuất nhập khẩu hoặc có vốn nước ngoài. Nội thành TP.HCM miễn phí giao
@@ -1035,12 +1035,12 @@ function AccountingServicePage() {
           <div className="lg:col-span-5">
             <div className="lg:sticky lg:top-28">
               <Eyebrow>05</Eyebrow>
-              <h2 className="font-display text-3xl md:text-[2.5rem] leading-[1.1] text-foreground">
+              <h2 className="t-h2 md:text-[2.5rem] text-foreground">
                 Vì sao nên dùng dịch vụ{" "}
                 <span className="italic text-accent-foreground">kế toán trọn gói?</span>
               </h2>
               <div className="rule-gold mt-6 mb-6" />
-              <p className="font-serif text-base md:text-lg text-foreground/80 leading-relaxed max-w-md">
+              <p className="t-body text-foreground/80 max-w-md">
                 Bốn lý do cốt lõi khiến SMEs lựa chọn dịch vụ kế toán thuê ngoài thay vì
                 tuyển dụng kế toán nội bộ.
               </p>
@@ -1060,7 +1060,7 @@ function AccountingServicePage() {
                     title="Giới thiệu dịch vụ kế toán trọn gói TAF — Tối ưu chi phí cho doanh nghiệp vừa và nhỏ"
                   />
                 </div>
-                <figcaption className="mt-3 text-[0.7rem] uppercase tracking-[0.22em] text-muted-foreground flex items-center gap-2.5">
+                <figcaption className="t-cta mt-3 text-muted-foreground flex items-center gap-2.5">
                   <span className="inline-block w-6 h-px bg-accent/60" />
                   Video giới thiệu dịch vụ kế toán trọn gói tại TAF
                 </figcaption>
@@ -1077,7 +1077,7 @@ function AccountingServicePage() {
                       </span>
                       <h3 className="font-display text-lg text-foreground">{r.t}</h3>
                     </div>
-                    <p className="font-serif text-sm md:text-base text-muted-foreground leading-relaxed pl-9">
+                    <p className="t-body-sm md:text-base text-muted-foreground pl-9">
                       {r.d}
                     </p>
                   </li>
@@ -1091,7 +1091,7 @@ function AccountingServicePage() {
       {/* 06 — Lợi ích tại TAF */}
       <Section id="loi-ich" className="bg-cream border-y border-border">
         <Eyebrow>06</Eyebrow>
-        <h2 className="font-display text-3xl md:text-[2.25rem] leading-tight text-foreground max-w-3xl">
+        <h2 className="t-h2 md:text-[2.25rem] text-foreground max-w-3xl">
           Lợi ích khi dùng dịch vụ kế toán tại TAF
         </h2>
         <div className="mt-10 grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
@@ -1111,7 +1111,7 @@ function AccountingServicePage() {
                   </span>
                 </div>
                 <h3 className="font-display text-lg text-foreground mb-2">{b.text}</h3>
-                <p className="font-serif text-sm text-muted-foreground leading-relaxed">
+                <p className="t-body-sm text-muted-foreground">
                   {b.detail}
                 </p>
               </div>
@@ -1123,7 +1123,7 @@ function AccountingServicePage() {
       {/* 07 — Đối tượng */}
       <Section id="doi-tuong">
         <Eyebrow>07</Eyebrow>
-        <h2 className="font-display text-3xl md:text-[2.25rem] leading-tight text-foreground max-w-3xl">
+        <h2 className="t-h2 md:text-[2.25rem] text-foreground max-w-3xl">
           Đối tượng nên sử dụng dịch vụ kế toán
         </h2>
         <ol className="mt-10 grid md:grid-cols-2 gap-x-10 gap-y-0">
@@ -1144,7 +1144,7 @@ function AccountingServicePage() {
       {/* 08 — Quy trình */}
       <Section id="quy-trinh" className="bg-cream border-y border-border">
         <Eyebrow>08</Eyebrow>
-        <h2 className="font-display text-3xl md:text-[2.25rem] leading-tight text-foreground max-w-3xl">
+        <h2 className="t-h2 md:text-[2.25rem] text-foreground max-w-3xl">
           Quy trình làm việc tại TAF
         </h2>
         <ol className="mt-12 relative grid md:grid-cols-5 gap-8 md:gap-6">
@@ -1171,7 +1171,7 @@ function AccountingServicePage() {
                     <Icon size={16} className="text-accent-foreground/60" strokeWidth={1.5} aria-hidden="true" />
                   </div>
                   <h3 className="font-display text-lg text-foreground">{s.t}</h3>
-                  <p className="mt-1.5 text-sm text-muted-foreground font-serif leading-relaxed">
+                  <p className="t-body-sm mt-1.5 text-muted-foreground">
                     {s.d}
                   </p>
                 </div>
@@ -1184,7 +1184,7 @@ function AccountingServicePage() {
       {/* 09 — Phạm vi công việc */}
       <Section id="pham-vi">
         <Eyebrow>09</Eyebrow>
-        <h2 className="font-display text-3xl md:text-[2.25rem] leading-tight text-foreground max-w-3xl">
+        <h2 className="t-h2 md:text-[2.25rem] text-foreground max-w-3xl">
           Phạm vi công việc kế toán trọn gói
         </h2>
         <div className="mt-10 grid md:grid-cols-2 gap-4">
@@ -1203,7 +1203,7 @@ function AccountingServicePage() {
                 {g.items.map((it) => (
                   <li
                     key={it}
-                    className="flex items-start gap-3 font-serif text-sm md:text-base text-foreground/85 leading-relaxed"
+                    className="t-body-sm flex items-start gap-3 md:text-base text-foreground/85"
                   >
                     <CheckCircle2 size={16} className="text-brand-red shrink-0 mt-1" />
                     <span>{it}</span>
@@ -1220,10 +1220,10 @@ function AccountingServicePage() {
         <div className="grid lg:grid-cols-12 gap-10">
           <div className="lg:col-span-5">
             <Eyebrow>10</Eyebrow>
-            <h2 className="font-display text-3xl md:text-[2.25rem] leading-tight text-foreground">
+            <h2 className="t-h2 md:text-[2.25rem] text-foreground">
               Khách hàng cần cung cấp những gì?
             </h2>
-            <p className="mt-4 font-serif text-base text-muted-foreground leading-relaxed">
+            <p className="t-body mt-4 text-muted-foreground">
               Để TAF triển khai dịch vụ kế toán trọn gói chính xác và đúng tiến độ, doanh
               nghiệp chuẩn bị danh mục thông tin sau:
             </p>
@@ -1247,7 +1247,7 @@ function AccountingServicePage() {
       {/* 11 — Phân biệt */}
       <Section id="phan-biet">
         <Eyebrow>11</Eyebrow>
-        <h2 className="font-display text-3xl md:text-[2.25rem] leading-tight text-foreground max-w-3xl">
+        <h2 className="t-h2 md:text-[2.25rem] text-foreground max-w-3xl">
           Phân biệt dịch vụ kế toán & dịch vụ báo cáo thuế
         </h2>
         <div className="mt-8 border border-border rounded-[2px] bg-background overflow-hidden">
@@ -1284,10 +1284,10 @@ function AccountingServicePage() {
         <div className="grid lg:grid-cols-12 gap-10">
           <div className="lg:col-span-4">
             <Eyebrow>FAQ</Eyebrow>
-            <h2 className="font-display text-3xl md:text-[2.25rem] leading-tight text-foreground">
+            <h2 className="t-h2 md:text-[2.25rem] text-foreground">
               Câu hỏi thường gặp
             </h2>
-            <p className="mt-4 text-sm text-muted-foreground font-serif leading-relaxed">
+            <p className="t-body-sm mt-4 text-muted-foreground">
               Giải đáp về hợp đồng, hoá đơn, BHXH và phạm vi áp dụng toàn quốc của dịch
               vụ kế toán trọn gói tại TAF.
             </p>
@@ -1304,7 +1304,7 @@ function AccountingServicePage() {
                       {f.q}
                     </span>
                   </AccordionTrigger>
-                  <AccordionContent className="text-base text-foreground/80 font-serif leading-relaxed pl-10 pr-2">
+                  <AccordionContent className="t-body text-foreground/80 pl-10 pr-2">
                     {f.a}
                   </AccordionContent>
                 </AccordionItem>
@@ -1320,10 +1320,10 @@ function AccountingServicePage() {
         <div className="grid lg:grid-cols-12 gap-10 lg:gap-16">
           <div className="lg:col-span-4">
             <Eyebrow>13 · Niềm tin</Eyebrow>
-            <h2 className="font-display text-3xl md:text-[2.5rem] leading-[1.1] text-foreground">
+            <h2 className="t-h2 md:text-[2.5rem] text-foreground">
               Khách hàng nói gì <em className="not-italic italic text-brand-red">về TAF</em>
             </h2>
-            <p className="mt-5 text-base text-muted-foreground font-serif leading-relaxed">
+            <p className="t-body mt-5 text-muted-foreground">
               Hơn một thập kỷ đồng hành cùng doanh nghiệp trong nước và FDI — sau đây là vài tiếng nói
               tiêu biểu từ các đối tác đang sử dụng dịch vụ kế toán trọn gói của TAF.
             </p>
@@ -1343,7 +1343,7 @@ function AccountingServicePage() {
                       <div className="font-display text-sm md:text-[0.95rem] text-foreground leading-tight">
                         {b.label}
                       </div>
-                      <div className="text-[0.65rem] uppercase tracking-[0.2em] text-muted-foreground mt-1">
+                      <div className="t-cta text-muted-foreground mt-1">
                         {b.sublabel}
                       </div>
                     </div>
@@ -1428,7 +1428,7 @@ function AccountingServicePage() {
               ))}
             </div>
 
-            <div className="mt-6 flex flex-wrap items-center gap-x-6 gap-y-2 text-[0.7rem] uppercase tracking-[0.2em] text-muted-foreground">
+            <div className="t-cta mt-6 flex flex-wrap items-center gap-x-6 gap-y-2 text-muted-foreground">
               <span className="inline-flex items-center gap-2">
                 <span className="w-1.5 h-1.5 rounded-full bg-brand-red" />
                 Tên và đơn vị đã ẩn theo cam kết bảo mật

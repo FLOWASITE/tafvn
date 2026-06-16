@@ -368,17 +368,17 @@ function ThanhLapDNPage() {
                 trọn gói tại Việt Nam
               </span>
             </h1>
-            <p className="mt-5 text-xs uppercase tracking-[0.2em] text-muted-foreground">
+            <p className="t-cta mt-5 text-muted-foreground">
               Chuyên viên phụ trách:{" "}
               <span className="text-foreground/90">Chuyên viên pháp lý TAF</span>
             </p>
             <div className="mt-6 flex items-center gap-4">
               <span className="block h-px w-12 bg-brand-red" />
-              <span className="text-[0.7rem] uppercase tracking-[0.22em] text-brand-red-ink font-medium">
+              <span className="t-cta text-brand-red-ink">
                 Luật DN 2020 · NĐ 01/2021/NĐ-CP
               </span>
             </div>
-            <p className="mt-6 text-lg md:text-xl text-muted-foreground font-serif leading-relaxed">
+            <p className="t-lead mt-6 text-muted-foreground">
               TAF đồng hành cùng doanh nghiệp từ bước đầu tiên: tư vấn loại hình phù hợp,
               soạn và nộp hồ sơ, khắc dấu, đăng ký thuế đến mở tài khoản ngân hàng và
               hóa đơn điện tử — hoàn thành trong 3–5 ngày làm việc.
@@ -415,7 +415,7 @@ function ThanhLapDNPage() {
               const Icon = item.icon;
               return (
                 <div key={item.k} className="border-b border-border pb-3 last:border-0 group">
-                  <div className="text-[0.7rem] uppercase tracking-[0.2em] text-muted-foreground flex items-center gap-2">
+                  <div className="t-cta text-muted-foreground flex items-center gap-2">
                     <Icon size={12} className="text-brand-red" aria-hidden="true" />
                     {item.k}
                   </div>
@@ -446,11 +446,11 @@ function ThanhLapDNPage() {
           aria-label="Mục lục: Dịch vụ thành lập doanh nghiệp trọn gói"
           className="border border-border bg-cream/60 rounded-[2px] p-6 md:p-8"
         >
-          <div className="flex items-center gap-2.5 text-[0.7rem] uppercase tracking-[0.22em] text-accent-foreground/90 mb-3 font-medium">
+          <div className="t-cta flex items-center gap-2.5 text-accent-foreground/90 mb-3">
             <List size={14} className="text-brand-red" />
             Mục lục bài viết
           </div>
-          <p className="font-serif text-sm md:text-base text-muted-foreground leading-relaxed mb-6 max-w-3xl">
+          <p className="t-body-sm md:text-base text-muted-foreground mb-6 max-w-3xl">
             Trang tổng quan về{" "}
             <strong className="text-foreground font-medium">
               dịch vụ thành lập doanh nghiệp trọn gói
@@ -486,11 +486,11 @@ function ThanhLapDNPage() {
           <div className="grid lg:grid-cols-12 gap-10">
             <div className="lg:col-span-4">
               <Eyebrow>01</Eyebrow>
-              <h2 className="font-display text-3xl md:text-[2.25rem] leading-tight text-foreground">
+              <h2 className="t-h2 md:text-[2.25rem] text-foreground">
                 Thành lập doanh nghiệp trọn gói là gì?
               </h2>
             </div>
-            <div className="lg:col-span-8 font-serif text-base md:text-lg text-foreground/85 leading-relaxed space-y-4">
+            <div className="t-body lg:col-span-8 text-foreground/85 space-y-4">
               <p>
                 Thành lập doanh nghiệp trọn gói là dịch vụ hỗ trợ toàn bộ quy trình pháp lý để
                 thành lập một pháp nhân mới tại Việt Nam — từ khâu tư vấn chọn loại hình, soạn
@@ -514,7 +514,7 @@ function ThanhLapDNPage() {
       <Section id="loai-hinh" className="pt-0">
         <div className="rule-gold mb-12" />
         <Eyebrow>02</Eyebrow>
-        <h2 className="font-display text-3xl md:text-[2.25rem] leading-tight text-foreground max-w-2xl">
+        <h2 className="t-h2 md:text-[2.25rem] text-foreground max-w-2xl">
           Các loại hình doanh nghiệp phổ biến
         </h2>
         <div className="mt-10 grid md:grid-cols-2 gap-5">
@@ -534,10 +534,10 @@ function ThanhLapDNPage() {
                       <span className="font-display italic text-accent-foreground tabular-nums text-sm tracking-wider">
                         {String(i + 1).padStart(2, "0")}
                       </span>
-                      <h3 className="font-display text-xl text-foreground leading-snug">{lh.t}</h3>
+                      <h3 className="t-h3 text-foreground">{lh.t}</h3>
                     </div>
                   </div>
-                  <p className="text-sm md:text-base text-muted-foreground font-serif leading-relaxed relative">
+                  <p className="t-body-sm md:text-base text-muted-foreground relative">
                     {lh.d}
                   </p>
                   <span className="mt-4 inline-flex items-center gap-1.5 text-xs text-accent-foreground border border-accent/40 rounded-[2px] px-2.5 py-1 font-mono relative">
@@ -554,7 +554,7 @@ function ThanhLapDNPage() {
       {/* Dịch vụ cung cấp */}
       <Section id="dich-vu" className="bg-cream border-y border-border">
         <Eyebrow>03</Eyebrow>
-        <h2 className="font-display text-3xl md:text-[2.25rem] leading-tight text-foreground max-w-3xl">
+        <h2 className="t-h2 md:text-[2.25rem] text-foreground max-w-3xl">
           Dịch vụ thành lập doanh nghiệp TAF cung cấp
         </h2>
         <div className="mt-10 grid sm:grid-cols-2 lg:grid-cols-4 gap-3">
@@ -581,7 +581,7 @@ function ThanhLapDNPage() {
       {/* Quy trình */}
       <Section id="quy-trinh">
         <Eyebrow>04</Eyebrow>
-        <h2 className="font-display text-3xl md:text-[2.25rem] leading-tight text-foreground max-w-3xl">
+        <h2 className="t-h2 md:text-[2.25rem] text-foreground max-w-3xl">
           Quy trình thành lập doanh nghiệp
         </h2>
         <ol className="mt-12 relative grid md:grid-cols-5 gap-8 md:gap-4">
@@ -614,7 +614,7 @@ function ThanhLapDNPage() {
                     <Icon size={16} className="text-accent-foreground/60" strokeWidth={1.5} />
                   </div>
                   <h3 className="font-display text-base text-foreground leading-snug">{s.t}</h3>
-                  <p className="mt-1.5 text-sm text-muted-foreground font-serif leading-relaxed">
+                  <p className="t-body-sm mt-1.5 text-muted-foreground">
                     {s.d}
                   </p>
                 </div>
@@ -628,10 +628,10 @@ function ThanhLapDNPage() {
       <Section id="bao-gia" className="pt-0 border-t border-border">
         <div className="rule-gold mb-12" />
         <Eyebrow>05</Eyebrow>
-        <h2 className="font-display text-3xl md:text-[2.25rem] leading-tight text-foreground max-w-2xl">
+        <h2 className="t-h2 md:text-[2.25rem] text-foreground max-w-2xl">
           Bảng giá tham khảo
         </h2>
-        <p className="mt-4 text-sm text-muted-foreground font-serif leading-relaxed max-w-2xl">
+        <p className="t-body-sm mt-4 text-muted-foreground max-w-2xl">
           Báo giá chính thức được cung cấp sau khi khảo sát sơ bộ (miễn phí) để đánh giá đúng
           phạm vi công việc.
         </p>
@@ -648,7 +648,7 @@ function ThanhLapDNPage() {
                 {p.highlight && (
                   <>
                     <span aria-hidden className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-brand-red to-transparent" />
-                    <span className="absolute -top-3 left-6 text-[0.65rem] uppercase tracking-[0.22em] bg-brand-red text-white px-3 py-1 rounded-[2px] font-medium shadow-[0_4px_14px_-4px_color-mix(in_oklab,var(--color-brand-red)_55%,transparent)]">
+                    <span className="t-cta absolute -top-3 left-6 bg-brand-red text-white px-3 py-1 rounded-[2px] shadow-[0_4px_14px_-4px_color-mix(in_oklab,var(--color-brand-red)_55%,transparent)]">
                       ★ {p.note}
                     </span>
                   </>
@@ -656,8 +656,8 @@ function ThanhLapDNPage() {
                 {!p.highlight && (
                   <span aria-hidden className="absolute top-0 left-0 w-px h-12 bg-accent/60" />
                 )}
-                <div className="font-display text-xl text-foreground mb-1">{p.tier}</div>
-                <div className="font-mono text-[0.65rem] uppercase tracking-[0.22em] text-muted-foreground mb-5">
+                <div className="t-h3 text-foreground mb-1">{p.tier}</div>
+                <div className="t-eyebrow text-muted-foreground mb-5">
                   Gói {String(idx + 1).padStart(2, "0")}
                 </div>
                 <ul className="space-y-3 flex-1 mb-6">
@@ -672,7 +672,7 @@ function ThanhLapDNPage() {
                   ))}
                 </ul>
                 <div className="border-t border-border pt-4">
-                  <div className="text-[0.65rem] uppercase tracking-[0.2em] text-muted-foreground mb-1">Phí dịch vụ</div>
+                  <div className="t-cta text-muted-foreground mb-1">Phí dịch vụ</div>
                   <div className="font-mono text-base text-accent-foreground tabular-nums">
                     {p.fee}
                   </div>
@@ -713,7 +713,7 @@ function ThanhLapDNPage() {
       <Section className="pt-0 border-t border-border">
         <div className="rule-gold mb-12" />
         <Eyebrow>Quy trình</Eyebrow>
-        <h2 className="font-display text-3xl md:text-[2.25rem] leading-tight text-foreground max-w-3xl">
+        <h2 className="t-h2 md:text-[2.25rem] text-foreground max-w-3xl">
           5 bước thành lập doanh nghiệp cùng TAF
         </h2>
         <ol className="mt-12 relative grid md:grid-cols-5 gap-8 md:gap-4">
@@ -746,7 +746,7 @@ function ThanhLapDNPage() {
                     <Icon size={16} className="text-accent-foreground/60" strokeWidth={1.5} />
                   </div>
                   <h3 className="font-display text-base text-foreground leading-snug">{s.t}</h3>
-                  <p className="mt-1.5 text-sm text-muted-foreground font-serif leading-relaxed">
+                  <p className="t-body-sm mt-1.5 text-muted-foreground">
                     {s.d}
                   </p>
                 </div>
@@ -761,10 +761,10 @@ function ThanhLapDNPage() {
         <div className="grid lg:grid-cols-12 gap-10">
           <div className="lg:col-span-4">
             <Eyebrow>06</Eyebrow>
-            <h2 className="font-display text-3xl md:text-[2.25rem] leading-tight text-foreground">
+            <h2 className="t-h2 md:text-[2.25rem] text-foreground">
               Hồ sơ cần chuẩn bị
             </h2>
-            <p className="mt-4 font-serif text-base text-muted-foreground leading-relaxed">
+            <p className="t-body mt-4 text-muted-foreground">
               TAF hỗ trợ soạn thảo toàn bộ biểu mẫu — khách hàng chỉ cần cung cấp các
               thông tin và tài liệu cơ bản dưới đây.
             </p>
@@ -795,13 +795,13 @@ function ThanhLapDNPage() {
           <div className="lg:col-span-5">
             <div className="lg:sticky lg:top-28">
               <Eyebrow>07</Eyebrow>
-              <h2 className="font-display text-3xl md:text-[2.5rem] leading-[1.1] text-foreground">
+              <h2 className="t-h2 md:text-[2.5rem] text-foreground">
                 Vì sao nên chọn{" "}
                 <span className="italic text-accent-foreground">TAF</span> để thành lập doanh
                 nghiệp?
               </h2>
               <div className="rule-gold mt-6 mb-6" />
-              <p className="font-serif text-base md:text-lg text-foreground/80 leading-relaxed max-w-md">
+              <p className="t-body text-foreground/80 max-w-md">
                 Hơn một thập kỷ phục vụ doanh nghiệp Việt Nam và FDI, TAF không chỉ hỗ trợ
                 thành lập mà đồng hành trong suốt vòng đời doanh nghiệp.
               </p>
@@ -833,7 +833,7 @@ function ThanhLapDNPage() {
                     />
                     <div>
                       <div className="font-display text-base text-foreground mb-1">{r.t}</div>
-                      <span className="font-serif text-sm text-foreground/75 leading-relaxed group-hover:text-foreground/85 transition-colors duration-300">
+                      <span className="t-body-sm text-foreground/75 group-hover:text-foreground/85 transition-colors duration-300">
                         {r.d}
                       </span>
                     </div>
@@ -854,10 +854,10 @@ function ThanhLapDNPage() {
         <div className="grid lg:grid-cols-12 gap-10">
           <div className="lg:col-span-4">
             <Eyebrow>FAQ</Eyebrow>
-            <h2 className="font-display text-3xl md:text-[2.25rem] leading-tight text-foreground">
+            <h2 className="t-h2 md:text-[2.25rem] text-foreground">
               Câu hỏi thường gặp về thành lập doanh nghiệp
             </h2>
-            <p className="mt-4 text-sm text-muted-foreground font-serif leading-relaxed">
+            <p className="t-body-sm mt-4 text-muted-foreground">
               Giải đáp về vốn điều lệ, thời gian, giấy tờ, tên công ty và thủ tục dành
               cho nhà đầu tư nước ngoài.
             </p>
@@ -874,7 +874,7 @@ function ThanhLapDNPage() {
                       {f.q}
                     </span>
                   </AccordionTrigger>
-                  <AccordionContent className="text-base text-foreground/80 font-serif leading-relaxed pl-10 pr-2">
+                  <AccordionContent className="t-body text-foreground/80 pl-10 pr-2">
                     {f.a}
                   </AccordionContent>
                 </AccordionItem>
@@ -894,15 +894,15 @@ function ThanhLapDNPage() {
             <div aria-hidden className="absolute top-0 left-0 w-px h-24 bg-brand-red" />
             <div className="relative grid lg:grid-cols-12 gap-8 items-end">
               <div className="lg:col-span-8">
-                <span className="text-[0.7rem] uppercase tracking-[0.22em] text-accent/90 flex items-center gap-2.5 mb-4">
+                <span className="t-cta text-accent/90 flex items-center gap-2.5 mb-4">
                   <span className="inline-block w-1.5 h-1.5 rounded-full bg-brand-red" />
                   Khởi sự kinh doanh cùng TAF
                 </span>
-                <h2 className="font-display text-3xl md:text-4xl lg:text-[2.75rem] leading-[1.1]">
+                <h2 className="t-h2 lg:text-[2.75rem]">
                   Sẵn sàng thành lập{" "}
                   <span className="italic text-accent">doanh nghiệp</span> trong 3–5 ngày?
                 </h2>
-                <p className="mt-4 font-serif text-base md:text-lg text-background/75 leading-relaxed max-w-xl">
+                <p className="t-body mt-4 text-background/75 max-w-xl">
                   Đội ngũ pháp lý TAF khảo sát miễn phí, tư vấn loại hình tối ưu và xử lý
                   trọn bộ hồ sơ — bạn chỉ cần ký giấy ủy quyền.
                 </p>
@@ -923,7 +923,7 @@ function ThanhLapDNPage() {
                     <Phone size={16} className="text-accent" />
                     <span className="font-mono">0924 580 580</span>
                   </span>
-                  <span className="text-[0.65rem] uppercase tracking-[0.2em] text-background/60">8h–18h</span>
+                  <span className="t-cta text-background/60">8h–18h</span>
                 </a>
               </div>
             </div>

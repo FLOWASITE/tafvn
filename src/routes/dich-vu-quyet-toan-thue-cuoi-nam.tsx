@@ -173,7 +173,7 @@ function TaxSettlementService() {
             Quyết toán thuế cuối năm —{" "}
             <span className="italic text-accent-foreground">rà soát sổ sách, hồ sơ thuế</span>.
           </h1>
-          <p className="mt-6 text-lg text-muted-foreground font-serif leading-relaxed">
+          <p className="t-lead mt-6 text-muted-foreground">
             Quyết toán thuế đúng thời hạn là quyền và nghĩa vụ của mỗi doanh nghiệp. Nếu doanh
             nghiệp đang tồn đọng hồ sơ thuế hoặc chưa thể đưa ra báo cáo, TAF hỗ trợ rà soát, hoàn
             thiện và lập báo cáo quyết toán đúng quy định, giảm thiểu rủi ro.
@@ -202,7 +202,7 @@ function TaxSettlementService() {
         <div className="grid lg:grid-cols-2 gap-10">
           <div>
             <Eyebrow>Khái niệm</Eyebrow>
-            <h2 className="font-display text-2xl text-foreground leading-tight">
+            <h2 className="t-h2 text-foreground">
               Quyết toán thuế là làm gì?
             </h2>
             <ul className="mt-5 space-y-4 font-serif text-foreground/85">
@@ -216,7 +216,7 @@ function TaxSettlementService() {
           </div>
           <div className="lg:border-l lg:border-border lg:pl-10">
             <Eyebrow>Tầm quan trọng</Eyebrow>
-            <h2 className="font-display text-2xl text-foreground leading-tight">
+            <h2 className="t-h2 text-foreground">
               Vì sao quyết toán thuế cuối năm quan trọng?
             </h2>
             <ul className="mt-5 space-y-4 font-serif text-foreground/85">
@@ -242,7 +242,7 @@ function TaxSettlementService() {
           {NOTES.map((n) => (
             <div key={n} className="bg-background p-6 flex gap-3">
               <FileSearch size={18} className="shrink-0 text-brand-red mt-0.5" strokeWidth={1.7} />
-              <p className="text-sm text-foreground/85 font-serif leading-relaxed">{n}</p>
+              <p className="t-body-sm text-foreground/85">{n}</p>
             </div>
           ))}
         </div>
@@ -253,7 +253,7 @@ function TaxSettlementService() {
         <div className="grid lg:grid-cols-12 gap-10">
           <div className="lg:col-span-7">
             <Eyebrow>Căn cứ pháp lý</Eyebrow>
-            <h2 className="font-display text-2xl text-foreground leading-tight">
+            <h2 className="t-h2 text-foreground">
               Căn cứ quyết toán thuế TNCN
             </h2>
             <ul className="mt-6 space-y-px bg-border border border-border">
@@ -262,7 +262,7 @@ function TaxSettlementService() {
                   <ScrollText size={18} className="shrink-0 text-accent-foreground mt-0.5" />
                   <div>
                     <p className="font-display text-sm text-foreground">{l.code}</p>
-                    <p className="mt-1 text-sm text-muted-foreground font-serif leading-relaxed">
+                    <p className="t-body-sm mt-1 text-muted-foreground">
                       {l.desc}
                     </p>
                   </div>
@@ -272,7 +272,7 @@ function TaxSettlementService() {
           </div>
           <div className="lg:col-span-5">
             <Eyebrow>Đối tượng</Eyebrow>
-            <h2 className="font-display text-2xl text-foreground leading-tight">
+            <h2 className="t-h2 text-foreground">
               Ai phải quyết toán thuế TNCN?
             </h2>
             <div className="mt-6 space-y-px bg-border border border-border">
@@ -284,7 +284,7 @@ function TaxSettlementService() {
                       <Icon size={18} className="text-brand-red" />
                       <h3 className="font-display text-base text-foreground">{w.title}</h3>
                     </div>
-                    <p className="mt-2 text-sm text-muted-foreground font-serif leading-relaxed">
+                    <p className="t-body-sm mt-2 text-muted-foreground">
                       {w.desc}
                     </p>
                   </div>
@@ -301,7 +301,7 @@ function TaxSettlementService() {
         <div className="grid lg:grid-cols-2 gap-10">
           <div>
             <Eyebrow>Tư vấn</Eyebrow>
-            <h2 className="font-display text-2xl text-foreground leading-tight">
+            <h2 className="t-h2 text-foreground">
               Tư vấn quyết toán thuế
             </h2>
             <ul className="mt-5 space-y-4 font-serif text-foreground/85">
@@ -315,7 +315,7 @@ function TaxSettlementService() {
           </div>
           <div className="lg:border-l lg:border-border lg:pl-10">
             <Eyebrow>Chuẩn bị</Eyebrow>
-            <h2 className="font-display text-2xl text-foreground leading-tight">
+            <h2 className="t-h2 text-foreground">
               Cần chuẩn bị gì cho quyết toán thuế?
             </h2>
             <ul className="mt-5 space-y-3 font-serif text-foreground/85">
@@ -328,7 +328,7 @@ function TaxSettlementService() {
                 </li>
               ))}
             </ul>
-            <p className="mt-5 text-sm text-muted-foreground font-serif italic leading-relaxed">
+            <p className="t-body-sm mt-5 text-muted-foreground italic">
               Trong một số trường hợp, cá nhân có thể ủy quyền cho doanh nghiệp thực hiện nghĩa vụ
               quyết toán thuế TNCN — áp dụng khi đủ điều kiện ủy quyền theo quy định hiện hành.
             </p>
@@ -345,7 +345,7 @@ function TaxSettlementService() {
               <span className="font-mono text-2xl text-brand-red-ink tabular-nums">
                 {String(i + 1).padStart(2, "0")}
               </span>
-              <p className="mt-3 text-sm text-foreground/85 font-serif leading-relaxed">{b}</p>
+              <p className="t-body-sm mt-3 text-foreground/85">{b}</p>
             </div>
           ))}
         </div>
@@ -386,14 +386,14 @@ function TaxSettlementService() {
         <div className="grid lg:grid-cols-2 gap-10">
           <div>
             <Eyebrow>Vì sao TAF</Eyebrow>
-            <h2 className="font-display text-2xl text-foreground leading-tight">
+            <h2 className="t-h2 text-foreground">
               Vì sao chọn dịch vụ quyết toán thuế của TAF?
             </h2>
             <div className="mt-6 space-y-px bg-border border border-border">
               {WHY_TAF.map((w) => (
                 <div key={w.title} className="bg-background p-5">
                   <h3 className="font-display text-base text-foreground">{w.title}</h3>
-                  <p className="mt-2 text-sm text-muted-foreground font-serif leading-relaxed">
+                  <p className="t-body-sm mt-2 text-muted-foreground">
                     {w.desc}
                   </p>
                 </div>
@@ -402,7 +402,7 @@ function TaxSettlementService() {
           </div>
           <div className="lg:border-l lg:border-border lg:pl-10">
             <Eyebrow>Cam kết</Eyebrow>
-            <h2 className="font-display text-2xl text-foreground leading-tight">
+            <h2 className="t-h2 text-foreground">
               Cam kết của TAF
             </h2>
             <ul className="mt-6 space-y-4 font-serif text-foreground/85">
@@ -423,10 +423,10 @@ function TaxSettlementService() {
         <div className="grid lg:grid-cols-12 gap-10">
           <div className="lg:col-span-4">
             <Eyebrow>FAQ</Eyebrow>
-            <h2 className="font-display text-3xl md:text-[2.25rem] leading-tight text-foreground">
+            <h2 className="t-h2 md:text-[2.25rem] text-foreground">
               Câu hỏi thường gặp
             </h2>
-            <p className="mt-4 text-sm text-muted-foreground font-serif leading-relaxed">
+            <p className="t-body-sm mt-4 text-muted-foreground">
               Giải đáp về hồ sơ, thời hạn nộp, phạm vi dịch vụ, giá và hợp đồng quyết toán thuế.
             </p>
           </div>
@@ -442,7 +442,7 @@ function TaxSettlementService() {
                       {f.q}
                     </span>
                   </AccordionTrigger>
-                  <AccordionContent className="text-base text-foreground/80 font-serif leading-relaxed pl-10 pr-2">
+                  <AccordionContent className="t-body text-foreground/80 pl-10 pr-2">
                     {f.a}
                   </AccordionContent>
                 </AccordionItem>
@@ -457,16 +457,16 @@ function TaxSettlementService() {
         <div className="rounded-[2px] border border-border bg-cream/60 p-6 md:p-10">
           <div className="grid lg:grid-cols-12 gap-8 items-center">
             <div className="lg:col-span-7">
-              <p className="text-[0.7rem] uppercase tracking-[0.22em] text-accent-foreground mb-3 flex items-center gap-2.5">
+              <p className="t-cta text-accent-foreground mb-3 flex items-center gap-2.5">
                 <span className="inline-block w-1.5 h-1.5 rounded-full bg-brand-red" />
                 <span className="inline-block w-6 h-px bg-accent/60" />
                 Nhận tư vấn ngay
               </p>
-              <h2 className="font-display text-2xl md:text-[1.85rem] leading-tight text-foreground">
+              <h2 className="t-h2 md:text-[1.85rem] text-foreground">
                 Quyết toán đúng hạn,{" "}
                 <span className="italic text-accent-foreground">giảm rủi ro thuế.</span>
               </h2>
-              <p className="mt-3 text-muted-foreground font-serif text-base leading-relaxed">
+              <p className="t-body mt-3 text-muted-foreground">
                 Liên hệ TAF để được rà soát hồ sơ và báo giá dịch vụ quyết toán thuế cuối năm phù
                 hợp với doanh nghiệp.{" "}
                 <Calendar className="inline -mt-0.5 text-brand-red" size={16} /> Hạn nộp: ngày thứ
