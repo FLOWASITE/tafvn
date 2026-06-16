@@ -1,64 +1,71 @@
 ## Mục tiêu
-Nâng cấp thẩm mỹ trang `/dich-vu-kiem-toan-noi-bo` theo hướng **Editorial serif refinement** đã chọn — giữ nguyên 100% nội dung, cấu trúc section và metadata; chỉ thay đổi lớp trình bày (typography, spacing, divider, card, CTA).
+Tinh chỉnh sâu hơn lớp thẩm mỹ editorial cho `/dich-vu-kiem-toan-noi-bo` — không đổi nội dung tiếng Việt, không sửa SEO/head, không thêm thư viện.
 
-## Phạm vi
-Chỉ chỉnh sửa duy nhất file `src/routes/dich-vu-kiem-toan-noi-bo.tsx`. Không đụng tokens chung (`styles.css`), không đụng `SectionHeading`/`Breadcrumb` (vẫn dùng nhưng có thể bọc thêm class wrapper).
+## Phạm vi & file
+Chỉ sửa `src/routes/dich-vu-kiem-toan-noi-bo.tsx`. Có thể bổ sung 1–2 utility nhỏ (drop-cap, marquee chậm) vào `src/styles.css` qua `@utility` nếu cần.
 
-## Các thay đổi trực quan
+## Các nâng cấp
 
-1. **Hero**
-   - Nền ivory `bg-[hsl(var(--background))]`, viền dưới bằng hairline gold `border-b border-[color:var(--brand-gold)]/20`.
-   - Eyebrow dạng "hairline đỏ + chữ uppercase tracking rộng" (kicker "Dịch vụ kiểm toán").
-   - H1 Playfair Display, `text-4xl md:text-6xl`, font-normal, có cụm "kiểm toán nội bộ." in *italic* để tạo nhịp editorial.
-   - Lead paragraph cỡ `text-lg`, màu muted ấm.
-   - CTA chính: nút brand-red full-width với `ArrowRight` đẩy về phải, hover trượt nhẹ. CTA phụ: outline hairline + icon `Phone`, nhãn "Hotline / Zalo · 0924 580 580".
+1. **Hero — thêm chiều sâu editorial**
+   - Background lưới mảnh (subtle dotted/cross-hatch) bằng `bg-[radial-gradient(...)]` rất nhẹ phía sau H1.
+   - Thêm meta-strip phía trên Eyebrow: "TAF · Auditing & Advisory · Est. 2010" font mono nhỏ, tracking rộng.
+   - Số liệu nhanh dưới CTA: 3 con số (vd. "15+ năm", "300+ khách hàng", "9 tỉnh thành") dạng inline với hairline divider, font display cho số, label uppercase nhỏ. Lấy từ dữ liệu site nếu có; nếu không dùng "—" placeholder số gọn.
 
-2. **Khái niệm "Kiểm toán nội bộ là gì?"**
-   - H2 Playfair *italic* trong ngoặc kép.
-   - Body có border-l-2 brand-red, padding-left, để tạo cảm giác pull-quote.
+2. **Khái niệm — pull-quote editorial**
+   - Phóng to dấu nháy mở `“` thành ký tự lớn Playfair (size 7xl) text-accent/30, lệch trái như serif print.
+   - Body text in italic Source Serif.
 
-3. **Vai trò (3 thẻ)**
-   - Section nền ivory đậm hơn nhẹ.
-   - Card: nền `#fdfbf7`, viền hairline gold `border-[color:var(--brand-gold)]/20`, icon size 8, màu gold, padding `p-6`, không shadow nặng — chỉ shadow rất nhẹ khi hover.
-   - Grid: 1 cột mobile, 3 cột `md:grid-cols-3`.
+3. **Vai trò — card có numbering + hover lift**
+   - Thêm số `i.` (i = 01/02/03) font display italic nhỏ ở góc trên phải mỗi card.
+   - Hover: nâng nhẹ `-translate-y-1`, viền chuyển từ gold/20 sang gold/60.
+   - Icon đặt trong vòng tròn hairline gold.
 
-4. **Đối tượng bắt buộc**
-   - Số thứ tự `01/02/03` Inter semibold brand-red, mỗi item là card nền trắng với `border-l-2` gold.
+4. **Đối tượng — số to editorial**
+   - Số `01/02/03` phóng to (font display 4xl), italic, accent-foreground/40, đặt cạnh body.
+   - Bỏ shadow card, dùng hairline divider giữa items, viền trái accent dày hơn (border-l-[3px]).
 
-5. **Quy trình (4 bước)**
-   - Layout timeline rail dọc với hairline gold ở giữa số, số tròn outline brand-red, mỗi step có heading Playfair + body Source Serif.
+5. **Quy trình — connector line**
+   - Trên desktop, thêm đường hairline ngang `bg-accent/30` nối các step (chỉ visible md+).
+   - Số `01-04` italic phóng to hơn (text-5xl), thêm dấu chấm sau số kiểu "01."
+   - Heading bước có underline accent ngắn khi hover.
 
-6. **Quyền hạn / Thực trạng / Cam kết / Đôi nét**
-   - Giữ cấu trúc, nâng cấp:
-     - Quyền hạn: list với icon `KeyRound` gold, hairline divider giữa các item.
-     - Thực trạng: 2-column prose editorial, drop-cap chữ cái đầu mỗi đoạn.
-     - Cam kết: pull-quote block — nền ivory đậm, `border-l-4 brand-red`, font Playfair italic.
-     - Đôi nét về TAF: prose serif chuẩn, không card.
+6. **Quyền hạn — hai cột prose**
+   - Trên lg, list chia 2 cột (`lg:columns-2 lg:gap-10`), giữ icon key.
 
-7. **Dịch vụ liên quan** (đã có) — refresh để khớp ngôn ngữ mới: card nền trắng, hairline gold, tiêu đề Playfair, link "Xem chi tiết" có mũi tên trượt.
+7. **Thực trạng — drop-cap**
+   - Đoạn đầu có drop-cap (chữ "D" lớn Playfair, float-left, 3 dòng). Thêm utility `.drop-cap` vào styles.css.
+   - Container max-w mở rộng và canh giữa.
 
-8. **FAQ**
-   - Accordion phẳng kiểu list editorial: `divide-y divide-border`, trigger text Playfair, icon chevron gold thay vì mặc định.
-   - Đánh số `01.` `02.` ... trước câu hỏi.
+8. **Cam kết — pull-quote sâu hơn**
+   - Thêm dấu `“ ”` Playfair lớn ở 2 góc.
+   - Border-l đổi thành thanh đôi (border-l-4 brand-red + ::before hairline gold cách 4px) bằng `shadow-[inset_8px_0_0_var(--accent)/0]` hoặc dùng pseudo. Đơn giản hơn: dùng 2 div lồng.
 
-9. **CTA cuối trang**
-   - Đổi từ band đỏ → band tối `bg-[hsl(var(--foreground))]` editorial (theo direction được chọn).
-   - Eyebrow gold + hairline.
-   - Heading Playfair 3xl: "Tăng cường quản trị rủi ro **cùng TAF.**" (cụm cuối italic gold).
-   - 2 nút: chính brand-red "Yêu cầu tư vấn" → `/lien-he`, phụ outline gold "Hotline · 0924 580 580".
+9. **Dịch vụ liên quan — eyebrow số + nhịp**
+   - Mỗi card có eyebrow nhỏ "Dịch vụ 01/02/03" phía trên tiêu đề.
+   - Card có chiều cao đồng nhất, ArrowRight đẩy xa hơn khi hover.
 
-## Token & font
-- Dùng tokens hiện có: `--background` ivory, `--foreground` ink, `--brand-red`, `--brand-gold`. Không hardcode hex; ánh xạ các giá trị prototype (#fcfaf7, #9c1c22, #c5a059, #1a1a1a) sang các token tương ứng đang có trong `styles.css`.
-- Font: tiếp tục `font-display` (Playfair), `font-serif` (Source Serif), `font-sans` (Inter) — không thêm `<link>` mới.
+10. **FAQ — giữ nguyên** (đã chuẩn ở turn trước).
+
+11. **CTA cuối — thêm grain/noise và trang trí**
+    - Nền dark + lớp grain rất mảnh qua `bg-[radial-gradient(...)]` opacity thấp.
+    - Thêm số seal đậm chất editorial: "TAF · 0924 580 580" font mono dọc bên phải hoặc watermark Playfair lớn "TAF" mờ ở góc.
+    - Button "Yêu cầu tư vấn" có dấu chấm đỏ pulse subtle bên trái.
+
+12. **Vi-animation toàn trang**
+   - Thêm class `.fade-in-up` (đã có hoặc thêm mới) cho heading mỗi section: opacity 0 → 1 + translate-y nhẹ khi vào viewport, dùng `@starting-style` thuần CSS hoặc giữ tĩnh nếu phức tạp. **Tuỳ chọn — sẽ skip nếu không có cơ chế observer sẵn** để tránh phụ thuộc JS.
+
+## Token & utility
+- Dùng tokens hiện có: `--brand-red`, `--brand-red-ink`, `--accent` (gold), `--foreground`, `--background`, `--cream`, `--muted-foreground`.
+- Bổ sung vào `src/styles.css` (chỉ thêm, không sửa cũ):
+  - `@utility drop-cap { &::first-letter { float: left; font-family: var(--font-display); font-size: 4.5rem; line-height: 0.85; padding: 0.25rem 0.75rem 0 0; color: var(--color-brand-red); } }`
+  - `@utility noise-overlay { ... }` nhẹ (data-uri SVG noise, opacity 4%).
 
 ## Giữ nguyên
-- Toàn bộ copy tiếng Việt.
-- `head()` / SEO / canonical / og.
-- `Breadcrumb` ở đầu trang và `SectionHeading` component (vẫn dùng cho các section chính, chỉ tinh chỉnh class wrapper).
-- Tất cả route/link đã có (`/lien-he`, `tel:`, các dịch vụ liên quan).
-- Constant `ROLES`, `TARGETS`, `STEPS`, `POWERS`, `HOTLINE_*` không đổi.
+- Toàn bộ copy tiếng Việt, head/SEO, Breadcrumb, SectionHeading, các route/link.
+- Cấu trúc section và thứ tự.
+- Không thêm package.
 
-## Không thay đổi
-- File khác (site.ts, dictionaries.ts, components dùng chung).
-- Không thêm package mới.
-- Không thêm animation library (chỉ transition Tailwind tiny: `transition-transform`, `hover:translate-x-1`).
+## Không bao gồm
+- Không tạo component mới ngoài route file.
+- Không refactor SectionHeading/Section.
+- Không thêm JS animation library (framer-motion v.v.).
