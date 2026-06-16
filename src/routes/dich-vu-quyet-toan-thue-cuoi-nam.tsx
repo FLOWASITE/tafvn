@@ -150,11 +150,11 @@ const FAQS = [
   },
   {
     q: "Thời hạn nộp hồ sơ quyết toán thuế là bao lâu?",
-    a: "Thời hạn nộp hồ sơ quyết toán thuế năm chậm nhất là ngày thứ 90, kể từ ngày kết thúc năm dương lịch hoặc năm tài chính.",
+    a: "Theo Điều 44 Luật Quản lý thuế 2019: doanh nghiệp nộp hồ sơ quyết toán thuế TNDN chậm nhất là ngày cuối cùng của tháng thứ 3 kể từ ngày kết thúc năm dương lịch hoặc năm tài chính. Cá nhân trực tiếp quyết toán thuế TNCN có thời hạn chậm nhất là ngày cuối cùng của tháng thứ 4 kể từ ngày kết thúc năm dương lịch.",
   },
   {
     q: "TAF có cung cấp tất cả dịch vụ liên quan đến quyết toán thuế không?",
-    a: "Có. Riêng quyết toán thuế TNCN, hồ sơ gồm: tờ khai quyết toán mẫu 02/QTT-TNCN (theo TT 92/2015/TT-BTC); bản chụp chứng từ thuế đã tạm nộp, đã khấu trừ, các khoản đóng góp quỹ (nếu có); tài liệu chứng minh thu nhập từ đại sứ quán, lãnh sự quán, nước ngoài hoặc tổ chức quốc tế (nếu có).",
+    a: "Có. Riêng quyết toán thuế TNCN, hồ sơ gồm: tờ khai quyết toán mẫu 02/QTT-TNCN (ban hành kèm Thông tư 80/2021/TT-BTC, áp dụng từ kỳ tính thuế 2021); bản chụp chứng từ thuế đã tạm nộp, đã khấu trừ, các khoản đóng góp quỹ (nếu có); tài liệu chứng minh thu nhập từ đại sứ quán, lãnh sự quán, nước ngoài hoặc tổ chức quốc tế (nếu có).",
   },
   {
     q: "Giá dịch vụ quyết toán thuế TNCN như thế nào?",
