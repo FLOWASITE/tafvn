@@ -269,10 +269,10 @@ function InternalAuditService() {
             </p>
           </div>
           <div className="lg:col-span-7">
-            <ul className="space-y-px bg-border border border-border">
+            <ul className="divide-y divide-accent/20 border-t border-b border-accent/20">
               {POWERS.map((p) => (
-                <li key={p} className="bg-background p-5 flex gap-3">
-                  <KeyRound size={18} className="shrink-0 text-accent-foreground mt-0.5" />
+                <li key={p} className="py-5 flex gap-4">
+                  <KeyRound size={18} className="shrink-0 text-accent-foreground mt-1" strokeWidth={1.7} />
                   <span className="text-sm text-foreground/85 font-serif leading-relaxed">{p}</span>
                 </li>
               ))}
