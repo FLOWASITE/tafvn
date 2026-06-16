@@ -212,3 +212,115 @@
   background-position: -1px -1px;
   mask-image: radial-gradient(ellipse at top left, black 20%, transparent 75%);
 }
+
+/* =========================================================================
+   Editorial Typography Tokens
+   Shared across service-page templates (hero, sections, cards, CTA).
+   Usage: <h2 className="t-h2">…</h2>  |  <p className="t-body">…</p>
+   Pair with semantic color tokens (text-foreground, text-muted-foreground).
+   ========================================================================= */
+
+/* Display — hero title */
+@utility t-h1 {
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: clamp(2.5rem, 5.2vw, 4.5rem);   /* 40 → 72 */
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+}
+
+/* Section heading */
+@utility t-h2 {
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: clamp(1.875rem, 3vw, 2.25rem);  /* 30 → 36 */
+  line-height: 1.15;
+  letter-spacing: -0.015em;
+}
+
+/* Card / sub-section heading */
+@utility t-h3 {
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: 1.25rem;                        /* 20 */
+  line-height: 1.35;
+  letter-spacing: -0.005em;
+}
+
+/* Editorial italic — quotes, accent words inside headings */
+@utility t-italic {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-weight: 400;
+  letter-spacing: -0.005em;
+}
+
+/* Lead paragraph — sits directly under H1/H2 */
+@utility t-lead {
+  font-family: var(--font-serif);
+  font-weight: 400;
+  font-size: 1.125rem;                       /* 18 */
+  line-height: 1.75;
+}
+
+/* Body — standard paragraph */
+@utility t-body {
+  font-family: var(--font-serif);
+  font-weight: 400;
+  font-size: 1rem;                           /* 16 */
+  line-height: 1.75;
+}
+
+/* Body small — card descriptions, list items */
+@utility t-body-sm {
+  font-family: var(--font-serif);
+  font-weight: 400;
+  font-size: 0.875rem;                       /* 14 */
+  line-height: 1.7;
+}
+
+/* Pull-quote — italic display, used inside <blockquote> */
+@utility t-quote {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-weight: 400;
+  font-size: clamp(1.5rem, 2.6vw, 2rem);     /* 24 → 32 */
+  line-height: 1.25;
+  letter-spacing: -0.005em;
+}
+
+/* Decorative numerals (01, 02 …) — italic display, tabular */
+@utility t-numeral {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-variant-numeric: tabular-nums;
+  font-weight: 400;
+  line-height: 1;
+}
+
+/* Mono eyebrow / meta-strip — uppercase label above headings */
+@utility t-eyebrow {
+  font-family: var(--font-mono, ui-monospace, "SFMono-Regular", monospace);
+  font-weight: 500;
+  font-size: 0.7rem;                         /* 11.2 */
+  line-height: 1.4;
+  text-transform: uppercase;
+  letter-spacing: 0.28em;
+}
+
+/* CTA / button label — sans uppercase */
+@utility t-cta {
+  font-weight: 500;
+  font-size: 0.875rem;
+  line-height: 1;
+  text-transform: uppercase;
+  letter-spacing: 0.22em;
+}
+
+/* Caption / fine-print meta */
+@utility t-meta {
+  font-family: var(--font-serif);
+  font-weight: 400;
+  font-size: 0.75rem;
+  line-height: 1.6;
+}
