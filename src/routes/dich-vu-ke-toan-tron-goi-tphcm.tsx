@@ -47,9 +47,9 @@ import { cn } from "@/lib/utils";
 import { SITE } from "@/lib/site";
 
 const SITE_ORIGIN = "https://tafvn.lovable.app";
-const TITLE = "Dịch vụ kế toán trọn gói cho doanh nghiệp | TAF";
+const TITLE = "Dịch vụ kế toán trọn gói TP.HCM trọn năm | TAF";
 const DESCRIPTION =
-  "Dịch vụ kế toán trọn gói của TAF: kế toán thuế, lập BCTC, kê khai thuế và BHXH cho doanh nghiệp vừa và nhỏ. Minh bạch, đúng luật, đội ngũ KTV giàu kinh nghiệm.";
+  "Dịch vụ kế toán trọn gói TP.HCM: kế toán thuế, BCTC, BHXH cho SMEs. Báo giá minh bạch, đội ngũ KTV & CPA hành nghề, tuân thủ Luật Kế toán 2015.";
 const PATH = "/dich-vu-ke-toan-tron-goi-tphcm";
 const CANONICAL = `${SITE_ORIGIN}${PATH}`;
 
