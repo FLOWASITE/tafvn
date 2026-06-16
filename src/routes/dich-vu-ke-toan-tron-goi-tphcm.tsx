@@ -783,25 +783,23 @@ function AccountingServicePage() {
             </div>
 
             {/* Trust strip — editorial stats */}
-            <dl className="mt-10 grid grid-cols-2 md:grid-cols-4 border-t border-border/80">
+            <dl className="mt-10 grid grid-cols-2 md:grid-cols-4 border-t border-accent/30 pt-6">
               {HERO_STATS.map((s, i) => (
                 <div
                   key={s.k}
                   className={cn(
-                    "py-5 px-4 first:pl-0 group",
-                    i !== HERO_STATS.length - 1 && "md:border-r border-border/80",
-                    i < 2 && "border-r border-border/80 md:border-r",
-                    i === 0 && "border-r",
-                    i === 2 && "md:border-l-0",
+                    "group py-3 px-5 first:pl-0 transition-colors",
+                    i !== 0 && "border-l border-accent/25",
                   )}
                 >
-                  <dt className="font-display text-3xl md:text-[2.25rem] text-foreground leading-none tabular-nums">
+                  <dt className="font-display text-3xl md:text-[2.25rem] text-foreground leading-none tabular-nums inline-flex items-start transition-transform duration-500 group-hover:scale-[1.04] origin-left">
                     {s.k}
-                    <span className="inline-block align-top w-1 h-1 rounded-full bg-brand-red ml-1 mt-1.5 group-hover:scale-150 transition-transform" />
+                    <span className="inline-block w-1 h-1 rounded-full bg-brand-red ml-1 mt-1.5 group-hover:scale-150 transition-transform" />
                   </dt>
-                  <dd className="t-cta mt-2 text-muted-foreground">
+                  <dd className="t-cta mt-3 text-muted-foreground">
                     {s.v}
                   </dd>
+                  <span aria-hidden className="block h-px w-0 bg-accent mt-2 transition-all duration-500 group-hover:w-8" />
                 </div>
               ))}
             </dl>
