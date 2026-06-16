@@ -387,30 +387,46 @@ function InternalAuditService() {
 
       {/* FAQ */}
       <Section className="!pt-0">
-        <div className="grid lg:grid-cols-12 gap-10">
+        <div className="rule-gold mb-14" />
+        <div className="grid lg:grid-cols-12 gap-12">
           <div className="lg:col-span-4">
             <Eyebrow>FAQ</Eyebrow>
-            <h2 className="font-display text-3xl md:text-[2.25rem] leading-tight text-foreground">
-              Thắc mắc thường gặp
+            <h2 className="font-display text-3xl md:text-4xl leading-tight text-foreground">
+              Thắc mắc <span className="italic">thường gặp.</span>
             </h2>
-            <p className="mt-4 text-sm text-muted-foreground font-serif leading-relaxed">
+            <p className="mt-5 text-base text-muted-foreground font-serif leading-relaxed">
               Giải đáp về tính bắt buộc, thời gian thực hiện, chuẩn mực quốc tế và chứng chỉ hành
               nghề kiểm toán nội bộ.
             </p>
           </div>
           <div className="lg:col-span-8">
-            <Accordion type="single" collapsible className="border-t border-border">
+            <Accordion
+              type="single"
+              collapsible
+              className="border-t border-accent/30 [&_button>svg.lucide-chevron-down]:hidden"
+            >
               {FAQS.map((f, i) => (
-                <AccordionItem key={f.q} value={`item-${i}`}>
-                  <AccordionTrigger className="font-display text-base md:text-lg text-foreground py-5 text-left">
-                    <span className="flex items-baseline gap-4">
-                      <span className="font-mono text-xs text-accent-foreground tabular-nums">
+                <AccordionItem
+                  key={f.q}
+                  value={`item-${i}`}
+                  className="border-b border-accent/20 group"
+                >
+                  <AccordionTrigger className="font-display text-base md:text-lg text-foreground py-6 text-left hover:no-underline [&[data-state=open]_.faq-plus]:rotate-45 [&[data-state=open]_.faq-num]:text-brand-red-ink">
+                    <span className="flex items-baseline gap-5 flex-1 pr-4">
+                      <span className="faq-num font-display italic text-base text-accent-foreground/60 tabular-nums shrink-0 transition-colors">
                         {String(i + 1).padStart(2, "0")}
                       </span>
-                      {f.q}
+                      <span className="leading-snug">{f.q}</span>
+                    </span>
+                    <span
+                      aria-hidden
+                      className="faq-plus relative shrink-0 w-5 h-5 text-accent-foreground transition-transform duration-300"
+                    >
+                      <span className="absolute inset-x-0 top-1/2 -translate-y-1/2 h-px bg-current" />
+                      <span className="absolute inset-y-0 left-1/2 -translate-x-1/2 w-px bg-current" />
                     </span>
                   </AccordionTrigger>
-                  <AccordionContent className="text-base text-foreground/80 font-serif leading-relaxed pl-10 pr-2">
+                  <AccordionContent className="text-base text-foreground/80 font-serif leading-relaxed pl-11 pr-2 pb-6">
                     {f.a}
                   </AccordionContent>
                 </AccordionItem>
@@ -419,6 +435,7 @@ function InternalAuditService() {
           </div>
         </div>
       </Section>
+
 
       {/* CTA */}
       <Section className="!pt-0">
