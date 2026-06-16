@@ -290,10 +290,11 @@ function KnowledgeHub() {
       <Section className="!pt-0">
         <div className="rule-gold mb-12" />
         <SectionHeading
-          eyebrow="Chủ đề"
-          title="Chủ đề chuyên môn"
-          lead="Tìm hiểu nhanh theo từng lĩnh vực và liên kết tới các dịch vụ tương ứng của TAF."
+          eyebrow={t("Chủ đề")}
+          title={t("Chủ đề chuyên môn")}
+          lead={t("Tìm hiểu nhanh theo từng lĩnh vực và liên kết tới các dịch vụ tương ứng của TAF.")}
         />
+
         <div className="mt-10 grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
           {TOPICS.map((t, i) => {
             const Icon = t.icon;
