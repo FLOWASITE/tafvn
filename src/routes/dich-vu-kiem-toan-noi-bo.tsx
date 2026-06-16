@@ -252,16 +252,18 @@ function InternalAuditService() {
             </p>
           </div>
           <div className="lg:col-span-7">
-            <ul className="space-y-3">
+            <ul className="divide-y divide-accent/20 border-t border-b border-accent/20">
               {TARGETS.map((t, i) => (
                 <li
                   key={t}
-                  className="bg-background border-l-2 border-accent p-5 flex gap-5 shadow-[0_2px_8px_-4px_rgba(0,0,0,0.04)]"
+                  className="group py-6 flex items-start gap-6 border-l-[3px] border-transparent hover:border-accent hover:pl-4 transition-all duration-300"
                 >
-                  <span className="shrink-0 font-display text-base text-brand-red-ink tabular-nums tracking-wider pt-0.5">
+                  <span className="shrink-0 font-display italic text-4xl text-accent-foreground/35 tabular-nums leading-none w-12">
                     {String(i + 1).padStart(2, "0")}
                   </span>
-                  <span className="text-sm text-foreground/85 font-serif leading-relaxed">{t}</span>
+                  <span className="text-base text-foreground/85 font-serif leading-relaxed pt-1">
+                    {t}
+                  </span>
                 </li>
               ))}
             </ul>
