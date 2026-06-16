@@ -26,6 +26,8 @@ import { TestimonialCarousel } from "@/components/site/TestimonialCarousel";
 import { Reveal } from "@/components/site/Reveal";
 import { useCountUp } from "@/hooks/use-count-up";
 import { SERVICES, SITE, FAQ_GENERAL } from "@/lib/site";
+import { useT } from "@/lib/i18n/context";
+
 import portraitImg from "@/assets/taf-portrait.png";
 import reportSealImg from "@/assets/taf-report-seal.png";
 import meetingImg from "@/assets/taf-meeting.png";
