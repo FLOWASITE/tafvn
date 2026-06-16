@@ -4,6 +4,7 @@ import { ArrowRight, Phone, Mail, Globe, MapPin, Calendar, ListTree, Info } from
 import { Breadcrumb } from "@/components/site/Breadcrumb";
 import { Section, Eyebrow } from "@/components/site/Section";
 import { RelatedArticles } from "@/components/site/RelatedArticles";
+import { ArticleRating } from "@/components/site/article-rating";
 
 const SITE_ORIGIN = "https://tafvn.lovable.app";
 const PATH = "/7-viec-can-lam-ngay-sau-khi-thanh-lap-cong-ty-tai-viet-nam";
@@ -433,6 +434,7 @@ function ArticlePage() {
         </article>
       </Section>
 
+      <ArticleRating title={TITLE} slug="7-viec-can-lam-ngay-sau-khi-thanh-lap-cong-ty-tai-viet-nam" />
       <RelatedArticles currentHref={PATH} />
     </>
   );

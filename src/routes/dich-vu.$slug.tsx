@@ -1,6 +1,7 @@
 import { createFileRoute, Link, notFound } from "@tanstack/react-router";
 import { ArrowUpRight, Check } from "lucide-react";
 import { Breadcrumb } from "@/components/site/Breadcrumb";
+import { ArticleRating } from "@/components/site/article-rating";
 import { Section } from "@/components/site/Section";
 import { SERVICES, SITE } from "@/lib/site";
 import { getPage } from "@/lib/pages.functions";
@@ -172,6 +173,10 @@ function ServicePage() {
             Yêu cầu báo giá <ArrowUpRight size={16} />
           </Link>
         </div>
+      </Section>
+
+      <Section className="pt-0">
+        <ArticleRating title={title} slug={`dich-vu/${slug}`} />
       </Section>
     </>
   );

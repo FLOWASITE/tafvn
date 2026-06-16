@@ -1,5 +1,6 @@
 import { createFileRoute, Link, notFound } from "@tanstack/react-router";
 import { Breadcrumb } from "@/components/site/Breadcrumb";
+import { ArticleRating } from "@/components/site/article-rating";
 import { Section } from "@/components/site/Section";
 import { PROVINCES, SITE } from "@/lib/site";
 import { getPage } from "@/lib/pages.functions";
@@ -43,6 +44,7 @@ export const Route = createFileRoute("/dia-ban/$slug")({
 function ProvincePage() {
   const t = useT();
   const { cms, fallback } = Route.useLoaderData();
+  const { slug } = Route.useParams();
   const title = cms?.title ?? (fallback ? `Dịch vụ kiểm toán tại ${fallback.name}` : "Địa bàn");
 
   return (
@@ -89,6 +91,9 @@ function ProvincePage() {
             </p>
           </div>
         )}
+        <div className="max-w-3xl">
+          <ArticleRating title={title} slug={`dia-ban/${slug}`} />
+        </div>
       </Section>
     </>
   );

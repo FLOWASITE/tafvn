@@ -1,5 +1,6 @@
 import { createFileRoute, notFound } from "@tanstack/react-router";
 import { Breadcrumb } from "@/components/site/Breadcrumb";
+import { ArticleRating } from "@/components/site/article-rating";
 import { Section } from "@/components/site/Section";
 import { SITE } from "@/lib/site";
 import { getPage } from "@/lib/pages.functions";
@@ -63,6 +64,7 @@ export const Route = createFileRoute("/tin-tuc/$slug")({
 function ArticlePage() {
   const t = useT();
   const { cms } = Route.useLoaderData();
+  const { slug } = Route.useParams();
 
   return (
     <>
@@ -107,6 +109,9 @@ function ArticlePage() {
             <p className="prose-taf">Nội dung đang được biên tập.</p>
           )}
         </article>
+        <div className="max-w-3xl mx-auto">
+          <ArticleRating title={cms.title} slug={`tin-tuc/${slug}`} />
+        </div>
       </Section>
     </>
   );

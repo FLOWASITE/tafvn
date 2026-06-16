@@ -3,6 +3,7 @@ import type { ReactNode } from "react";
 import { ArrowRight, Phone, Info } from "lucide-react";
 import { Breadcrumb } from "@/components/site/Breadcrumb";
 import { Section, Eyebrow } from "@/components/site/Section";
+import { ArticleRating } from "@/components/site/article-rating";
 
 const SITE_ORIGIN = "https://tafvn.lovable.app";
 const PATH = "/dich-vu-ra-soat-dac-biet-m-a-due-diligence";
@@ -373,6 +374,11 @@ function DueDiligenceService() {
           </div>
         </div>
       </Section>
+      <section className="border-t border-border bg-background">
+        <div className="max-w-4xl mx-auto px-6 py-10">
+          <ArticleRating title={TITLE} slug="dich-vu-ra-soat-dac-biet-m-a-due-diligence" />
+        </div>
+      </section>
     </>
   );
 }

@@ -35,6 +35,7 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 import { SITE } from "@/lib/site";
+import { ArticleRating } from "@/components/site/article-rating";
 
 const SITE_ORIGIN = "https://tafvn.lovable.app";
 const TITLE = "Dịch vụ thành lập doanh nghiệp trọn gói tại Việt Nam | TAF";
@@ -957,6 +958,11 @@ function ThanhLapDNPage() {
           ))}
         </div>
       </Section>
+      <section className="border-t border-border bg-background">
+        <div className="max-w-4xl mx-auto px-6 py-10">
+          <ArticleRating title={TITLE} slug="dich-vu-thanh-lap-doanh-nghiep-tron-goi" />
+        </div>
+      </section>
     </>
   );
 }

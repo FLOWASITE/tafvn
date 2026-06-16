@@ -4,6 +4,7 @@ import { ArrowRight, Phone, Mail, Globe, MapPin, Calendar, ListTree } from "luci
 import { Breadcrumb } from "@/components/site/Breadcrumb";
 import { Section, Eyebrow } from "@/components/site/Section";
 import { RelatedArticles } from "@/components/site/RelatedArticles";
+import { ArticleRating } from "@/components/site/article-rating";
 
 const SITE_ORIGIN = "https://tafvn.lovable.app";
 const PATH = "/kiem-toan-nha-nuoc-la-gi-cac-giai-doan-phat-trien-cua-kiem-toan-nha-nuoc";
@@ -342,6 +343,7 @@ function ArticlePage() {
         </article>
       </Section>
 
+      <ArticleRating title={TITLE} slug="kiem-toan-nha-nuoc-la-gi-cac-giai-doan-phat-trien-cua-kiem-toan-nha-nuoc" />
       <RelatedArticles currentHref={PATH} />
     </>
   );

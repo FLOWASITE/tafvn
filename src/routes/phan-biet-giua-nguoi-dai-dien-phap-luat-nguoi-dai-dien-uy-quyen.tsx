@@ -4,6 +4,7 @@ import { ArrowRight, Phone, Mail, Globe, MapPin, Calendar, ListTree } from "luci
 import { Breadcrumb } from "@/components/site/Breadcrumb";
 import { Section, Eyebrow } from "@/components/site/Section";
 import { RelatedArticles } from "@/components/site/RelatedArticles";
+import { ArticleRating } from "@/components/site/article-rating";
 import {
   Table,
   TableBody,
@@ -364,6 +365,7 @@ function ArticlePage() {
         </article>
       </Section>
 
+      <ArticleRating title={TITLE} slug="phan-biet-giua-nguoi-dai-dien-phap-luat-nguoi-dai-dien-uy-quyen" />
       <RelatedArticles currentHref={PATH} />
     </>
   );

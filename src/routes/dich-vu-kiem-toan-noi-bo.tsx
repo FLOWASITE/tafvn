@@ -11,6 +11,7 @@ import {
 } from "lucide-react";
 import { Breadcrumb } from "@/components/site/Breadcrumb";
 import { Section, Eyebrow, SectionHeading } from "@/components/site/Section";
+import { ArticleRating } from "@/components/site/article-rating";
 import {
   Accordion,
   AccordionContent,
@@ -559,6 +560,11 @@ function InternalAuditService() {
           </div>
         </div>
       </Section>
+      <section className="border-t border-border bg-background">
+        <div className="max-w-4xl mx-auto px-6 py-10">
+          <ArticleRating title={TITLE} slug="dich-vu-kiem-toan-noi-bo" />
+        </div>
+      </section>
     </>
   );
 }
