@@ -16,8 +16,84 @@ export const NAV: { label: string; to: string }[] = [
   { label: "Địa bàn", to: "/dia-ban" },
   { label: "Giới thiệu", to: "/gioi-thieu" },
   { label: "Đội ngũ", to: "/doi-ngu" },
+  { label: "Tuyển dụng", to: "/tuyen-dung" },
   { label: "Tin tức", to: "/tin-tuc" },
   { label: "Liên hệ", to: "/lien-he" },
+];
+
+// Cấu trúc menu chính (header) — 4 nhóm, hỗ trợ megamenu & dropdown.
+export type MenuLink = { label: string; to: string };
+export type MenuColumn = { heading: string; links: MenuLink[] };
+export type MenuItem = {
+  label: string;
+  to?: string; // link trực tiếp (vd Tuyển dụng) hoặc link "tổng" của nhóm
+  columns?: MenuColumn[]; // megamenu nhiều cột (Dịch vụ)
+  links?: MenuLink[]; // dropdown đơn giản
+  viewAll?: MenuLink; // link "Xem tất cả"
+};
+
+export const MAIN_MENU: MenuItem[] = [
+  {
+    label: "Dịch vụ",
+    to: "/dich-vu",
+    viewAll: { label: "Xem tất cả dịch vụ", to: "/dich-vu" },
+    columns: [
+      {
+        heading: "Kiểm toán",
+        links: [
+          { label: "Kiểm toán báo cáo tài chính", to: "/dich-vu-kiem-toan" },
+          { label: "Kiểm toán nội bộ", to: "/dich-vu-kiem-toan-noi-bo" },
+          { label: "Kiểm toán xây dựng cơ bản", to: "/dich-vu-kiem-toan-xay-dung-co-ban" },
+        ],
+      },
+      {
+        heading: "Kế toán",
+        links: [
+          { label: "Kế toán trọn gói", to: "/dich-vu-ke-toan-tron-goi-tphcm" },
+          { label: "Kế toán cho hộ kinh doanh", to: "/dich-vu-ke-toan-thue-cho-ho-kinh-doanh" },
+          { label: "Làm sổ sách kế toán", to: "/dich-vu-nhan-lam-so-sach-ke-toan" },
+          { label: "Quyết toán thuế cuối năm", to: "/dich-vu-quyet-toan-thue-cuoi-nam" },
+        ],
+      },
+      {
+        heading: "Thành lập doanh nghiệp",
+        links: [
+          {
+            label: "Thành lập doanh nghiệp trọn gói",
+            to: "/dich-vu-thanh-lap-doanh-nghiep-tron-goi",
+          },
+        ],
+      },
+      {
+        heading: "Dịch vụ khác",
+        links: [
+          { label: "Tư vấn thuế", to: "/dich-vu-tu-van-thue" },
+          { label: "Chuyển đổi báo cáo IFRS", to: "/dich-vu-chuyen-doi-bao-cao-ifrs" },
+          {
+            label: "Rà soát đặc biệt M&A (Due Diligence)",
+            to: "/dich-vu-ra-soat-dac-biet-m-a-due-diligence",
+          },
+        ],
+      },
+    ],
+  },
+  {
+    label: "Tài nguyên",
+    links: [
+      { label: "Tin tức", to: "/tin-tuc" },
+      { label: "Nghiệp vụ", to: "/nghiep-vu" },
+    ],
+  },
+  { label: "Tuyển dụng", to: "/tuyen-dung" },
+  {
+    label: "Về chúng tôi",
+    links: [
+      { label: "Giới thiệu", to: "/gioi-thieu" },
+      { label: "Đội ngũ", to: "/doi-ngu" },
+      { label: "Địa bàn", to: "/dia-ban" },
+      { label: "Liên hệ", to: "/lien-he" },
+    ],
+  },
 ];
 
 export const SERVICES: {
@@ -73,7 +149,7 @@ export const SERVICES: {
   },
   {
     slug: "dich-vu-ke-toan",
-    path: "/dich-vu-ke-toan",
+    path: "/dich-vu-ke-toan-tron-goi-tphcm",
     title: "Dịch vụ kế toán trọn gói",
     summary:
       "Ghi sổ kế toán, lập BCTC, kê khai thuế hàng tháng/quý cho doanh nghiệp vừa và nhỏ, văn phòng đại diện.",

@@ -24,22 +24,27 @@ export const getPage = createServerFn({ method: "GET" })
     z.object({ slug: z.string().min(1).max(300) }).parse(d),
   )
   .handler(async ({ data }): Promise<CmsPage | null> => {
-    const { data: row, error } = await supabaseAdmin
-      .from("pages")
-      .select(
-        "slug,type,title,meta_description,h1,excerpt,body_html,og_image,faq,breadcrumb,noindex,published_at,updated_at,authors(name,title,credentials)",
-      )
-      .eq("slug", data.slug)
-      .not("published_at", "is", null)
-      .lte("published_at", new Date().toISOString())
-      .maybeSingle();
+    try {
+      const { data: row, error } = await supabaseAdmin
+        .from("pages")
+        .select(
+          "slug,type,title,meta_description,h1,excerpt,body_html,og_image,faq,breadcrumb,noindex,published_at,updated_at,authors(name,title,credentials)",
+        )
+        .eq("slug", data.slug)
+        .not("published_at", "is", null)
+        .lte("published_at", new Date().toISOString())
+        .maybeSingle();
 
-    if (error) {
-      console.error("getPage error", error);
+      if (error) {
+        console.error("getPage error", error);
+        return null;
+      }
+      if (!row) return null;
+      return { ...(row as any), author: (row as any).authors ?? null } as CmsPage;
+    } catch (e) {
+      console.error("getPage failed (Supabase admin unavailable)", e);
       return null;
     }
-    if (!row) return null;
-    return { ...(row as any), author: (row as any).authors ?? null } as CmsPage;
   });
 
 export const listPagesByType = createServerFn({ method: "GET" })
@@ -47,30 +52,40 @@ export const listPagesByType = createServerFn({ method: "GET" })
     z.object({ type: z.enum(["service", "province", "article", "static"]) }).parse(d),
   )
   .handler(async ({ data }) => {
-    const { data: rows, error } = await supabaseAdmin
-      .from("pages")
-      .select("slug,title,excerpt,published_at,og_image,type")
-      .eq("type", data.type)
-      .not("published_at", "is", null)
-      .lte("published_at", new Date().toISOString())
-      .order("published_at", { ascending: false });
-    if (error) {
-      console.error("listPagesByType error", error);
+    try {
+      const { data: rows, error } = await supabaseAdmin
+        .from("pages")
+        .select("slug,title,excerpt,published_at,og_image,type")
+        .eq("type", data.type)
+        .not("published_at", "is", null)
+        .lte("published_at", new Date().toISOString())
+        .order("published_at", { ascending: false });
+      if (error) {
+        console.error("listPagesByType error", error);
+        return [];
+      }
+      return rows ?? [];
+    } catch (e) {
+      console.error("listPagesByType failed (Supabase admin unavailable)", e);
       return [];
     }
-    return rows ?? [];
   });
 
 export const listAllPublishedSlugs = createServerFn({ method: "GET" }).handler(async () => {
-  const { data, error } = await supabaseAdmin
-    .from("pages")
-    .select("slug,type,updated_at,noindex")
-    .not("published_at", "is", null)
-    .lte("published_at", new Date().toISOString())
-    .eq("noindex", false);
-  if (error) {
-    console.error("listAllPublishedSlugs error", error);
+  try {
+    const { data, error } = await supabaseAdmin
+      .from("pages")
+      .select("slug,type,updated_at,noindex")
+      .not("published_at", "is", null)
+      .lte("published_at", new Date().toISOString())
+      .eq("noindex", false);
+    if (error) {
+      console.error("listAllPublishedSlugs error", error);
+      return [];
+    }
+    return data ?? [];
+  } catch (e) {
+    console.error("listAllPublishedSlugs failed (Supabase admin unavailable)", e);
     return [];
   }
-  return data ?? [];
 });

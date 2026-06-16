@@ -251,7 +251,7 @@ const FAQS = [
 ];
 
 const RELATED = [
-  { href: "/dich-vu-ke-toan", label: "Dịch vụ kế toán trọn gói" },
+  { href: "/dich-vu-ke-toan-tron-goi-tphcm", label: "Dịch vụ kế toán trọn gói" },
   { href: "/dich-vu/tu-van-thue", label: "Tư vấn thuế" },
   { href: "/dich-vu/soat-xet-tuan-thu", label: "Soát xét tuân thủ & nội bộ" },
 ];

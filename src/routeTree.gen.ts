@@ -10,17 +10,40 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as VanPhongRouteImport } from './routes/van-phong'
+import { Route as TuyenDungRouteImport } from './routes/tuyen-dung'
+import { Route as ToiUuHoaTaiChinhVoiDichVuKeToanThueChuyenNghiepRouteImport } from './routes/toi-uu-hoa-tai-chinh-voi-dich-vu-ke-toan-thue-chuyen-nghiep'
 import { Route as TinTucRouteImport } from './routes/tin-tuc'
+import { Route as ThuTucCanThietSauKhiThanhLapDoanhNghiepRouteImport } from './routes/thu-tuc-can-thiet-sau-khi-thanh-lap-doanh-nghiep'
+import { Route as TaxAccountingServiceRouteImport } from './routes/tax-accounting-service'
 import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
+import { Route as PhanBietGiuaNguoiDaiDienPhapLuatNguoiDaiDienUyQuyenRouteImport } from './routes/phan-biet-giua-nguoi-dai-dien-phap-luat-nguoi-dai-dien-uy-quyen'
+import { Route as NghiepVuRouteImport } from './routes/nghiep-vu'
 import { Route as LienHeRouteImport } from './routes/lien-he'
+import { Route as KiemToanNhaNuocLaGiCacGiaiDoanPhatTrienCuaKiemToanNhaNuocRouteImport } from './routes/kiem-toan-nha-nuoc-la-gi-cac-giai-doan-phat-trien-cua-kiem-toan-nha-nuoc'
+import { Route as KiemToanLaGiRouteImport } from './routes/kiem-toan-la-gi'
+import { Route as HoSoThuTucDangKyHoKinhDoanhCaTheRouteImport } from './routes/ho-so-thu-tuc-dang-ky-ho-kinh-doanh-ca-the'
+import { Route as HoKinhDoanhDaKeKhaiThueQuyI2026CoCanDieuChinhLaiNhungDieuPhaiKiemTraNgayTheoQuyDinhThueMoiNam2026RouteImport } from './routes/ho-kinh-doanh-da-ke-khai-thue-quy-i-2026-co-can-dieu-chinh-lai-nhung-dieu-phai-kiem-tra-ngay-theo-quy-dinh-thue-moi-nam-2026'
 import { Route as GioiThieuRouteImport } from './routes/gioi-thieu'
+import { Route as GiamThieuSaiSotTaiChinhVoiCongTyKiemToanHangDauTaiVietNamRouteImport } from './routes/giam-thieu-sai-sot-tai-chinh-voi-cong-ty-kiem-toan-hang-dau-tai-viet-nam'
 import { Route as DoiNguRouteImport } from './routes/doi-ngu'
+import { Route as DichVuTuVanThueRouteImport } from './routes/dich-vu-tu-van-thue'
 import { Route as DichVuThanhLapDoanhNghiepTronGoiRouteImport } from './routes/dich-vu-thanh-lap-doanh-nghiep-tron-goi'
+import { Route as DichVuRaSoatDacBietMADueDiligenceRouteImport } from './routes/dich-vu-ra-soat-dac-biet-m-a-due-diligence'
+import { Route as DichVuQuyetToanThueCuoiNamRouteImport } from './routes/dich-vu-quyet-toan-thue-cuoi-nam'
+import { Route as DichVuNhanLamSoSachKeToanRouteImport } from './routes/dich-vu-nhan-lam-so-sach-ke-toan'
+import { Route as DichVuKiemToanXayDungCoBanRouteImport } from './routes/dich-vu-kiem-toan-xay-dung-co-ban'
+import { Route as DichVuKiemToanNoiBoRouteImport } from './routes/dich-vu-kiem-toan-noi-bo'
 import { Route as DichVuKiemToanRouteImport } from './routes/dich-vu-kiem-toan'
-import { Route as DichVuKeToanRouteImport } from './routes/dich-vu-ke-toan'
+import { Route as DichVuKeToanTronGoiTphcmRouteImport } from './routes/dich-vu-ke-toan-tron-goi-tphcm'
+import { Route as DichVuKeToanThueChoHoKinhDoanhRouteImport } from './routes/dich-vu-ke-toan-thue-cho-ho-kinh-doanh'
+import { Route as DichVuChuyenDoiHoKinhDoanhThanhCongTyRouteImport } from './routes/dich-vu-chuyen-doi-ho-kinh-doanh-thanh-cong-ty'
+import { Route as DichVuChuyenDoiBaoCaoIfrsRouteImport } from './routes/dich-vu-chuyen-doi-bao-cao-ifrs'
 import { Route as DichVuRouteImport } from './routes/dich-vu'
 import { Route as DiaBanRouteImport } from './routes/dia-ban'
+import { Route as ChungTuKeToanLaGiRouteImport } from './routes/chung-tu-ke-toan-la-gi'
 import { Route as ChinhSachBaoMatRouteImport } from './routes/chinh-sach-bao-mat'
+import { Route as ChiaSeChiPhiDichVuChoBenHtkdPhaiXuatHoaDonRouteImport } from './routes/chia-se-chi-phi-dich-vu-cho-ben-htkd-phai-xuat-hoa-don'
+import { Route as R7ViecCanLamNgaySauKhiThanhLapCongTyTaiVietNamRouteImport } from './routes/7-viec-can-lam-ngay-sau-khi-thanh-lap-cong-ty-tai-viet-nam'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as DichVuIndexRouteImport } from './routes/dich-vu.index'
 import { Route as TinTucSlugRouteImport } from './routes/tin-tuc.$slug'
@@ -33,9 +56,31 @@ const VanPhongRoute = VanPhongRouteImport.update({
   path: '/van-phong',
   getParentRoute: () => rootRouteImport,
 } as any)
+const TuyenDungRoute = TuyenDungRouteImport.update({
+  id: '/tuyen-dung',
+  path: '/tuyen-dung',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ToiUuHoaTaiChinhVoiDichVuKeToanThueChuyenNghiepRoute =
+  ToiUuHoaTaiChinhVoiDichVuKeToanThueChuyenNghiepRouteImport.update({
+    id: '/toi-uu-hoa-tai-chinh-voi-dich-vu-ke-toan-thue-chuyen-nghiep',
+    path: '/toi-uu-hoa-tai-chinh-voi-dich-vu-ke-toan-thue-chuyen-nghiep',
+    getParentRoute: () => rootRouteImport,
+  } as any)
 const TinTucRoute = TinTucRouteImport.update({
   id: '/tin-tuc',
   path: '/tin-tuc',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ThuTucCanThietSauKhiThanhLapDoanhNghiepRoute =
+  ThuTucCanThietSauKhiThanhLapDoanhNghiepRouteImport.update({
+    id: '/thu-tuc-can-thiet-sau-khi-thanh-lap-doanh-nghiep',
+    path: '/thu-tuc-can-thiet-sau-khi-thanh-lap-doanh-nghiep',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const TaxAccountingServiceRoute = TaxAccountingServiceRouteImport.update({
+  id: '/tax-accounting-service',
+  path: '/tax-accounting-service',
   getParentRoute: () => rootRouteImport,
 } as any)
 const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
@@ -43,19 +88,66 @@ const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
   path: '/sitemap.xml',
   getParentRoute: () => rootRouteImport,
 } as any)
+const PhanBietGiuaNguoiDaiDienPhapLuatNguoiDaiDienUyQuyenRoute =
+  PhanBietGiuaNguoiDaiDienPhapLuatNguoiDaiDienUyQuyenRouteImport.update({
+    id: '/phan-biet-giua-nguoi-dai-dien-phap-luat-nguoi-dai-dien-uy-quyen',
+    path: '/phan-biet-giua-nguoi-dai-dien-phap-luat-nguoi-dai-dien-uy-quyen',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const NghiepVuRoute = NghiepVuRouteImport.update({
+  id: '/nghiep-vu',
+  path: '/nghiep-vu',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const LienHeRoute = LienHeRouteImport.update({
   id: '/lien-he',
   path: '/lien-he',
   getParentRoute: () => rootRouteImport,
 } as any)
+const KiemToanNhaNuocLaGiCacGiaiDoanPhatTrienCuaKiemToanNhaNuocRoute =
+  KiemToanNhaNuocLaGiCacGiaiDoanPhatTrienCuaKiemToanNhaNuocRouteImport.update({
+    id: '/kiem-toan-nha-nuoc-la-gi-cac-giai-doan-phat-trien-cua-kiem-toan-nha-nuoc',
+    path: '/kiem-toan-nha-nuoc-la-gi-cac-giai-doan-phat-trien-cua-kiem-toan-nha-nuoc',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const KiemToanLaGiRoute = KiemToanLaGiRouteImport.update({
+  id: '/kiem-toan-la-gi',
+  path: '/kiem-toan-la-gi',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const HoSoThuTucDangKyHoKinhDoanhCaTheRoute =
+  HoSoThuTucDangKyHoKinhDoanhCaTheRouteImport.update({
+    id: '/ho-so-thu-tuc-dang-ky-ho-kinh-doanh-ca-the',
+    path: '/ho-so-thu-tuc-dang-ky-ho-kinh-doanh-ca-the',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const HoKinhDoanhDaKeKhaiThueQuyI2026CoCanDieuChinhLaiNhungDieuPhaiKiemTraNgayTheoQuyDinhThueMoiNam2026Route =
+  HoKinhDoanhDaKeKhaiThueQuyI2026CoCanDieuChinhLaiNhungDieuPhaiKiemTraNgayTheoQuyDinhThueMoiNam2026RouteImport.update(
+    {
+      id: '/ho-kinh-doanh-da-ke-khai-thue-quy-i-2026-co-can-dieu-chinh-lai-nhung-dieu-phai-kiem-tra-ngay-theo-quy-dinh-thue-moi-nam-2026',
+      path: '/ho-kinh-doanh-da-ke-khai-thue-quy-i-2026-co-can-dieu-chinh-lai-nhung-dieu-phai-kiem-tra-ngay-theo-quy-dinh-thue-moi-nam-2026',
+      getParentRoute: () => rootRouteImport,
+    } as any,
+  )
 const GioiThieuRoute = GioiThieuRouteImport.update({
   id: '/gioi-thieu',
   path: '/gioi-thieu',
   getParentRoute: () => rootRouteImport,
 } as any)
+const GiamThieuSaiSotTaiChinhVoiCongTyKiemToanHangDauTaiVietNamRoute =
+  GiamThieuSaiSotTaiChinhVoiCongTyKiemToanHangDauTaiVietNamRouteImport.update({
+    id: '/giam-thieu-sai-sot-tai-chinh-voi-cong-ty-kiem-toan-hang-dau-tai-viet-nam',
+    path: '/giam-thieu-sai-sot-tai-chinh-voi-cong-ty-kiem-toan-hang-dau-tai-viet-nam',
+    getParentRoute: () => rootRouteImport,
+  } as any)
 const DoiNguRoute = DoiNguRouteImport.update({
   id: '/doi-ngu',
   path: '/doi-ngu',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const DichVuTuVanThueRoute = DichVuTuVanThueRouteImport.update({
+  id: '/dich-vu-tu-van-thue',
+  path: '/dich-vu-tu-van-thue',
   getParentRoute: () => rootRouteImport,
 } as any)
 const DichVuThanhLapDoanhNghiepTronGoiRoute =
@@ -64,16 +156,64 @@ const DichVuThanhLapDoanhNghiepTronGoiRoute =
     path: '/dich-vu-thanh-lap-doanh-nghiep-tron-goi',
     getParentRoute: () => rootRouteImport,
   } as any)
+const DichVuRaSoatDacBietMADueDiligenceRoute =
+  DichVuRaSoatDacBietMADueDiligenceRouteImport.update({
+    id: '/dich-vu-ra-soat-dac-biet-m-a-due-diligence',
+    path: '/dich-vu-ra-soat-dac-biet-m-a-due-diligence',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const DichVuQuyetToanThueCuoiNamRoute =
+  DichVuQuyetToanThueCuoiNamRouteImport.update({
+    id: '/dich-vu-quyet-toan-thue-cuoi-nam',
+    path: '/dich-vu-quyet-toan-thue-cuoi-nam',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const DichVuNhanLamSoSachKeToanRoute =
+  DichVuNhanLamSoSachKeToanRouteImport.update({
+    id: '/dich-vu-nhan-lam-so-sach-ke-toan',
+    path: '/dich-vu-nhan-lam-so-sach-ke-toan',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const DichVuKiemToanXayDungCoBanRoute =
+  DichVuKiemToanXayDungCoBanRouteImport.update({
+    id: '/dich-vu-kiem-toan-xay-dung-co-ban',
+    path: '/dich-vu-kiem-toan-xay-dung-co-ban',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const DichVuKiemToanNoiBoRoute = DichVuKiemToanNoiBoRouteImport.update({
+  id: '/dich-vu-kiem-toan-noi-bo',
+  path: '/dich-vu-kiem-toan-noi-bo',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const DichVuKiemToanRoute = DichVuKiemToanRouteImport.update({
   id: '/dich-vu-kiem-toan',
   path: '/dich-vu-kiem-toan',
   getParentRoute: () => rootRouteImport,
 } as any)
-const DichVuKeToanRoute = DichVuKeToanRouteImport.update({
-  id: '/dich-vu-ke-toan',
-  path: '/dich-vu-ke-toan',
-  getParentRoute: () => rootRouteImport,
-} as any)
+const DichVuKeToanTronGoiTphcmRoute =
+  DichVuKeToanTronGoiTphcmRouteImport.update({
+    id: '/dich-vu-ke-toan-tron-goi-tphcm',
+    path: '/dich-vu-ke-toan-tron-goi-tphcm',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const DichVuKeToanThueChoHoKinhDoanhRoute =
+  DichVuKeToanThueChoHoKinhDoanhRouteImport.update({
+    id: '/dich-vu-ke-toan-thue-cho-ho-kinh-doanh',
+    path: '/dich-vu-ke-toan-thue-cho-ho-kinh-doanh',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const DichVuChuyenDoiHoKinhDoanhThanhCongTyRoute =
+  DichVuChuyenDoiHoKinhDoanhThanhCongTyRouteImport.update({
+    id: '/dich-vu-chuyen-doi-ho-kinh-doanh-thanh-cong-ty',
+    path: '/dich-vu-chuyen-doi-ho-kinh-doanh-thanh-cong-ty',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const DichVuChuyenDoiBaoCaoIfrsRoute =
+  DichVuChuyenDoiBaoCaoIfrsRouteImport.update({
+    id: '/dich-vu-chuyen-doi-bao-cao-ifrs',
+    path: '/dich-vu-chuyen-doi-bao-cao-ifrs',
+    getParentRoute: () => rootRouteImport,
+  } as any)
 const DichVuRoute = DichVuRouteImport.update({
   id: '/dich-vu',
   path: '/dich-vu',
@@ -84,11 +224,28 @@ const DiaBanRoute = DiaBanRouteImport.update({
   path: '/dia-ban',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ChungTuKeToanLaGiRoute = ChungTuKeToanLaGiRouteImport.update({
+  id: '/chung-tu-ke-toan-la-gi',
+  path: '/chung-tu-ke-toan-la-gi',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ChinhSachBaoMatRoute = ChinhSachBaoMatRouteImport.update({
   id: '/chinh-sach-bao-mat',
   path: '/chinh-sach-bao-mat',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ChiaSeChiPhiDichVuChoBenHtkdPhaiXuatHoaDonRoute =
+  ChiaSeChiPhiDichVuChoBenHtkdPhaiXuatHoaDonRouteImport.update({
+    id: '/chia-se-chi-phi-dich-vu-cho-ben-htkd-phai-xuat-hoa-don',
+    path: '/chia-se-chi-phi-dich-vu-cho-ben-htkd-phai-xuat-hoa-don',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const R7ViecCanLamNgaySauKhiThanhLapCongTyTaiVietNamRoute =
+  R7ViecCanLamNgaySauKhiThanhLapCongTyTaiVietNamRouteImport.update({
+    id: '/7-viec-can-lam-ngay-sau-khi-thanh-lap-cong-ty-tai-viet-nam',
+    path: '/7-viec-can-lam-ngay-sau-khi-thanh-lap-cong-ty-tai-viet-nam',
+    getParentRoute: () => rootRouteImport,
+  } as any)
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
@@ -122,17 +279,40 @@ const ApiPublicContactRoute = ApiPublicContactRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/7-viec-can-lam-ngay-sau-khi-thanh-lap-cong-ty-tai-viet-nam': typeof R7ViecCanLamNgaySauKhiThanhLapCongTyTaiVietNamRoute
+  '/chia-se-chi-phi-dich-vu-cho-ben-htkd-phai-xuat-hoa-don': typeof ChiaSeChiPhiDichVuChoBenHtkdPhaiXuatHoaDonRoute
   '/chinh-sach-bao-mat': typeof ChinhSachBaoMatRoute
+  '/chung-tu-ke-toan-la-gi': typeof ChungTuKeToanLaGiRoute
   '/dia-ban': typeof DiaBanRouteWithChildren
   '/dich-vu': typeof DichVuRouteWithChildren
-  '/dich-vu-ke-toan': typeof DichVuKeToanRoute
+  '/dich-vu-chuyen-doi-bao-cao-ifrs': typeof DichVuChuyenDoiBaoCaoIfrsRoute
+  '/dich-vu-chuyen-doi-ho-kinh-doanh-thanh-cong-ty': typeof DichVuChuyenDoiHoKinhDoanhThanhCongTyRoute
+  '/dich-vu-ke-toan-thue-cho-ho-kinh-doanh': typeof DichVuKeToanThueChoHoKinhDoanhRoute
+  '/dich-vu-ke-toan-tron-goi-tphcm': typeof DichVuKeToanTronGoiTphcmRoute
   '/dich-vu-kiem-toan': typeof DichVuKiemToanRoute
+  '/dich-vu-kiem-toan-noi-bo': typeof DichVuKiemToanNoiBoRoute
+  '/dich-vu-kiem-toan-xay-dung-co-ban': typeof DichVuKiemToanXayDungCoBanRoute
+  '/dich-vu-nhan-lam-so-sach-ke-toan': typeof DichVuNhanLamSoSachKeToanRoute
+  '/dich-vu-quyet-toan-thue-cuoi-nam': typeof DichVuQuyetToanThueCuoiNamRoute
+  '/dich-vu-ra-soat-dac-biet-m-a-due-diligence': typeof DichVuRaSoatDacBietMADueDiligenceRoute
   '/dich-vu-thanh-lap-doanh-nghiep-tron-goi': typeof DichVuThanhLapDoanhNghiepTronGoiRoute
+  '/dich-vu-tu-van-thue': typeof DichVuTuVanThueRoute
   '/doi-ngu': typeof DoiNguRoute
+  '/giam-thieu-sai-sot-tai-chinh-voi-cong-ty-kiem-toan-hang-dau-tai-viet-nam': typeof GiamThieuSaiSotTaiChinhVoiCongTyKiemToanHangDauTaiVietNamRoute
   '/gioi-thieu': typeof GioiThieuRoute
+  '/ho-kinh-doanh-da-ke-khai-thue-quy-i-2026-co-can-dieu-chinh-lai-nhung-dieu-phai-kiem-tra-ngay-theo-quy-dinh-thue-moi-nam-2026': typeof HoKinhDoanhDaKeKhaiThueQuyI2026CoCanDieuChinhLaiNhungDieuPhaiKiemTraNgayTheoQuyDinhThueMoiNam2026Route
+  '/ho-so-thu-tuc-dang-ky-ho-kinh-doanh-ca-the': typeof HoSoThuTucDangKyHoKinhDoanhCaTheRoute
+  '/kiem-toan-la-gi': typeof KiemToanLaGiRoute
+  '/kiem-toan-nha-nuoc-la-gi-cac-giai-doan-phat-trien-cua-kiem-toan-nha-nuoc': typeof KiemToanNhaNuocLaGiCacGiaiDoanPhatTrienCuaKiemToanNhaNuocRoute
   '/lien-he': typeof LienHeRoute
+  '/nghiep-vu': typeof NghiepVuRoute
+  '/phan-biet-giua-nguoi-dai-dien-phap-luat-nguoi-dai-dien-uy-quyen': typeof PhanBietGiuaNguoiDaiDienPhapLuatNguoiDaiDienUyQuyenRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/tax-accounting-service': typeof TaxAccountingServiceRoute
+  '/thu-tuc-can-thiet-sau-khi-thanh-lap-doanh-nghiep': typeof ThuTucCanThietSauKhiThanhLapDoanhNghiepRoute
   '/tin-tuc': typeof TinTucRouteWithChildren
+  '/toi-uu-hoa-tai-chinh-voi-dich-vu-ke-toan-thue-chuyen-nghiep': typeof ToiUuHoaTaiChinhVoiDichVuKeToanThueChuyenNghiepRoute
+  '/tuyen-dung': typeof TuyenDungRoute
   '/van-phong': typeof VanPhongRoute
   '/dia-ban/$slug': typeof DiaBanSlugRoute
   '/dich-vu/$slug': typeof DichVuSlugRoute
@@ -142,16 +322,39 @@ export interface FileRoutesByFullPath {
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/7-viec-can-lam-ngay-sau-khi-thanh-lap-cong-ty-tai-viet-nam': typeof R7ViecCanLamNgaySauKhiThanhLapCongTyTaiVietNamRoute
+  '/chia-se-chi-phi-dich-vu-cho-ben-htkd-phai-xuat-hoa-don': typeof ChiaSeChiPhiDichVuChoBenHtkdPhaiXuatHoaDonRoute
   '/chinh-sach-bao-mat': typeof ChinhSachBaoMatRoute
+  '/chung-tu-ke-toan-la-gi': typeof ChungTuKeToanLaGiRoute
   '/dia-ban': typeof DiaBanRouteWithChildren
-  '/dich-vu-ke-toan': typeof DichVuKeToanRoute
+  '/dich-vu-chuyen-doi-bao-cao-ifrs': typeof DichVuChuyenDoiBaoCaoIfrsRoute
+  '/dich-vu-chuyen-doi-ho-kinh-doanh-thanh-cong-ty': typeof DichVuChuyenDoiHoKinhDoanhThanhCongTyRoute
+  '/dich-vu-ke-toan-thue-cho-ho-kinh-doanh': typeof DichVuKeToanThueChoHoKinhDoanhRoute
+  '/dich-vu-ke-toan-tron-goi-tphcm': typeof DichVuKeToanTronGoiTphcmRoute
   '/dich-vu-kiem-toan': typeof DichVuKiemToanRoute
+  '/dich-vu-kiem-toan-noi-bo': typeof DichVuKiemToanNoiBoRoute
+  '/dich-vu-kiem-toan-xay-dung-co-ban': typeof DichVuKiemToanXayDungCoBanRoute
+  '/dich-vu-nhan-lam-so-sach-ke-toan': typeof DichVuNhanLamSoSachKeToanRoute
+  '/dich-vu-quyet-toan-thue-cuoi-nam': typeof DichVuQuyetToanThueCuoiNamRoute
+  '/dich-vu-ra-soat-dac-biet-m-a-due-diligence': typeof DichVuRaSoatDacBietMADueDiligenceRoute
   '/dich-vu-thanh-lap-doanh-nghiep-tron-goi': typeof DichVuThanhLapDoanhNghiepTronGoiRoute
+  '/dich-vu-tu-van-thue': typeof DichVuTuVanThueRoute
   '/doi-ngu': typeof DoiNguRoute
+  '/giam-thieu-sai-sot-tai-chinh-voi-cong-ty-kiem-toan-hang-dau-tai-viet-nam': typeof GiamThieuSaiSotTaiChinhVoiCongTyKiemToanHangDauTaiVietNamRoute
   '/gioi-thieu': typeof GioiThieuRoute
+  '/ho-kinh-doanh-da-ke-khai-thue-quy-i-2026-co-can-dieu-chinh-lai-nhung-dieu-phai-kiem-tra-ngay-theo-quy-dinh-thue-moi-nam-2026': typeof HoKinhDoanhDaKeKhaiThueQuyI2026CoCanDieuChinhLaiNhungDieuPhaiKiemTraNgayTheoQuyDinhThueMoiNam2026Route
+  '/ho-so-thu-tuc-dang-ky-ho-kinh-doanh-ca-the': typeof HoSoThuTucDangKyHoKinhDoanhCaTheRoute
+  '/kiem-toan-la-gi': typeof KiemToanLaGiRoute
+  '/kiem-toan-nha-nuoc-la-gi-cac-giai-doan-phat-trien-cua-kiem-toan-nha-nuoc': typeof KiemToanNhaNuocLaGiCacGiaiDoanPhatTrienCuaKiemToanNhaNuocRoute
   '/lien-he': typeof LienHeRoute
+  '/nghiep-vu': typeof NghiepVuRoute
+  '/phan-biet-giua-nguoi-dai-dien-phap-luat-nguoi-dai-dien-uy-quyen': typeof PhanBietGiuaNguoiDaiDienPhapLuatNguoiDaiDienUyQuyenRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/tax-accounting-service': typeof TaxAccountingServiceRoute
+  '/thu-tuc-can-thiet-sau-khi-thanh-lap-doanh-nghiep': typeof ThuTucCanThietSauKhiThanhLapDoanhNghiepRoute
   '/tin-tuc': typeof TinTucRouteWithChildren
+  '/toi-uu-hoa-tai-chinh-voi-dich-vu-ke-toan-thue-chuyen-nghiep': typeof ToiUuHoaTaiChinhVoiDichVuKeToanThueChuyenNghiepRoute
+  '/tuyen-dung': typeof TuyenDungRoute
   '/van-phong': typeof VanPhongRoute
   '/dia-ban/$slug': typeof DiaBanSlugRoute
   '/dich-vu/$slug': typeof DichVuSlugRoute
@@ -162,17 +365,40 @@ export interface FileRoutesByTo {
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/7-viec-can-lam-ngay-sau-khi-thanh-lap-cong-ty-tai-viet-nam': typeof R7ViecCanLamNgaySauKhiThanhLapCongTyTaiVietNamRoute
+  '/chia-se-chi-phi-dich-vu-cho-ben-htkd-phai-xuat-hoa-don': typeof ChiaSeChiPhiDichVuChoBenHtkdPhaiXuatHoaDonRoute
   '/chinh-sach-bao-mat': typeof ChinhSachBaoMatRoute
+  '/chung-tu-ke-toan-la-gi': typeof ChungTuKeToanLaGiRoute
   '/dia-ban': typeof DiaBanRouteWithChildren
   '/dich-vu': typeof DichVuRouteWithChildren
-  '/dich-vu-ke-toan': typeof DichVuKeToanRoute
+  '/dich-vu-chuyen-doi-bao-cao-ifrs': typeof DichVuChuyenDoiBaoCaoIfrsRoute
+  '/dich-vu-chuyen-doi-ho-kinh-doanh-thanh-cong-ty': typeof DichVuChuyenDoiHoKinhDoanhThanhCongTyRoute
+  '/dich-vu-ke-toan-thue-cho-ho-kinh-doanh': typeof DichVuKeToanThueChoHoKinhDoanhRoute
+  '/dich-vu-ke-toan-tron-goi-tphcm': typeof DichVuKeToanTronGoiTphcmRoute
   '/dich-vu-kiem-toan': typeof DichVuKiemToanRoute
+  '/dich-vu-kiem-toan-noi-bo': typeof DichVuKiemToanNoiBoRoute
+  '/dich-vu-kiem-toan-xay-dung-co-ban': typeof DichVuKiemToanXayDungCoBanRoute
+  '/dich-vu-nhan-lam-so-sach-ke-toan': typeof DichVuNhanLamSoSachKeToanRoute
+  '/dich-vu-quyet-toan-thue-cuoi-nam': typeof DichVuQuyetToanThueCuoiNamRoute
+  '/dich-vu-ra-soat-dac-biet-m-a-due-diligence': typeof DichVuRaSoatDacBietMADueDiligenceRoute
   '/dich-vu-thanh-lap-doanh-nghiep-tron-goi': typeof DichVuThanhLapDoanhNghiepTronGoiRoute
+  '/dich-vu-tu-van-thue': typeof DichVuTuVanThueRoute
   '/doi-ngu': typeof DoiNguRoute
+  '/giam-thieu-sai-sot-tai-chinh-voi-cong-ty-kiem-toan-hang-dau-tai-viet-nam': typeof GiamThieuSaiSotTaiChinhVoiCongTyKiemToanHangDauTaiVietNamRoute
   '/gioi-thieu': typeof GioiThieuRoute
+  '/ho-kinh-doanh-da-ke-khai-thue-quy-i-2026-co-can-dieu-chinh-lai-nhung-dieu-phai-kiem-tra-ngay-theo-quy-dinh-thue-moi-nam-2026': typeof HoKinhDoanhDaKeKhaiThueQuyI2026CoCanDieuChinhLaiNhungDieuPhaiKiemTraNgayTheoQuyDinhThueMoiNam2026Route
+  '/ho-so-thu-tuc-dang-ky-ho-kinh-doanh-ca-the': typeof HoSoThuTucDangKyHoKinhDoanhCaTheRoute
+  '/kiem-toan-la-gi': typeof KiemToanLaGiRoute
+  '/kiem-toan-nha-nuoc-la-gi-cac-giai-doan-phat-trien-cua-kiem-toan-nha-nuoc': typeof KiemToanNhaNuocLaGiCacGiaiDoanPhatTrienCuaKiemToanNhaNuocRoute
   '/lien-he': typeof LienHeRoute
+  '/nghiep-vu': typeof NghiepVuRoute
+  '/phan-biet-giua-nguoi-dai-dien-phap-luat-nguoi-dai-dien-uy-quyen': typeof PhanBietGiuaNguoiDaiDienPhapLuatNguoiDaiDienUyQuyenRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/tax-accounting-service': typeof TaxAccountingServiceRoute
+  '/thu-tuc-can-thiet-sau-khi-thanh-lap-doanh-nghiep': typeof ThuTucCanThietSauKhiThanhLapDoanhNghiepRoute
   '/tin-tuc': typeof TinTucRouteWithChildren
+  '/toi-uu-hoa-tai-chinh-voi-dich-vu-ke-toan-thue-chuyen-nghiep': typeof ToiUuHoaTaiChinhVoiDichVuKeToanThueChuyenNghiepRoute
+  '/tuyen-dung': typeof TuyenDungRoute
   '/van-phong': typeof VanPhongRoute
   '/dia-ban/$slug': typeof DiaBanSlugRoute
   '/dich-vu/$slug': typeof DichVuSlugRoute
@@ -184,17 +410,40 @@ export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
+    | '/7-viec-can-lam-ngay-sau-khi-thanh-lap-cong-ty-tai-viet-nam'
+    | '/chia-se-chi-phi-dich-vu-cho-ben-htkd-phai-xuat-hoa-don'
     | '/chinh-sach-bao-mat'
+    | '/chung-tu-ke-toan-la-gi'
     | '/dia-ban'
     | '/dich-vu'
-    | '/dich-vu-ke-toan'
+    | '/dich-vu-chuyen-doi-bao-cao-ifrs'
+    | '/dich-vu-chuyen-doi-ho-kinh-doanh-thanh-cong-ty'
+    | '/dich-vu-ke-toan-thue-cho-ho-kinh-doanh'
+    | '/dich-vu-ke-toan-tron-goi-tphcm'
     | '/dich-vu-kiem-toan'
+    | '/dich-vu-kiem-toan-noi-bo'
+    | '/dich-vu-kiem-toan-xay-dung-co-ban'
+    | '/dich-vu-nhan-lam-so-sach-ke-toan'
+    | '/dich-vu-quyet-toan-thue-cuoi-nam'
+    | '/dich-vu-ra-soat-dac-biet-m-a-due-diligence'
     | '/dich-vu-thanh-lap-doanh-nghiep-tron-goi'
+    | '/dich-vu-tu-van-thue'
     | '/doi-ngu'
+    | '/giam-thieu-sai-sot-tai-chinh-voi-cong-ty-kiem-toan-hang-dau-tai-viet-nam'
     | '/gioi-thieu'
+    | '/ho-kinh-doanh-da-ke-khai-thue-quy-i-2026-co-can-dieu-chinh-lai-nhung-dieu-phai-kiem-tra-ngay-theo-quy-dinh-thue-moi-nam-2026'
+    | '/ho-so-thu-tuc-dang-ky-ho-kinh-doanh-ca-the'
+    | '/kiem-toan-la-gi'
+    | '/kiem-toan-nha-nuoc-la-gi-cac-giai-doan-phat-trien-cua-kiem-toan-nha-nuoc'
     | '/lien-he'
+    | '/nghiep-vu'
+    | '/phan-biet-giua-nguoi-dai-dien-phap-luat-nguoi-dai-dien-uy-quyen'
     | '/sitemap.xml'
+    | '/tax-accounting-service'
+    | '/thu-tuc-can-thiet-sau-khi-thanh-lap-doanh-nghiep'
     | '/tin-tuc'
+    | '/toi-uu-hoa-tai-chinh-voi-dich-vu-ke-toan-thue-chuyen-nghiep'
+    | '/tuyen-dung'
     | '/van-phong'
     | '/dia-ban/$slug'
     | '/dich-vu/$slug'
@@ -204,16 +453,39 @@ export interface FileRouteTypes {
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
+    | '/7-viec-can-lam-ngay-sau-khi-thanh-lap-cong-ty-tai-viet-nam'
+    | '/chia-se-chi-phi-dich-vu-cho-ben-htkd-phai-xuat-hoa-don'
     | '/chinh-sach-bao-mat'
+    | '/chung-tu-ke-toan-la-gi'
     | '/dia-ban'
-    | '/dich-vu-ke-toan'
+    | '/dich-vu-chuyen-doi-bao-cao-ifrs'
+    | '/dich-vu-chuyen-doi-ho-kinh-doanh-thanh-cong-ty'
+    | '/dich-vu-ke-toan-thue-cho-ho-kinh-doanh'
+    | '/dich-vu-ke-toan-tron-goi-tphcm'
     | '/dich-vu-kiem-toan'
+    | '/dich-vu-kiem-toan-noi-bo'
+    | '/dich-vu-kiem-toan-xay-dung-co-ban'
+    | '/dich-vu-nhan-lam-so-sach-ke-toan'
+    | '/dich-vu-quyet-toan-thue-cuoi-nam'
+    | '/dich-vu-ra-soat-dac-biet-m-a-due-diligence'
     | '/dich-vu-thanh-lap-doanh-nghiep-tron-goi'
+    | '/dich-vu-tu-van-thue'
     | '/doi-ngu'
+    | '/giam-thieu-sai-sot-tai-chinh-voi-cong-ty-kiem-toan-hang-dau-tai-viet-nam'
     | '/gioi-thieu'
+    | '/ho-kinh-doanh-da-ke-khai-thue-quy-i-2026-co-can-dieu-chinh-lai-nhung-dieu-phai-kiem-tra-ngay-theo-quy-dinh-thue-moi-nam-2026'
+    | '/ho-so-thu-tuc-dang-ky-ho-kinh-doanh-ca-the'
+    | '/kiem-toan-la-gi'
+    | '/kiem-toan-nha-nuoc-la-gi-cac-giai-doan-phat-trien-cua-kiem-toan-nha-nuoc'
     | '/lien-he'
+    | '/nghiep-vu'
+    | '/phan-biet-giua-nguoi-dai-dien-phap-luat-nguoi-dai-dien-uy-quyen'
     | '/sitemap.xml'
+    | '/tax-accounting-service'
+    | '/thu-tuc-can-thiet-sau-khi-thanh-lap-doanh-nghiep'
     | '/tin-tuc'
+    | '/toi-uu-hoa-tai-chinh-voi-dich-vu-ke-toan-thue-chuyen-nghiep'
+    | '/tuyen-dung'
     | '/van-phong'
     | '/dia-ban/$slug'
     | '/dich-vu/$slug'
@@ -223,17 +495,40 @@ export interface FileRouteTypes {
   id:
     | '__root__'
     | '/'
+    | '/7-viec-can-lam-ngay-sau-khi-thanh-lap-cong-ty-tai-viet-nam'
+    | '/chia-se-chi-phi-dich-vu-cho-ben-htkd-phai-xuat-hoa-don'
     | '/chinh-sach-bao-mat'
+    | '/chung-tu-ke-toan-la-gi'
     | '/dia-ban'
     | '/dich-vu'
-    | '/dich-vu-ke-toan'
+    | '/dich-vu-chuyen-doi-bao-cao-ifrs'
+    | '/dich-vu-chuyen-doi-ho-kinh-doanh-thanh-cong-ty'
+    | '/dich-vu-ke-toan-thue-cho-ho-kinh-doanh'
+    | '/dich-vu-ke-toan-tron-goi-tphcm'
     | '/dich-vu-kiem-toan'
+    | '/dich-vu-kiem-toan-noi-bo'
+    | '/dich-vu-kiem-toan-xay-dung-co-ban'
+    | '/dich-vu-nhan-lam-so-sach-ke-toan'
+    | '/dich-vu-quyet-toan-thue-cuoi-nam'
+    | '/dich-vu-ra-soat-dac-biet-m-a-due-diligence'
     | '/dich-vu-thanh-lap-doanh-nghiep-tron-goi'
+    | '/dich-vu-tu-van-thue'
     | '/doi-ngu'
+    | '/giam-thieu-sai-sot-tai-chinh-voi-cong-ty-kiem-toan-hang-dau-tai-viet-nam'
     | '/gioi-thieu'
+    | '/ho-kinh-doanh-da-ke-khai-thue-quy-i-2026-co-can-dieu-chinh-lai-nhung-dieu-phai-kiem-tra-ngay-theo-quy-dinh-thue-moi-nam-2026'
+    | '/ho-so-thu-tuc-dang-ky-ho-kinh-doanh-ca-the'
+    | '/kiem-toan-la-gi'
+    | '/kiem-toan-nha-nuoc-la-gi-cac-giai-doan-phat-trien-cua-kiem-toan-nha-nuoc'
     | '/lien-he'
+    | '/nghiep-vu'
+    | '/phan-biet-giua-nguoi-dai-dien-phap-luat-nguoi-dai-dien-uy-quyen'
     | '/sitemap.xml'
+    | '/tax-accounting-service'
+    | '/thu-tuc-can-thiet-sau-khi-thanh-lap-doanh-nghiep'
     | '/tin-tuc'
+    | '/toi-uu-hoa-tai-chinh-voi-dich-vu-ke-toan-thue-chuyen-nghiep'
+    | '/tuyen-dung'
     | '/van-phong'
     | '/dia-ban/$slug'
     | '/dich-vu/$slug'
@@ -244,17 +539,40 @@ export interface FileRouteTypes {
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  R7ViecCanLamNgaySauKhiThanhLapCongTyTaiVietNamRoute: typeof R7ViecCanLamNgaySauKhiThanhLapCongTyTaiVietNamRoute
+  ChiaSeChiPhiDichVuChoBenHtkdPhaiXuatHoaDonRoute: typeof ChiaSeChiPhiDichVuChoBenHtkdPhaiXuatHoaDonRoute
   ChinhSachBaoMatRoute: typeof ChinhSachBaoMatRoute
+  ChungTuKeToanLaGiRoute: typeof ChungTuKeToanLaGiRoute
   DiaBanRoute: typeof DiaBanRouteWithChildren
   DichVuRoute: typeof DichVuRouteWithChildren
-  DichVuKeToanRoute: typeof DichVuKeToanRoute
+  DichVuChuyenDoiBaoCaoIfrsRoute: typeof DichVuChuyenDoiBaoCaoIfrsRoute
+  DichVuChuyenDoiHoKinhDoanhThanhCongTyRoute: typeof DichVuChuyenDoiHoKinhDoanhThanhCongTyRoute
+  DichVuKeToanThueChoHoKinhDoanhRoute: typeof DichVuKeToanThueChoHoKinhDoanhRoute
+  DichVuKeToanTronGoiTphcmRoute: typeof DichVuKeToanTronGoiTphcmRoute
   DichVuKiemToanRoute: typeof DichVuKiemToanRoute
+  DichVuKiemToanNoiBoRoute: typeof DichVuKiemToanNoiBoRoute
+  DichVuKiemToanXayDungCoBanRoute: typeof DichVuKiemToanXayDungCoBanRoute
+  DichVuNhanLamSoSachKeToanRoute: typeof DichVuNhanLamSoSachKeToanRoute
+  DichVuQuyetToanThueCuoiNamRoute: typeof DichVuQuyetToanThueCuoiNamRoute
+  DichVuRaSoatDacBietMADueDiligenceRoute: typeof DichVuRaSoatDacBietMADueDiligenceRoute
   DichVuThanhLapDoanhNghiepTronGoiRoute: typeof DichVuThanhLapDoanhNghiepTronGoiRoute
+  DichVuTuVanThueRoute: typeof DichVuTuVanThueRoute
   DoiNguRoute: typeof DoiNguRoute
+  GiamThieuSaiSotTaiChinhVoiCongTyKiemToanHangDauTaiVietNamRoute: typeof GiamThieuSaiSotTaiChinhVoiCongTyKiemToanHangDauTaiVietNamRoute
   GioiThieuRoute: typeof GioiThieuRoute
+  HoKinhDoanhDaKeKhaiThueQuyI2026CoCanDieuChinhLaiNhungDieuPhaiKiemTraNgayTheoQuyDinhThueMoiNam2026Route: typeof HoKinhDoanhDaKeKhaiThueQuyI2026CoCanDieuChinhLaiNhungDieuPhaiKiemTraNgayTheoQuyDinhThueMoiNam2026Route
+  HoSoThuTucDangKyHoKinhDoanhCaTheRoute: typeof HoSoThuTucDangKyHoKinhDoanhCaTheRoute
+  KiemToanLaGiRoute: typeof KiemToanLaGiRoute
+  KiemToanNhaNuocLaGiCacGiaiDoanPhatTrienCuaKiemToanNhaNuocRoute: typeof KiemToanNhaNuocLaGiCacGiaiDoanPhatTrienCuaKiemToanNhaNuocRoute
   LienHeRoute: typeof LienHeRoute
+  NghiepVuRoute: typeof NghiepVuRoute
+  PhanBietGiuaNguoiDaiDienPhapLuatNguoiDaiDienUyQuyenRoute: typeof PhanBietGiuaNguoiDaiDienPhapLuatNguoiDaiDienUyQuyenRoute
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
+  TaxAccountingServiceRoute: typeof TaxAccountingServiceRoute
+  ThuTucCanThietSauKhiThanhLapDoanhNghiepRoute: typeof ThuTucCanThietSauKhiThanhLapDoanhNghiepRoute
   TinTucRoute: typeof TinTucRouteWithChildren
+  ToiUuHoaTaiChinhVoiDichVuKeToanThueChuyenNghiepRoute: typeof ToiUuHoaTaiChinhVoiDichVuKeToanThueChuyenNghiepRoute
+  TuyenDungRoute: typeof TuyenDungRoute
   VanPhongRoute: typeof VanPhongRoute
   ApiPublicContactRoute: typeof ApiPublicContactRoute
 }
@@ -268,11 +586,39 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof VanPhongRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/tuyen-dung': {
+      id: '/tuyen-dung'
+      path: '/tuyen-dung'
+      fullPath: '/tuyen-dung'
+      preLoaderRoute: typeof TuyenDungRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/toi-uu-hoa-tai-chinh-voi-dich-vu-ke-toan-thue-chuyen-nghiep': {
+      id: '/toi-uu-hoa-tai-chinh-voi-dich-vu-ke-toan-thue-chuyen-nghiep'
+      path: '/toi-uu-hoa-tai-chinh-voi-dich-vu-ke-toan-thue-chuyen-nghiep'
+      fullPath: '/toi-uu-hoa-tai-chinh-voi-dich-vu-ke-toan-thue-chuyen-nghiep'
+      preLoaderRoute: typeof ToiUuHoaTaiChinhVoiDichVuKeToanThueChuyenNghiepRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/tin-tuc': {
       id: '/tin-tuc'
       path: '/tin-tuc'
       fullPath: '/tin-tuc'
       preLoaderRoute: typeof TinTucRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/thu-tuc-can-thiet-sau-khi-thanh-lap-doanh-nghiep': {
+      id: '/thu-tuc-can-thiet-sau-khi-thanh-lap-doanh-nghiep'
+      path: '/thu-tuc-can-thiet-sau-khi-thanh-lap-doanh-nghiep'
+      fullPath: '/thu-tuc-can-thiet-sau-khi-thanh-lap-doanh-nghiep'
+      preLoaderRoute: typeof ThuTucCanThietSauKhiThanhLapDoanhNghiepRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/tax-accounting-service': {
+      id: '/tax-accounting-service'
+      path: '/tax-accounting-service'
+      fullPath: '/tax-accounting-service'
+      preLoaderRoute: typeof TaxAccountingServiceRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/sitemap.xml': {
@@ -282,11 +628,53 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof SitemapDotxmlRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/phan-biet-giua-nguoi-dai-dien-phap-luat-nguoi-dai-dien-uy-quyen': {
+      id: '/phan-biet-giua-nguoi-dai-dien-phap-luat-nguoi-dai-dien-uy-quyen'
+      path: '/phan-biet-giua-nguoi-dai-dien-phap-luat-nguoi-dai-dien-uy-quyen'
+      fullPath: '/phan-biet-giua-nguoi-dai-dien-phap-luat-nguoi-dai-dien-uy-quyen'
+      preLoaderRoute: typeof PhanBietGiuaNguoiDaiDienPhapLuatNguoiDaiDienUyQuyenRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/nghiep-vu': {
+      id: '/nghiep-vu'
+      path: '/nghiep-vu'
+      fullPath: '/nghiep-vu'
+      preLoaderRoute: typeof NghiepVuRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/lien-he': {
       id: '/lien-he'
       path: '/lien-he'
       fullPath: '/lien-he'
       preLoaderRoute: typeof LienHeRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/kiem-toan-nha-nuoc-la-gi-cac-giai-doan-phat-trien-cua-kiem-toan-nha-nuoc': {
+      id: '/kiem-toan-nha-nuoc-la-gi-cac-giai-doan-phat-trien-cua-kiem-toan-nha-nuoc'
+      path: '/kiem-toan-nha-nuoc-la-gi-cac-giai-doan-phat-trien-cua-kiem-toan-nha-nuoc'
+      fullPath: '/kiem-toan-nha-nuoc-la-gi-cac-giai-doan-phat-trien-cua-kiem-toan-nha-nuoc'
+      preLoaderRoute: typeof KiemToanNhaNuocLaGiCacGiaiDoanPhatTrienCuaKiemToanNhaNuocRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/kiem-toan-la-gi': {
+      id: '/kiem-toan-la-gi'
+      path: '/kiem-toan-la-gi'
+      fullPath: '/kiem-toan-la-gi'
+      preLoaderRoute: typeof KiemToanLaGiRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/ho-so-thu-tuc-dang-ky-ho-kinh-doanh-ca-the': {
+      id: '/ho-so-thu-tuc-dang-ky-ho-kinh-doanh-ca-the'
+      path: '/ho-so-thu-tuc-dang-ky-ho-kinh-doanh-ca-the'
+      fullPath: '/ho-so-thu-tuc-dang-ky-ho-kinh-doanh-ca-the'
+      preLoaderRoute: typeof HoSoThuTucDangKyHoKinhDoanhCaTheRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/ho-kinh-doanh-da-ke-khai-thue-quy-i-2026-co-can-dieu-chinh-lai-nhung-dieu-phai-kiem-tra-ngay-theo-quy-dinh-thue-moi-nam-2026': {
+      id: '/ho-kinh-doanh-da-ke-khai-thue-quy-i-2026-co-can-dieu-chinh-lai-nhung-dieu-phai-kiem-tra-ngay-theo-quy-dinh-thue-moi-nam-2026'
+      path: '/ho-kinh-doanh-da-ke-khai-thue-quy-i-2026-co-can-dieu-chinh-lai-nhung-dieu-phai-kiem-tra-ngay-theo-quy-dinh-thue-moi-nam-2026'
+      fullPath: '/ho-kinh-doanh-da-ke-khai-thue-quy-i-2026-co-can-dieu-chinh-lai-nhung-dieu-phai-kiem-tra-ngay-theo-quy-dinh-thue-moi-nam-2026'
+      preLoaderRoute: typeof HoKinhDoanhDaKeKhaiThueQuyI2026CoCanDieuChinhLaiNhungDieuPhaiKiemTraNgayTheoQuyDinhThueMoiNam2026RouteImport
       parentRoute: typeof rootRouteImport
     }
     '/gioi-thieu': {
@@ -296,11 +684,25 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof GioiThieuRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/giam-thieu-sai-sot-tai-chinh-voi-cong-ty-kiem-toan-hang-dau-tai-viet-nam': {
+      id: '/giam-thieu-sai-sot-tai-chinh-voi-cong-ty-kiem-toan-hang-dau-tai-viet-nam'
+      path: '/giam-thieu-sai-sot-tai-chinh-voi-cong-ty-kiem-toan-hang-dau-tai-viet-nam'
+      fullPath: '/giam-thieu-sai-sot-tai-chinh-voi-cong-ty-kiem-toan-hang-dau-tai-viet-nam'
+      preLoaderRoute: typeof GiamThieuSaiSotTaiChinhVoiCongTyKiemToanHangDauTaiVietNamRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/doi-ngu': {
       id: '/doi-ngu'
       path: '/doi-ngu'
       fullPath: '/doi-ngu'
       preLoaderRoute: typeof DoiNguRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/dich-vu-tu-van-thue': {
+      id: '/dich-vu-tu-van-thue'
+      path: '/dich-vu-tu-van-thue'
+      fullPath: '/dich-vu-tu-van-thue'
+      preLoaderRoute: typeof DichVuTuVanThueRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/dich-vu-thanh-lap-doanh-nghiep-tron-goi': {
@@ -310,6 +712,41 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof DichVuThanhLapDoanhNghiepTronGoiRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/dich-vu-ra-soat-dac-biet-m-a-due-diligence': {
+      id: '/dich-vu-ra-soat-dac-biet-m-a-due-diligence'
+      path: '/dich-vu-ra-soat-dac-biet-m-a-due-diligence'
+      fullPath: '/dich-vu-ra-soat-dac-biet-m-a-due-diligence'
+      preLoaderRoute: typeof DichVuRaSoatDacBietMADueDiligenceRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/dich-vu-quyet-toan-thue-cuoi-nam': {
+      id: '/dich-vu-quyet-toan-thue-cuoi-nam'
+      path: '/dich-vu-quyet-toan-thue-cuoi-nam'
+      fullPath: '/dich-vu-quyet-toan-thue-cuoi-nam'
+      preLoaderRoute: typeof DichVuQuyetToanThueCuoiNamRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/dich-vu-nhan-lam-so-sach-ke-toan': {
+      id: '/dich-vu-nhan-lam-so-sach-ke-toan'
+      path: '/dich-vu-nhan-lam-so-sach-ke-toan'
+      fullPath: '/dich-vu-nhan-lam-so-sach-ke-toan'
+      preLoaderRoute: typeof DichVuNhanLamSoSachKeToanRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/dich-vu-kiem-toan-xay-dung-co-ban': {
+      id: '/dich-vu-kiem-toan-xay-dung-co-ban'
+      path: '/dich-vu-kiem-toan-xay-dung-co-ban'
+      fullPath: '/dich-vu-kiem-toan-xay-dung-co-ban'
+      preLoaderRoute: typeof DichVuKiemToanXayDungCoBanRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/dich-vu-kiem-toan-noi-bo': {
+      id: '/dich-vu-kiem-toan-noi-bo'
+      path: '/dich-vu-kiem-toan-noi-bo'
+      fullPath: '/dich-vu-kiem-toan-noi-bo'
+      preLoaderRoute: typeof DichVuKiemToanNoiBoRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/dich-vu-kiem-toan': {
       id: '/dich-vu-kiem-toan'
       path: '/dich-vu-kiem-toan'
@@ -317,11 +754,32 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof DichVuKiemToanRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/dich-vu-ke-toan': {
-      id: '/dich-vu-ke-toan'
-      path: '/dich-vu-ke-toan'
-      fullPath: '/dich-vu-ke-toan'
-      preLoaderRoute: typeof DichVuKeToanRouteImport
+    '/dich-vu-ke-toan-tron-goi-tphcm': {
+      id: '/dich-vu-ke-toan-tron-goi-tphcm'
+      path: '/dich-vu-ke-toan-tron-goi-tphcm'
+      fullPath: '/dich-vu-ke-toan-tron-goi-tphcm'
+      preLoaderRoute: typeof DichVuKeToanTronGoiTphcmRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/dich-vu-ke-toan-thue-cho-ho-kinh-doanh': {
+      id: '/dich-vu-ke-toan-thue-cho-ho-kinh-doanh'
+      path: '/dich-vu-ke-toan-thue-cho-ho-kinh-doanh'
+      fullPath: '/dich-vu-ke-toan-thue-cho-ho-kinh-doanh'
+      preLoaderRoute: typeof DichVuKeToanThueChoHoKinhDoanhRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/dich-vu-chuyen-doi-ho-kinh-doanh-thanh-cong-ty': {
+      id: '/dich-vu-chuyen-doi-ho-kinh-doanh-thanh-cong-ty'
+      path: '/dich-vu-chuyen-doi-ho-kinh-doanh-thanh-cong-ty'
+      fullPath: '/dich-vu-chuyen-doi-ho-kinh-doanh-thanh-cong-ty'
+      preLoaderRoute: typeof DichVuChuyenDoiHoKinhDoanhThanhCongTyRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/dich-vu-chuyen-doi-bao-cao-ifrs': {
+      id: '/dich-vu-chuyen-doi-bao-cao-ifrs'
+      path: '/dich-vu-chuyen-doi-bao-cao-ifrs'
+      fullPath: '/dich-vu-chuyen-doi-bao-cao-ifrs'
+      preLoaderRoute: typeof DichVuChuyenDoiBaoCaoIfrsRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/dich-vu': {
@@ -338,11 +796,32 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof DiaBanRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/chung-tu-ke-toan-la-gi': {
+      id: '/chung-tu-ke-toan-la-gi'
+      path: '/chung-tu-ke-toan-la-gi'
+      fullPath: '/chung-tu-ke-toan-la-gi'
+      preLoaderRoute: typeof ChungTuKeToanLaGiRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/chinh-sach-bao-mat': {
       id: '/chinh-sach-bao-mat'
       path: '/chinh-sach-bao-mat'
       fullPath: '/chinh-sach-bao-mat'
       preLoaderRoute: typeof ChinhSachBaoMatRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/chia-se-chi-phi-dich-vu-cho-ben-htkd-phai-xuat-hoa-don': {
+      id: '/chia-se-chi-phi-dich-vu-cho-ben-htkd-phai-xuat-hoa-don'
+      path: '/chia-se-chi-phi-dich-vu-cho-ben-htkd-phai-xuat-hoa-don'
+      fullPath: '/chia-se-chi-phi-dich-vu-cho-ben-htkd-phai-xuat-hoa-don'
+      preLoaderRoute: typeof ChiaSeChiPhiDichVuChoBenHtkdPhaiXuatHoaDonRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/7-viec-can-lam-ngay-sau-khi-thanh-lap-cong-ty-tai-viet-nam': {
+      id: '/7-viec-can-lam-ngay-sau-khi-thanh-lap-cong-ty-tai-viet-nam'
+      path: '/7-viec-can-lam-ngay-sau-khi-thanh-lap-cong-ty-tai-viet-nam'
+      fullPath: '/7-viec-can-lam-ngay-sau-khi-thanh-lap-cong-ty-tai-viet-nam'
+      preLoaderRoute: typeof R7ViecCanLamNgaySauKhiThanhLapCongTyTaiVietNamRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/': {
@@ -427,20 +906,63 @@ const TinTucRouteWithChildren =
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  R7ViecCanLamNgaySauKhiThanhLapCongTyTaiVietNamRoute:
+    R7ViecCanLamNgaySauKhiThanhLapCongTyTaiVietNamRoute,
+  ChiaSeChiPhiDichVuChoBenHtkdPhaiXuatHoaDonRoute:
+    ChiaSeChiPhiDichVuChoBenHtkdPhaiXuatHoaDonRoute,
   ChinhSachBaoMatRoute: ChinhSachBaoMatRoute,
+  ChungTuKeToanLaGiRoute: ChungTuKeToanLaGiRoute,
   DiaBanRoute: DiaBanRouteWithChildren,
   DichVuRoute: DichVuRouteWithChildren,
-  DichVuKeToanRoute: DichVuKeToanRoute,
+  DichVuChuyenDoiBaoCaoIfrsRoute: DichVuChuyenDoiBaoCaoIfrsRoute,
+  DichVuChuyenDoiHoKinhDoanhThanhCongTyRoute:
+    DichVuChuyenDoiHoKinhDoanhThanhCongTyRoute,
+  DichVuKeToanThueChoHoKinhDoanhRoute: DichVuKeToanThueChoHoKinhDoanhRoute,
+  DichVuKeToanTronGoiTphcmRoute: DichVuKeToanTronGoiTphcmRoute,
   DichVuKiemToanRoute: DichVuKiemToanRoute,
+  DichVuKiemToanNoiBoRoute: DichVuKiemToanNoiBoRoute,
+  DichVuKiemToanXayDungCoBanRoute: DichVuKiemToanXayDungCoBanRoute,
+  DichVuNhanLamSoSachKeToanRoute: DichVuNhanLamSoSachKeToanRoute,
+  DichVuQuyetToanThueCuoiNamRoute: DichVuQuyetToanThueCuoiNamRoute,
+  DichVuRaSoatDacBietMADueDiligenceRoute:
+    DichVuRaSoatDacBietMADueDiligenceRoute,
   DichVuThanhLapDoanhNghiepTronGoiRoute: DichVuThanhLapDoanhNghiepTronGoiRoute,
+  DichVuTuVanThueRoute: DichVuTuVanThueRoute,
   DoiNguRoute: DoiNguRoute,
+  GiamThieuSaiSotTaiChinhVoiCongTyKiemToanHangDauTaiVietNamRoute:
+    GiamThieuSaiSotTaiChinhVoiCongTyKiemToanHangDauTaiVietNamRoute,
   GioiThieuRoute: GioiThieuRoute,
+  HoKinhDoanhDaKeKhaiThueQuyI2026CoCanDieuChinhLaiNhungDieuPhaiKiemTraNgayTheoQuyDinhThueMoiNam2026Route:
+    HoKinhDoanhDaKeKhaiThueQuyI2026CoCanDieuChinhLaiNhungDieuPhaiKiemTraNgayTheoQuyDinhThueMoiNam2026Route,
+  HoSoThuTucDangKyHoKinhDoanhCaTheRoute: HoSoThuTucDangKyHoKinhDoanhCaTheRoute,
+  KiemToanLaGiRoute: KiemToanLaGiRoute,
+  KiemToanNhaNuocLaGiCacGiaiDoanPhatTrienCuaKiemToanNhaNuocRoute:
+    KiemToanNhaNuocLaGiCacGiaiDoanPhatTrienCuaKiemToanNhaNuocRoute,
   LienHeRoute: LienHeRoute,
+  NghiepVuRoute: NghiepVuRoute,
+  PhanBietGiuaNguoiDaiDienPhapLuatNguoiDaiDienUyQuyenRoute:
+    PhanBietGiuaNguoiDaiDienPhapLuatNguoiDaiDienUyQuyenRoute,
   SitemapDotxmlRoute: SitemapDotxmlRoute,
+  TaxAccountingServiceRoute: TaxAccountingServiceRoute,
+  ThuTucCanThietSauKhiThanhLapDoanhNghiepRoute:
+    ThuTucCanThietSauKhiThanhLapDoanhNghiepRoute,
   TinTucRoute: TinTucRouteWithChildren,
+  ToiUuHoaTaiChinhVoiDichVuKeToanThueChuyenNghiepRoute:
+    ToiUuHoaTaiChinhVoiDichVuKeToanThueChuyenNghiepRoute,
+  TuyenDungRoute: TuyenDungRoute,
   VanPhongRoute: VanPhongRoute,
   ApiPublicContactRoute: ApiPublicContactRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
+
+import type { getRouter } from './router.tsx'
+import type { startInstance } from './start.ts'
+declare module '@tanstack/react-start' {
+  interface Register {
+    ssr: true
+    router: Awaited<ReturnType<typeof getRouter>>
+    config: Awaited<ReturnType<typeof startInstance.getOptions>>
+  }
+}
