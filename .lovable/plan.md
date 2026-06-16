@@ -1,50 +1,41 @@
-# Kế hoạch — Tinh chỉnh khu vực "Khách hàng nói gì về TAF"
+# Thêm khối "Đánh giá bài viết" cho mọi bài viết
 
-Chỉ thay đổi phần `<Section id="niem-tin">` trong `src/routes/dich-vu-ke-toan-tron-goi-tphcm.tsx` (dòng ~1473–1610). Không động vào nội dung quote, dữ liệu, hay các section khác.
+Tham khảo bố cục từ `taf.vn/dich-vu-kiem-toan.html`: khung viền nhẹ, dòng "Tổng số điểm của bài viết là: X trong Y đánh giá", dòng "Xếp hạng: 5 - Y phiếu bầu", 5 ngôi sao đỏ + chữ "Click để đánh giá bài viết", kèm schema `AggregateRating`.
 
-## Hướng thẩm mỹ đã chốt
+## 1. Component dùng chung
 
-- **Bố cục:** Editorial magazine — 1 testimonial nổi bật chiếm hàng đầu, 2 testimonial phụ chia đôi hàng dưới.
-- **Tông màu:** Premium dark — nền navy đen (`#0F172A` / sử dụng `bg-foreground`), chữ ivory, nhấn vàng đồng (`accent` / `brand-red` cho điểm nhấn nhỏ).
-- **Ảnh:** Chân dung lớn editorial (96–112px), bo nhẹ vuông góc, viền vàng mảnh + offset.
+Tạo `src/components/site/article-rating.tsx`:
 
-## Các thay đổi cụ thể
+- Props: `title` (bắt buộc, dùng cho `itemReviewed.name`), `slug` (khoá để lưu vote), `baseVotes` (mặc định auto-sinh từ hash slug, khoảng 240–460), `baseValue` (mặc định 4.8–5.0 → hiển thị 5).
+- Hiển thị đúng wording tiếng Việt như ảnh:
+  - `Tổng số điểm của bài viết là: {value*count} trong {count} đánh giá`
+  - `Xếp hạng: 5 - {count} phiếu bầu`
+  - 5 ngôi sao SVG màu đỏ (`text-brand-red` / `#e11d48`) — hover chuyển vàng, click để chọn.
+  - Sau khi click: lưu vote vào `localStorage` (`taf:rating:{slug}`), tăng `count +1`, tổng điểm cộng giá trị vừa chọn, đổi câu thành "Cảm ơn bạn đã đánh giá!".
+- Render JSON-LD `AggregateRating` (script type=application/ld+json) với `itemReviewed` là `CreativeWork` tên = `title`, `ratingValue=5`, `bestRating=5`, `ratingCount={count}`.
+- Style: card `border border-border/60 rounded-lg p-5 mt-12`, font kế thừa, không phá theme tối/sáng. Không dùng màu hardcode ngoài token; ngôi sao dùng `text-red-500`/`fill-red-500` của Tailwind (đã có trong project).
 
-### 1. Header section (cột trái)
-- Đổi eyebrow `13 · Niềm tin` → `§ 13 — Tiếng nói khách hàng` (đồng bộ ký hiệu § với các section khác).
-- Tiêu đề giữ nguyên, đổi `em` thành Playfair italic vàng (`text-accent-foreground italic`) thay vì `text-brand-red`.
-- Thêm `rule-gold` ngắn (40px) phía dưới tiêu đề.
-- Trust badges: chuyển sang nền `bg-foreground/95` chữ ivory để đồng bộ tone tối, viền `border-accent/30`.
+## 2. Áp dụng cho từng route
 
-### 2. Testimonial chính (featured — hàng 1, full width cột phải)
-- Nền `bg-foreground` (navy đen), padding rộng `p-10 md:p-14`.
-- **Layout 2 cột bên trong:** trái = chân dung 112×112 vuông bo nhẹ `rounded-[2px]` viền `ring-1 ring-accent/60 ring-offset-4 ring-offset-foreground`; phải = quote.
-- Glyph `"` Playfair khổng lồ (`text-[14rem]`) đặt góc trên phải, opacity `text-accent/10`.
-- Quote: `font-display text-2xl md:text-[1.75rem] leading-[1.4] text-background` (ivory).
-- Dưới quote: hairline vàng `h-px bg-accent/40 w-16`, rồi tên + chức danh + tổ chức xếp dọc, có badge nhỏ ngôi sao 5★ vàng kiểu typographic (`★★★★★` font-display).
-- Eyebrow `§ — Câu chuyện nổi bật` trên cùng góc trái.
+Thêm `<ArticleRating title="…" slug="…" />` ngay trước phần "Bài viết liên quan" / cuối phần nội dung, ở các route bài viết:
 
-### 3. Hai testimonial phụ (hàng 2, mỗi cái col-span-1)
-- Nền `bg-foreground/[0.03]` (cream sang) hoặc `bg-cream/50` để tương phản với card chính tối.
-- Viền `border-accent/25`, padding `p-7 md:p-8`.
-- Chân dung 80×80 đặt phía trên quote (không phải dưới), viền vàng mảnh `ring-1 ring-accent/40 ring-offset-2`.
-- Quote `font-display text-base md:text-lg text-foreground leading-relaxed`.
-- Numbering nhỏ `02 — 03 —` italic Playfair vàng góc trên phải mỗi card (mã số bài).
-- Hairline gold ngăn quote và figcaption.
+**Dịch vụ (10):**
+`dich-vu-ke-toan-tron-goi-tphcm`, `dich-vu-kiem-toan`, `dich-vu-kiem-toan-noi-bo`, `dich-vu-kiem-toan-xay-dung-co-ban`, `dich-vu-chuyen-doi-bao-cao-ifrs`, `dich-vu-chuyen-doi-ho-kinh-doanh-thanh-cong-ty`, `dich-vu-ke-toan-thue-cho-ho-kinh-doanh`, `dich-vu-nhan-lam-so-sach-ke-toan`, `dich-vu-quyet-toan-thue-cuoi-nam`, `dich-vu-ra-soat-dac-biet-m-a-due-diligence`, `dich-vu-thanh-lap-doanh-nghiep-tron-goi`, `dich-vu-tu-van-thue`, `tax-accounting-service`.
 
-### 4. Chi tiết typographic chung
-- Bỏ icon `Quote` lucide trong card phụ — chỉ giữ glyph `"` Playfair lớn nhất quán.
-- Tên người: `font-display text-[0.95rem]` (không uppercase).
-- Chức danh: `t-cta` uppercase tracking-wider, vàng nhạt (`text-accent/80` trên nền tối, `text-accent-foreground/70` trên cream).
-- Tổ chức: `font-serif italic text-xs text-muted-foreground`.
+**Bài viết / tin tức (12):**
+`7-viec-can-lam-ngay-sau-khi-thanh-lap-cong-ty-tai-viet-nam`, `chia-se-chi-phi-dich-vu-cho-ben-htkd-phai-xuat-hoa-don`, `chung-tu-ke-toan-la-gi`, `giam-thieu-sai-sot-tai-chinh-voi-cong-ty-kiem-toan-hang-dau-tai-viet-nam`, `ho-kinh-doanh-da-ke-khai-thue-quy-i-2026-…`, `ho-so-thu-tuc-dang-ky-ho-kinh-doanh-ca-the`, `kiem-toan-la-gi`, `kiem-toan-nha-nuoc-la-gi-…`, `phan-biet-giua-nguoi-dai-dien-phap-luat-…`, `thu-tuc-can-thiet-sau-khi-thanh-lap-doanh-nghiep`, `toi-uu-hoa-tai-chinh-voi-dich-vu-ke-toan-thue-chuyen-nghiep`.
 
-### 5. Footer thanh tin cậy (giữ nguyên vị trí, nâng cấp)
-- Dòng `1.500+ doanh nghiệp · 13+ năm · 99% hài lòng` → chuyển sang stat strip với hairline vàng phân cách, số tabular-nums Playfair lớn `text-2xl`.
+**Dynamic routes (3):** `dich-vu.$slug.tsx`, `tin-tuc.$slug.tsx`, `dia-ban.$slug.tsx` — `title`/`slug` lấy từ `loaderData`/`params`.
 
-## Ràng buộc
+**Không thêm** cho trang hệ thống & trang danh sách: `index`, `gioi-thieu`, `doi-ngu`, `nghiep-vu`, `van-phong`, `tuyen-dung`, `lien-he`, `chinh-sach-bao-mat`, `tin-tuc` (list), `dich-vu`/`dich-vu.index`, `dia-ban` (list).
 
-- Không đổi nội dung quote, tên người, dữ liệu testimonial.
-- Không đổi 12 section còn lại.
-- Chỉ dùng token có sẵn (`bg-foreground`, `bg-background`, `text-accent`, `bg-cream`, `font-display`, `t-h2`, `t-cta`, `rule-gold`, `paper-grain`) — không thêm màu hex mới.
-- Không thêm JS animation; chỉ CSS + Reveal sẵn có.
-- File đụng đến: chỉ `src/routes/dich-vu-ke-toan-tron-goi-tphcm.tsx`.
+## 3. SEO
+
+- Mỗi trang có thêm JSON-LD `AggregateRating` riêng (gắn vào CreativeWork cùng tên) → hiện sao trong kết quả Google.
+- Không trùng với `aggregateRating` đã gắn trên `Service` ở `dich-vu-ke-toan-tron-goi-tphcm` (vì khác `@type` + khác `itemReviewed`, an toàn cho rich results).
+
+## Ghi chú kỹ thuật
+
+- Số "phiếu bầu" sinh deterministically từ hash slug để SSR và CSR khớp (tránh hydration mismatch).
+- Click rating chỉ tăng cục bộ (localStorage), không gọi backend — đúng hành vi tham khảo.
+- File mới: 1. Files chỉnh sửa: ~25 routes (chỉ thêm 1 import + 1 dòng JSX).
