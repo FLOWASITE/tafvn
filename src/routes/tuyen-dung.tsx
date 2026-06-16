@@ -96,10 +96,12 @@ const POSITIONS: {
 ];
 
 function CareersPage() {
+  const t = useT();
   const subject = encodeURIComponent("Ứng tuyển tại TAF");
   return (
     <>
-      <Breadcrumb items={[{ label: "Tuyển dụng" }]} />
+      <Breadcrumb items={[{ label: t("Tuyển dụng") }]} />
+
 
       {/* Hero */}
       <Section className="!pb-10">
