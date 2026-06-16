@@ -671,23 +671,28 @@ function LazyYouTube({ videoId, title }: { videoId: string; title: string }) {
 }
 
 function PriceTable({ rows, caption }: { rows: typeof PRICE_TABLE_1; caption: string }) {
+  const [label, ...rest] = caption.split("—");
+  const subtitle = rest.join("—").trim();
   return (
-    <div className="border border-border rounded-[3px] bg-background overflow-hidden shadow-[var(--shadow-card)]">
-      <div className="px-5 md:px-6 py-4 border-b border-border bg-gradient-to-r from-cream/80 via-cream/40 to-transparent flex items-center gap-3">
-        <span aria-hidden className="inline-block w-1.5 h-1.5 rounded-full bg-brand-red" />
-        <span aria-hidden className="inline-block w-5 h-px bg-accent" />
-        <div className="t-cta text-accent-foreground/90">
-          {caption}
-        </div>
+    <div className="group/table relative border border-accent/30 rounded-[2px] bg-background overflow-hidden shadow-[var(--shadow-card)]">
+      <span aria-hidden className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-accent to-transparent" />
+      <div className="px-5 md:px-7 py-5 bg-foreground text-background flex items-baseline gap-4 flex-wrap">
+        <span className="t-eyebrow text-accent">
+          {label.trim()}
+        </span>
+        <span aria-hidden className="inline-block w-8 h-px bg-accent/60" />
+        <span className="font-display italic text-background/90 text-base md:text-lg leading-snug">
+          {subtitle}
+        </span>
       </div>
       <Table>
         <TableHeader>
-          <TableRow className="bg-cream/40 hover:bg-cream/40">
+          <TableRow className="bg-cream/50 hover:bg-cream/50 border-b border-accent/30">
             <TableHead className="w-12">STT</TableHead>
             <TableHead>Số hoá đơn/tháng (đầu vào + đầu ra)</TableHead>
             <TableHead className="text-right">Kế toán thuế</TableHead>
             <TableHead className="text-right">Lương, BHXH</TableHead>
-            <TableHead className="text-right font-medium text-foreground bg-accent/10">
+            <TableHead className="text-right font-display text-foreground bg-accent/15 border-l border-accent/30">
               Tổng
             </TableHead>
           </TableRow>
@@ -697,18 +702,20 @@ function PriceTable({ rows, caption }: { rows: typeof PRICE_TABLE_1; caption: st
             <TableRow
               key={r.stt}
               className={cn(
-                "font-serif transition-colors",
-                i % 2 === 1 && "bg-cream/30",
-                "hover:bg-accent/5",
+                "group/row font-serif transition-colors",
+                i % 2 === 1 && "bg-cream/25",
+                "hover:bg-accent/[0.07]",
               )}
             >
               <TableCell className="text-muted-foreground tabular-nums font-mono text-xs">
                 {String(r.stt).padStart(2, "0")}
               </TableCell>
-              <TableCell className="text-foreground/85">{r.range}</TableCell>
+              <TableCell className="text-foreground/85 group-hover/row:text-foreground transition-colors">
+                {r.range}
+              </TableCell>
               <TableCell className="text-right tabular-nums text-foreground/85">{r.tax}</TableCell>
               <TableCell className="text-right tabular-nums text-foreground/85">{r.bhxh}</TableCell>
-              <TableCell className="text-right tabular-nums font-medium text-foreground bg-accent/[0.06] border-l border-accent/20">
+              <TableCell className="text-right tabular-nums font-display text-base md:text-[1.0625rem] text-foreground bg-accent/[0.06] border-l border-accent/25 group-hover/row:text-brand-red-ink group-hover/row:bg-accent/[0.12] transition-colors">
                 {r.total}
               </TableCell>
             </TableRow>
