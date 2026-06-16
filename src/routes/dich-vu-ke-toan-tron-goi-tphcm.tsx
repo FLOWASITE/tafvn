@@ -874,30 +874,46 @@ function AccountingServicePage() {
       <Section className="pt-0 pb-6">
         <nav
           aria-label="Mục lục: Dịch vụ kế toán trọn gói tại TAF"
-          className="border border-border bg-cream/60 rounded-[2px] p-6 md:p-8"
+          className="relative border border-accent/30 bg-cream/40 rounded-[2px] p-6 md:p-9 paper-grain overflow-hidden"
         >
-          <div className="t-cta flex items-center gap-2.5 text-accent-foreground/90 mb-3">
-            <List size={14} className="text-brand-red" />
-            Mục lục bài viết
+          <span aria-hidden className="absolute top-0 left-8 right-8 h-px bg-gradient-to-r from-transparent via-accent to-transparent" />
+          <div className="flex items-baseline justify-between mb-5">
+            <div className="t-eyebrow text-muted-foreground/80 flex items-center gap-2.5">
+              <span className="inline-block w-6 h-px bg-accent" />
+              § 00 — Mục lục
+            </div>
+            <span className="t-eyebrow text-accent-foreground/60 hidden md:inline">
+              13 mục · Service Brief No. 02
+            </span>
           </div>
-          <p className="t-body-sm md:text-base text-muted-foreground mb-6 max-w-3xl">
+          <p className="t-body-sm md:text-base text-muted-foreground mb-7 max-w-3xl">
             Trang tổng quan về <strong className="text-foreground font-medium">dịch vụ kế toán trọn gói</strong> của TAF: khái niệm, điều kiện hành nghề, danh mục dịch vụ, bảng báo giá tham khảo, quy trình triển khai và câu hỏi thường gặp.
           </p>
-          <ol className="grid sm:grid-cols-2 gap-x-8 gap-y-3 font-serif text-foreground/85">
+          <ol className="grid sm:grid-cols-2 gap-x-10">
             {TOC.map((item, i) => (
-              <li key={item.id} className="flex gap-3 leading-snug">
-                <span className="font-mono text-xs text-muted-foreground tabular-nums mt-1 shrink-0 w-6">
-                  {String(i + 1).padStart(2, "0")}
-                </span>
-                <a href={`#${item.id}`} className="group flex-1 text-foreground/85 underline-offset-4 transition-colors">
-                  <span className="block text-foreground/90 group-hover:text-brand-red-ink underline decoration-transparent group-hover:decoration-brand-red/50">
-                    {item.label}
+              <li
+                key={item.id}
+                className="group border-b border-accent/15 last:border-0 sm:[&:nth-last-child(2)]:border-0"
+              >
+                <a href={`#${item.id}`} className="flex gap-5 py-3.5 items-start">
+                  <span className="font-display italic tabular-nums text-2xl text-accent-foreground/35 leading-none w-9 shrink-0 mt-1 group-hover:text-brand-red transition-colors">
+                    {String(i + 1).padStart(2, "0")}
                   </span>
-                  <span className="block text-xs text-muted-foreground mt-0.5">{item.desc}</span>
+                  <span className="flex-1 min-w-0">
+                    <span className="block font-display text-[0.95rem] md:text-base text-foreground/90 group-hover:text-brand-red-ink leading-snug transition-colors">
+                      {item.label}
+                    </span>
+                    <span className="block t-body-sm text-muted-foreground mt-0.5">{item.desc}</span>
+                  </span>
+                  <ArrowUpRight
+                    size={14}
+                    className="text-accent-foreground/0 group-hover:text-accent-foreground mt-2 transition-all duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 shrink-0"
+                  />
                 </a>
               </li>
             ))}
           </ol>
+          <span aria-hidden className="absolute bottom-0 left-8 right-8 h-px bg-gradient-to-r from-transparent via-accent/60 to-transparent" />
         </nav>
       </Section>
 
