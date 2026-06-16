@@ -24,6 +24,7 @@ export const Route = createFileRoute("/dia-ban")({
 });
 
 function ProvincesIndex() {
+  const t = useT();
   const byRegion = PROVINCES.reduce<Record<string, typeof PROVINCES>>((acc, p) => {
     (acc[p.region] ||= []).push(p);
     return acc;
@@ -31,17 +32,17 @@ function ProvincesIndex() {
 
   return (
     <>
-      <Breadcrumb items={[{ label: "Địa bàn" }]} />
+      <Breadcrumb items={[{ label: t("Địa bàn") }]} />
       <Section>
         <SectionHeading
-          eyebrow="Phạm vi hoạt động"
-          title="Địa bàn TAF phục vụ"
-          lead="TAF có KTV sẵn sàng đến trụ sở khách hàng tại các tỉnh và thành phố sau. Mỗi địa bàn có trang riêng mô tả ngành nghề trọng điểm và đặc thù pháp lý."
+          eyebrow={t("Phạm vi hoạt động")}
+          title={t("Địa bàn TAF phục vụ")}
+          lead={t("TAF có KTV sẵn sàng đến trụ sở khách hàng tại các tỉnh và thành phố sau. Mỗi địa bàn có trang riêng mô tả ngành nghề trọng điểm và đặc thù pháp lý.")}
         />
         <div className="mt-12 space-y-12">
           {Object.entries(byRegion).map(([region, items]) => (
             <div key={region}>
-              <h2 className="font-display text-xl text-foreground mb-4">{region}</h2>
+              <h2 className="font-display text-xl text-foreground mb-4">{t(region)}</h2>
               <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-3">
                 {items.map((p) => (
                   <Link
@@ -50,7 +51,7 @@ function ProvincesIndex() {
                     params={{ slug: p.slug }}
                     className="border border-border p-4 rounded-[2px] hover:border-accent transition-colors flex items-center justify-between"
                   >
-                    <span className="font-display text-base text-foreground">{p.name}</span>
+                    <span className="font-display text-base text-foreground">{t(p.name)}</span>
                     <span className="text-xs text-muted-foreground">→</span>
                   </Link>
                 ))}
@@ -62,3 +63,4 @@ function ProvincesIndex() {
     </>
   );
 }
+
