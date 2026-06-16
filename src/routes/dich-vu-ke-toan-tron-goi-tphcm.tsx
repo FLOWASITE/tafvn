@@ -4,7 +4,6 @@ import {
   ArrowUpRight,
   Play,
   Phone,
-  List,
   Wallet,
   Zap,
   ShieldCheck,
