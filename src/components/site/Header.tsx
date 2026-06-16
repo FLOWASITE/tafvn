@@ -227,13 +227,14 @@ function Underline() {
 }
 
 function DesktopMenuItem({ item, alignRight }: { item: MenuItem; alignRight?: boolean }) {
+  const t = useT();
   const hasDropdown = !!(item.columns || item.links);
 
   if (!hasDropdown && item.to) {
     return (
       <div className="relative flex items-center">
         <Link to={item.to} className={triggerCls} activeProps={activeProps}>
-          {item.label}
+          {t(item.label)}
           <Underline />
         </Link>
       </div>
@@ -244,7 +245,7 @@ function DesktopMenuItem({ item, alignRight }: { item: MenuItem; alignRight?: bo
     <div className="relative flex items-center group">
       {item.to ? (
         <Link to={item.to} className={triggerCls} activeProps={activeProps}>
-          {item.label}
+          {t(item.label)}
           <ChevronDown
             size={11}
             strokeWidth={1.25}
@@ -254,7 +255,7 @@ function DesktopMenuItem({ item, alignRight }: { item: MenuItem; alignRight?: bo
         </Link>
       ) : (
         <button type="button" className={triggerCls} aria-haspopup="true">
-          {item.label}
+          {t(item.label)}
           <ChevronDown
             size={11}
             strokeWidth={1.25}
@@ -302,13 +303,13 @@ function DesktopMenuItem({ item, alignRight }: { item: MenuItem; alignRight?: bo
                 <span className="inline-flex h-10 w-10 items-center justify-center rounded-[4px] border border-accent/30 bg-white/5 text-accent">
                   <Layers size={19} strokeWidth={1.7} />
                 </span>
-                <p className="mt-4 text-[0.62rem] uppercase tracking-[0.2em] text-accent">Dịch vụ TAF</p>
+                <p className="mt-4 text-[0.62rem] uppercase tracking-[0.2em] text-accent">{t("Dịch vụ TAF")}</p>
                 <p className="mt-1.5 font-display text-lg leading-snug">
-                  Kiểm toán, kế toán &amp; tư vấn thuế
+                  {t("Kiểm toán, kế toán & tư vấn thuế")}
                 </p>
                 <span aria-hidden className="mt-3 block h-px w-10 bg-accent/60" />
                 <p className="mt-3 text-xs text-primary-foreground/65 font-serif leading-relaxed">
-                  Giải pháp toàn diện cho doanh nghiệp Việt Nam và FDI.
+                  {t("Giải pháp toàn diện cho doanh nghiệp Việt Nam và FDI.")}
                 </p>
 
                 <div className="mt-auto pt-5">
@@ -321,7 +322,7 @@ function DesktopMenuItem({ item, alignRight }: { item: MenuItem; alignRight?: bo
                     </span>
                     <span className="text-[0.78rem]">
                       <span className="block text-[0.58rem] uppercase tracking-[0.16em] text-primary-foreground/50">
-                        Hotline / Zalo
+                        {t("Hotline / Zalo")}
                       </span>
                       <span className="font-medium tracking-wide">{HOTLINE_DISPLAY}</span>
                     </span>
@@ -331,7 +332,7 @@ function DesktopMenuItem({ item, alignRight }: { item: MenuItem; alignRight?: bo
                       to={item.viewAll.to}
                       className="mt-4 inline-flex items-center gap-1.5 text-[0.7rem] font-medium uppercase tracking-[0.14em] text-accent hover:gap-2.5 transition-all"
                     >
-                      {item.viewAll.label} →
+                      {t(item.viewAll.label)} →
                     </Link>
                   )}
                 </div>
@@ -345,7 +346,7 @@ function DesktopMenuItem({ item, alignRight }: { item: MenuItem; alignRight?: bo
                   <div key={col.heading}>
                     <p className="flex items-center gap-2 text-[0.66rem] font-bold uppercase tracking-[0.16em] text-accent-foreground mb-2.5">
                       <Icon size={14} className="text-brand-red" />
-                      {col.heading}
+                      {t(col.heading)}
                     </p>
                     <ul className="space-y-0.5">
                       {col.links.map((l) => (
@@ -358,7 +359,7 @@ function DesktopMenuItem({ item, alignRight }: { item: MenuItem; alignRight?: bo
                               aria-hidden
                               className="absolute left-0 top-1/2 h-0 w-[2px] -translate-y-1/2 bg-brand-red transition-all duration-200 group-hover/sl:h-4"
                             />
-                            <span>{l.label}</span>
+                            <span>{t(l.label)}</span>
                             <ChevronRight
                               size={13}
                               className="shrink-0 text-brand-red opacity-0 -translate-x-1 transition-all duration-200 group-hover/sl:opacity-100 group-hover/sl:translate-x-0"
@@ -413,15 +414,15 @@ function DesktopMenuItem({ item, alignRight }: { item: MenuItem; alignRight?: bo
                   );
                 })()}
                 <p className="mt-4 text-[0.62rem] uppercase tracking-[0.2em] text-accent">
-                  {DROPDOWN_PROMO[item.label]?.eyebrow ?? item.label}
+                  {t(DROPDOWN_PROMO[item.label]?.eyebrow ?? item.label)}
                 </p>
                 <p className="mt-1.5 font-display text-lg leading-snug">
-                  {DROPDOWN_PROMO[item.label]?.title ?? item.label}
+                  {t(DROPDOWN_PROMO[item.label]?.title ?? item.label)}
                 </p>
                 <span aria-hidden className="mt-3 block h-px w-10 bg-accent/60" />
                 {DROPDOWN_PROMO[item.label]?.desc && (
                   <p className="mt-3 text-xs text-primary-foreground/65 font-serif leading-relaxed">
-                    {DROPDOWN_PROMO[item.label]?.desc}
+                    {t(DROPDOWN_PROMO[item.label]!.desc)}
                   </p>
                 )}
                 {/* Hotline chip */}
@@ -434,7 +435,7 @@ function DesktopMenuItem({ item, alignRight }: { item: MenuItem; alignRight?: bo
                   </span>
                   <span className="text-[0.78rem]">
                     <span className="block text-[0.58rem] uppercase tracking-[0.16em] text-primary-foreground/50">
-                      Hotline / Zalo
+                      {t("Hotline / Zalo")}
                     </span>
                     <span className="font-medium tracking-wide">{HOTLINE_DISPLAY}</span>
                   </span>
@@ -469,11 +470,11 @@ function DesktopMenuItem({ item, alignRight }: { item: MenuItem; alignRight?: bo
                     </div>
                     <span>
                       <span className="block text-[0.9rem] font-medium text-foreground group-hover/li:text-brand-red-ink transition-colors">
-                        {l.label}
+                        {t(l.label)}
                       </span>
                       {meta?.desc && (
                         <span className="mt-0.5 block text-xs text-muted-foreground leading-snug">
-                          {meta.desc}
+                          {t(meta.desc)}
                         </span>
                       )}
                     </span>
@@ -501,6 +502,7 @@ function MobileMenuItem({
   onToggle: () => void;
   onNavigate: () => void;
 }) {
+  const t = useT();
   const children = item.columns
     ? item.columns
     : item.links
@@ -514,7 +516,7 @@ function MobileMenuItem({
         onClick={onNavigate}
         className="py-3.5 text-[0.95rem] font-medium text-foreground border-b border-border/60"
       >
-        {item.label}
+        {t(item.label)}
       </Link>
     );
   }
@@ -527,7 +529,7 @@ function MobileMenuItem({
         className="w-full flex items-center justify-between py-3.5 text-[0.95rem] font-medium text-foreground"
         aria-expanded={isOpen}
       >
-        {item.label}
+        {t(item.label)}
         <ChevronDown
           size={18}
           className={`text-muted-foreground transition-transform duration-300 ${isOpen ? "rotate-180" : ""}`}
@@ -539,7 +541,7 @@ function MobileMenuItem({
             <div key={col.heading || i}>
               {col.heading && (
                 <p className="text-[0.64rem] font-bold uppercase tracking-[0.16em] text-accent-foreground mb-1.5 mt-1">
-                  {col.heading}
+                  {t(col.heading)}
                 </p>
               )}
               <ul className="space-y-0.5">
@@ -550,7 +552,7 @@ function MobileMenuItem({
                       onClick={onNavigate}
                       className="block py-2 pl-3 text-sm text-foreground/80 border-l border-border hover:border-brand-red hover:text-brand-red-ink transition-colors"
                     >
-                      {l.label}
+                      {t(l.label)}
                     </Link>
                   </li>
                 ))}
@@ -563,7 +565,7 @@ function MobileMenuItem({
               onClick={onNavigate}
               className="block py-2 text-sm font-medium text-brand-red-ink"
             >
-              {item.viewAll.label} →
+              {t(item.viewAll.label)} →
             </Link>
           )}
         </div>
