@@ -208,6 +208,7 @@ function ReadMore() {
 }
 
 function NewsIndex() {
+  const tr = useT();
   const [active, setActive] = useState("Tất cả");
   const [page, setPage] = useState(1);
 
@@ -234,7 +235,8 @@ function NewsIndex() {
 
   return (
     <>
-      <Breadcrumb items={[{ label: "Tin tức" }]} />
+      <Breadcrumb items={[{ label: tr("Tin tức") }]} />
+
 
       {/* Hero */}
       <Section className="!pb-8">
