@@ -87,6 +87,7 @@ const TESTIMONIALS: {
   role: string;
   org: string;
   initials: string;
+  avatar: string;
   rating: number;
   datePublished: string;
   reviewTitle: string;
@@ -98,6 +99,7 @@ const TESTIMONIALS: {
     role: "Giám đốc tài chính",
     org: "Công ty sản xuất nhựa · Bình Dương",
     initials: "NL",
+    avatar: testimonialLan,
     rating: 5,
     datePublished: "2025-03-18",
     reviewTitle: "Xử lý dứt điểm tồn đọng thuế GTGT",
@@ -109,6 +111,7 @@ const TESTIMONIALS: {
     role: "Giám đốc điều hành",
     org: "Startup thương mại điện tử · TP. HCM",
     initials: "TH",
+    avatar: testimonialHung,
     rating: 5,
     datePublished: "2025-06-02",
     reviewTitle: "Chủ động, tiết kiệm chi phí",
@@ -120,6 +123,7 @@ const TESTIMONIALS: {
     role: "Kế toán trưởng",
     org: "Công ty xây dựng · Hà Nội",
     initials: "DP",
+    avatar: testimonialPhuong,
     rating: 5,
     datePublished: "2025-09-12",
     reviewTitle: "Hồ sơ chỉn chu, kiểm toán nhanh",
