@@ -92,7 +92,7 @@ export function Footer({ offices }: { offices: Office[] }) {
 
         {/* Contact */}
         <div className="md:col-span-3 space-y-6">
-          <h4 className="text-xs font-bold uppercase tracking-widest text-accent">Liên hệ</h4>
+          <h4 className="text-xs font-bold uppercase tracking-widest text-accent">{t("Liên hệ")}</h4>
           {primary ? (
             <address className="not-italic space-y-4 text-sm">
               <div className="space-y-1">
@@ -106,7 +106,7 @@ export function Footer({ offices }: { offices: Office[] }) {
               <div className="space-y-1">
                 {primary.phone && (
                   <p>
-                    <span className="text-primary-foreground/50">ĐT:</span>{" "}
+                    <span className="text-primary-foreground/50">{t("ĐT:")}</span>{" "}
                     <a href={`tel:${primary.phone.replace(/\s/g, "")}`} className="hover:text-primary-foreground transition-colors">
                       {primary.phone}
                     </a>
@@ -114,13 +114,14 @@ export function Footer({ offices }: { offices: Office[] }) {
                 )}
                 {primary.email && (
                   <p>
-                    <span className="text-primary-foreground/50">Email:</span>{" "}
+                    <span className="text-primary-foreground/50">{t("Email:")}</span>{" "}
                     <a href={`mailto:${primary.email}`} className="hover:text-primary-foreground transition-colors">
                       {primary.email}
                     </a>
                   </p>
                 )}
               </div>
+
               {primary.hours && (
                 <p className="text-xs text-primary-foreground/50 italic">{primary.hours}</p>
               )}
