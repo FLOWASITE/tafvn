@@ -23,6 +23,9 @@ import {
   Quote,
 } from "lucide-react";
 import { Breadcrumb } from "@/components/site/Breadcrumb";
+import testimonialLan from "@/assets/testimonial-lan.jpg";
+import testimonialHung from "@/assets/testimonial-hung.jpg";
+import testimonialPhuong from "@/assets/testimonial-phuong.jpg";
 import { Section, Eyebrow } from "@/components/site/Section";
 import { Reveal } from "@/components/site/Reveal";
 import { TafSeal } from "@/components/site/TafSeal";
@@ -84,6 +87,7 @@ const TESTIMONIALS: {
   role: string;
   org: string;
   initials: string;
+  avatar: string;
   rating: number;
   datePublished: string;
   reviewTitle: string;
@@ -95,6 +99,7 @@ const TESTIMONIALS: {
     role: "Giám đốc tài chính",
     org: "Công ty sản xuất nhựa · Bình Dương",
     initials: "NL",
+    avatar: testimonialLan,
     rating: 5,
     datePublished: "2025-03-18",
     reviewTitle: "Xử lý dứt điểm tồn đọng thuế GTGT",
@@ -106,6 +111,7 @@ const TESTIMONIALS: {
     role: "Giám đốc điều hành",
     org: "Startup thương mại điện tử · TP. HCM",
     initials: "TH",
+    avatar: testimonialHung,
     rating: 5,
     datePublished: "2025-06-02",
     reviewTitle: "Chủ động, tiết kiệm chi phí",
@@ -117,6 +123,7 @@ const TESTIMONIALS: {
     role: "Kế toán trưởng",
     org: "Công ty xây dựng · Hà Nội",
     initials: "DP",
+    avatar: testimonialPhuong,
     rating: 5,
     datePublished: "2025-09-12",
     reviewTitle: "Hồ sơ chỉn chu, kiểm toán nhanh",
@@ -1553,16 +1560,19 @@ function AccountingServicePage() {
                       i === 0 ? "border-background/15" : "border-border",
                     )}
                   >
-                    <span
+                    <img
+                      src={t.avatar}
+                      alt={`${t.name} — ${t.role}, ${t.org}`}
+                      loading="lazy"
+                      width={88}
+                      height={88}
                       className={cn(
-                        "inline-flex items-center justify-center w-11 h-11 rounded-full border font-display italic text-sm tabular-nums shrink-0 ring-1 ring-offset-2",
+                        "w-12 h-12 rounded-full object-cover shrink-0 ring-1 ring-offset-2",
                         i === 0
-                          ? "border-accent/70 text-accent ring-accent/40 ring-offset-foreground"
-                          : "border-brand-red/40 text-brand-red ring-accent/30 ring-offset-card",
+                          ? "ring-accent/50 ring-offset-foreground"
+                          : "ring-accent/40 ring-offset-card",
                       )}
-                    >
-                      {t.initials}
-                    </span>
+                    />
                     <div className="min-w-0">
                       <div
                         className={cn(
