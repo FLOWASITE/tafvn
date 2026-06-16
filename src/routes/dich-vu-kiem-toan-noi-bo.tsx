@@ -403,7 +403,7 @@ function InternalAuditService() {
             <Accordion
               type="single"
               collapsible
-              className="border-t border-accent/30 [&_svg.lucide-chevron-down]:hidden"
+              className="border-t border-accent/30 [&_button>svg.lucide-chevron-down]:hidden"
             >
               {FAQS.map((f, i) => (
                 <AccordionItem
