@@ -411,12 +411,15 @@ export const Route = createFileRoute("/dich-vu-ke-toan-tron-goi-tphcm")({
         children: JSON.stringify({
           "@context": "https://schema.org",
           "@type": "Service",
+          "@id": `${CANONICAL}#service`,
           name: "Dịch vụ kế toán trọn gói",
           serviceType: "Kế toán thuê ngoài",
           description: DESCRIPTION,
+          url: CANONICAL,
           areaServed: { "@type": "Country", name: "Vietnam" },
           provider: {
             "@type": "Organization",
+            "@id": `${CANONICAL}#organization`,
             name: SITE.legalName,
             url: CANONICAL,
             telephone: "+84924580580",
@@ -435,6 +438,37 @@ export const Route = createFileRoute("/dich-vu-ke-toan-tron-goi-tphcm")({
             jobTitle: AUTHOR.jobTitle,
             worksFor: { "@type": "Organization", name: SITE.legalName },
           },
+          aggregateRating: {
+            "@type": "AggregateRating",
+            ratingValue: (
+              TESTIMONIALS.reduce((sum, t) => sum + t.rating, 0) / TESTIMONIALS.length
+            ).toFixed(1),
+            bestRating: 5,
+            worstRating: 1,
+            ratingCount: TESTIMONIALS.length,
+            reviewCount: TESTIMONIALS.length,
+          },
+          review: TESTIMONIALS.map((t) => ({
+            "@type": "Review",
+            name: t.reviewTitle,
+            reviewBody: t.quote,
+            datePublished: t.datePublished,
+            inLanguage: "vi-VN",
+            reviewRating: {
+              "@type": "Rating",
+              ratingValue: t.rating,
+              bestRating: 5,
+              worstRating: 1,
+            },
+            author: {
+              "@type": "Person",
+              name: t.name,
+              jobTitle: t.role,
+              affiliation: { "@type": "Organization", name: t.org },
+            },
+            publisher: { "@id": `${CANONICAL}#organization` },
+            itemReviewed: { "@id": `${CANONICAL}#service` },
+          })),
           hasOfferCatalog: {
             "@type": "OfferCatalog",
             name: "Danh mục dịch vụ kế toán của TAF",
@@ -493,39 +527,8 @@ export const Route = createFileRoute("/dich-vu-ke-toan-tron-goi-tphcm")({
             addressRegion: "Phường Xuân Hoà",
             addressCountry: "VN",
           },
-          aggregateRating: {
-            "@type": "AggregateRating",
-            ratingValue: 4.9,
-            bestRating: 5,
-            worstRating: 1,
-            ratingCount: TESTIMONIALS.length,
-            reviewCount: TESTIMONIALS.length,
-          },
-          review: TESTIMONIALS.map((t) => ({
-            "@type": "Review",
-            name: t.reviewTitle,
-            reviewBody: t.quote,
-            datePublished: t.datePublished,
-            inLanguage: "vi-VN",
-            reviewRating: {
-              "@type": "Rating",
-              ratingValue: t.rating,
-              bestRating: 5,
-              worstRating: 1,
-            },
-            author: {
-              "@type": "Person",
-              name: t.name,
-              jobTitle: t.role,
-              affiliation: { "@type": "Organization", name: t.org },
-            },
-            publisher: { "@id": `${CANONICAL}#organization` },
-            itemReviewed: {
-              "@type": "Service",
-              name: "Dịch vụ kế toán trọn gói",
-              provider: { "@id": `${CANONICAL}#organization` },
-            },
-          })),
+          // Reviews & aggregateRating live on the Service node (#service)
+          // — Google rich results no longer surface stars for Organization/LocalBusiness.
           hasCredential: TRUST_BADGES.map((b) => ({
             "@type": "EducationalOccupationalCredential",
             name: b.label,
