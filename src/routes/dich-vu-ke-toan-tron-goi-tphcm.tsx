@@ -47,6 +47,7 @@ import { AspectRatio } from "@/components/ui/aspect-ratio";
 import { Skeleton } from "@/components/ui/skeleton";
 import { cn } from "@/lib/utils";
 import { SITE } from "@/lib/site";
+import { ArticleRating } from "@/components/site/article-rating";
 
 const SITE_ORIGIN = "https://tafvn.lovable.app";
 const TITLE = "Dịch vụ kế toán trọn gói TP.HCM trọn năm | TAF";
@@ -1744,6 +1745,11 @@ function AccountingServicePage() {
           </div>
         </div>
       </Section>
+      <section className="border-t border-border bg-background">
+        <div className="max-w-4xl mx-auto px-6 py-10">
+          <ArticleRating title={TITLE} slug="dich-vu-ke-toan-tron-goi-tphcm" />
+        </div>
+      </section>
     </>
   );
 }

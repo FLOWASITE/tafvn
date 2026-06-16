@@ -18,6 +18,7 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 import {
+import { ArticleRating } from "@/components/site/article-rating";
   Table,
   TableBody,
   TableCell,
@@ -655,6 +656,11 @@ function HouseholdAccountingService() {
           </div>
         </div>
       </Section>
+      <section className="border-t border-border bg-background">
+        <div className="max-w-4xl mx-auto px-6 py-10">
+          <ArticleRating title={TITLE} slug="dich-vu-ke-toan-thue-cho-ho-kinh-doanh" />
+        </div>
+      </section>
     </>
   );
 }

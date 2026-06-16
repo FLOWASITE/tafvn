@@ -13,6 +13,7 @@ import {
 import { Breadcrumb } from "@/components/site/Breadcrumb";
 import { Section, Eyebrow, SectionHeading } from "@/components/site/Section";
 import {
+import { ArticleRating } from "@/components/site/article-rating";
   Accordion,
   AccordionContent,
   AccordionItem,
@@ -505,6 +506,11 @@ function TaxSettlementService() {
           </div>
         </div>
       </Section>
+      <section className="border-t border-border bg-background">
+        <div className="max-w-4xl mx-auto px-6 py-10">
+          <ArticleRating title={TITLE} slug="dich-vu-quyet-toan-thue-cuoi-nam" />
+        </div>
+      </section>
     </>
   );
 }
