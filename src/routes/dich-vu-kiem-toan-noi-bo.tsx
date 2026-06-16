@@ -329,6 +329,50 @@ function InternalAuditService() {
         </div>
       </Section>
 
+      {/* Dịch vụ liên quan */}
+      <Section className="!pt-0">
+        <div className="rule-gold mb-14" />
+        <SectionHeading
+          eyebrow="Dịch vụ liên quan"
+          title="Khám phá thêm các dịch vụ của TAF"
+          lead="Bên cạnh kiểm toán nội bộ, TAF cung cấp đa dạng dịch vụ kiểm toán, tư vấn thuế và soát xét đặc biệt — đồng hành cùng doanh nghiệp ở mọi giai đoạn phát triển."
+        />
+        <div className="mt-10 grid md:grid-cols-3 gap-px bg-border border border-border">
+          {[
+            {
+              title: "Kiểm toán báo cáo tài chính",
+              desc: "Phát hành báo cáo kiểm toán độc lập, đáp ứng yêu cầu cổ đông, ngân hàng và cơ quan quản lý.",
+              to: "/dich-vu-kiem-toan",
+            },
+            {
+              title: "Tư vấn thuế",
+              desc: "Tối ưu nghĩa vụ thuế, rà soát rủi ro và đại diện làm việc với cơ quan thuế trong toàn bộ vòng đời doanh nghiệp.",
+              to: "/dich-vu-tu-van-thue",
+            },
+            {
+              title: "Rà soát đặc biệt · M&A Due Diligence",
+              desc: "Đánh giá toàn diện tài chính, thuế và pháp lý phục vụ giao dịch mua bán, sáp nhập và tái cấu trúc.",
+              to: "/dich-vu-ra-soat-dac-biet-m-a-due-diligence",
+            },
+          ].map((s) => (
+            <Link
+              key={s.to}
+              to={s.to}
+              className="group bg-background p-7 flex flex-col hover:bg-cream/40 transition-colors"
+            >
+              <h3 className="font-display text-lg text-foreground leading-snug">{s.title}</h3>
+              <p className="mt-2 text-sm text-muted-foreground font-serif leading-relaxed flex-1">
+                {s.desc}
+              </p>
+              <span className="mt-5 inline-flex items-center gap-2 text-xs uppercase tracking-[0.18em] text-brand-red">
+                Xem chi tiết
+                <ArrowRight size={14} className="group-hover:translate-x-0.5 transition-transform" />
+              </span>
+            </Link>
+          ))}
+        </div>
+      </Section>
+
       {/* FAQ */}
       <Section className="!pt-0">
         <div className="grid lg:grid-cols-12 gap-10">
