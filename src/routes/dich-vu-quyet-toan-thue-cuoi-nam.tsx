@@ -76,9 +76,10 @@ const NOTES = [
 ];
 
 const LEGAL = [
-  { code: "Điều 21 Thông tư 92/2015/TT-BTC", desc: "Hướng dẫn thực hiện thuế GTGT và TNCN đối với cá nhân cư trú có hoạt động kinh doanh." },
-  { code: "Luật thuế số 71/2014/QH13 & Nghị định 12/2015/NĐ-CP", desc: "Quy định chi tiết thi hành Luật sửa đổi, bổ sung một số nội dung về thuế TNCN (ngày 12/02/2015)." },
-  { code: "Công văn 5749/CT-TNCN", desc: "Cục thuế TP Hà Nội hướng dẫn quyết toán thuế TNCN và cấp mã số thuế người phụ thuộc." },
+  { code: "Luật Quản lý thuế số 38/2019/QH14", desc: "Quy định khai, quyết toán và thời hạn nộp hồ sơ thuế (Điều 43, 44); hiệu lực từ 01/07/2020." },
+  { code: "Nghị định 126/2020/NĐ-CP & Nghị định 91/2022/NĐ-CP", desc: "Hướng dẫn Luật Quản lý thuế: khai bổ sung, tạm nộp thuế TNDN quý và xử lý chênh lệch khi quyết toán." },
+  { code: "Thông tư 80/2021/TT-BTC", desc: "Hướng dẫn quản lý thuế; ban hành các mẫu tờ khai quyết toán hiện hành (03/TNDN, 02/QTT-TNCN, 05/QTT-TNCN)." },
+  { code: "Thông tư 111/2013/TT-BTC (sửa đổi bởi TT 92/2015 & TT 79/2022)", desc: "Quy định tính thuế TNCN, giảm trừ gia cảnh và quyết toán đối với cá nhân cư trú." },
 ];
 
 const WHO = [
@@ -149,11 +150,11 @@ const FAQS = [
   },
   {
     q: "Thời hạn nộp hồ sơ quyết toán thuế là bao lâu?",
-    a: "Thời hạn nộp hồ sơ quyết toán thuế năm chậm nhất là ngày thứ 90, kể từ ngày kết thúc năm dương lịch hoặc năm tài chính.",
+    a: "Theo Điều 44 Luật Quản lý thuế 2019: doanh nghiệp nộp hồ sơ quyết toán thuế TNDN chậm nhất là ngày cuối cùng của tháng thứ 3 kể từ ngày kết thúc năm dương lịch hoặc năm tài chính. Cá nhân trực tiếp quyết toán thuế TNCN có thời hạn chậm nhất là ngày cuối cùng của tháng thứ 4 kể từ ngày kết thúc năm dương lịch.",
   },
   {
     q: "TAF có cung cấp tất cả dịch vụ liên quan đến quyết toán thuế không?",
-    a: "Có. Riêng quyết toán thuế TNCN, hồ sơ gồm: tờ khai quyết toán mẫu 02/QTT-TNCN (theo TT 92/2015/TT-BTC); bản chụp chứng từ thuế đã tạm nộp, đã khấu trừ, các khoản đóng góp quỹ (nếu có); tài liệu chứng minh thu nhập từ đại sứ quán, lãnh sự quán, nước ngoài hoặc tổ chức quốc tế (nếu có).",
+    a: "Có. Riêng quyết toán thuế TNCN, hồ sơ gồm: tờ khai quyết toán mẫu 02/QTT-TNCN (ban hành kèm Thông tư 80/2021/TT-BTC, áp dụng từ kỳ tính thuế 2021); bản chụp chứng từ thuế đã tạm nộp, đã khấu trừ, các khoản đóng góp quỹ (nếu có); tài liệu chứng minh thu nhập từ đại sứ quán, lãnh sự quán, nước ngoài hoặc tổ chức quốc tế (nếu có).",
   },
   {
     q: "Giá dịch vụ quyết toán thuế TNCN như thế nào?",
