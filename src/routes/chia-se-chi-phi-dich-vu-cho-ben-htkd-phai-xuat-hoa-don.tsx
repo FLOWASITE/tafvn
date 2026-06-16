@@ -4,6 +4,7 @@ import { ArrowRight, Phone, Mail, Globe, MapPin, Calendar, ListTree, Info } from
 import { Breadcrumb } from "@/components/site/Breadcrumb";
 import { Section, Eyebrow } from "@/components/site/Section";
 import { RelatedArticles } from "@/components/site/RelatedArticles";
+import { ArticleRating } from "@/components/site/article-rating";
 
 const SITE_ORIGIN = "https://tafvn.lovable.app";
 const PATH = "/chia-se-chi-phi-dich-vu-cho-ben-htkd-phai-xuat-hoa-don";
@@ -347,6 +348,7 @@ function ArticlePage() {
         </article>
       </Section>
 
+      <ArticleRating title={TITLE} slug="chia-se-chi-phi-dich-vu-cho-ben-htkd-phai-xuat-hoa-don" />
       <RelatedArticles currentHref={PATH} />
     </>
   );

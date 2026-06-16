@@ -4,6 +4,7 @@ import { ArrowRight, Phone, Mail, Globe, MapPin, Calendar, ListTree } from "luci
 import { Breadcrumb } from "@/components/site/Breadcrumb";
 import { Section, Eyebrow } from "@/components/site/Section";
 import { RelatedArticles } from "@/components/site/RelatedArticles";
+import { ArticleRating } from "@/components/site/article-rating";
 
 const SITE_ORIGIN = "https://tafvn.lovable.app";
 const PATH = "/toi-uu-hoa-tai-chinh-voi-dich-vu-ke-toan-thue-chuyen-nghiep";
@@ -364,6 +365,7 @@ function ArticlePage() {
         </article>
       </Section>
 
+      <ArticleRating title={TITLE} slug="toi-uu-hoa-tai-chinh-voi-dich-vu-ke-toan-thue-chuyen-nghiep" />
       <RelatedArticles currentHref={PATH} />
     </>
   );

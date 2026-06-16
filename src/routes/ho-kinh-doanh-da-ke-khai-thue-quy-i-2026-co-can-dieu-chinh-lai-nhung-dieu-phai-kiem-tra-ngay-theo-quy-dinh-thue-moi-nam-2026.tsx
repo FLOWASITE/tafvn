@@ -4,6 +4,7 @@ import { ArrowRight, Phone, Info, HelpCircle, Calendar } from "lucide-react";
 import { Breadcrumb } from "@/components/site/Breadcrumb";
 import { Section, Eyebrow } from "@/components/site/Section";
 import { RelatedArticles } from "@/components/site/RelatedArticles";
+import { ArticleRating } from "@/components/site/article-rating";
 
 const SITE_ORIGIN = "https://tafvn.lovable.app";
 const PATH =
@@ -434,6 +435,7 @@ function ArticlePage() {
         </div>
       </Section>
 
+      <ArticleRating title={TITLE} slug="ho-kinh-doanh-da-ke-khai-thue-quy-i-2026-co-can-dieu-chinh-lai-nhung-dieu-phai-kiem-tra-ngay-theo-quy-dinh-thue-moi-nam-2026" />
       <RelatedArticles currentHref={PATH} />
     </>
   );
