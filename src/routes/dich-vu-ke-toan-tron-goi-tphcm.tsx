@@ -1560,16 +1560,19 @@ function AccountingServicePage() {
                       i === 0 ? "border-background/15" : "border-border",
                     )}
                   >
-                    <span
+                    <img
+                      src={t.avatar}
+                      alt={`${t.name} — ${t.role}, ${t.org}`}
+                      loading="lazy"
+                      width={88}
+                      height={88}
                       className={cn(
-                        "inline-flex items-center justify-center w-11 h-11 rounded-full border font-display italic text-sm tabular-nums shrink-0 ring-1 ring-offset-2",
+                        "w-12 h-12 rounded-full object-cover shrink-0 ring-1 ring-offset-2",
                         i === 0
-                          ? "border-accent/70 text-accent ring-accent/40 ring-offset-foreground"
-                          : "border-brand-red/40 text-brand-red ring-accent/30 ring-offset-card",
+                          ? "ring-accent/50 ring-offset-foreground"
+                          : "ring-accent/40 ring-offset-card",
                       )}
-                    >
-                      {t.initials}
-                    </span>
+                    />
                     <div className="min-w-0">
                       <div
                         className={cn(
