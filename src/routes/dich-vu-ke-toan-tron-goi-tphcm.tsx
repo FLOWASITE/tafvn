@@ -20,7 +20,7 @@ import {
   BadgeCheck,
   Scale,
   Building2,
-  Quote,
+  
 } from "lucide-react";
 import { Breadcrumb } from "@/components/site/Breadcrumb";
 import testimonialLan from "@/assets/testimonial-lan.jpg";
