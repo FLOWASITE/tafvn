@@ -490,7 +490,25 @@ const ko: Dict = {
   "Địa bàn TAF phục vụ": "TAF 서비스 지역",
   "TAF có KTV sẵn sàng đến trụ sở khách hàng tại các tỉnh và thành phố sau. Mỗi địa bàn có trang riêng mô tả ngành nghề trọng điểm và đặc thù pháp lý.":
     "TAF는 아래 성 및 시의 고객사 방문이 가능한 감사인을 보유하고 있습니다. 각 지역에는 주요 산업과 법적 특성을 설명하는 전용 페이지가 있습니다.",
+
+  // Section headings (other static pages)
+  "Câu hỏi thường gặp": "자주 묻는 질문",
+  "Trả lời nhanh cho những thắc mắc phổ biến.": "자주 묻는 질문에 대한 빠른 답변.",
+  "Vị trí đang tuyển": "채용 중인 포지션",
+  "Các vị trí TAF đang tìm người.": "TAF가 현재 채용 중인 포지션.",
+  "Nếu bạn thấy mình phù hợp với một trong các vị trí dưới đây, hãy gửi CV cho chúng tôi. TAF phản hồi mọi hồ sơ trong vòng 5 ngày làm việc.":
+    "아래 포지션 중 적합하다고 생각되시면 CV를 보내주세요. TAF는 모든 지원서에 5영업일 이내에 응답합니다.",
+  "Đến gặp TAF trực tiếp": "TAF 사무소 방문",
+  "Khách hàng có thể tới văn phòng để trao đổi trực tiếp với KTV phụ trách hoặc đề nghị KTV đến trụ sở doanh nghiệp.":
+    "고객님은 사무소에 방문하여 담당 감사인과 직접 상담하시거나 감사인의 회사 방문을 요청하실 수 있습니다.",
+  "Bài viết": "기사",
+  "Bài viết nghiệp vụ": "전문 지식 기사",
+  "Chủ đề": "주제",
+  "Chủ đề chuyên môn": "전문 주제",
+  "Tìm hiểu nhanh theo từng lĩnh vực và liên kết tới các dịch vụ tương ứng của TAF.":
+    "분야별 빠른 개요와 관련 TAF 서비스 링크.",
 };
+
 
 export const DICTIONARIES: Record<Exclude<Locale, "vi">, Dict> = { en, ja, ko };
 
