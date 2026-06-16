@@ -238,14 +238,15 @@ function InternalAuditService() {
           title="Quy trình kiểm toán nội bộ tại TAF"
           lead="Bốn bước chuẩn hóa giúp cuộc kiểm toán nội bộ minh bạch, hiệu quả và bám sát mục tiêu của doanh nghiệp."
         />
-        <div className="mt-10 grid sm:grid-cols-2 lg:grid-cols-4 gap-px bg-border border border-border">
+        <div className="mt-12 grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
           {STEPS.map((s, i) => (
-            <div key={s.title} className="bg-background p-6">
-              <span className="font-mono text-2xl text-brand-red-ink tabular-nums">
+            <div key={s.title} className="relative pt-6 border-t border-accent/30">
+              <span className="absolute -top-[1px] left-0 h-[2px] w-12 bg-brand-red" />
+              <span className="font-display italic text-4xl text-accent-foreground/40 tabular-nums leading-none block">
                 {String(i + 1).padStart(2, "0")}
               </span>
-              <h3 className="mt-3 font-display text-lg text-foreground leading-snug">{s.title}</h3>
-              <p className="mt-2 text-sm text-muted-foreground font-serif leading-relaxed">
+              <h3 className="mt-5 font-display text-xl text-foreground leading-snug">{s.title}</h3>
+              <p className="mt-3 text-sm text-muted-foreground font-serif leading-relaxed">
                 {s.desc}
               </p>
             </div>
