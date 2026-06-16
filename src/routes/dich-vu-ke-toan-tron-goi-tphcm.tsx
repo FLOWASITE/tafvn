@@ -1508,6 +1508,60 @@ function AccountingServicePage() {
           ))}
         </div>
       </Section>
+
+      {/* CTA cuối — Dark editorial plate */}
+      <Section className="pt-0">
+        <div className="relative bg-foreground text-background p-8 md:p-16 overflow-hidden rounded-[2px]">
+          <span aria-hidden className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-accent to-transparent" />
+          <span aria-hidden className="absolute inset-0 paper-grain opacity-[0.06] pointer-events-none mix-blend-screen" />
+          <span
+            aria-hidden
+            className="absolute -right-6 -bottom-12 md:-right-4 md:-bottom-20 font-display italic text-[10rem] md:text-[16rem] leading-none text-accent/[0.06] select-none pointer-events-none tracking-tight"
+          >
+            TAF.
+          </span>
+          <div className="relative grid lg:grid-cols-12 gap-10 items-center">
+            <div className="lg:col-span-7">
+              <p className="t-eyebrow text-accent mb-6 flex items-center gap-3">
+                <span aria-hidden className="inline-block w-8 h-px bg-accent" />
+                Nhận tư vấn ngay
+              </p>
+              <h2 className="font-display text-3xl md:text-4xl lg:text-5xl text-background leading-[1.15] font-normal tracking-tight">
+                Giao phần kế toán{" "}
+                <span className="italic text-accent">cho TAF.</span>
+              </h2>
+              <p className="t-lead mt-6 text-background/70 max-w-xl">
+                Liên hệ để được khảo sát chứng từ và nhận báo giá chính thức theo đặc thù
+                ngành nghề của doanh nghiệp bạn.
+              </p>
+            </div>
+            <div className="lg:col-span-5 flex flex-col gap-3">
+              <Link
+                to="/lien-he"
+                className="group inline-flex items-center justify-between gap-2 bg-brand-red text-white px-7 py-4 t-cta rounded-[2px] hover:bg-brand-red-ink transition-all"
+              >
+                <span className="flex items-center gap-2.5">
+                  <span aria-hidden className="inline-block w-1.5 h-1.5 rounded-full bg-accent animate-pulse" />
+                  Nhận tư vấn & báo giá
+                </span>
+                <ArrowUpRight size={18} className="group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+              </Link>
+              <a
+                href="tel:+84924580580"
+                className="inline-flex items-center justify-between gap-2 border border-accent/40 text-background px-7 py-4 text-sm font-medium rounded-[2px] hover:border-accent hover:bg-accent/10 transition"
+              >
+                <span className="flex items-center gap-2 text-background/70">
+                  <Phone size={16} className="text-accent" /> Hotline / Zalo
+                </span>
+                <span className="font-mono text-accent">0924 580 580</span>
+              </a>
+              <p className="t-meta text-background/50 text-center mt-2">
+                Email: info@taf.vn · 62A Phạm Ngọc Thạch, Q.3, TP.HCM
+              </p>
+            </div>
+          </div>
+        </div>
+      </Section>
     </>
   );
 }
