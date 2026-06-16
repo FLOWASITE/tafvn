@@ -6,7 +6,9 @@ import { useT } from "@/lib/i18n/context";
 
 
 export function Footer({ offices }: { offices: Office[] }) {
+  const t = useT();
   const primary = offices.find((o) => o.is_primary) ?? offices[0];
+
   return (
     <footer className="border-t border-border bg-primary text-primary-foreground">
       <div className="mx-auto max-w-6xl px-5 md:px-8 py-16 grid grid-cols-1 md:grid-cols-12 gap-12 md:gap-8">
