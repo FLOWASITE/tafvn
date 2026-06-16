@@ -1025,12 +1025,19 @@ function AccountingServicePage() {
           />
         </div>
 
-        <div className="t-body-sm mt-8 bg-cream/60 border border-border rounded-[2px] p-5 md:p-6 md:text-base text-muted-foreground">
-          <strong className="text-foreground font-medium">Lưu ý chi phí:</strong> phí trên
-          chưa gồm thuế, VAT và các lệ phí phải nộp Nhà nước; có thể thay đổi với doanh
-          nghiệp xuất nhập khẩu hoặc có vốn nước ngoài. Nội thành TP.HCM miễn phí giao
-          nhận chứng từ tận nơi; các khu vực khác theo thỏa thuận.
-        </div>
+        <blockquote className="relative mt-10 border-l-2 border-brand-red pl-6 md:pl-7 max-w-3xl">
+          <span aria-hidden className="absolute -top-6 -left-2 font-display text-[5rem] leading-none text-accent/30 select-none pointer-events-none">
+            “
+          </span>
+          <div className="t-eyebrow text-brand-red-ink/80 mb-2">
+            Lưu ý · Disclaimer
+          </div>
+          <p className="t-body md:text-[1.0625rem] text-foreground/80">
+            Phí trên chưa gồm thuế, VAT và các lệ phí phải nộp Nhà nước; có thể thay đổi
+            với doanh nghiệp xuất nhập khẩu hoặc có vốn nước ngoài. Nội thành TP.HCM miễn
+            phí giao nhận chứng từ tận nơi; các khu vực khác theo thỏa thuận.
+          </p>
+        </blockquote>
 
         <div className="mt-8 flex flex-wrap gap-3">
           <Link
