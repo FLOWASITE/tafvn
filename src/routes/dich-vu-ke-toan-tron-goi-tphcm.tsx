@@ -1437,18 +1437,23 @@ function AccountingServicePage() {
             </p>
           </div>
           <div className="lg:col-span-8">
-            <Accordion type="single" collapsible className="border-t border-border">
+            <Accordion type="single" collapsible className="border-t border-accent/25">
               {FAQS.map((f, i) => (
-                <AccordionItem key={f.q} value={`item-${i}`}>
-                  <AccordionTrigger className="font-display text-base md:text-lg text-foreground py-5">
-                    <span className="flex items-baseline gap-4">
-                      <span className="font-mono text-xs text-accent-foreground tabular-nums">
-                        {String(i + 1).padStart(2, "0")}
+                <AccordionItem
+                  key={f.q}
+                  value={`item-${i}`}
+                  className="group border-b border-accent/20 data-[state=open]:bg-cream/45 transition-colors px-3 -mx-3 rounded-[2px]"
+                >
+                  <AccordionTrigger className="font-display text-base md:text-lg text-foreground py-5 hover:no-underline [&[data-state=open]>span>svg]:rotate-45">
+                    <span className="flex items-start gap-5 text-left">
+                      <span className="font-display italic tabular-nums text-3xl text-accent-foreground/35 leading-none w-12 shrink-0 group-data-[state=open]:text-brand-red transition-colors">
+                        Q.{String(i + 1).padStart(2, "0")}
                       </span>
-                      {f.q}
+                      <span className="flex-1 leading-snug">{f.q}</span>
                     </span>
                   </AccordionTrigger>
-                  <AccordionContent className="t-body text-foreground/80 pl-10 pr-2">
+                  <AccordionContent className="t-body text-foreground/80 pl-[4.25rem] pr-2 pb-6">
+                    <span aria-hidden className="block w-8 h-px bg-accent/50 mb-3" />
                     {f.a}
                   </AccordionContent>
                 </AccordionItem>
