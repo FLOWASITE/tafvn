@@ -1268,16 +1268,16 @@ function AccountingServicePage() {
               nghiệp chuẩn bị danh mục thông tin sau:
             </p>
           </div>
-          <ul className="lg:col-span-7 grid sm:grid-cols-2 gap-3">
+          <ul className="lg:col-span-7 grid sm:grid-cols-2 border-t border-l border-accent/25 bg-background/40">
             {NEEDED.map((n, i) => (
               <li
                 key={n}
-                className="flex items-start gap-3 bg-background border border-border rounded-[2px] p-4 font-serif text-foreground/85"
+                className="group flex items-start gap-5 px-5 py-5 border-r border-b border-accent/25 font-serif text-foreground/85 hover:bg-accent/[0.05] transition-colors"
               >
-                <span className="font-mono text-xs text-accent-foreground tabular-nums mt-1 shrink-0">
+                <span className="font-display italic tabular-nums text-3xl text-accent-foreground/35 leading-none w-10 shrink-0 group-hover:text-brand-red-ink transition-colors">
                   {String(i + 1).padStart(2, "0")}
                 </span>
-                <span className="leading-relaxed">{n}</span>
+                <span className="t-body-sm md:text-base leading-snug pt-1">{n}</span>
               </li>
             ))}
           </ul>
