@@ -69,6 +69,95 @@ const en: Dict = {
   "Tư vấn thuế": "Tax advisory",
   "Chuyển đổi báo cáo IFRS": "IFRS conversion",
   "Rà soát đặc biệt M&A (Due Diligence)": "M&A special review (Due Diligence)",
+  "Dịch vụ kế toán trọn gói": "Full-service accounting",
+  "Soát xét tuân thủ & nội bộ": "Compliance & internal review",
+  "Chuyển đổi báo cáo IFRS / VAS": "IFRS / VAS report conversion",
+  "Kiểm toán quyết toán dự án hoàn thành": "Completed project settlement audit",
+
+  // Footer
+  "Điều hướng": "Navigation",
+  "Chính sách bảo mật": "Privacy policy",
+  "Văn phòng": "Offices",
+  "ĐT:": "Tel:",
+  "Email:": "Email:",
+  "— hãng kiểm toán độc lập đăng ký hành nghề với Bộ Tài chính, phục vụ doanh nghiệp Việt Nam và FDI từ năm":
+    "— an independent audit firm registered with the Ministry of Finance, serving Vietnamese and FDI enterprises since",
+  "Đã đăng ký hành nghề kiểm toán.": "Registered audit practice.",
+
+  // Contact page
+  "Trao đổi với KTV phụ trách dịch vụ phù hợp với bạn.":
+    "Talk with the auditor in charge of the service that fits you.",
+  "Mô tả ngắn về doanh nghiệp, loại hình, thời điểm cần báo cáo — KTV phụ trách sẽ liên hệ lại trong vòng 1 ngày làm việc với khảo sát sơ bộ và đề xuất phí cụ thể trong 3 ngày.":
+    "Briefly describe your business, type, and report timing — the auditor in charge will respond within 1 business day with a preliminary survey and a specific fee proposal within 3 days.",
+  "Khảo sát miễn phí.": "Free preliminary survey.",
+  "Không ràng buộc cho đến khi ký hợp đồng dịch vụ.":
+    "No obligation until a service contract is signed.",
+  "Bảo mật thông tin.": "Confidentiality.",
+  "TAF không chia sẻ dữ liệu của bạn với bên thứ ba.":
+    "TAF does not share your data with third parties.",
+
+  // About page
+
+  "Hơn hai thập kỷ giữ nghề kiểm toán đúng chuẩn mực.":
+    "Over two decades upholding audit standards.",
+  "thành lập năm": "was established in",
+  "đăng ký hành nghề với Bộ Tài chính và phục vụ khách hàng trong cả ba khối: doanh nghiệp nội địa, doanh nghiệp FDI và dự án đầu tư công.":
+    "registered with the Ministry of Finance, serving three segments: domestic enterprises, FDI enterprises and public investment projects.",
+  "Cam kết nghề nghiệp": "Professional commitments",
+  "Độc lập.": "Independence.",
+  "Báo cáo kiểm toán của TAF không chịu ảnh hưởng bởi quan hệ kinh doanh hoặc lợi ích tài chính.":
+    "TAF audit reports are not influenced by business relationships or financial interests.",
+  "Đúng chuẩn mực.": "Standards-compliant.",
+  "Quy trình áp dụng Chuẩn mực Kiểm toán Việt Nam (VSA) và tham chiếu IFRS khi cần.":
+    "Process follows Vietnamese Auditing Standards (VSA) and references IFRS when needed.",
+  "Đúng thời hạn.": "On time.",
+  "Kế hoạch kiểm toán bám sát hạn nộp BCTC theo Luật Kế toán, không để khách hàng bị phạt chậm nộp.":
+    "Audit plans follow financial-statement filing deadlines under the Accounting Law so clients avoid late-filing penalties.",
+  "Khách hàng tin cậy TAF": "Clients who trust TAF",
+  "Trong hơn 20 năm hành nghề, TAF đã phục vụ hơn 500 khách hàng doanh nghiệp ở các ngành sản xuất, thương mại, xây dựng, bất động sản, công nghệ và dịch vụ tài chính. Một phần lớn khách hàng FDI có công ty mẹ ở Nhật Bản, Hàn Quốc, Đài Loan và châu Âu, yêu cầu báo cáo kiểm toán song ngữ và phối hợp với kiểm toán nhóm ở nước ngoài.":
+    "In over 20 years of practice, TAF has served more than 500 corporate clients across manufacturing, trade, construction, real estate, technology and financial services. A large portion of FDI clients have parent companies in Japan, Korea, Taiwan and Europe, requiring bilingual audit reports and coordination with overseas group auditors.",
+
+  // Privacy
+  "TAF cam kết bảo mật mọi thông tin khách hàng cung cấp khi liên hệ qua website và trong quá trình thực hiện dịch vụ. Tài liệu này mô tả các loại dữ liệu chúng tôi thu thập, mục đích sử dụng và quyền của bạn.":
+    "TAF is committed to safeguarding all client information provided via the website and during service delivery. This document describes the types of data we collect, how we use them, and your rights.",
+  "Dữ liệu thu thập qua website": "Data collected via the website",
+  "Khi bạn gửi form liên hệ, chúng tôi lưu các trường: họ tên, email, số điện thoại, công ty, dịch vụ quan tâm và mô tả nhu cầu. Chúng tôi không sử dụng cookies theo dõi hành vi của bên thứ ba ngoài các cookie kỹ thuật cần thiết để website hoạt động.":
+    "When you submit the contact form, we store: name, email, phone, company, services of interest and a description of your needs. We do not use third-party behavioral tracking cookies beyond the technical cookies necessary for the website to function.",
+  "Mục đích sử dụng": "Purpose of use",
+  "Thông tin được sử dụng để KTV phụ trách liên hệ lại, gửi đề xuất phí và trao đổi chi tiết dịch vụ. TAF không chia sẻ dữ liệu của bạn với bên thứ ba ngoài các đối tác kỹ thuật phục vụ vận hành website (lưu trữ, gửi email).":
+    "Information is used by the assigned auditor to contact you, send fee proposals and discuss service details. TAF does not share your data with third parties except technical partners running the website (hosting, email).",
+  "Bảo mật trong quá trình kiểm toán": "Confidentiality during audit engagements",
+  "Toàn bộ nhân sự của TAF tuân thủ Quy tắc đạo đức nghề nghiệp kế toán, kiểm toán theo Thông tư 70/2015/TT-BTC. Hồ sơ kiểm toán được lưu trữ tối thiểu 10 năm theo quy định.":
+    "All TAF personnel comply with the Code of Professional Ethics for Accounting and Auditing under Circular 70/2015/TT-BTC. Audit working papers are retained for at least 10 years as required.",
+  "Quyền của bạn": "Your rights",
+  "Bạn có quyền yêu cầu truy cập, sửa đổi hoặc xóa dữ liệu cá nhân do TAF nắm giữ bằng cách gửi email tới văn phòng. Chúng tôi phản hồi trong vòng 30 ngày làm việc.":
+    "You may request access to, correction or deletion of personal data held by TAF by emailing our office. We respond within 30 business days.",
+
+  // Team page
+  "Những người trực tiếp ký báo cáo kiểm toán.": "The people who personally sign our audit reports.",
+  "Mỗi báo cáo TAF phát hành đều có chữ ký của KTV hành nghề được Bộ Tài chính cấp chứng chỉ. Dưới đây là một số thành viên dẫn dắt các tuyến dịch vụ.":
+    "Every TAF report bears the signature of a practicing auditor licensed by the Ministry of Finance. Below are some of the leaders of our service lines.",
+  "Thông tin chi tiết của từng KTV (tên, số chứng chỉ hành nghề, ảnh chân dung) sẽ được cập nhật khi hoàn tất xác nhận nội bộ.":
+    "Detailed information for each auditor (name, practicing certificate number, portrait) will be published after internal verification.",
+  "Đang cập nhật": "To be updated",
+  "Phó Tổng Giám đốc phụ trách Kiểm toán": "Deputy CEO, Audit",
+  "Giám đốc Tư vấn Thuế": "Director, Tax Advisory",
+  "Trưởng phòng Kiểm toán Xây dựng cơ bản": "Manager, Construction Audit",
+  "KTV hành nghề — Bộ Tài chính": "Practicing auditor — Ministry of Finance",
+  "KTV hành nghề · Đại lý thuế": "Practicing auditor · Tax agent",
+  "KTV hành nghề": "Practicing auditor",
+  "Hơn 18 năm kinh nghiệm kiểm toán doanh nghiệp FDI và niêm yết, chuyên ngành sản xuất.":
+    "Over 18 years auditing FDI and listed companies, manufacturing specialty.",
+  "Chuyên thanh tra thuế, ưu đãi thuế cho dự án đầu tư mới, thuế nhà thầu nước ngoài.":
+    "Specialist in tax inspections, incentives for new investment projects, foreign-contractor tax.",
+  "Phụ trách kiểm toán quyết toán dự án vốn ngân sách và ODA tại miền Nam.":
+    "Leads settlement audits of state-budget and ODA projects in southern Vietnam.",
+
+  // Provinces index
+  "Phạm vi hoạt động": "Coverage",
+  "Địa bàn TAF phục vụ": "Locations TAF serves",
+  "TAF có KTV sẵn sàng đến trụ sở khách hàng tại các tỉnh và thành phố sau. Mỗi địa bàn có trang riêng mô tả ngành nghề trọng điểm và đặc thù pháp lý.":
+    "TAF has auditors ready to visit client offices in the following provinces and cities. Each location has its own page describing key industries and legal specifics.",
 };
 
 const ja: Dict = {
@@ -129,6 +218,94 @@ const ja: Dict = {
   "Tư vấn thuế": "税務コンサルティング",
   "Chuyển đổi báo cáo IFRS": "IFRS報告書への変換",
   "Rà soát đặc biệt M&A (Due Diligence)": "M&A特別調査（デューデリジェンス）",
+  "Dịch vụ kế toán trọn gói": "会計フルサービス",
+  "Soát xét tuân thủ & nội bộ": "コンプライアンス・内部レビュー",
+  "Chuyển đổi báo cáo IFRS / VAS": "IFRS / VAS報告書変換",
+  "Kiểm toán quyết toán dự án hoàn thành": "完成プロジェクト決算監査",
+
+  // Footer
+  "Điều hướng": "ナビゲーション",
+  "Chính sách bảo mật": "プライバシーポリシー",
+  "Văn phòng": "オフィス",
+  "ĐT:": "電話:",
+  "Email:": "メール:",
+  "— hãng kiểm toán độc lập đăng ký hành nghề với Bộ Tài chính, phục vụ doanh nghiệp Việt Nam và FDI từ năm":
+    "— 財務省に登録された独立監査法人。ベトナム企業およびFDI企業に以下の年からサービスを提供:",
+  "Đã đăng ký hành nghề kiểm toán.": "監査業務登録済み。",
+
+  // Contact page
+  "Trao đổi với KTV phụ trách dịch vụ phù hợp với bạn.":
+    "お客様に最適なサービス担当の監査人とご相談ください。",
+  "Mô tả ngắn về doanh nghiệp, loại hình, thời điểm cần báo cáo — KTV phụ trách sẽ liên hệ lại trong vòng 1 ngày làm việc với khảo sát sơ bộ và đề xuất phí cụ thể trong 3 ngày.":
+    "事業内容、業種、報告希望時期を簡単にご記入ください。担当監査人が1営業日以内にご連絡し、3日以内に予備調査と具体的な見積もりをご提案します。",
+  "Khảo sát miễn phí.": "無料事前調査。",
+  "Không ràng buộc cho đến khi ký hợp đồng dịch vụ.":
+    "サービス契約締結まで義務はありません。",
+  "Bảo mật thông tin.": "情報の機密保持。",
+  "TAF không chia sẻ dữ liệu của bạn với bên thứ ba.":
+    "TAFはお客様のデータを第三者と共有しません。",
+
+  // About page
+  "Hơn hai thập kỷ giữ nghề kiểm toán đúng chuẩn mực.":
+    "20年以上にわたり監査基準を遵守。",
+  "thành lập năm": "設立年:",
+  "đăng ký hành nghề với Bộ Tài chính và phục vụ khách hàng trong cả ba khối: doanh nghiệp nội địa, doanh nghiệp FDI và dự án đầu tư công.":
+    "財務省に登録し、国内企業・FDI企業・公共投資プロジェクトの3分野のお客様にサービスを提供しています。",
+  "Cam kết nghề nghiệp": "プロフェッショナルとしてのコミットメント",
+  "Độc lập.": "独立性。",
+  "Báo cáo kiểm toán của TAF không chịu ảnh hưởng bởi quan hệ kinh doanh hoặc lợi ích tài chính.":
+    "TAFの監査報告書は取引関係や財務的利益の影響を受けません。",
+  "Đúng chuẩn mực.": "基準遵守。",
+  "Quy trình áp dụng Chuẩn mực Kiểm toán Việt Nam (VSA) và tham chiếu IFRS khi cần.":
+    "ベトナム監査基準（VSA）に従い、必要に応じてIFRSを参照します。",
+  "Đúng thời hạn.": "期限厳守。",
+  "Kế hoạch kiểm toán bám sát hạn nộp BCTC theo Luật Kế toán, không để khách hàng bị phạt chậm nộp.":
+    "監査計画は会計法に基づく財務諸表提出期限に沿って策定し、遅延による罰則を回避します。",
+  "Khách hàng tin cậy TAF": "TAFを信頼するお客様",
+  "Trong hơn 20 năm hành nghề, TAF đã phục vụ hơn 500 khách hàng doanh nghiệp ở các ngành sản xuất, thương mại, xây dựng, bất động sản, công nghệ và dịch vụ tài chính. Một phần lớn khách hàng FDI có công ty mẹ ở Nhật Bản, Hàn Quốc, Đài Loan và châu Âu, yêu cầu báo cáo kiểm toán song ngữ và phối hợp với kiểm toán nhóm ở nước ngoài.":
+    "20年以上の業務実績で、TAFは製造、商業、建設、不動産、テクノロジー、金融サービスの500社以上の企業のお客様にサービスを提供してきました。FDI顧客の多くは日本、韓国、台湾、欧州に親会社を持ち、二か国語の監査報告書および海外グループ監査人との連携が必要とされます。",
+
+  // Privacy
+  "TAF cam kết bảo mật mọi thông tin khách hàng cung cấp khi liên hệ qua website và trong quá trình thực hiện dịch vụ. Tài liệu này mô tả các loại dữ liệu chúng tôi thu thập, mục đích sử dụng và quyền của bạn.":
+    "TAFは、ウェブサイトおよびサービス提供を通じてお客様から提供されるすべての情報の機密保持に努めます。本書は当社が収集するデータの種類、利用目的、およびお客様の権利を説明します。",
+  "Dữ liệu thu thập qua website": "ウェブサイトで収集するデータ",
+  "Khi bạn gửi form liên hệ, chúng tôi lưu các trường: họ tên, email, số điện thoại, công ty, dịch vụ quan tâm và mô tả nhu cầu. Chúng tôi không sử dụng cookies theo dõi hành vi của bên thứ ba ngoài các cookie kỹ thuật cần thiết để website hoạt động.":
+    "お問い合わせフォーム送信時に、氏名、メール、電話、会社、関心のあるサービス、ニーズの説明を保存します。サイト動作に必要な技術的Cookie以外、第三者の行動追跡Cookieは使用しません。",
+  "Mục đích sử dụng": "利用目的",
+  "Thông tin được sử dụng để KTV phụ trách liên hệ lại, gửi đề xuất phí và trao đổi chi tiết dịch vụ. TAF không chia sẻ dữ liệu của bạn với bên thứ ba ngoài các đối tác kỹ thuật phục vụ vận hành website (lưu trữ, gửi email).":
+    "情報は担当監査人による連絡、見積もり送付、サービス詳細の打ち合わせに使用されます。サイト運営の技術パートナー（ホスティング、メール）以外、第三者と共有しません。",
+  "Bảo mật trong quá trình kiểm toán": "監査業務における機密保持",
+  "Toàn bộ nhân sự của TAF tuân thủ Quy tắc đạo đức nghề nghiệp kế toán, kiểm toán theo Thông tư 70/2015/TT-BTC. Hồ sơ kiểm toán được lưu trữ tối thiểu 10 năm theo quy định.":
+    "TAFの全スタッフは、通達70/2015/TT-BTCに基づく会計・監査職業倫理規定を遵守します。監査調書は規定に従い最低10年間保存されます。",
+  "Quyền của bạn": "お客様の権利",
+  "Bạn có quyền yêu cầu truy cập, sửa đổi hoặc xóa dữ liệu cá nhân do TAF nắm giữ bằng cách gửi email tới văn phòng. Chúng tôi phản hồi trong vòng 30 ngày làm việc.":
+    "お客様はオフィスへメールで連絡することで、TAFが保有する個人データへのアクセス、訂正、削除を請求できます。30営業日以内に対応します。",
+
+  // Team page
+  "Những người trực tiếp ký báo cáo kiểm toán.": "監査報告書に直接署名するメンバー。",
+  "Mỗi báo cáo TAF phát hành đều có chữ ký của KTV hành nghề được Bộ Tài chính cấp chứng chỉ. Dưới đây là một số thành viên dẫn dắt các tuyến dịch vụ.":
+    "TAFが発行するすべての報告書は、財務省認定の登録監査人の署名入りです。以下は各サービスラインを率いるメンバーの一部です。",
+  "Thông tin chi tiết của từng KTV (tên, số chứng chỉ hành nghề, ảnh chân dung) sẽ được cập nhật khi hoàn tất xác nhận nội bộ.":
+    "各監査人の詳細情報（氏名、登録番号、顔写真）は社内確認完了後に更新されます。",
+  "Đang cập nhật": "更新予定",
+  "Phó Tổng Giám đốc phụ trách Kiểm toán": "監査担当副CEO",
+  "Giám đốc Tư vấn Thuế": "税務アドバイザリーディレクター",
+  "Trưởng phòng Kiểm toán Xây dựng cơ bản": "建設監査マネージャー",
+  "KTV hành nghề — Bộ Tài chính": "登録監査人 — 財務省",
+  "KTV hành nghề · Đại lý thuế": "登録監査人・税理士",
+  "KTV hành nghề": "登録監査人",
+  "Hơn 18 năm kinh nghiệm kiểm toán doanh nghiệp FDI và niêm yết, chuyên ngành sản xuất.":
+    "FDI企業および上場企業の監査経験18年以上、製造業専門。",
+  "Chuyên thanh tra thuế, ưu đãi thuế cho dự án đầu tư mới, thuế nhà thầu nước ngoài.":
+    "税務調査、新規投資プロジェクトの税制優遇、外国契約者税の専門家。",
+  "Phụ trách kiểm toán quyết toán dự án vốn ngân sách và ODA tại miền Nam.":
+    "南部における国家予算およびODAプロジェクトの決算監査を統括。",
+
+  // Provinces index
+  "Phạm vi hoạt động": "事業範囲",
+  "Địa bàn TAF phục vụ": "TAFのサービス対応地域",
+  "TAF có KTV sẵn sàng đến trụ sở khách hàng tại các tỉnh và thành phố sau. Mỗi địa bàn có trang riêng mô tả ngành nghề trọng điểm và đặc thù pháp lý.":
+    "TAFは以下の省・市のお客様事務所への訪問が可能な監査人を擁しています。各地域には主要業種と法的特性を説明する専用ページがあります。",
 };
 
 const ko: Dict = {
@@ -189,6 +366,94 @@ const ko: Dict = {
   "Tư vấn thuế": "세무 자문",
   "Chuyển đổi báo cáo IFRS": "IFRS 보고서 전환",
   "Rà soát đặc biệt M&A (Due Diligence)": "M&A 특별 검토 (실사)",
+  "Dịch vụ kế toán trọn gói": "회계 종합 서비스",
+  "Soát xét tuân thủ & nội bộ": "컴플라이언스 및 내부 검토",
+  "Chuyển đổi báo cáo IFRS / VAS": "IFRS / VAS 보고서 전환",
+  "Kiểm toán quyết toán dự án hoàn thành": "완료 프로젝트 결산 감사",
+
+  // Footer
+  "Điều hướng": "내비게이션",
+  "Chính sách bảo mật": "개인정보 처리방침",
+  "Văn phòng": "사무소",
+  "ĐT:": "전화:",
+  "Email:": "이메일:",
+  "— hãng kiểm toán độc lập đăng ký hành nghề với Bộ Tài chính, phục vụ doanh nghiệp Việt Nam và FDI từ năm":
+    "— 재무부에 등록된 독립 감사법인, 베트남 및 FDI 기업에 다음 연도부터 서비스 제공:",
+  "Đã đăng ký hành nghề kiểm toán.": "감사업 등록 완료.",
+
+  // Contact page
+  "Trao đổi với KTV phụ trách dịch vụ phù hợp với bạn.":
+    "귀하에게 적합한 서비스 담당 감사인과 상담하세요.",
+  "Mô tả ngắn về doanh nghiệp, loại hình, thời điểm cần báo cáo — KTV phụ trách sẽ liên hệ lại trong vòng 1 ngày làm việc với khảo sát sơ bộ và đề xuất phí cụ thể trong 3 ngày.":
+    "기업, 유형, 보고 시기를 간단히 설명해 주세요. 담당 감사인이 1영업일 이내에 연락드리고 3일 내 예비 조사 및 구체적인 견적을 제시합니다.",
+  "Khảo sát miễn phí.": "무료 사전 조사.",
+  "Không ràng buộc cho đến khi ký hợp đồng dịch vụ.":
+    "서비스 계약 체결까지 의무 없음.",
+  "Bảo mật thông tin.": "정보 보안.",
+  "TAF không chia sẻ dữ liệu của bạn với bên thứ ba.":
+    "TAF는 귀하의 데이터를 제3자와 공유하지 않습니다.",
+
+  // About page
+  "Hơn hai thập kỷ giữ nghề kiểm toán đúng chuẩn mực.":
+    "20년 이상 감사 기준을 준수.",
+  "thành lập năm": "설립 연도:",
+  "đăng ký hành nghề với Bộ Tài chính và phục vụ khách hàng trong cả ba khối: doanh nghiệp nội địa, doanh nghiệp FDI và dự án đầu tư công.":
+    "재무부에 등록되어 국내 기업, FDI 기업, 공공 투자 프로젝트의 세 부문에 서비스를 제공합니다.",
+  "Cam kết nghề nghiệp": "전문가로서의 약속",
+  "Độc lập.": "독립성.",
+  "Báo cáo kiểm toán của TAF không chịu ảnh hưởng bởi quan hệ kinh doanh hoặc lợi ích tài chính.":
+    "TAF의 감사 보고서는 거래 관계나 재무적 이익의 영향을 받지 않습니다.",
+  "Đúng chuẩn mực.": "기준 준수.",
+  "Quy trình áp dụng Chuẩn mực Kiểm toán Việt Nam (VSA) và tham chiếu IFRS khi cần.":
+    "베트남 감사 기준(VSA)을 적용하고 필요 시 IFRS를 참조합니다.",
+  "Đúng thời hạn.": "기한 준수.",
+  "Kế hoạch kiểm toán bám sát hạn nộp BCTC theo Luật Kế toán, không để khách hàng bị phạt chậm nộp.":
+    "감사 계획은 회계법에 따른 재무제표 제출 기한을 준수하여 지연 벌금을 피합니다.",
+  "Khách hàng tin cậy TAF": "TAF를 신뢰하는 고객",
+  "Trong hơn 20 năm hành nghề, TAF đã phục vụ hơn 500 khách hàng doanh nghiệp ở các ngành sản xuất, thương mại, xây dựng, bất động sản, công nghệ và dịch vụ tài chính. Một phần lớn khách hàng FDI có công ty mẹ ở Nhật Bản, Hàn Quốc, Đài Loan và châu Âu, yêu cầu báo cáo kiểm toán song ngữ và phối hợp với kiểm toán nhóm ở nước ngoài.":
+    "20년 이상의 업무 경험을 통해 TAF는 제조, 무역, 건설, 부동산, 기술, 금융 서비스 분야의 500개 이상 기업 고객에게 서비스를 제공해 왔습니다. FDI 고객 상당수는 일본, 한국, 대만, 유럽에 모회사를 두고 있어 이중 언어 감사 보고서와 해외 그룹 감사인과의 협력이 필요합니다.",
+
+  // Privacy
+  "TAF cam kết bảo mật mọi thông tin khách hàng cung cấp khi liên hệ qua website và trong quá trình thực hiện dịch vụ. Tài liệu này mô tả các loại dữ liệu chúng tôi thu thập, mục đích sử dụng và quyền của bạn.":
+    "TAF는 웹사이트 및 서비스 제공 과정에서 고객이 제공하는 모든 정보의 보안을 약속합니다. 본 문서는 수집하는 데이터 유형, 사용 목적 및 귀하의 권리를 설명합니다.",
+  "Dữ liệu thu thập qua website": "웹사이트에서 수집하는 데이터",
+  "Khi bạn gửi form liên hệ, chúng tôi lưu các trường: họ tên, email, số điện thoại, công ty, dịch vụ quan tâm và mô tả nhu cầu. Chúng tôi không sử dụng cookies theo dõi hành vi của bên thứ ba ngoài các cookie kỹ thuật cần thiết để website hoạt động.":
+    "문의 양식 제출 시 이름, 이메일, 전화, 회사, 관심 서비스, 필요 사항을 저장합니다. 사이트 운영에 필요한 기술 쿠키 외에 제3자 행동 추적 쿠키는 사용하지 않습니다.",
+  "Mục đích sử dụng": "사용 목적",
+  "Thông tin được sử dụng để KTV phụ trách liên hệ lại, gửi đề xuất phí và trao đổi chi tiết dịch vụ. TAF không chia sẻ dữ liệu của bạn với bên thứ ba ngoài các đối tác kỹ thuật phục vụ vận hành website (lưu trữ, gửi email).":
+    "정보는 담당 감사인의 연락, 견적 발송 및 서비스 세부 논의에 사용됩니다. 사이트 운영을 위한 기술 파트너(호스팅, 이메일) 외 제3자와 공유하지 않습니다.",
+  "Bảo mật trong quá trình kiểm toán": "감사 업무 중 기밀 유지",
+  "Toàn bộ nhân sự của TAF tuân thủ Quy tắc đạo đức nghề nghiệp kế toán, kiểm toán theo Thông tư 70/2015/TT-BTC. Hồ sơ kiểm toán được lưu trữ tối thiểu 10 năm theo quy định.":
+    "TAF의 모든 직원은 통보 70/2015/TT-BTC에 따른 회계·감사 직업 윤리 규정을 준수합니다. 감사 조서는 규정에 따라 최소 10년간 보관됩니다.",
+  "Quyền của bạn": "귀하의 권리",
+  "Bạn có quyền yêu cầu truy cập, sửa đổi hoặc xóa dữ liệu cá nhân do TAF nắm giữ bằng cách gửi email tới văn phòng. Chúng tôi phản hồi trong vòng 30 ngày làm việc.":
+    "사무소로 이메일을 보내 TAF가 보유한 개인 데이터에 대한 액세스, 수정 또는 삭제를 요청할 수 있습니다. 30영업일 이내에 응답합니다.",
+
+  // Team page
+  "Những người trực tiếp ký báo cáo kiểm toán.": "감사 보고서에 직접 서명하는 사람들.",
+  "Mỗi báo cáo TAF phát hành đều có chữ ký của KTV hành nghề được Bộ Tài chính cấp chứng chỉ. Dưới đây là một số thành viên dẫn dắt các tuyến dịch vụ.":
+    "TAF가 발행하는 모든 보고서에는 재무부가 인증한 등록 감사인의 서명이 있습니다. 아래는 각 서비스 라인을 이끄는 일부 구성원입니다.",
+  "Thông tin chi tiết của từng KTV (tên, số chứng chỉ hành nghề, ảnh chân dung) sẽ được cập nhật khi hoàn tất xác nhận nội bộ.":
+    "각 감사인의 세부 정보(이름, 등록 번호, 사진)는 내부 확인 완료 후 업데이트됩니다.",
+  "Đang cập nhật": "업데이트 예정",
+  "Phó Tổng Giám đốc phụ trách Kiểm toán": "감사 담당 부사장",
+  "Giám đốc Tư vấn Thuế": "세무 자문 디렉터",
+  "Trưởng phòng Kiểm toán Xây dựng cơ bản": "건설 감사 매니저",
+  "KTV hành nghề — Bộ Tài chính": "등록 감사인 — 재무부",
+  "KTV hành nghề · Đại lý thuế": "등록 감사인 · 세무 대리인",
+  "KTV hành nghề": "등록 감사인",
+  "Hơn 18 năm kinh nghiệm kiểm toán doanh nghiệp FDI và niêm yết, chuyên ngành sản xuất.":
+    "FDI 및 상장 기업 감사 경력 18년 이상, 제조업 전문.",
+  "Chuyên thanh tra thuế, ưu đãi thuế cho dự án đầu tư mới, thuế nhà thầu nước ngoài.":
+    "세무 조사, 신규 투자 프로젝트 세제 혜택, 외국 계약자 세금 전문.",
+  "Phụ trách kiểm toán quyết toán dự án vốn ngân sách và ODA tại miền Nam.":
+    "남부 지역 국가 예산 및 ODA 프로젝트 결산 감사 담당.",
+
+  // Provinces index
+  "Phạm vi hoạt động": "서비스 범위",
+  "Địa bàn TAF phục vụ": "TAF 서비스 지역",
+  "TAF có KTV sẵn sàng đến trụ sở khách hàng tại các tỉnh và thành phố sau. Mỗi địa bàn có trang riêng mô tả ngành nghề trọng điểm và đặc thù pháp lý.":
+    "TAF는 아래 성 및 시의 고객사 방문이 가능한 감사인을 보유하고 있습니다. 각 지역에는 주요 산업과 법적 특성을 설명하는 전용 페이지가 있습니다.",
 };
 
 export const DICTIONARIES: Record<Exclude<Locale, "vi">, Dict> = { en, ja, ko };

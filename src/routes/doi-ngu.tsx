@@ -1,6 +1,8 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { Breadcrumb } from "@/components/site/Breadcrumb";
 import { Section, SectionHeading } from "@/components/site/Section";
+import { useT } from "@/lib/i18n/context";
+
 
 export const Route = createFileRoute("/doi-ngu")({
   head: () => ({
@@ -42,14 +44,15 @@ const PEOPLE = [
 ];
 
 function TeamPage() {
+  const t = useT();
   return (
     <>
-      <Breadcrumb items={[{ label: "Đội ngũ" }]} />
+      <Breadcrumb items={[{ label: t("Đội ngũ") }]} />
       <Section>
         <SectionHeading
-          eyebrow="Đội ngũ"
-          title="Những người trực tiếp ký báo cáo kiểm toán."
-          lead="Mỗi báo cáo TAF phát hành đều có chữ ký của KTV hành nghề được Bộ Tài chính cấp chứng chỉ. Dưới đây là một số thành viên dẫn dắt các tuyến dịch vụ."
+          eyebrow={t("Đội ngũ")}
+          title={t("Những người trực tiếp ký báo cáo kiểm toán.")}
+          lead={t("Mỗi báo cáo TAF phát hành đều có chữ ký của KTV hành nghề được Bộ Tài chính cấp chứng chỉ. Dưới đây là một số thành viên dẫn dắt các tuyến dịch vụ.")}
         />
         <div className="mt-12 grid md:grid-cols-2 lg:grid-cols-3 gap-px bg-border border border-border">
           {PEOPLE.map((p, i) => (
@@ -59,20 +62,20 @@ function TeamPage() {
                   {p.name.charAt(0)}
                 </span>
               </div>
-              <h3 className="font-display text-xl text-foreground">{p.name}</h3>
-              <div className="text-sm text-accent-foreground mt-1">{p.title}</div>
+              <h3 className="font-display text-xl text-foreground">{t(p.name)}</h3>
+              <div className="text-sm text-accent-foreground mt-1">{t(p.title)}</div>
               <div className="text-xs text-muted-foreground mt-1 uppercase tracking-wider">
-                {p.credentials}
+                {t(p.credentials)}
               </div>
-              <p className="mt-4 text-sm text-foreground/80 font-serif leading-relaxed">{p.bio}</p>
+              <p className="mt-4 text-sm text-foreground/80 font-serif leading-relaxed">{t(p.bio)}</p>
             </article>
           ))}
         </div>
         <p className="mt-10 text-sm text-muted-foreground font-serif italic max-w-2xl">
-          Thông tin chi tiết của từng KTV (tên, số chứng chỉ hành nghề, ảnh chân dung) sẽ được cập
-          nhật khi hoàn tất xác nhận nội bộ.
+          {t("Thông tin chi tiết của từng KTV (tên, số chứng chỉ hành nghề, ảnh chân dung) sẽ được cập nhật khi hoàn tất xác nhận nội bộ.")}
         </p>
       </Section>
     </>
   );
 }
+

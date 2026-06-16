@@ -2,9 +2,13 @@ import { Link } from "@tanstack/react-router";
 import { Logo } from "./Logo";
 import { NAV, SITE, SERVICES } from "@/lib/site";
 import type { Office } from "@/lib/offices.functions";
+import { useT } from "@/lib/i18n/context";
+
 
 export function Footer({ offices }: { offices: Office[] }) {
+  const t = useT();
   const primary = offices.find((o) => o.is_primary) ?? offices[0];
+
   return (
     <footer className="border-t border-border bg-primary text-primary-foreground">
       <div className="mx-auto max-w-6xl px-5 md:px-8 py-16 grid grid-cols-1 md:grid-cols-12 gap-12 md:gap-8">
@@ -12,9 +16,9 @@ export function Footer({ offices }: { offices: Office[] }) {
         <div className="md:col-span-4 space-y-6">
           <Logo variant="light" />
           <p className="text-sm leading-relaxed text-primary-foreground/60 font-serif max-w-sm">
-            {SITE.legalName} — hãng kiểm toán độc lập đăng ký hành nghề với Bộ Tài chính, phục vụ
-            doanh nghiệp Việt Nam và FDI từ năm {SITE.established}.
+            {SITE.legalName} {t("— hãng kiểm toán độc lập đăng ký hành nghề với Bộ Tài chính, phục vụ doanh nghiệp Việt Nam và FDI từ năm")} {SITE.established}.
           </p>
+
           <div className="flex flex-wrap gap-4 pt-2">
             <a href="https://www.facebook.com/taf.vn" target="_blank" rel="noopener noreferrer" aria-label="Facebook" className="text-primary-foreground/60 hover:text-accent transition-colors">
               <svg viewBox="0 0 24 24" fill="currentColor" className="w-5 h-5"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
@@ -45,21 +49,22 @@ export function Footer({ offices }: { offices: Office[] }) {
 
         {/* Navigation */}
         <div className="md:col-span-2 space-y-6">
-          <h4 className="text-xs font-bold uppercase tracking-widest text-accent">Điều hướng</h4>
+          <h4 className="text-xs font-bold uppercase tracking-widest text-accent">{t("Điều hướng")}</h4>
           <ul className="space-y-3 text-sm">
             {NAV.map((n) => (
               <li key={n.to}>
                 <Link to={n.to} className="text-primary-foreground/75 hover:text-primary-foreground transition-colors">
-                  {n.label}
+                  {t(n.label)}
                 </Link>
               </li>
             ))}
           </ul>
+
         </div>
 
         {/* Services */}
         <div className="md:col-span-3 space-y-6">
-          <h4 className="text-xs font-bold uppercase tracking-widest text-accent">Dịch vụ</h4>
+          <h4 className="text-xs font-bold uppercase tracking-widest text-accent">{t("Dịch vụ")}</h4>
           <ul className="space-y-3 text-sm">
             {SERVICES.slice(0, 5).map((s) => (
               <li key={s.slug}>
@@ -68,7 +73,7 @@ export function Footer({ offices }: { offices: Office[] }) {
                     href={s.path}
                     className="text-primary-foreground/75 hover:text-primary-foreground transition-colors"
                   >
-                    {s.title}
+                    {t(s.title)}
                   </a>
                 ) : (
                   <Link
@@ -76,17 +81,18 @@ export function Footer({ offices }: { offices: Office[] }) {
                     params={{ slug: s.slug }}
                     className="text-primary-foreground/75 hover:text-primary-foreground transition-colors"
                   >
-                    {s.title}
+                    {t(s.title)}
                   </Link>
                 )}
               </li>
             ))}
           </ul>
+
         </div>
 
         {/* Contact */}
         <div className="md:col-span-3 space-y-6">
-          <h4 className="text-xs font-bold uppercase tracking-widest text-accent">Liên hệ</h4>
+          <h4 className="text-xs font-bold uppercase tracking-widest text-accent">{t("Liên hệ")}</h4>
           {primary ? (
             <address className="not-italic space-y-4 text-sm">
               <div className="space-y-1">
@@ -100,7 +106,7 @@ export function Footer({ offices }: { offices: Office[] }) {
               <div className="space-y-1">
                 {primary.phone && (
                   <p>
-                    <span className="text-primary-foreground/50">ĐT:</span>{" "}
+                    <span className="text-primary-foreground/50">{t("ĐT:")}</span>{" "}
                     <a href={`tel:${primary.phone.replace(/\s/g, "")}`} className="hover:text-primary-foreground transition-colors">
                       {primary.phone}
                     </a>
@@ -108,13 +114,14 @@ export function Footer({ offices }: { offices: Office[] }) {
                 )}
                 {primary.email && (
                   <p>
-                    <span className="text-primary-foreground/50">Email:</span>{" "}
+                    <span className="text-primary-foreground/50">{t("Email:")}</span>{" "}
                     <a href={`mailto:${primary.email}`} className="hover:text-primary-foreground transition-colors">
                       {primary.email}
                     </a>
                   </p>
                 )}
               </div>
+
               {primary.hours && (
                 <p className="text-xs text-primary-foreground/50 italic">{primary.hours}</p>
               )}
@@ -126,15 +133,16 @@ export function Footer({ offices }: { offices: Office[] }) {
       {/* Bottom bar */}
       <div className="mx-auto max-w-6xl px-5 md:px-8 pb-8">
         <div className="pt-8 border-t border-primary-foreground/10 flex flex-col md:flex-row justify-between items-center gap-4 text-[11px] uppercase tracking-wider text-primary-foreground/50">
-          <p>© {new Date().getFullYear()} {SITE.legalName}. Đã đăng ký hành nghề kiểm toán.</p>
+          <p>© {new Date().getFullYear()} {SITE.legalName}. {t("Đã đăng ký hành nghề kiểm toán.")}</p>
           <div className="flex space-x-6">
             <Link to="/chinh-sach-bao-mat" className="hover:text-primary-foreground transition-colors underline decoration-primary-foreground/10 underline-offset-4">
-              Chính sách bảo mật
+              {t("Chính sách bảo mật")}
             </Link>
             <Link to="/van-phong" className="hover:text-primary-foreground transition-colors underline decoration-primary-foreground/10 underline-offset-4">
-              Văn phòng
+              {t("Văn phòng")}
             </Link>
           </div>
+
         </div>
       </div>
     </footer>
