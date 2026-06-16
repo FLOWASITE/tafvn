@@ -671,23 +671,28 @@ function LazyYouTube({ videoId, title }: { videoId: string; title: string }) {
 }
 
 function PriceTable({ rows, caption }: { rows: typeof PRICE_TABLE_1; caption: string }) {
+  const [label, ...rest] = caption.split("—");
+  const subtitle = rest.join("—").trim();
   return (
-    <div className="border border-border rounded-[3px] bg-background overflow-hidden shadow-[var(--shadow-card)]">
-      <div className="px-5 md:px-6 py-4 border-b border-border bg-gradient-to-r from-cream/80 via-cream/40 to-transparent flex items-center gap-3">
-        <span aria-hidden className="inline-block w-1.5 h-1.5 rounded-full bg-brand-red" />
-        <span aria-hidden className="inline-block w-5 h-px bg-accent" />
-        <div className="t-cta text-accent-foreground/90">
-          {caption}
-        </div>
+    <div className="group/table relative border border-accent/30 rounded-[2px] bg-background overflow-hidden shadow-[var(--shadow-card)]">
+      <span aria-hidden className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-accent to-transparent" />
+      <div className="px-5 md:px-7 py-5 bg-foreground text-background flex items-baseline gap-4 flex-wrap">
+        <span className="t-eyebrow text-accent">
+          {label.trim()}
+        </span>
+        <span aria-hidden className="inline-block w-8 h-px bg-accent/60" />
+        <span className="font-display italic text-background/90 text-base md:text-lg leading-snug">
+          {subtitle}
+        </span>
       </div>
       <Table>
         <TableHeader>
-          <TableRow className="bg-cream/40 hover:bg-cream/40">
+          <TableRow className="bg-cream/50 hover:bg-cream/50 border-b border-accent/30">
             <TableHead className="w-12">STT</TableHead>
             <TableHead>Số hoá đơn/tháng (đầu vào + đầu ra)</TableHead>
             <TableHead className="text-right">Kế toán thuế</TableHead>
             <TableHead className="text-right">Lương, BHXH</TableHead>
-            <TableHead className="text-right font-medium text-foreground bg-accent/10">
+            <TableHead className="text-right font-display text-foreground bg-accent/15 border-l border-accent/30">
               Tổng
             </TableHead>
           </TableRow>
@@ -697,18 +702,20 @@ function PriceTable({ rows, caption }: { rows: typeof PRICE_TABLE_1; caption: st
             <TableRow
               key={r.stt}
               className={cn(
-                "font-serif transition-colors",
-                i % 2 === 1 && "bg-cream/30",
-                "hover:bg-accent/5",
+                "group/row font-serif transition-colors",
+                i % 2 === 1 && "bg-cream/25",
+                "hover:bg-accent/[0.07]",
               )}
             >
               <TableCell className="text-muted-foreground tabular-nums font-mono text-xs">
                 {String(r.stt).padStart(2, "0")}
               </TableCell>
-              <TableCell className="text-foreground/85">{r.range}</TableCell>
+              <TableCell className="text-foreground/85 group-hover/row:text-foreground transition-colors">
+                {r.range}
+              </TableCell>
               <TableCell className="text-right tabular-nums text-foreground/85">{r.tax}</TableCell>
               <TableCell className="text-right tabular-nums text-foreground/85">{r.bhxh}</TableCell>
-              <TableCell className="text-right tabular-nums font-medium text-foreground bg-accent/[0.06] border-l border-accent/20">
+              <TableCell className="text-right tabular-nums font-display text-base md:text-[1.0625rem] text-foreground bg-accent/[0.06] border-l border-accent/25 group-hover/row:text-brand-red-ink group-hover/row:bg-accent/[0.12] transition-colors">
                 {r.total}
               </TableCell>
             </TableRow>
@@ -731,9 +738,10 @@ function AccountingServicePage() {
 
       {/* Hero */}
       <Section className="pb-10 md:pb-14 relative overflow-hidden">
+        <div className="absolute inset-0 hero-grid-bg pointer-events-none opacity-50" aria-hidden />
         <div
           aria-hidden
-          className="pointer-events-none absolute -top-10 -right-16 md:right-0 opacity-[0.04] hidden md:block"
+          className="pointer-events-none absolute -top-10 -right-16 md:right-0 opacity-[0.025] hidden md:block"
         >
           <TafSeal size={420} spin />
         </div>
@@ -782,46 +790,66 @@ function AccountingServicePage() {
             </div>
 
             {/* Trust strip — editorial stats */}
-            <dl className="mt-10 grid grid-cols-2 md:grid-cols-4 border-t border-border/80">
+            <dl className="mt-10 grid grid-cols-2 md:grid-cols-4 border-t border-accent/30 pt-6">
               {HERO_STATS.map((s, i) => (
                 <div
                   key={s.k}
                   className={cn(
-                    "py-5 px-4 first:pl-0 group",
-                    i !== HERO_STATS.length - 1 && "md:border-r border-border/80",
-                    i < 2 && "border-r border-border/80 md:border-r",
-                    i === 0 && "border-r",
-                    i === 2 && "md:border-l-0",
+                    "group py-3 px-5 first:pl-0 transition-colors",
+                    i !== 0 && "border-l border-accent/25",
                   )}
                 >
-                  <dt className="font-display text-3xl md:text-[2.25rem] text-foreground leading-none tabular-nums">
+                  <dt className="font-display text-3xl md:text-[2.25rem] text-foreground leading-none tabular-nums inline-flex items-start transition-transform duration-500 group-hover:scale-[1.04] origin-left">
                     {s.k}
-                    <span className="inline-block align-top w-1 h-1 rounded-full bg-brand-red ml-1 mt-1.5 group-hover:scale-150 transition-transform" />
+                    <span className="inline-block w-1 h-1 rounded-full bg-brand-red ml-1 mt-1.5 group-hover:scale-150 transition-transform" />
                   </dt>
-                  <dd className="t-cta mt-2 text-muted-foreground">
+                  <dd className="t-cta mt-3 text-muted-foreground">
                     {s.v}
                   </dd>
+                  <span aria-hidden className="block h-px w-0 bg-accent mt-2 transition-all duration-500 group-hover:w-8" />
                 </div>
               ))}
             </dl>
           </header>
-          <aside className="lg:col-span-4 lg:border-l lg:border-border lg:pl-8 flex flex-col gap-4 text-sm">
-            {[
-              { k: "Pháp lý", v: "Luật Kế toán 2015 & TT 296/2016" },
-              { k: "Đội ngũ", v: "Kế toán viên có chứng chỉ hành nghề" },
-              { k: "Báo giá", v: "Theo số chứng từ, minh bạch" },
-              { k: "Phạm vi", v: "Toàn quốc, hỗ trợ online" },
-            ].map((i) => (
-              <div key={i.k} className="border-b border-border pb-3 last:border-0 group">
-                <div className="t-cta text-muted-foreground flex items-center gap-2">
-                  <span className="inline-block w-1 h-1 rounded-full bg-brand-red" />
-                  {i.k}
-                </div>
-                <div className="font-display text-base text-foreground mt-1.5 group-hover:text-accent-foreground transition-colors">
-                  {i.v}
-                </div>
+          <aside className="lg:col-span-4">
+            <div className="relative bg-cream/50 border border-accent/40 rounded-[2px] p-6 md:p-7 shadow-[0_24px_60px_-40px_rgba(0,0,0,0.18)]">
+              <span aria-hidden className="absolute -top-px left-6 right-6 h-px bg-gradient-to-r from-transparent via-accent to-transparent" />
+              <div className="t-eyebrow text-muted-foreground/70 flex items-center gap-2.5">
+                <span className="inline-block w-6 h-px bg-accent" />
+                TAF · Service Brief No. 02
               </div>
-            ))}
+              <ul className="mt-5 divide-y divide-accent/20">
+                {[
+                  { k: "Pháp lý", v: "Luật Kế toán 2015 & TT 296/2016" },
+                  { k: "Đội ngũ", v: "Kế toán viên có chứng chỉ hành nghề" },
+                  { k: "Báo giá", v: "Theo số chứng từ, minh bạch" },
+                  { k: "Phạm vi", v: "Toàn quốc, hỗ trợ online" },
+                ].map((i, idx) => (
+                  <li key={i.k} className="group flex gap-4 py-4 first:pt-0 last:pb-0">
+                    <span className="font-display italic tabular-nums text-2xl text-accent-foreground/35 leading-none w-8 shrink-0">
+                      {String(idx + 1).padStart(2, "0")}
+                    </span>
+                    <div className="min-w-0 flex-1">
+                      <div className="t-eyebrow text-muted-foreground">
+                        {i.k}
+                      </div>
+                      <div className="font-display text-[0.95rem] md:text-base text-foreground mt-1 leading-snug group-hover:text-accent-foreground transition-colors">
+                        {i.v}
+                      </div>
+                    </div>
+                  </li>
+                ))}
+              </ul>
+              <div className="mt-5 pt-4 border-t border-accent/20 flex items-center justify-between">
+                <span className="font-mono text-[0.65rem] uppercase tracking-[0.22em] text-muted-foreground/70">
+                  Cập nhật · 2026
+                </span>
+                <span className="font-mono text-[0.65rem] uppercase tracking-[0.22em] text-accent-foreground/70">
+                  Rev. III
+                </span>
+              </div>
+              <span aria-hidden className="absolute -bottom-px left-6 right-6 h-px bg-gradient-to-r from-transparent via-accent/60 to-transparent" />
+            </div>
           </aside>
         </div>
       </Section>
@@ -997,12 +1025,19 @@ function AccountingServicePage() {
           />
         </div>
 
-        <div className="t-body-sm mt-8 bg-cream/60 border border-border rounded-[2px] p-5 md:p-6 md:text-base text-muted-foreground">
-          <strong className="text-foreground font-medium">Lưu ý chi phí:</strong> phí trên
-          chưa gồm thuế, VAT và các lệ phí phải nộp Nhà nước; có thể thay đổi với doanh
-          nghiệp xuất nhập khẩu hoặc có vốn nước ngoài. Nội thành TP.HCM miễn phí giao
-          nhận chứng từ tận nơi; các khu vực khác theo thỏa thuận.
-        </div>
+        <blockquote className="relative mt-10 border-l-2 border-brand-red pl-6 md:pl-7 max-w-3xl">
+          <span aria-hidden className="absolute -top-6 -left-2 font-display text-[5rem] leading-none text-accent/30 select-none pointer-events-none">
+            “
+          </span>
+          <div className="t-eyebrow text-brand-red-ink/80 mb-2">
+            Lưu ý · Disclaimer
+          </div>
+          <p className="t-body md:text-[1.0625rem] text-foreground/80">
+            Phí trên chưa gồm thuế, VAT và các lệ phí phải nộp Nhà nước; có thể thay đổi
+            với doanh nghiệp xuất nhập khẩu hoặc có vốn nước ngoài. Nội thành TP.HCM miễn
+            phí giao nhận chứng từ tận nơi; các khu vực khác theo thỏa thuận.
+          </p>
+        </blockquote>
 
         <div className="mt-8 flex flex-wrap gap-3">
           <Link
@@ -1187,25 +1222,30 @@ function AccountingServicePage() {
         <h2 className="t-h2 md:text-[2.25rem] text-foreground max-w-3xl">
           Phạm vi công việc kế toán trọn gói
         </h2>
-        <div className="mt-10 grid md:grid-cols-2 gap-4">
+        <div className="relative mt-12 grid md:grid-cols-2 gap-5">
+          <span
+            aria-hidden
+            className="hidden md:block absolute -top-6 left-8 right-8 h-px bg-gradient-to-r from-transparent via-accent/60 to-transparent"
+          />
           {SCOPE.map((g, i) => (
             <div
               key={g.t}
-              className="bg-card border border-border rounded-[2px] p-6 hover:border-accent transition-colors"
+              className="group relative bg-background border border-accent/25 rounded-[2px] p-7 md:p-8 transition-all duration-300 hover:-translate-y-1 hover:border-accent/60 hover:shadow-[0_18px_40px_-20px_rgba(0,0,0,0.12)]"
             >
-              <div className="flex items-baseline gap-3 mb-4">
-                <span className="font-mono text-xs text-muted-foreground tabular-nums">
-                  {String(i + 1).padStart(2, "0")}
-                </span>
-                <h3 className="font-display text-lg text-foreground">{g.t}</h3>
-              </div>
-              <ul className="space-y-2">
+              <span className="font-display italic tabular-nums text-4xl text-accent-foreground/30 leading-none">
+                {String(i + 1).padStart(2, "0")}
+              </span>
+              <h3 className="mt-3 font-display text-xl text-foreground leading-snug">
+                {g.t}
+                <span className="block mt-2 h-[2px] w-8 bg-brand-red transition-all duration-300 group-hover:w-16" />
+              </h3>
+              <ul className="mt-5 space-y-2.5">
                 {g.items.map((it) => (
                   <li
                     key={it}
-                    className="t-body-sm flex items-start gap-3 md:text-base text-foreground/85"
+                    className="t-body-sm flex items-start gap-3 md:text-base text-foreground/80"
                   >
-                    <CheckCircle2 size={16} className="text-brand-red shrink-0 mt-1" />
+                    <span aria-hidden className="mt-2.5 h-1 w-1 rounded-full bg-accent-foreground/60 shrink-0" />
                     <span>{it}</span>
                   </li>
                 ))}
@@ -1228,16 +1268,16 @@ function AccountingServicePage() {
               nghiệp chuẩn bị danh mục thông tin sau:
             </p>
           </div>
-          <ul className="lg:col-span-7 grid sm:grid-cols-2 gap-3">
+          <ul className="lg:col-span-7 grid sm:grid-cols-2 border-t border-l border-accent/25 bg-background/40">
             {NEEDED.map((n, i) => (
               <li
                 key={n}
-                className="flex items-start gap-3 bg-background border border-border rounded-[2px] p-4 font-serif text-foreground/85"
+                className="group flex items-start gap-5 px-5 py-5 border-r border-b border-accent/25 font-serif text-foreground/85 hover:bg-accent/[0.05] transition-colors"
               >
-                <span className="font-mono text-xs text-accent-foreground tabular-nums mt-1 shrink-0">
+                <span className="font-display italic tabular-nums text-3xl text-accent-foreground/35 leading-none w-10 shrink-0 group-hover:text-brand-red-ink transition-colors">
                   {String(i + 1).padStart(2, "0")}
                 </span>
-                <span className="leading-relaxed">{n}</span>
+                <span className="t-body-sm md:text-base leading-snug pt-1">{n}</span>
               </li>
             ))}
           </ul>
@@ -1466,6 +1506,60 @@ function AccountingServicePage() {
               </div>
             </a>
           ))}
+        </div>
+      </Section>
+
+      {/* CTA cuối — Dark editorial plate */}
+      <Section className="pt-0">
+        <div className="relative bg-foreground text-background p-8 md:p-16 overflow-hidden rounded-[2px]">
+          <span aria-hidden className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-accent to-transparent" />
+          <span aria-hidden className="absolute inset-0 paper-grain opacity-[0.06] pointer-events-none mix-blend-screen" />
+          <span
+            aria-hidden
+            className="absolute -right-6 -bottom-12 md:-right-4 md:-bottom-20 font-display italic text-[10rem] md:text-[16rem] leading-none text-accent/[0.06] select-none pointer-events-none tracking-tight"
+          >
+            TAF.
+          </span>
+          <div className="relative grid lg:grid-cols-12 gap-10 items-center">
+            <div className="lg:col-span-7">
+              <p className="t-eyebrow text-accent mb-6 flex items-center gap-3">
+                <span aria-hidden className="inline-block w-8 h-px bg-accent" />
+                Nhận tư vấn ngay
+              </p>
+              <h2 className="font-display text-3xl md:text-4xl lg:text-5xl text-background leading-[1.15] font-normal tracking-tight">
+                Giao phần kế toán{" "}
+                <span className="italic text-accent">cho TAF.</span>
+              </h2>
+              <p className="t-lead mt-6 text-background/70 max-w-xl">
+                Liên hệ để được khảo sát chứng từ và nhận báo giá chính thức theo đặc thù
+                ngành nghề của doanh nghiệp bạn.
+              </p>
+            </div>
+            <div className="lg:col-span-5 flex flex-col gap-3">
+              <Link
+                to="/lien-he"
+                className="group inline-flex items-center justify-between gap-2 bg-brand-red text-white px-7 py-4 t-cta rounded-[2px] hover:bg-brand-red-ink transition-all"
+              >
+                <span className="flex items-center gap-2.5">
+                  <span aria-hidden className="inline-block w-1.5 h-1.5 rounded-full bg-accent animate-pulse" />
+                  Nhận tư vấn & báo giá
+                </span>
+                <ArrowUpRight size={18} className="group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+              </Link>
+              <a
+                href="tel:+84924580580"
+                className="inline-flex items-center justify-between gap-2 border border-accent/40 text-background px-7 py-4 text-sm font-medium rounded-[2px] hover:border-accent hover:bg-accent/10 transition"
+              >
+                <span className="flex items-center gap-2 text-background/70">
+                  <Phone size={16} className="text-accent" /> Hotline / Zalo
+                </span>
+                <span className="font-mono text-accent">0924 580 580</span>
+              </a>
+              <p className="t-meta text-background/50 text-center mt-2">
+                Email: info@taf.vn · 62A Phạm Ngọc Thạch, Q.3, TP.HCM
+              </p>
+            </div>
+          </div>
         </div>
       </Section>
     </>
