@@ -110,7 +110,7 @@ function CareersPage() {
           <h1 className="font-display text-4xl md:text-5xl leading-tight text-foreground">
             Bắt đầu sự nghiệp kiểm toán tại một hãng giữ nghề đúng chuẩn mực.
           </h1>
-          <p className="mt-6 text-lg text-muted-foreground font-serif leading-relaxed">
+          <p className="t-lead mt-6 text-muted-foreground">
             {SITE.legalName} luôn tìm kiếm những người trẻ nghiêm túc với nghề kế toán — kiểm
             toán. Tại TAF, bạn được cầm tay chỉ việc bởi KTV hành nghề, làm thật trên hồ sơ thật
             và có lộ trình rõ ràng để lấy chứng chỉ nghề nghiệp.
@@ -126,8 +126,8 @@ function CareersPage() {
             return (
               <div key={w.title} className="bg-background p-7">
                 <Icon className="text-brand-red" size={26} strokeWidth={1.5} />
-                <h3 className="mt-4 font-display text-xl text-foreground">{w.title}</h3>
-                <p className="mt-3 text-sm text-foreground/80 font-serif leading-relaxed">
+                <h3 className="t-h3 mt-4 text-foreground">{w.title}</h3>
+                <p className="t-body-sm mt-3 text-foreground/80">
                   {w.body}
                 </p>
               </div>
@@ -158,7 +158,7 @@ function CareersPage() {
                       <MapPin size={14} /> {p.location}
                     </span>
                   </div>
-                  <p className="mt-4 text-sm text-foreground/80 font-serif leading-relaxed">
+                  <p className="t-body-sm mt-4 text-foreground/80">
                     {p.summary}
                   </p>
                   <ul className="mt-4 space-y-2 font-serif text-sm text-foreground/85">

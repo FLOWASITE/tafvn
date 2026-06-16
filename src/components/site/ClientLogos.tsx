@@ -64,14 +64,14 @@ export function ClientLogos() {
 
       {/* Tiêu đề */}
       <div className="text-center">
-        <p className="inline-flex items-center gap-2.5 text-[0.7rem] uppercase tracking-[0.22em] text-muted-foreground">
+        <p className="t-cta inline-flex items-center gap-2.5 text-muted-foreground">
           <span className="inline-block w-5 h-px bg-accent" />
           <span className="inline-block w-1.5 h-1.5 rounded-full bg-brand-red" />
           Được tin tưởng bởi
           <span className="inline-block w-1.5 h-1.5 rounded-full bg-brand-red" />
           <span className="inline-block w-5 h-px bg-accent" />
         </p>
-        <p className="mt-3 font-display text-xl md:text-2xl text-foreground leading-snug">
+        <p className="t-h3 mt-3 md:text-2xl text-foreground">
           Đồng hành cùng doanh nghiệp, tập đoàn giáo dục &amp; thương hiệu trên khắp Việt Nam
         </p>
       </div>

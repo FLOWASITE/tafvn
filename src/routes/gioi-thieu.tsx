@@ -33,13 +33,13 @@ function AboutPage() {
       <Breadcrumb items={[{ label: t("Giới thiệu") }]} />
       <Section>
         <div className="max-w-3xl">
-          <p className="text-[0.7rem] uppercase tracking-[0.22em] text-accent-foreground/80 mb-3">
+          <p className="t-cta text-accent-foreground/80 mb-3">
             {t("Về TAF")}
           </p>
           <h1 className="font-display text-4xl md:text-5xl leading-tight text-foreground">
             {t("Hơn hai thập kỷ giữ nghề kiểm toán đúng chuẩn mực.")}
           </h1>
-          <p className="mt-6 text-lg text-muted-foreground font-serif leading-relaxed">
+          <p className="t-lead mt-6 text-muted-foreground">
             {SITE.legalName} {t("thành lập năm")} {SITE.established},{" "}
             {t("đăng ký hành nghề với Bộ Tài chính và phục vụ khách hàng trong cả ba khối: doanh nghiệp nội địa, doanh nghiệp FDI và dự án đầu tư công.")}
           </p>

@@ -71,7 +71,7 @@ function ArticlePage() {
       <Section>
         <article className="max-w-3xl mx-auto">
           <header>
-            <p className="text-[0.7rem] uppercase tracking-[0.22em] text-accent-foreground/80 mb-3">
+            <p className="t-cta text-accent-foreground/80 mb-3">
               {cms.published_at
                 ? new Date(cms.published_at).toLocaleDateString("vi-VN", {
                     day: "2-digit",
@@ -84,7 +84,7 @@ function ArticlePage() {
               {cms.h1 ?? cms.title}
             </h1>
             {cms.excerpt && (
-              <p className="mt-5 text-lg text-muted-foreground font-serif leading-relaxed">
+              <p className="t-lead mt-5 text-muted-foreground">
                 {cms.excerpt}
               </p>
             )}

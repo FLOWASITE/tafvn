@@ -62,7 +62,7 @@ function H2({ children, id }: { children: ReactNode; id?: string }) {
   return (
     <h2
       id={id}
-      className="font-display text-2xl md:text-[1.9rem] leading-tight text-foreground mt-12 mb-4 scroll-mt-24"
+      className="t-h2 md:text-[1.9rem] text-foreground mt-12 mb-4 scroll-mt-24"
     >
       {children}
     </h2>
@@ -70,7 +70,7 @@ function H2({ children, id }: { children: ReactNode; id?: string }) {
 }
 function H3({ children }: { children: ReactNode }) {
   return (
-    <h3 className="font-display text-xl leading-snug text-foreground mt-7 mb-2.5">{children}</h3>
+    <h3 className="t-h3 text-foreground mt-7 mb-2.5">{children}</h3>
   );
 }
 function P({ children }: { children: ReactNode }) {
@@ -110,7 +110,7 @@ function ArticlePage() {
           <div className="flex items-center gap-3 mb-4">
             <Eyebrow>Tin chuyên môn</Eyebrow>
           </div>
-          <h1 className="font-display text-3xl md:text-[2.6rem] leading-[1.12] text-foreground">
+          <h1 className="t-h2 md:text-[2.6rem] text-foreground">
             Hộ kinh doanh đã kê khai thuế Quý I/2026 có cần điều chỉnh lại? Những điều phải kiểm
             tra ngay theo quy định thuế mới năm 2026
           </h1>

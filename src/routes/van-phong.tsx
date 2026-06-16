@@ -80,7 +80,7 @@ function OfficesPage() {
             <article key={o.id} className="bg-background p-7">
               <div className="flex items-center gap-2 mb-3">
                 {o.is_primary && (
-                  <span className="text-[0.65rem] uppercase tracking-[0.22em] text-accent-foreground border border-accent px-2 py-0.5 rounded-sm">
+                  <span className="t-cta text-accent-foreground border border-accent px-2 py-0.5 rounded-sm">
                     Trụ sở chính
                   </span>
                 )}

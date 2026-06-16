@@ -303,7 +303,7 @@ function DesktopMenuItem({ item, alignRight }: { item: MenuItem; alignRight?: bo
                 <span className="inline-flex h-10 w-10 items-center justify-center rounded-[4px] border border-accent/30 bg-white/5 text-accent">
                   <Layers size={19} strokeWidth={1.7} />
                 </span>
-                <p className="mt-4 text-[0.62rem] uppercase tracking-[0.2em] text-accent">{t("Dịch vụ TAF")}</p>
+                <p className="t-cta mt-4 text-[0.62rem] text-accent">{t("Dịch vụ TAF")}</p>
                 <p className="mt-1.5 font-display text-lg leading-snug">
                   {t("Kiểm toán, kế toán & tư vấn thuế")}
                 </p>
@@ -413,7 +413,7 @@ function DesktopMenuItem({ item, alignRight }: { item: MenuItem; alignRight?: bo
                     </span>
                   );
                 })()}
-                <p className="mt-4 text-[0.62rem] uppercase tracking-[0.2em] text-accent">
+                <p className="t-cta mt-4 text-[0.62rem] text-accent">
                   {t(DROPDOWN_PROMO[item.label]?.eyebrow ?? item.label)}
                 </p>
                 <p className="mt-1.5 font-display text-lg leading-snug">

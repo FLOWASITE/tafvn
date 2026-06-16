@@ -22,7 +22,7 @@ function NotFoundComponent() {
   return (
     <div className="flex min-h-[60vh] items-center justify-center bg-background px-4">
       <div className="max-w-md text-center">
-        <p className="text-[0.7rem] uppercase tracking-[0.22em] text-accent-foreground">404</p>
+        <p className="t-cta text-accent-foreground">404</p>
         <h1 className="mt-3 font-display text-4xl text-foreground">Không tìm thấy trang</h1>
         <p className="mt-3 text-sm text-muted-foreground font-serif">
           Đường dẫn bạn truy cập không tồn tại hoặc đã được di chuyển.
