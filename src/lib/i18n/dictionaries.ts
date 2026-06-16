@@ -69,6 +69,95 @@ const en: Dict = {
   "Tư vấn thuế": "Tax advisory",
   "Chuyển đổi báo cáo IFRS": "IFRS conversion",
   "Rà soát đặc biệt M&A (Due Diligence)": "M&A special review (Due Diligence)",
+  "Dịch vụ kế toán trọn gói": "Full-service accounting",
+  "Soát xét tuân thủ & nội bộ": "Compliance & internal review",
+  "Chuyển đổi báo cáo IFRS / VAS": "IFRS / VAS report conversion",
+  "Kiểm toán quyết toán dự án hoàn thành": "Completed project settlement audit",
+
+  // Footer
+  "Điều hướng": "Navigation",
+  "Chính sách bảo mật": "Privacy policy",
+  "Văn phòng": "Offices",
+  "ĐT:": "Tel:",
+  "Email:": "Email:",
+  "— hãng kiểm toán độc lập đăng ký hành nghề với Bộ Tài chính, phục vụ doanh nghiệp Việt Nam và FDI từ năm":
+    "— an independent audit firm registered with the Ministry of Finance, serving Vietnamese and FDI enterprises since",
+  "Đã đăng ký hành nghề kiểm toán.": "Registered audit practice.",
+
+  // Contact page
+  "Trao đổi với KTV phụ trách dịch vụ phù hợp với bạn.":
+    "Talk with the auditor in charge of the service that fits you.",
+  "Mô tả ngắn về doanh nghiệp, loại hình, thời điểm cần báo cáo — KTV phụ trách sẽ liên hệ lại trong vòng 1 ngày làm việc với khảo sát sơ bộ và đề xuất phí cụ thể trong 3 ngày.":
+    "Briefly describe your business, type, and report timing — the auditor in charge will respond within 1 business day with a preliminary survey and a specific fee proposal within 3 days.",
+  "Khảo sát miễn phí.": "Free preliminary survey.",
+  "Không ràng buộc cho đến khi ký hợp đồng dịch vụ.":
+    "No obligation until a service contract is signed.",
+  "Bảo mật thông tin.": "Confidentiality.",
+  "TAF không chia sẻ dữ liệu của bạn với bên thứ ba.":
+    "TAF does not share your data with third parties.",
+
+  // About page
+  "Về TAF": "About TAF",
+  "Hơn hai thập kỷ giữ nghề kiểm toán đúng chuẩn mực.":
+    "Over two decades upholding audit standards.",
+  "thành lập năm": "was established in",
+  "đăng ký hành nghề với Bộ Tài chính và phục vụ khách hàng trong cả ba khối: doanh nghiệp nội địa, doanh nghiệp FDI và dự án đầu tư công.":
+    "registered with the Ministry of Finance, serving three segments: domestic enterprises, FDI enterprises and public investment projects.",
+  "Cam kết nghề nghiệp": "Professional commitments",
+  "Độc lập.": "Independence.",
+  "Báo cáo kiểm toán của TAF không chịu ảnh hưởng bởi quan hệ kinh doanh hoặc lợi ích tài chính.":
+    "TAF audit reports are not influenced by business relationships or financial interests.",
+  "Đúng chuẩn mực.": "Standards-compliant.",
+  "Quy trình áp dụng Chuẩn mực Kiểm toán Việt Nam (VSA) và tham chiếu IFRS khi cần.":
+    "Process follows Vietnamese Auditing Standards (VSA) and references IFRS when needed.",
+  "Đúng thời hạn.": "On time.",
+  "Kế hoạch kiểm toán bám sát hạn nộp BCTC theo Luật Kế toán, không để khách hàng bị phạt chậm nộp.":
+    "Audit plans follow financial-statement filing deadlines under the Accounting Law so clients avoid late-filing penalties.",
+  "Khách hàng tin cậy TAF": "Clients who trust TAF",
+  "Trong hơn 20 năm hành nghề, TAF đã phục vụ hơn 500 khách hàng doanh nghiệp ở các ngành sản xuất, thương mại, xây dựng, bất động sản, công nghệ và dịch vụ tài chính. Một phần lớn khách hàng FDI có công ty mẹ ở Nhật Bản, Hàn Quốc, Đài Loan và châu Âu, yêu cầu báo cáo kiểm toán song ngữ và phối hợp với kiểm toán nhóm ở nước ngoài.":
+    "In over 20 years of practice, TAF has served more than 500 corporate clients across manufacturing, trade, construction, real estate, technology and financial services. A large portion of FDI clients have parent companies in Japan, Korea, Taiwan and Europe, requiring bilingual audit reports and coordination with overseas group auditors.",
+
+  // Privacy
+  "TAF cam kết bảo mật mọi thông tin khách hàng cung cấp khi liên hệ qua website và trong quá trình thực hiện dịch vụ. Tài liệu này mô tả các loại dữ liệu chúng tôi thu thập, mục đích sử dụng và quyền của bạn.":
+    "TAF is committed to safeguarding all client information provided via the website and during service delivery. This document describes the types of data we collect, how we use them, and your rights.",
+  "Dữ liệu thu thập qua website": "Data collected via the website",
+  "Khi bạn gửi form liên hệ, chúng tôi lưu các trường: họ tên, email, số điện thoại, công ty, dịch vụ quan tâm và mô tả nhu cầu. Chúng tôi không sử dụng cookies theo dõi hành vi của bên thứ ba ngoài các cookie kỹ thuật cần thiết để website hoạt động.":
+    "When you submit the contact form, we store: name, email, phone, company, services of interest and a description of your needs. We do not use third-party behavioral tracking cookies beyond the technical cookies necessary for the website to function.",
+  "Mục đích sử dụng": "Purpose of use",
+  "Thông tin được sử dụng để KTV phụ trách liên hệ lại, gửi đề xuất phí và trao đổi chi tiết dịch vụ. TAF không chia sẻ dữ liệu của bạn với bên thứ ba ngoài các đối tác kỹ thuật phục vụ vận hành website (lưu trữ, gửi email).":
+    "Information is used by the assigned auditor to contact you, send fee proposals and discuss service details. TAF does not share your data with third parties except technical partners running the website (hosting, email).",
+  "Bảo mật trong quá trình kiểm toán": "Confidentiality during audit engagements",
+  "Toàn bộ nhân sự của TAF tuân thủ Quy tắc đạo đức nghề nghiệp kế toán, kiểm toán theo Thông tư 70/2015/TT-BTC. Hồ sơ kiểm toán được lưu trữ tối thiểu 10 năm theo quy định.":
+    "All TAF personnel comply with the Code of Professional Ethics for Accounting and Auditing under Circular 70/2015/TT-BTC. Audit working papers are retained for at least 10 years as required.",
+  "Quyền của bạn": "Your rights",
+  "Bạn có quyền yêu cầu truy cập, sửa đổi hoặc xóa dữ liệu cá nhân do TAF nắm giữ bằng cách gửi email tới văn phòng. Chúng tôi phản hồi trong vòng 30 ngày làm việc.":
+    "You may request access to, correction or deletion of personal data held by TAF by emailing our office. We respond within 30 business days.",
+
+  // Team page
+  "Những người trực tiếp ký báo cáo kiểm toán.": "The people who personally sign our audit reports.",
+  "Mỗi báo cáo TAF phát hành đều có chữ ký của KTV hành nghề được Bộ Tài chính cấp chứng chỉ. Dưới đây là một số thành viên dẫn dắt các tuyến dịch vụ.":
+    "Every TAF report bears the signature of a practicing auditor licensed by the Ministry of Finance. Below are some of the leaders of our service lines.",
+  "Thông tin chi tiết của từng KTV (tên, số chứng chỉ hành nghề, ảnh chân dung) sẽ được cập nhật khi hoàn tất xác nhận nội bộ.":
+    "Detailed information for each auditor (name, practicing certificate number, portrait) will be published after internal verification.",
+  "Đang cập nhật": "To be updated",
+  "Phó Tổng Giám đốc phụ trách Kiểm toán": "Deputy CEO, Audit",
+  "Giám đốc Tư vấn Thuế": "Director, Tax Advisory",
+  "Trưởng phòng Kiểm toán Xây dựng cơ bản": "Manager, Construction Audit",
+  "KTV hành nghề — Bộ Tài chính": "Practicing auditor — Ministry of Finance",
+  "KTV hành nghề · Đại lý thuế": "Practicing auditor · Tax agent",
+  "KTV hành nghề": "Practicing auditor",
+  "Hơn 18 năm kinh nghiệm kiểm toán doanh nghiệp FDI và niêm yết, chuyên ngành sản xuất.":
+    "Over 18 years auditing FDI and listed companies, manufacturing specialty.",
+  "Chuyên thanh tra thuế, ưu đãi thuế cho dự án đầu tư mới, thuế nhà thầu nước ngoài.":
+    "Specialist in tax inspections, incentives for new investment projects, foreign-contractor tax.",
+  "Phụ trách kiểm toán quyết toán dự án vốn ngân sách và ODA tại miền Nam.":
+    "Leads settlement audits of state-budget and ODA projects in southern Vietnam.",
+
+  // Provinces index
+  "Phạm vi hoạt động": "Coverage",
+  "Địa bàn TAF phục vụ": "Locations TAF serves",
+  "TAF có KTV sẵn sàng đến trụ sở khách hàng tại các tỉnh và thành phố sau. Mỗi địa bàn có trang riêng mô tả ngành nghề trọng điểm và đặc thù pháp lý.":
+    "TAF has auditors ready to visit client offices in the following provinces and cities. Each location has its own page describing key industries and legal specifics.",
 };
 
 const ja: Dict = {
