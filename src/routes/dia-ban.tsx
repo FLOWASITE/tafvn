@@ -2,6 +2,8 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { Breadcrumb } from "@/components/site/Breadcrumb";
 import { Section, SectionHeading } from "@/components/site/Section";
 import { PROVINCES } from "@/lib/site";
+import { useT } from "@/lib/i18n/context";
+
 
 export const Route = createFileRoute("/dia-ban")({
   head: () => ({
