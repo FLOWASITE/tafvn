@@ -1218,42 +1218,57 @@ function AccountingServicePage() {
 
       {/* 08 — Quy trình */}
       <Section id="quy-trinh" className="bg-cream border-y border-border">
-        <Eyebrow>08</Eyebrow>
-        <h2 className="t-h2 md:text-[2.25rem] text-foreground max-w-3xl">
-          Quy trình làm việc tại TAF
-        </h2>
-        <ol className="mt-12 relative grid md:grid-cols-5 gap-8 md:gap-6">
-          <span
-            aria-hidden
-            className="hidden md:block absolute left-0 right-0 top-3 h-px bg-gradient-to-r from-transparent via-accent/60 to-transparent"
-          />
-          <span aria-hidden className="md:hidden absolute left-[11px] top-0 bottom-0 w-px bg-accent/40" />
-          {PROCESS.map((s, i) => {
-            const Icon = s.icon;
-            return (
-              <li key={s.t} className="relative pl-10 md:pl-0">
-                <span
-                  aria-hidden
-                  className="absolute md:relative left-0 md:left-auto top-0 flex items-center justify-center w-7 h-7 rounded-full bg-background border border-accent/70 shadow-[0_0_0_3px_color-mix(in_oklab,var(--color-brand-red)_12%,transparent)]"
+        <div className="grid lg:grid-cols-12 gap-10">
+          <div className="lg:col-span-4">
+            <Eyebrow>§ 08 — Quy trình</Eyebrow>
+            <h2 className="t-h2 md:text-[2.25rem] text-foreground">
+              Quy trình làm việc <em className="not-italic italic text-accent-foreground">tại TAF</em>
+            </h2>
+            <p className="t-body mt-4 text-muted-foreground max-w-sm">
+              Năm bước chuẩn hóa — từ tiếp nhận hồ sơ đến lưu trữ chứng từ — đảm bảo
+              minh bạch, đúng tiến độ và đầy đủ pháp lý.
+            </p>
+          </div>
+          <ol className="lg:col-span-8 relative">
+            <span
+              aria-hidden
+              className="absolute left-[1.4rem] md:left-[1.6rem] top-2 bottom-2 w-px bg-gradient-to-b from-transparent via-accent/50 to-transparent"
+            />
+            {PROCESS.map((s, i) => {
+              const Icon = s.icon;
+              return (
+                <li
+                  key={s.t}
+                  className="group relative grid grid-cols-[3rem_1fr] md:grid-cols-[3.5rem_1fr] gap-5 md:gap-7 items-start py-6 first:pt-0 last:pb-0 border-b border-accent/15 last:border-0 hover:bg-background/40 transition-colors -mx-3 px-3 rounded-[2px]"
                 >
-                  <span className="block w-2 h-2 rounded-full bg-brand-red" />
-                </span>
-                <div className="md:mt-5">
-                  <div className="flex items-baseline gap-2 mb-2">
-                    <span className="font-display italic text-accent-foreground tabular-nums text-2xl leading-none">
-                      {String(i + 1).padStart(2, "0")}
+                  <div className="relative flex items-start justify-center pt-1">
+                    <span className="absolute inset-0 flex items-start justify-center pt-1 pointer-events-none">
+                      <span className="font-display italic tabular-nums text-[3.25rem] md:text-[3.75rem] leading-none text-accent-foreground/20 group-hover:text-accent-foreground/45 transition-all duration-500 group-hover:scale-105">
+                        {String(i + 1).padStart(2, "0")}
+                      </span>
                     </span>
-                    <Icon size={16} className="text-accent-foreground/60" strokeWidth={1.5} aria-hidden="true" />
+                    <span
+                      aria-hidden
+                      className="relative z-10 mt-2 flex items-center justify-center w-3 h-3 rounded-full bg-background border border-accent shadow-[0_0_0_4px_color-mix(in_oklab,var(--color-cream)_60%,transparent)]"
+                    >
+                      <span className="block w-1 h-1 rounded-full bg-brand-red" />
+                    </span>
                   </div>
-                  <h3 className="font-display text-lg text-foreground">{s.t}</h3>
-                  <p className="t-body-sm mt-1.5 text-muted-foreground">
-                    {s.d}
-                  </p>
-                </div>
-              </li>
-            );
-          })}
-        </ol>
+                  <div>
+                    <div className="t-eyebrow text-muted-foreground/80 flex items-center gap-2 mb-2">
+                      <Icon size={14} strokeWidth={1.5} className="text-brand-red" aria-hidden="true" />
+                      Bước {String(i + 1).padStart(2, "0")}
+                    </div>
+                    <h3 className="font-display text-lg md:text-xl text-foreground leading-snug">{s.t}</h3>
+                    <p className="t-body-sm md:text-[0.975rem] mt-2 text-muted-foreground leading-relaxed">
+                      {s.d}
+                    </p>
+                  </div>
+                </li>
+              );
+            })}
+          </ol>
+        </div>
       </Section>
 
       {/* 09 — Phạm vi công việc */}
